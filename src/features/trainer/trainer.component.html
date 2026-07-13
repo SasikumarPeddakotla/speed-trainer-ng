@@ -3,7 +3,13 @@
 
   <div class="status">Practice</div>
 
-  <button>▶ Start</button>
+  @if (!questionService.currentQuestion()) {
+    <button (click)="start()">▶ Start</button>
+  } @else {
+    <h2>
+      {{ questionService.currentQuestion()?.question }}
+    </h2>
+  }
 
   <p>{{ settingsService.settings().mode }}</p>
 </div>
