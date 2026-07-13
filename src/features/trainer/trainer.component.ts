@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SettingsService } from '../../core/services/settings.service';
 
 @Component({
   selector: 'app-trainer',
@@ -6,4 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './trainer.component.html',
   styleUrl: './trainer.component.scss',
 })
-export class TrainerComponent {}
+export class TrainerComponent {
+  constructor(public settingsService: SettingsService) {}
+}
