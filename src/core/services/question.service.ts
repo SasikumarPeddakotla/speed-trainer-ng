@@ -7,6 +7,7 @@ import { Question } from '../models/question.model';
 import { SettingsService } from './settings.service';
 
 import { PracticeMode } from '../enums/practice-mode.enum';
+import { Alphabet } from '../models/alphabet.model';
 
 @Injectable({
   providedIn: 'root',
@@ -26,6 +27,14 @@ export class QuestionService {
       case PracticeMode.LetterToPosition:
         this._currentQuestion.set(this.alphabetEngine.letterToPosition());
 
+        break;
+    }
+  }
+
+  scheduleReview(data: unknown) {
+    switch (this.settingsService.settings().mode) {
+      case PracticeMode.LetterToPosition:
+        this.alphabetEngine.scheduleReview(data as Alphabet);
         break;
     }
   }

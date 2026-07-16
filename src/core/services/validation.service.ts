@@ -1,0 +1,11 @@
+import { Injectable } from '@angular/core';
+import { Question } from '../models/question.model';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class ValidationService {
+  validate(question: Question, answer: string): boolean {
+    return question.answer.toUpperCase() === answer.trim().toUpperCase();
+  }
+}

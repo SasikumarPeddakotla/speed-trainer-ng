@@ -1,15 +1,32 @@
 <div class="card">
-  <h1>SSC Speed Trainer</h1>
+  <h1>Speed Trainer</h1>
 
-  <div class="status">Practice</div>
+  <div class="stats">
+    <span>✔ {{ sessionService.session().correctCount }}</span>
+
+    <span>✖ {{ sessionService.session().wrongCount }}</span>
+
+    <span>🔥 {{ sessionService.session().bestStreak }}</span>
+  </div>
 
   @if (!questionService.currentQuestion()) {
-    <button (click)="start()">▶ Start</button>
-  } @else {
-    <h2>
-      {{ questionService.currentQuestion()?.question }}
-    </h2>
-  }
+    <button class="secondary" (click)="openSettings()">
+      ⚙ Practice Settings
+    </button>
 
-  <p>{{ settingsService.settings().mode }}</p>
+    <button class="primary" (click)="start()">▶ Start Practice</button>
+  } @else {
+    <div class="question">
+      {{ questionService.currentQuestion()?.question }}
+    </div>
+
+    <input
+      [(ngModel)]="answer"
+      (keyup.enter)="submit()"
+      [class.correct]="inputState === 'correct'"
+      [class.wrong]="inputState === 'wrong'"
+      autocomplete="off"
+      autofocus
+    />
+  }
 </div>
