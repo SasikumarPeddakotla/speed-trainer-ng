@@ -1,10 +1,8 @@
-import { PracticeMode } from '../enums/practice-mode.enum';
 import { SessionType } from '../enums/session-type.enum';
+import { Exercise } from './exercise.model';
 
 export interface Settings {
-  mode: PracticeMode;
-
-  difficulty: string;
+  selectedExercise: Exercise | null;
 
   tableLimit: string;
 

@@ -15,6 +15,28 @@ export class SessionService {
 
   readonly session = this._session.asReadonly();
 
+  accuracy(): number {
+    const session = this.session();
+
+    const total = session.correctCount + session.wrongCount;
+
+    if (total === 0) {
+      return 100;
+    }
+
+    return Math.round((session.correctCount / total) * 100);
+  }
+
+  totalQuestions(): number {
+    const session = this.session();
+
+    return session.correctCount + session.wrongCount;
+  }
+
+  currentStreak(): number {
+    return this.session().streakCount;
+  }
+
   correct() {
     this._session.update((session) => {
       const streak = session.streakCount + 1;

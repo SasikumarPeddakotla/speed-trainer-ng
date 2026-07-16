@@ -1,0 +1,11 @@
+<div class="keyboard">
+  @for (row of keys; track $index) {
+    <div class="row">
+      @for (key of row; track key) {
+        <button type="button" (click)="press(key)">
+          {{ key }}
+        </button>
+      }
+    </div>
+  }
+</div>

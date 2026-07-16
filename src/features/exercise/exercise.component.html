@@ -1,0 +1,21 @@
+<div class="page">
+  <div class="card">
+    <h1>{{ topicName | titlecase }}</h1>
+
+    <p class="subtitle">Choose an Exercise</p>
+
+    @for (exercise of exercises; track exercise.route) {
+      <div class="menu-card" (click)="openExercise(exercise)">
+        <div class="menu-content">
+          <div class="text">
+            <div class="title">
+              {{ exercise.title }}
+            </div>
+          </div>
+        </div>
+
+        <div class="arrow">›</div>
+      </div>
+    }
+  </div>
+</div>

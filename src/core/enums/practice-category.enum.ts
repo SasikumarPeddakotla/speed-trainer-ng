@@ -1,4 +1,4 @@
-export enum PracticeCategory {
+export enum PracticeSubject {
   Alphabet = 'alphabet',
   Math = 'math',
   Conversion = 'conversion',

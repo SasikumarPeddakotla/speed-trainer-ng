@@ -1,32 +1,70 @@
 <div class="card">
-  <h1>Speed Trainer</h1>
+  <div class="header">
+    <h1>⚡ Speed Trainer</h1>
 
-  <div class="stats">
-    <span>✔ {{ sessionService.session().correctCount }}</span>
-
-    <span>✖ {{ sessionService.session().wrongCount }}</span>
-
-    <span>🔥 {{ sessionService.session().bestStreak }}</span>
+    <div class="header-buttons">
+      <button>⚙</button>
+    </div>
   </div>
 
-  @if (!questionService.currentQuestion()) {
-    <button class="secondary" (click)="openSettings()">
-      ⚙ Practice Settings
-    </button>
+  <div class="stats">
+    <span>
+      ✔ <b>{{ sessionService.session().correctCount }}</b>
+    </span>
 
-    <button class="primary" (click)="start()">▶ Start Practice</button>
-  } @else {
+    <span>
+      ✖ <b>{{ sessionService.session().wrongCount }}</b>
+    </span>
+
+    <span>
+      🔥 <b>{{ sessionService.currentStreak() }}</b>
+    </span>
+
+    <span>
+      🎯
+
+      <b>{{ sessionService.accuracy() }}%</b>
+    </span>
+  </div>
+
+  <div class="statusBar">
+    @switch (settingsService.settings().sessionType) {
+      @case (SessionType.Practice) {
+        <span>Practice</span>
+      }
+
+      @case (SessionType.Countdown) {
+        <span>Countdown</span>
+      }
+
+      @case (SessionType.QuestionChallenge) {
+        <span>Question Challenge</span>
+      }
+    }
+  </div>
+
+  <hr />
+
+  @if (questionService.currentQuestion()) {
     <div class="question">
       {{ questionService.currentQuestion()?.question }}
     </div>
 
-    <input
-      [(ngModel)]="answer"
-      (keyup.enter)="submit()"
-      [class.correct]="inputState === 'correct'"
-      [class.wrong]="inputState === 'wrong'"
-      autocomplete="off"
-      autofocus
-    />
+    <div class="answerContainer">
+      <input
+        [(ngModel)]="answer"
+        readonly
+        autocomplete="off"
+        [class]="inputState"
+      />
+
+      <button type="button" (click)="backspace()">⌫</button>
+    </div>
+
+    <div class="feedbackLabel">
+      {{ feedback }}
+    </div>
+
+    <app-keyboard (keyPressed)="onKeyPressed($event)"> </app-keyboard>
   }
 </div>

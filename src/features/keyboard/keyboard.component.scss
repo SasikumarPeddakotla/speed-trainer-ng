@@ -1,0 +1,16 @@
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  flex: 1;
+  height: 60px;
+  font-size: 22px;
+}

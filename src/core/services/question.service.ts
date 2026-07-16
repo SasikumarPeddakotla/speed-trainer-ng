@@ -23,7 +23,7 @@ export class QuestionService {
   ) {}
 
   nextQuestion() {
-    switch (this.settingsService.settings().mode) {
+    switch (this.settingsService.settings().selectedExercise?.mode) {
       case PracticeMode.LetterToPosition:
         this._currentQuestion.set(this.alphabetEngine.letterToPosition());
 
@@ -32,7 +32,7 @@ export class QuestionService {
   }
 
   scheduleReview(data: unknown) {
-    switch (this.settingsService.settings().mode) {
+    switch (this.settingsService.settings().selectedExercise?.mode) {
       case PracticeMode.LetterToPosition:
         this.alphabetEngine.scheduleReview(data as Alphabet);
         break;

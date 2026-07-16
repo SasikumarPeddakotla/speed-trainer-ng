@@ -1,1 +1,51 @@
-<p>home works!</p>
+<div class="page">
+  <div class="card">
+    <h1>⚡ Speed Trainer</h1>
+
+    <p class="subtitle">Choose a Subject</p>
+
+    @for (subject of subjects; track subject.route) {
+      <div class="menu-card" (click)="openSubject(subject)">
+        <div class="menu-content">
+          <div class="icon">
+            {{ subject.icon }}
+          </div>
+
+          <div class="text">
+            <div class="title">
+              {{ subject.title }}
+            </div>
+          </div>
+        </div>
+
+        <div class="arrow">›</div>
+      </div>
+    }
+
+    <div class="divider"></div>
+
+    <div class="menu-card" (click)="openStatistics()">
+      <div class="menu-content">
+        <div class="icon">📊</div>
+
+        <div class="text">
+          <div class="title">Statistics</div>
+        </div>
+      </div>
+
+      <div class="arrow">›</div>
+    </div>
+
+    <div class="menu-card" (click)="openSettings()">
+      <div class="menu-content">
+        <div class="icon">⚙</div>
+
+        <div class="text">
+          <div class="title">Settings</div>
+        </div>
+      </div>
+
+      <div class="arrow">›</div>
+    </div>
+  </div>
+</div>

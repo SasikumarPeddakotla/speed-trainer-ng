@@ -1,0 +1,113 @@
+:host {
+  display: block;
+}
+
+.page {
+  min-height: 100vh;
+
+  background: #f5f7fb;
+
+  padding: 20px;
+}
+
+.card {
+  max-width: 430px;
+
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+
+  color: #2563eb;
+
+  margin-bottom: 28px;
+}
+
+.section {
+  margin-bottom: 24px;
+}
+
+.section-title {
+  margin-bottom: 10px;
+
+  font-weight: 600;
+
+  color: #374151;
+}
+
+.value-card {
+  padding: 16px;
+
+  background: white;
+
+  border-radius: 16px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+}
+
+.option {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 16px;
+
+  margin-bottom: 12px;
+
+  background: white;
+
+  border-radius: 16px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+
+  cursor: pointer;
+}
+
+.option input {
+  transform: scale(1.2);
+}
+
+select {
+  width: 100%;
+
+  padding: 16px;
+
+  border: none;
+
+  border-radius: 16px;
+
+  background: white;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+
+  font-size: 16px;
+}
+
+.start-btn {
+  width: 100%;
+
+  margin-top: 16px;
+
+  padding: 18px;
+
+  border: none;
+
+  border-radius: 18px;
+
+  background: #2563eb;
+
+  color: white;
+
+  font-size: 18px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.start-btn:active {
+  transform: scale(.98);
+}

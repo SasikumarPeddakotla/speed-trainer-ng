@@ -1,0 +1,21 @@
+<div class="page">
+  <div class="card">
+    <h1>{{ subjectName | titlecase }}</h1>
+
+    <p class="subtitle">Choose a Topic</p>
+
+    @for (topic of topics; track topic.route) {
+      <div class="menu-card" (click)="openTopic(topic)">
+        <div class="menu-content">
+          <div class="text">
+            <div class="title">
+              {{ topic.title }}
+            </div>
+          </div>
+        </div>
+
+        <div class="arrow">›</div>
+      </div>
+    }
+  </div>
+</div>

@@ -1,1 +1,21 @@
-<p>practice-settings works!</p>
+<div class="page">
+  <div class="card">
+    <h1>Practice Settings</h1>
+
+    <div class="section">
+      <div class="section-title">Exercise</div>
+
+      <div class="value-card">
+        {{ settingsService.settings().selectedExercise?.title }}
+      </div>
+    </div>
+
+    @if (hasSetting(SettingType.SessionType)) {
+      <app-session-type-setting />
+    }
+
+    <button class="start-btn" (click)="startPractice()">
+      ▶ Start Practice
+    </button>
+  </div>
+</div>

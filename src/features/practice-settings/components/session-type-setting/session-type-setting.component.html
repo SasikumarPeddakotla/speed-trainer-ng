@@ -1,0 +1,42 @@
+<div class="section">
+  <div class="section-title">Session Type</div>
+
+  <label class="option">
+    <input
+      type="radio"
+      name="sessionType"
+      [checked]="
+        settingsService.settings().sessionType === SessionType.Practice
+      "
+      (change)="setSessionType(SessionType.Practice)"
+    />
+
+    <span>Practice</span>
+  </label>
+
+  <label class="option">
+    <input
+      type="radio"
+      name="sessionType"
+      [checked]="
+        settingsService.settings().sessionType === SessionType.Countdown
+      "
+      (change)="setSessionType(SessionType.Countdown)"
+    />
+
+    <span>Countdown</span>
+  </label>
+
+  <label class="option">
+    <input
+      type="radio"
+      name="sessionType"
+      [checked]="
+        settingsService.settings().sessionType === SessionType.QuestionChallenge
+      "
+      (change)="setSessionType(SessionType.QuestionChallenge)"
+    />
+
+    <span>Question Challenge</span>
+  </label>
+</div>
