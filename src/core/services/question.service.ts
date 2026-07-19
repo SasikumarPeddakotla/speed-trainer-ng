@@ -50,9 +50,9 @@ export class QuestionService {
         this._currentQuestion.set(this.alphabetEngine.mirrorLetter());
         break;
 
-      // case PracticeMode.Tables:
-      //   this._currentQuestion.set(this.tablesEngine.nextQuestion());
-      //   break;
+      case PracticeMode.Tables:
+        this._currentQuestion.set(this.tablesEngine.generate());
+        break;
     }
   }
 }
