@@ -1,0 +1,91 @@
+@if (
+  hasSetting(SettingType.DigitSelection) ||
+  hasSetting(SettingType.TableSelection) ||
+  hasSetting(SettingType.MultiplierLimit) ||
+  hasSetting(SettingType.NumberRange)
+) {
+  <div class="section">
+    <div class="section-title">Exercise Settings</div>
+
+    @if (hasSetting(SettingType.DigitSelection)) {
+      <div class="setting">
+        <label>Digit Combination</label>
+
+        <select
+          [ngModel]="digitSelection()"
+          (ngModelChange)="setDigitSelection($event)"
+        >
+          <option value="1x1">1 digit & 1 digit</option>
+          <option value="2x1">2 digits & 1 digit</option>
+          <option value="2x2">2 digits & 2 digits</option>
+          <option value="3x2">3 digits & 2 digits</option>
+          <option value="3x3">3 digits & 3 digits</option>
+        </select>
+      </div>
+    }
+
+    @if (hasSetting(SettingType.TableSelection)) {
+      <div class="setting">
+        <label>Table Selection</label>
+
+        <select
+          [ngModel]="tableSelection()"
+          (ngModelChange)="setTableSelection($event)"
+        >
+          <option value="random">Random (2-20)</option>
+          <option value="custom">Custom</option>
+        </select>
+      </div>
+    }
+    @if (tableSelection() === "custom") {
+      <div class="setting">
+        <label>Choose Tables</label>
+
+        <div class="table-grid">
+          @for (table of tables; track table) {
+            <button
+              type="button"
+              class="table-chip"
+              [class.selected]="isTableSelected(table)"
+              (click)="toggleTable(table)"
+            >
+              {{ table }}
+            </button>
+          }
+        </div>
+      </div>
+    }
+
+    @if (hasSetting(SettingType.MultiplierLimit)) {
+      <div class="setting">
+        <label>Multiplier Limit</label>
+
+        <select
+          [ngModel]="multiplierLimit()"
+          (ngModelChange)="setMultiplierLimit($event)"
+        >
+          <option value="10">Up to x10</option>
+          <option value="20">Up to x20</option>
+          <option value="30">Up to x30</option>
+        </select>
+      </div>
+    }
+
+    @if (hasSetting(SettingType.NumberRange)) {
+      <div class="setting">
+        <label>Number Range</label>
+
+        <select
+          [ngModel]="numberRange()"
+          (ngModelChange)="setNumberRange($event)"
+        >
+          <option value="10">Up to 10</option>
+          <option value="20">Up to 20</option>
+          <option value="30">Up to 30</option>
+          <option value="50">Up to 50</option>
+          <option value="100">Up to 100</option>
+        </select>
+      </div>
+    }
+  </div>
+}

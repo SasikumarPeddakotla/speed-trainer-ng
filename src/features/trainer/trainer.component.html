@@ -1,70 +1,98 @@
 <div class="card">
   <div class="header">
-    <h1>⚡ Speed Trainer</h1>
-
-    <div class="header-buttons">
-      <button>⚙</button>
-    </div>
+    <h1>⚡SSC Speed Trainer</h1>
   </div>
 
   <div class="stats">
-    <span>
-      ✔ <b>{{ sessionService.session().correctCount }}</b>
-    </span>
+    <div class="stat-card">
+      <span>✔</span>
+      <b>{{ sessionService.session().correctCount }}</b>
+    </div>
 
-    <span>
-      ✖ <b>{{ sessionService.session().wrongCount }}</b>
-    </span>
+    <div class="stat-card">
+      <span>✖</span>
+      <b>{{ sessionService.session().wrongCount }}</b>
+    </div>
 
-    <span>
-      🔥 <b>{{ sessionService.currentStreak() }}</b>
-    </span>
+    <div class="stat-card">
+      <span>🔥</span>
+      <b>{{ sessionService.currentStreak() }}</b>
+    </div>
 
-    <span>
-      🎯
-
+    <div class="stat-card">
+      <span>🎯</span>
       <b>{{ sessionService.accuracy() }}%</b>
-    </span>
+    </div>
   </div>
 
   <div class="statusBar">
-    @switch (settingsService.settings().sessionType) {
-      @case (SessionType.Practice) {
-        <span>Practice</span>
-      }
+    <div class="statusChip">
+      @switch (settingsService.settings().sessionType) {
+        @case (SessionType.Practice) {
+          Practice Mode
+        }
 
-      @case (SessionType.Countdown) {
-        <span>Countdown</span>
-      }
+        @case (SessionType.Countdown) {
+          ⏱ {{ timerService.displayTime() }}
+        }
 
-      @case (SessionType.QuestionChallenge) {
-        <span>Question Challenge</span>
+        @case (SessionType.QuestionChallenge) {
+          🎯 {{ sessionService.totalQuestions() }} /
+          {{ settingsService.settings().questionTarget }}
+        }
       }
-    }
+    </div>
   </div>
 
-  <hr />
-
-  @if (questionService.currentQuestion()) {
-    <div class="question">
-      {{ questionService.currentQuestion()?.question }}
+  @if (questionService.currentQuestion(); as question) {
+    <div class="question-card">
+      <div class="question">
+        {{ question.question }}
+      </div>
     </div>
 
-    <div class="answerContainer">
-      <input
-        [(ngModel)]="answer"
-        readonly
-        autocomplete="off"
-        [class]="inputState"
-      />
+    @if (question.inputType === "number") {
+      <div class="answerContainer">
+        <input
+          [(ngModel)]="answer"
+          readonly
+          autocomplete="off"
+          [class]="inputState"
+        />
 
-      <button type="button" (click)="backspace()">⌫</button>
-    </div>
+        <button class="backspace-btn" type="button" (click)="backspace()">
+          ⌫
+        </button>
+      </div>
 
-    <div class="feedbackLabel">
-      {{ feedback }}
-    </div>
+      <div
+        class="feedbackLabel"
+        [class.correct]="feedback.includes('Correct')"
+        [class.wrong]="feedback.includes('Wrong')"
+      >
+        {{ feedback }}
+      </div>
 
-    <app-keyboard (keyPressed)="onKeyPressed($event)"> </app-keyboard>
+      <app-keyboard (keyPressed)="onKeyPressed($event)"> </app-keyboard>
+    } @else {
+      <div class="answerContainer">
+        <input
+          #textInput
+          [(ngModel)]="answer"
+          autocomplete="off"
+          autocapitalize="characters"
+          [class]="inputState"
+          (ngModelChange)="onTextChanged()"
+        />
+      </div>
+
+      <div
+        class="feedbackLabel"
+        [class.correct]="feedback.includes('Correct')"
+        [class.wrong]="feedback.includes('Wrong')"
+      >
+        {{ feedback }}
+      </div>
+    }
   }
 </div>

@@ -1,1 +1,31 @@
-<p>summary works!</p>
+<div class="summary-container">
+  <div class="summary-card">
+    <h1>🎉 Session Complete</h1>
+
+    <div class="stat">
+      <span>✔ Correct</span>
+      <strong>{{ sessionService.correctCount() }}</strong>
+    </div>
+
+    <div class="stat">
+      <span>✖ Wrong</span>
+      <strong>{{ sessionService.wrongCount() }}</strong>
+    </div>
+
+    <div class="stat">
+      <span>🎯 Accuracy</span>
+      <strong>{{ sessionService.accuracy() }}%</strong>
+    </div>
+
+    <div class="stat">
+      <span>🔥 Best Streak</span>
+      <strong>{{ sessionService.bestStreak() }}</strong>
+    </div>
+
+    <div class="actions">
+      <button (click)="practiceAgain()">Practice Again</button>
+
+      <button (click)="goHome()">Back to Subjects</button>
+    </div>
+  </div>
+</div>

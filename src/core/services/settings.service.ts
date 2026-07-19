@@ -11,8 +11,19 @@ import { Exercise } from '../models/exercise.model';
 export class SettingsService {
   private readonly _settings = signal<Settings>({
     selectedExercise: null,
-    tableLimit: '20',
+
+    digitSelection: '1x1',
+
+    tableSelection: 'random',
+    selectedTables: [2, 3, 4, 5, 6, 7, 8, 9, 10],
+    multiplierLimit: '10',
+
+    numberRange: '20',
+
     sessionType: SessionType.Practice,
+
+    countdownDuration: 60,
+    questionTarget: 30,
   });
 
   readonly settings = this._settings.asReadonly();
@@ -24,10 +35,59 @@ export class SettingsService {
     }));
   }
 
+  setTableSelection(tableSelection: 'random' | 'custom') {
+    this._settings.update((settings) => ({
+      ...settings,
+      tableSelection: tableSelection,
+    }));
+  }
+
+  setDigitSelection(digit: string) {
+    this._settings.update((settings) => ({
+      ...settings,
+      digitSelection: digit,
+    }));
+  }
+
   setSessionType(sessionType: SessionType) {
     this._settings.update((settings) => ({
       ...settings,
       sessionType,
+    }));
+  }
+
+  setCountdownDuration(seconds: number) {
+    this._settings.update((settings) => ({
+      ...settings,
+      countdownDuration: seconds,
+    }));
+  }
+
+  setQuestionTarget(count: number) {
+    this._settings.update((settings) => ({
+      ...settings,
+      questionTarget: count,
+    }));
+  }
+
+  setMultiplierLimit(limit: string) {
+    this._settings.update((settings) => ({
+      ...settings,
+      multiplierLimit: limit,
+    }));
+  }
+
+  setNumberRange(range: string) {
+    this._settings.update((settings) => ({
+      ...settings,
+      numberRange: range,
+    }));
+  }
+
+  setSelectedTables(selectedTables: number[]) {
+    this._settings.update((settings) => ({
+      ...settings,
+      selectedTables,
     }));
   }
 }

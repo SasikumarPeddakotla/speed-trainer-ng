@@ -1,30 +1,16 @@
 import { Alphabet } from '../models/alphabet.model';
 
-export const alphabetData: Alphabet[] = [
-  { letter: 'A', position: 1 },
-  { letter: 'B', position: 2 },
-  { letter: 'C', position: 3 },
-  { letter: 'D', position: 4 },
-  { letter: 'E', position: 5 },
-  { letter: 'F', position: 6 },
-  { letter: 'G', position: 7 },
-  { letter: 'H', position: 8 },
-  { letter: 'I', position: 9 },
-  { letter: 'J', position: 10 },
-  { letter: 'K', position: 11 },
-  { letter: 'L', position: 12 },
-  { letter: 'M', position: 13 },
-  { letter: 'N', position: 14 },
-  { letter: 'O', position: 15 },
-  { letter: 'P', position: 16 },
-  { letter: 'Q', position: 17 },
-  { letter: 'R', position: 18 },
-  { letter: 'S', position: 19 },
-  { letter: 'T', position: 20 },
-  { letter: 'U', position: 21 },
-  { letter: 'V', position: 22 },
-  { letter: 'W', position: 23 },
-  { letter: 'X', position: 24 },
-  { letter: 'Y', position: 25 },
-  { letter: 'Z', position: 26 },
-];
+export const alphabetData: Alphabet[] = Array.from(
+  { length: 26 },
+  (_, index) => {
+    const position = index + 1;
+    const letter = String.fromCharCode(65 + index); // A-Z
+
+    return {
+      letter,
+      position,
+      reversePosition: 27 - position,
+      mirrorLetter: String.fromCharCode(90 - index), // Z-A
+    };
+  },
+);

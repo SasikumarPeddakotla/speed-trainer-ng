@@ -6,11 +6,18 @@ import { SettingsService } from '../../core/services/settings.service';
 import { SessionType } from '../../core/enums/session-type.enum';
 import { SettingType } from '../../core/enums/setting-type.enum';
 import { SessionTypeSettingComponent } from './components/session-type-setting/session-type-setting.component';
+import { ExerciseSettingsComponent } from './components/exercise-settings/exercise-settings.component';
+import { SessionService } from '../../core/services/session.service';
+import { TimerService } from '../../core/services/timer.service';
 
 @Component({
   selector: 'app-practice-settings',
   standalone: true,
-  imports: [FormsModule, SessionTypeSettingComponent],
+  imports: [
+    FormsModule,
+    SessionTypeSettingComponent,
+    ExerciseSettingsComponent,
+  ],
   templateUrl: './practice-settings.component.html',
   styleUrl: './practice-settings.component.scss',
 })
@@ -21,14 +28,14 @@ export class PracticeSettingsComponent {
   constructor(
     public settingsService: SettingsService,
     private router: Router,
+    private sessionService: SessionService,
+    private timerService: TimerService,
   ) {}
 
   startPractice() {
+    this.sessionService.reset();
+    this.timerService.reset();
     this.router.navigate(['/trainer']);
-  }
-
-  setSessionType(type: SessionType) {
-    this.settingsService.setSessionType(type);
   }
 
   hasSetting(setting: SettingType): boolean {
@@ -37,5 +44,13 @@ export class PracticeSettingsComponent {
         .settings()
         .selectedExercise?.settings.includes(setting) ?? false
     );
+  }
+
+  setCountdownDuration(value: number) {
+    this.settingsService.setCountdownDuration(value);
+  }
+
+  setQuestionTarget(value: number) {
+    this.settingsService.setQuestionTarget(value);
   }
 }

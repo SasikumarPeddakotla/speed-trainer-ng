@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { computed, Injectable, signal } from '@angular/core';
 import { Session } from '../models/session.model';
 
 @Injectable({
@@ -15,8 +15,12 @@ export class SessionService {
 
   readonly session = this._session.asReadonly();
 
-  accuracy(): number {
-    const session = this.session();
+  private readonly _finished = signal(false);
+
+  readonly finished = this._finished.asReadonly();
+
+  readonly accuracy = computed(() => {
+    const session = this._session();
 
     const total = session.correctCount + session.wrongCount;
 
@@ -25,17 +29,23 @@ export class SessionService {
     }
 
     return Math.round((session.correctCount / total) * 100);
-  }
+  });
 
-  totalQuestions(): number {
-    const session = this.session();
+  readonly totalQuestions = computed(() => {
+    const session = this._session();
 
     return session.correctCount + session.wrongCount;
-  }
+  });
 
-  currentStreak(): number {
-    return this.session().streakCount;
-  }
+  readonly currentStreak = computed(() => {
+    return this._session().streakCount;
+  });
+
+  readonly correctCount = computed(() => this._session().correctCount);
+
+  readonly wrongCount = computed(() => this._session().wrongCount);
+
+  readonly bestStreak = computed(() => this._session().bestStreak);
 
   correct() {
     this._session.update((session) => {
@@ -66,5 +76,11 @@ export class SessionService {
       bestStreak: 0,
       totalResponseTime: 0,
     });
+
+    this._finished.set(false);
+  }
+
+  finish() {
+    this._finished.set(true);
   }
 }

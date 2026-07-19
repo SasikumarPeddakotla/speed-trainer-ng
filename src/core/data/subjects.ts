@@ -16,4 +16,9 @@ export const subjects: Subject[] = [
     icon: '📚',
     route: 'awareness',
   },
+  {
+    title: 'English',
+    icon: '📖',
+    route: 'english',
+  },
 ];

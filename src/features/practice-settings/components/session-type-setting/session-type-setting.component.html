@@ -1,42 +1,19 @@
 <div class="section">
-  <div class="section-title">Session Type</div>
+  <div class="section-title">Practice Mode</div>
 
-  <label class="option">
-    <input
-      type="radio"
-      name="sessionType"
-      [checked]="
-        settingsService.settings().sessionType === SessionType.Practice
-      "
-      (change)="setSessionType(SessionType.Practice)"
-    />
+  <app-session-type-selector
+    [selected]="settingsService.settings().sessionType"
+    (selectedChange)="onSessionTypeChange($event)"
+  >
+  </app-session-type-selector>
 
-    <span>Practice</span>
-  </label>
+  <div class="session-description">
+    <span class="icon">
+      {{ selectedSessionInfo().icon }}
+    </span>
 
-  <label class="option">
-    <input
-      type="radio"
-      name="sessionType"
-      [checked]="
-        settingsService.settings().sessionType === SessionType.Countdown
-      "
-      (change)="setSessionType(SessionType.Countdown)"
-    />
-
-    <span>Countdown</span>
-  </label>
-
-  <label class="option">
-    <input
-      type="radio"
-      name="sessionType"
-      [checked]="
-        settingsService.settings().sessionType === SessionType.QuestionChallenge
-      "
-      (change)="setSessionType(SessionType.QuestionChallenge)"
-    />
-
-    <span>Question Challenge</span>
-  </label>
+    <p>
+      {{ selectedSessionInfo().description }}
+    </p>
+  </div>
 </div>

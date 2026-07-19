@@ -31,19 +31,61 @@ export const topics: Topic[] = [
   // Aptitude
 
   {
-    title: 'Arithmetic',
-    route: 'arithmetic',
+    title: 'Addition',
+    route: 'addition',
     subject: 'aptitude',
     implemented: false,
   },
   {
-    title: 'Powers',
-    route: 'powers',
+    title: 'Subtraction',
+    route: 'subtraction',
+    subject: 'aptitude',
+    implemented: false,
+  },
+  {
+    title: 'Multiplication',
+    route: 'multiplication',
+    subject: 'aptitude',
+    implemented: false,
+  },
+  {
+    title: 'Division',
+    route: 'division',
+    subject: 'aptitude',
+    implemented: false,
+  },
+  {
+    title: 'Tables',
+    route: 'tables',
+    subject: 'aptitude',
+    implemented: true,
+  },
+  {
+    title: 'Squares',
+    route: 'squares',
+    subject: 'aptitude',
+    implemented: false,
+  },
+  {
+    title: 'Cubes',
+    route: 'cubes',
+    subject: 'aptitude',
+    implemented: false,
+  },
+  {
+    title: 'Square Roots',
+    route: 'square-roots',
+    subject: 'aptitude',
+    implemented: false,
+  },
+  {
+    title: 'Cube Roots',
+    route: 'cube-roots',
     subject: 'aptitude',
     implemented: false,
   },
 
-  // Awareness
+  // General Awareness
 
   {
     title: 'Polity',
@@ -55,6 +97,15 @@ export const topics: Topic[] = [
     title: 'History',
     route: 'history',
     subject: 'awareness',
+    implemented: false,
+  },
+
+  // English
+
+  {
+    title: 'Articles',
+    route: 'articles',
+    subject: 'english',
     implemented: false,
   },
 ];

@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  effect,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { QuestionService } from '../../core/services/question.service';
@@ -7,6 +14,8 @@ import { SessionService } from '../../core/services/session.service';
 import { SessionType } from '../../core/enums/session-type.enum';
 import { SettingsService } from '../../core/services/settings.service';
 import { KeyboardComponent } from '../keyboard/keyboard.component';
+import { TimerService } from '../../core/services/timer.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-trainer',
@@ -15,11 +24,9 @@ import { KeyboardComponent } from '../keyboard/keyboard.component';
   templateUrl: './trainer.component.html',
   styleUrl: './trainer.component.scss',
 })
-export class TrainerComponent implements OnInit {
+export class TrainerComponent implements OnInit, OnDestroy {
   answer = '';
   inputState: 'normal' | 'correct' | 'wrong' = 'normal';
-
-  private hadWrongAttempt = false;
 
   showSettings = false;
 
@@ -27,17 +34,64 @@ export class TrainerComponent implements OnInit {
 
   feedback = '';
 
+  @ViewChild('textInput')
+  textInput?: ElementRef<HTMLInputElement>;
+
   constructor(
     public questionService: QuestionService,
     private validationService: ValidationService,
     public sessionService: SessionService,
     public settingsService: SettingsService,
-  ) {}
+    public timerService: TimerService,
+    private router: Router,
+  ) {
+    effect(() => {
+      if (
+        this.settingsService.settings().sessionType !== SessionType.Countdown
+      ) {
+        return;
+      }
+
+      if (this.timerService.finished()) {
+        this.sessionService.finish();
+      }
+    });
+
+    effect(() => {
+      if (
+        this.settingsService.settings().sessionType !==
+        SessionType.QuestionChallenge
+      ) {
+        return;
+      }
+
+      if (
+        this.sessionService.totalQuestions() >=
+        this.settingsService.settings().questionTarget
+      ) {
+        this.sessionService.finish();
+      }
+    });
+
+    effect(() => {
+      if (this.sessionService.finished()) {
+        this.router.navigate(['/summary']);
+      }
+    });
+  }
 
   ngOnInit(): void {
-    this.sessionService.reset();
-
+    if (this.settingsService.settings().sessionType === SessionType.Countdown) {
+      this.timerService.start(
+        this.settingsService.settings().countdownDuration,
+      );
+    }
     this.questionService.nextQuestion();
+    this.focusTextInput();
+  }
+
+  ngOnDestroy(): void {
+    this.timerService.stop();
   }
 
   submit() {
@@ -56,21 +110,15 @@ export class TrainerComponent implements OnInit {
       this.feedback = '✔ Correct';
 
       setTimeout(() => {
-        if (this.hadWrongAttempt) {
-          this.questionService.scheduleReview(question.data);
-        }
-
-        this.hadWrongAttempt = false;
-
         this.answer = '';
         this.feedback = '';
 
         this.inputState = 'normal';
 
         this.questionService.nextQuestion();
+        this.focusTextInput();
       }, 150);
     } else {
-      this.hadWrongAttempt = true;
       this.sessionService.wrong();
 
       this.inputState = 'wrong';
@@ -108,5 +156,23 @@ export class TrainerComponent implements OnInit {
     if (this.answer.length === question.answer.length) {
       this.submit();
     }
+  }
+
+  onTextChanged() {
+    const question = this.questionService.currentQuestion();
+
+    if (!question) {
+      return;
+    }
+
+    if (this.answer.length === question.answer.length) {
+      this.submit();
+    }
+  }
+
+  private focusTextInput() {
+    setTimeout(() => {
+      this.textInput?.nativeElement.focus();
+    });
   }
 }

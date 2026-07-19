@@ -17,7 +17,7 @@ export const exercises: Exercise[] = [
     route: 'position-to-letter',
     mode: PracticeMode.PositionToLetter,
     topic: 'alphabet',
-    implemented: false,
+    implemented: true,
 
     settings: [SettingType.SessionType],
   },
@@ -26,7 +26,7 @@ export const exercises: Exercise[] = [
     route: 'letter-to-reverse-position',
     mode: PracticeMode.LetterToReversePosition,
     topic: 'alphabet',
-    implemented: false,
+    implemented: true,
 
     settings: [SettingType.SessionType],
   },
@@ -35,7 +35,7 @@ export const exercises: Exercise[] = [
     route: 'reverse-position-to-letter',
     mode: PracticeMode.ReversePositionToLetter,
     topic: 'alphabet',
-    implemented: false,
+    implemented: true,
 
     settings: [SettingType.SessionType],
   },
@@ -44,8 +44,22 @@ export const exercises: Exercise[] = [
     route: 'mirror-letter',
     mode: PracticeMode.MirrorLetter,
     topic: 'alphabet',
-    implemented: false,
+    implemented: true,
 
     settings: [SettingType.SessionType],
+  },
+
+  {
+    title: 'Tables',
+    route: 'tables',
+    mode: PracticeMode.Tables,
+    topic: 'tables',
+    implemented: true,
+
+    settings: [
+      SettingType.SessionType,
+      SettingType.TableSelection,
+      SettingType.MultiplierLimit,
+    ],
   },
 ];

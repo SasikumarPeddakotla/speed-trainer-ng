@@ -4,7 +4,18 @@ import { Exercise } from './exercise.model';
 export interface Settings {
   selectedExercise: Exercise | null;
 
-  tableLimit: string;
+  digitSelection: string;
+
+  tableSelection: 'random' | 'custom';
+  selectedTables: number[];
+
+  multiplierLimit: string;
+
+  numberRange: string;
 
   sessionType: SessionType;
+
+  countdownDuration: number;
+
+  questionTarget: number;
 }

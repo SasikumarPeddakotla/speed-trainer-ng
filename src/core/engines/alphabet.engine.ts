@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 
 import { Question } from '../models/question.model';
-import { LearningQueue } from '../../utils/learning-queue';
 
 import { alphabetData } from '../data/alphabet';
 import { Alphabet } from '../models/alphabet.model';
@@ -10,10 +9,10 @@ import { Alphabet } from '../models/alphabet.model';
   providedIn: 'root',
 })
 export class AlphabetEngine {
-  private readonly queue = new LearningQueue(alphabetData);
+  private alphabets = this.shuffle([...alphabetData]);
 
-  letterToPosition(): Question {
-    const alphabet = this.queue.next();
+  letterToPosition(): Question<Alphabet> {
+    const alphabet = this.nextAlphabet();
 
     return {
       question: alphabet.letter,
@@ -24,11 +23,69 @@ export class AlphabetEngine {
     };
   }
 
-  scheduleReview(item: Alphabet) {
-    this.queue.scheduleReview(item);
+  positionToLetter(): Question<Alphabet> {
+    const alphabet = this.nextAlphabet();
+
+    return {
+      question: String(alphabet.position),
+      answer: alphabet.letter,
+      data: alphabet,
+      inputType: 'text',
+      displayType: 'symbol',
+    };
   }
 
-  reset() {
-    this.queue.reset();
+  letterToReversePosition(): Question<Alphabet> {
+    const alphabet = this.nextAlphabet();
+
+    return {
+      question: alphabet.letter,
+      answer: String(alphabet.reversePosition),
+      data: alphabet,
+      inputType: 'number',
+      displayType: 'symbol',
+    };
+  }
+
+  reversePositionToLetter(): Question<Alphabet> {
+    const alphabet = this.nextAlphabet();
+
+    return {
+      question: String(alphabet.reversePosition),
+      answer: alphabet.letter,
+      data: alphabet,
+      inputType: 'text',
+      displayType: 'symbol',
+    };
+  }
+
+  mirrorLetter(): Question<Alphabet> {
+    const alphabet = this.nextAlphabet();
+
+    return {
+      question: alphabet.letter,
+      answer: alphabet.mirrorLetter,
+      data: alphabet,
+      inputType: 'text',
+      displayType: 'symbol',
+    };
+  }
+
+  private shuffle(items: Alphabet[]): Alphabet[] {
+    for (let i = items.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+
+      [items[i], items[j]] = [items[j], items[i]];
+    }
+
+    return items;
+  }
+
+  private nextAlphabet(): Alphabet {
+    if (this.alphabets.length === 0) {
+      this.alphabets = this.shuffle([...alphabetData]);
+    }
+
+    return this.alphabets.shift()!;
   }
 }

@@ -1,0 +1,42 @@
+.selector {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+
+  background: white;
+
+  border: 1px solid #d1d5db;
+  border-radius: 16px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .06);
+}
+
+.segment {
+  flex: 1;
+
+  padding: 14px 12px;
+
+  border: none;
+
+  background: transparent;
+
+  font-size: 15px;
+
+  cursor: pointer;
+
+  transition: .2s;
+}
+
+.segment:not(:last-child) {
+  border-right: 1px solid #e5e7eb;
+}
+
+.segment:hover:not(.active) {
+  background: #f8fafc;
+}
+
+.segment.active {
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+}

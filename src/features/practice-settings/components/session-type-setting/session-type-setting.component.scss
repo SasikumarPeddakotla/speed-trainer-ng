@@ -1,35 +1,47 @@
 .section {
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 
 .section-title {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 
-  font-weight: 600;
+  font-size: 14px;
 
-  color: #374151;
+  font-weight: 700;
+
+  letter-spacing: .5px;
+
+  text-transform: uppercase;
+
+  color: #6b7280;
 }
 
-.option {
+.session-description {
   display: flex;
-
-  align-items: center;
-
+  align-items: flex-start;
   gap: 14px;
 
-  padding: 16px;
+  margin-top: 18px;
 
-  margin-bottom: 12px;
+  padding: 16px 18px;
 
   background: white;
 
+  border-left: 4px solid #2563eb;
+
   border-radius: 16px;
 
-  box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
-
-  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .06);
 }
 
-.option input {
-  transform: scale(1.2);
+.icon {
+  font-size: 22px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.session-description p {
+  margin: 0;
+  color: #4b5563;
+  line-height: 1.5;
 }

@@ -1,0 +1,12 @@
+<div class="selector">
+  @for (option of options; track option.type) {
+    <button
+      type="button"
+      class="segment"
+      [class.active]="selected === option.type"
+      (click)="select(option.type)"
+    >
+      {{ option.label }}
+    </button>
+  }
+</div>

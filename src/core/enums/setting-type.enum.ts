@@ -5,5 +5,7 @@ export enum SettingType {
 
   TableSelection = 'tableSelection',
 
-  RangeSelection = 'rangeSelection',
+  MultiplierLimit = 'multiplierLimit',
+
+  NumberRange = 'numberRange',
 }
