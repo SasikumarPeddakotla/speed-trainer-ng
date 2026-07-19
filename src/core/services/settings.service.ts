@@ -23,7 +23,7 @@ export class SettingsService {
     sessionType: SessionType.Practice,
 
     countdownDuration: 60,
-    questionTarget: 30,
+    questionTarget: 10,
   });
 
   readonly settings = this._settings.asReadonly();
