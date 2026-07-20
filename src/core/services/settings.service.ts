@@ -18,7 +18,7 @@ export class SettingsService {
     selectedTables: [2, 3, 4, 5, 6, 7, 8, 9, 10],
     multiplierLimit: '10',
 
-    numberRange: '20',
+    numberRange: '10',
 
     sessionType: SessionType.Practice,
 

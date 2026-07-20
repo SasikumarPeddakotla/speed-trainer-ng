@@ -31,28 +31,10 @@ export const topics: Topic[] = [
   // Aptitude
 
   {
-    title: 'Addition',
-    route: 'addition',
+    title: 'Arithmetic',
+    route: 'arithmetic',
     subject: 'aptitude',
-    implemented: false,
-  },
-  {
-    title: 'Subtraction',
-    route: 'subtraction',
-    subject: 'aptitude',
-    implemented: false,
-  },
-  {
-    title: 'Multiplication',
-    route: 'multiplication',
-    subject: 'aptitude',
-    implemented: false,
-  },
-  {
-    title: 'Division',
-    route: 'division',
-    subject: 'aptitude',
-    implemented: false,
+    implemented: true,
   },
   {
     title: 'Tables',
@@ -61,28 +43,10 @@ export const topics: Topic[] = [
     implemented: true,
   },
   {
-    title: 'Squares',
-    route: 'squares',
+    title: 'Powers',
+    route: 'powers',
     subject: 'aptitude',
-    implemented: false,
-  },
-  {
-    title: 'Cubes',
-    route: 'cubes',
-    subject: 'aptitude',
-    implemented: false,
-  },
-  {
-    title: 'Square Roots',
-    route: 'square-roots',
-    subject: 'aptitude',
-    implemented: false,
-  },
-  {
-    title: 'Cube Roots',
-    route: 'cube-roots',
-    subject: 'aptitude',
-    implemented: false,
+    implemented: true,
   },
 
   // General Awareness

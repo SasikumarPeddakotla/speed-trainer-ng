@@ -1,11 +1,7 @@
 import { Injectable } from '@angular/core';
 import { SettingsService } from '../services/settings.service';
 import { Question } from '../models/question.model';
-
-export interface TableQuestion {
-  table: number;
-  multiplier: number;
-}
+import { TableQuestion } from '../models/table-question.model';
 
 @Injectable({
   providedIn: 'root',
@@ -23,7 +19,7 @@ export class TablesEngine {
             this.random(0, settings.selectedTables.length - 1)
           ];
 
-    const multiplier = this.random(1, Number(settings.multiplierLimit));
+    const multiplier = this.random(2, Number(settings.multiplierLimit));
 
     return {
       question: `${table} × ${multiplier}`,

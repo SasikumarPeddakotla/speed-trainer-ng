@@ -9,6 +9,8 @@ import { SettingsService } from './settings.service';
 import { PracticeMode } from '../enums/practice-mode.enum';
 import { Alphabet } from '../models/alphabet.model';
 import { TablesEngine } from '../engines/tables.engine';
+import { ArithmeticEngine } from '../engines/arithmetic.engine';
+import { PowerEngine } from '../engines/power.engine';
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +23,9 @@ export class QuestionService {
   constructor(
     private settingsService: SettingsService,
     private alphabetEngine: AlphabetEngine,
+    private arithmeticEngine: ArithmeticEngine,
     private tablesEngine: TablesEngine,
+    private powerEngine: PowerEngine,
   ) {}
 
   nextQuestion() {
@@ -50,8 +54,42 @@ export class QuestionService {
         this._currentQuestion.set(this.alphabetEngine.mirrorLetter());
         break;
 
+      case PracticeMode.Addition:
+        this._currentQuestion.set(this.arithmeticEngine.generateAddition());
+        break;
+
+      case PracticeMode.Subtraction:
+        this._currentQuestion.set(this.arithmeticEngine.generateSubtraction());
+        break;
+
+      case PracticeMode.Multiplication:
+        this._currentQuestion.set(
+          this.arithmeticEngine.generateMultiplication(),
+        );
+        break;
+
+      case PracticeMode.Division:
+        this._currentQuestion.set(this.arithmeticEngine.generateDivision());
+        break;
+
       case PracticeMode.Tables:
         this._currentQuestion.set(this.tablesEngine.generate());
+        break;
+
+      case PracticeMode.Squares:
+        this._currentQuestion.set(this.powerEngine.generateSquare());
+        break;
+
+      case PracticeMode.Cubes:
+        this._currentQuestion.set(this.powerEngine.generateCube());
+        break;
+
+      case PracticeMode.SquareRoots:
+        this._currentQuestion.set(this.powerEngine.generateSquareRoot());
+        break;
+
+      case PracticeMode.CubeRoots:
+        this._currentQuestion.set(this.powerEngine.generateCubeRoot());
         break;
     }
   }

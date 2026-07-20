@@ -15,11 +15,21 @@
           [ngModel]="digitSelection()"
           (ngModelChange)="setDigitSelection($event)"
         >
-          <option value="1x1">1 digit & 1 digit</option>
-          <option value="2x1">2 digits & 1 digit</option>
-          <option value="2x2">2 digits & 2 digits</option>
-          <option value="3x2">3 digits & 2 digits</option>
-          <option value="3x3">3 digits & 3 digits</option>
+          <option value="1x1">
+            1 digit {{ digitSelectionOperator() }} 1 digit
+          </option>
+          <option value="2x1">
+            2 digits {{ digitSelectionOperator() }} 1 digit
+          </option>
+          <option value="2x2">
+            2 digits {{ digitSelectionOperator() }} 2 digits
+          </option>
+          <option value="3x2">
+            3 digits {{ digitSelectionOperator() }} 2 digits
+          </option>
+          <option value="3x3">
+            3 digits {{ digitSelectionOperator() }} 3 digits
+          </option>
         </select>
       </div>
     }

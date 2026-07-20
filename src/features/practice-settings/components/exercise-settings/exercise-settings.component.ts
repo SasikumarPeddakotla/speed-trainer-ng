@@ -1,8 +1,9 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 
 import { SettingsService } from '../../../../core/services/settings.service';
 import { SettingType } from '../../../../core/enums/setting-type.enum';
 import { FormsModule } from '@angular/forms';
+import { PracticeMode } from '../../../../core/enums/practice-mode.enum';
 
 @Component({
   selector: 'app-exercise-settings',
@@ -16,6 +17,25 @@ export class ExerciseSettingsComponent {
   readonly tables = Array.from({ length: 19 }, (_, i) => i + 2);
 
   readonly settingsService = inject(SettingsService);
+
+  digitSelectionOperator = computed(() => {
+    switch (this.settingsService.settings().selectedExercise?.mode) {
+      case PracticeMode.Addition:
+        return '+';
+
+      case PracticeMode.Subtraction:
+        return '-';
+
+      case PracticeMode.Multiplication:
+        return '×';
+
+      case PracticeMode.Division:
+        return '÷';
+
+      default:
+        return '&';
+    }
+  });
 
   hasSetting(setting: SettingType): boolean {
     return (
