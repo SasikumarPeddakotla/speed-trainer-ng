@@ -34,6 +34,8 @@ export class TrainerComponent implements OnInit, OnDestroy {
 
   feedback = '';
 
+  revealedAnswer: string | null = null;
+
   @ViewChild('textInput')
   textInput?: ElementRef<HTMLInputElement>;
 
@@ -174,5 +176,25 @@ export class TrainerComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       this.textInput?.nativeElement.focus();
     });
+  }
+
+  revealAnswer() {
+    const question = this.questionService.currentQuestion();
+
+    if (!question) {
+      return;
+    }
+
+    this.revealedAnswer = question.answer;
+  }
+
+  understood() {
+    this.revealedAnswer = null;
+    this.answer = '';
+    this.feedback = '';
+    this.inputState = 'normal';
+
+    this.questionService.nextQuestion();
+    this.focusTextInput();
   }
 }

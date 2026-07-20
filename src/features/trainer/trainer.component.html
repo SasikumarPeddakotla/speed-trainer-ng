@@ -51,48 +51,65 @@
       </div>
     </div>
 
-    @if (question.inputType === "number") {
-      <div class="answerContainer">
-        <input
-          [(ngModel)]="answer"
-          readonly
-          autocomplete="off"
-          [class]="inputState"
-        />
-
-        <button class="backspace-btn" type="button" (click)="backspace()">
-          ⌫
+    <div class="action-area">
+      @if (
+        settingsService.settings().sessionType === SessionType.Practice &&
+        !revealedAnswer
+      ) {
+        <button class="reveal-link" (click)="revealAnswer()">
+          👁 Reveal Answer
         </button>
+      }
+    </div>
+
+    @if (revealedAnswer) {
+      <div class="revealed-card">
+        <div class="revealed-title">Correct Answer</div>
+
+        <div class="revealed-answer">
+          {{ revealedAnswer }}
+        </div>
       </div>
 
-      <div
-        class="feedbackLabel"
-        [class.correct]="feedback.includes('Correct')"
-        [class.wrong]="feedback.includes('Wrong')"
-      >
-        {{ feedback }}
-      </div>
-
-      <app-keyboard (keyPressed)="onKeyPressed($event)"> </app-keyboard>
+      <button class="action-btn understand-btn" (click)="understood()">
+        ✓ I Understand
+      </button>
     } @else {
-      <div class="answerContainer">
-        <input
-          #textInput
-          [(ngModel)]="answer"
-          autocomplete="off"
-          autocapitalize="characters"
-          [class]="inputState"
-          (ngModelChange)="onTextChanged()"
-        />
-      </div>
+      @if (question.inputType === "number") {
+        <div class="answerContainer">
+          <input
+            [(ngModel)]="answer"
+            readonly
+            autocomplete="off"
+            [class]="inputState"
+          />
 
-      <div
-        class="feedbackLabel"
-        [class.correct]="feedback.includes('Correct')"
-        [class.wrong]="feedback.includes('Wrong')"
-      >
-        {{ feedback }}
-      </div>
+          <button class="backspace-btn" type="button" (click)="backspace()">
+            ⌫
+          </button>
+        </div>
+
+        <app-keyboard (keyPressed)="onKeyPressed($event)"> </app-keyboard>
+      } @else {
+        <div class="answerContainer">
+          <input
+            #textInput
+            [(ngModel)]="answer"
+            autocomplete="off"
+            autocapitalize="characters"
+            [class]="inputState"
+            (ngModelChange)="onTextChanged()"
+          />
+        </div>
+
+        <div
+          class="feedbackLabel"
+          [class.correct]="feedback.includes('Correct')"
+          [class.wrong]="feedback.includes('Wrong')"
+        >
+          {{ feedback }}
+        </div>
+      }
     }
   }
 </div>
