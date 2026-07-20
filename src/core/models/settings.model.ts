@@ -18,4 +18,6 @@ export interface Settings {
   countdownDuration: number;
 
   questionTarget: number;
+
+  direction: 'forward' | 'backward';
 }

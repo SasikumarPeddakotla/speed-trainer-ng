@@ -8,4 +8,6 @@ export enum SettingType {
   MultiplierLimit = 'multiplierLimit',
 
   NumberRange = 'numberRange',
+
+  Direction = 'direction',
 }

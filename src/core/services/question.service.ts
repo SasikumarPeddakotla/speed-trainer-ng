@@ -11,6 +11,7 @@ import { Alphabet } from '../models/alphabet.model';
 import { TablesEngine } from '../engines/tables.engine';
 import { ArithmeticEngine } from '../engines/arithmetic.engine';
 import { PowerEngine } from '../engines/power.engine';
+import { ConversionEngine } from '../engines/conversion.engine';
 
 @Injectable({
   providedIn: 'root',
@@ -26,6 +27,7 @@ export class QuestionService {
     private arithmeticEngine: ArithmeticEngine,
     private tablesEngine: TablesEngine,
     private powerEngine: PowerEngine,
+    private conversionEngine: ConversionEngine,
   ) {}
 
   nextQuestion() {
@@ -90,6 +92,12 @@ export class QuestionService {
 
       case PracticeMode.CubeRoots:
         this._currentQuestion.set(this.powerEngine.generateCubeRoot());
+        break;
+
+      case PracticeMode.FractionDecimal:
+      case PracticeMode.FractionPercentage:
+      case PracticeMode.DecimalPercentage:
+        this._currentQuestion.set(this.conversionEngine.generateQuestion());
         break;
     }
   }

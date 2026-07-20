@@ -2,7 +2,8 @@
   hasSetting(SettingType.DigitSelection) ||
   hasSetting(SettingType.TableSelection) ||
   hasSetting(SettingType.MultiplierLimit) ||
-  hasSetting(SettingType.NumberRange)
+  hasSetting(SettingType.NumberRange) ||
+  hasSetting(SettingType.Direction)
 ) {
   <div class="section">
     <div class="section-title">Exercise Settings</div>
@@ -94,6 +95,31 @@
           <option value="30">Up to 30</option>
           <option value="50">Up to 50</option>
           <option value="100">Up to 100</option>
+        </select>
+      </div>
+    }
+
+    @if (hasSetting(SettingType.Direction)) {
+      <div class="setting">
+        <label>Conversion Direction</label>
+
+        <select [ngModel]="direction()" (ngModelChange)="setDirection($event)">
+          @switch (mode()) {
+            @case (PracticeMode.FractionDecimal) {
+              <option value="forward">Fraction → Decimal</option>
+              <option value="backward">Decimal → Fraction</option>
+            }
+
+            @case (PracticeMode.FractionPercentage) {
+              <option value="forward">Fraction → Percentage</option>
+              <option value="backward">Percentage → Fraction</option>
+            }
+
+            @case (PracticeMode.DecimalPercentage) {
+              <option value="forward">Decimal → Percentage</option>
+              <option value="backward">Percentage → Decimal</option>
+            }
+          }
         </select>
       </div>
     }

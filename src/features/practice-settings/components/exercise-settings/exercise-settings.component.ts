@@ -37,6 +37,11 @@ export class ExerciseSettingsComponent {
     }
   });
 
+  readonly mode = computed(
+    () => this.settingsService.settings().selectedExercise?.mode,
+  );
+  readonly PracticeMode = PracticeMode;
+
   hasSetting(setting: SettingType): boolean {
     return (
       this.settingsService
@@ -104,5 +109,13 @@ export class ExerciseSettingsComponent {
 
   isTableSelected(table: number) {
     return this.selectedTables().includes(table);
+  }
+
+  direction() {
+    return this.settingsService.settings().direction;
+  }
+
+  setDirection(value: 'forward' | 'backward') {
+    this.settingsService.setDirection(value);
   }
 }

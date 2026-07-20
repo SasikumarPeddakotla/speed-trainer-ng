@@ -24,6 +24,8 @@ export class SettingsService {
 
     countdownDuration: 60,
     questionTarget: 10,
+
+    direction: 'forward',
   });
 
   readonly settings = this._settings.asReadonly();
@@ -88,6 +90,13 @@ export class SettingsService {
     this._settings.update((settings) => ({
       ...settings,
       selectedTables,
+    }));
+  }
+
+  setDirection(direction: 'forward' | 'backward') {
+    this._settings.update((settings) => ({
+      ...settings,
+      direction: direction,
     }));
   }
 }

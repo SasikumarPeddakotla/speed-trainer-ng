@@ -17,9 +17,9 @@ export enum PracticeMode {
   SquareRoots = 'sqrt',
   CubeRoots = 'cbrt',
 
-  FractionToPercentage = 'f2p',
-  FractionToDecimal = 'f2d',
-  DecimalToPercentage = 'd2p',
+  FractionPercentage = 'fp',
+  FractionDecimal = 'fd',
+  DecimalPercentage = 'dp',
 
   Articles = 'articles',
 }

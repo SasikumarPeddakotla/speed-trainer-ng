@@ -136,4 +136,32 @@ export const exercises: Exercise[] = [
 
     settings: [SettingType.SessionType, SettingType.NumberRange],
   },
+
+  {
+    title: 'Fraction ↔ Decimal',
+    route: 'fraction-decimal',
+    mode: PracticeMode.FractionDecimal,
+    topic: 'conversions',
+    implemented: true,
+
+    settings: [SettingType.SessionType, SettingType.Direction],
+  },
+  {
+    title: 'Fraction ↔ Percentage',
+    route: 'fraction-percentage',
+    mode: PracticeMode.FractionPercentage,
+    topic: 'conversions',
+    implemented: true,
+
+    settings: [SettingType.SessionType, SettingType.Direction],
+  },
+  {
+    title: 'Decimal ↔ Percentage',
+    route: 'decimal-percentage',
+    mode: PracticeMode.DecimalPercentage,
+    topic: 'conversions',
+    implemented: true,
+
+    settings: [SettingType.SessionType, SettingType.Direction],
+  },
 ];
