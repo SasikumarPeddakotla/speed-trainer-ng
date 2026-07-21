@@ -2,7 +2,7 @@
   @for (row of keys; track $index) {
     <div class="row">
       @for (key of row; track key) {
-        <button type="button" (click)="press(key)">
+        <button type="button" (pointerdown)="press(key)">
           {{ key }}
         </button>
       }
