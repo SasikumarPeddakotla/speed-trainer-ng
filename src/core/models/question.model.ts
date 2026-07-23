@@ -1,3 +1,5 @@
+import { InputType } from './input-type.type';
+
 export interface Question<T = unknown> {
   question: string;
 
@@ -7,7 +9,7 @@ export interface Question<T = unknown> {
 
   acceptedAnswers?: string[];
 
-  inputType: 'number' | 'text';
+  inputType: InputType;
 
   displayType: 'symbol' | 'text';
 }

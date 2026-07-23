@@ -164,4 +164,14 @@ export const exercises: Exercise[] = [
 
     settings: [SettingType.SessionType, SettingType.Direction],
   },
+
+  {
+    title: 'Articles',
+    route: 'articles',
+    mode: PracticeMode.Articles,
+    topic: 'polity',
+    implemented: true,
+
+    settings: [SettingType.SessionType, SettingType.Direction],
+  },
 ];

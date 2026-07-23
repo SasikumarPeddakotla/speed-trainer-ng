@@ -16,6 +16,7 @@ import { SettingsService } from '../../core/services/settings.service';
 import { KeyboardComponent } from '../keyboard/keyboard.component';
 import { TimerService } from '../../core/services/timer.service';
 import { Router } from '@angular/router';
+import { ArticleQuestionData } from '../../core/models/article-question-data.model';
 
 @Component({
   selector: 'app-trainer',
@@ -35,6 +36,8 @@ export class TrainerComponent implements OnInit, OnDestroy {
   feedback = '';
 
   revealedAnswer: string | null = null;
+
+  selectedOption: string | null = null;
 
   @ViewChild('textInput')
   textInput?: ElementRef<HTMLInputElement>;
@@ -116,6 +119,7 @@ export class TrainerComponent implements OnInit, OnDestroy {
         this.feedback = '';
 
         this.inputState = 'normal';
+        this.selectedOption = null;
 
         this.questionService.nextQuestion();
         this.focusTextInput();
@@ -130,6 +134,7 @@ export class TrainerComponent implements OnInit, OnDestroy {
         this.answer = '';
         this.feedback = '';
         this.inputState = 'normal';
+        this.selectedOption = null;
       }, 150);
     }
   }
@@ -196,5 +201,45 @@ export class TrainerComponent implements OnInit, OnDestroy {
 
     this.questionService.nextQuestion();
     this.focusTextInput();
+  }
+
+  selectOption(option: string): void {
+    if (this.selectedOption !== null) {
+      return;
+    }
+
+    this.selectedOption = option;
+    this.answer = option;
+    this.submit();
+  }
+
+  get articleOptions(): string[] {
+    const question = this.questionService.currentQuestion();
+    if (!question) {
+      return [];
+    }
+    if (question.inputType !== 'multiple-choice') {
+      return [];
+    }
+
+    return (question.data as ArticleQuestionData).options;
+  }
+
+  get questionFontSize(): string {
+    const question = this.questionService.currentQuestion();
+
+    if (!question) {
+      return '42px';
+    }
+
+    if (question.displayType === 'symbol') {
+      return '72px';
+    }
+
+    const length = question.question.length;
+
+    const size = Math.max(22, 46 - (length - 10) * 0.5);
+
+    return `${size}px`;
   }
 }

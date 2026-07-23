@@ -46,7 +46,7 @@
 
   @if (questionService.currentQuestion(); as question) {
     <div class="question-card">
-      <div class="question">
+      <div class="question" [style.fontSize]="questionFontSize">
         {{ question.question }}
       </div>
     </div>
@@ -90,7 +90,7 @@
         </div>
 
         <app-keyboard (keyPressed)="onKeyPressed($event)"> </app-keyboard>
-      } @else {
+      } @else if (question.inputType === "text") {
         <div class="answerContainer">
           <input
             #textInput
@@ -108,6 +108,25 @@
           [class.wrong]="feedback.includes('Wrong')"
         >
           {{ feedback }}
+        </div>
+      } @else if (question.inputType === "multiple-choice") {
+        <div class="optionsContainer">
+          @for (option of articleOptions; track option) {
+            <button
+              type="button"
+              class="optionButton"
+              [class.correct]="
+                selectedOption === option && inputState === 'correct'
+              "
+              [class.wrong]="
+                selectedOption === option && inputState === 'wrong'
+              "
+              [disabled]="selectedOption !== null"
+              (click)="selectOption(option)"
+            >
+              {{ option }}
+            </button>
+          }
         </div>
       }
     }

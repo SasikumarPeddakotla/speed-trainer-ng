@@ -61,7 +61,7 @@ export const topics: Topic[] = [
     title: 'Polity',
     route: 'polity',
     subject: 'awareness',
-    implemented: false,
+    implemented: true,
   },
   {
     title: 'History',

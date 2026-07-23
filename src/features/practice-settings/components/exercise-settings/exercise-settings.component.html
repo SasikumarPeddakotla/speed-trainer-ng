@@ -101,7 +101,7 @@
 
     @if (hasSetting(SettingType.Direction)) {
       <div class="setting">
-        <label>Conversion Direction</label>
+        <label>Direction</label>
 
         <select [ngModel]="direction()" (ngModelChange)="setDirection($event)">
           @switch (mode()) {
@@ -118,6 +118,11 @@
             @case (PracticeMode.DecimalPercentage) {
               <option value="forward">Decimal → Percentage</option>
               <option value="backward">Percentage → Decimal</option>
+            }
+
+            @case (PracticeMode.Articles) {
+              <option value="forward">Article → Description</option>
+              <option value="backward">Description → Article</option>
             }
           }
         </select>

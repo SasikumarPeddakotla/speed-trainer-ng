@@ -115,11 +115,21 @@
 
 .question {
   text-align: center;
-  font-size: 72px;
   font-weight: bold;
   color: #2563eb;
-  letter-spacing: 2px;
   min-height: 80px;
+
+  &.symbol {
+    font-size: 72px;
+    letter-spacing: 2px;
+  }
+
+  &.text {
+    font-size: 36px;
+    line-height: 1.4;
+    letter-spacing: normal;
+    word-break: break-word;
+  }
 }
 
 /* ---------- ANSWER ---------- */
@@ -209,8 +219,12 @@
     padding: 18px;
   }
 
-  .question {
+  .question.symbol {
     font-size: 58px;
+  }
+
+  .question.text {
+    font-size: 24px;
   }
 
   .statusBar {
@@ -219,6 +233,12 @@
 
   .answerContainer input {
     font-size: 28px;
+  }
+
+  .optionButton {
+    min-height: 54px;
+    font-size: 18px;
+    padding: 14px 16px;
   }
 }
 
@@ -312,4 +332,101 @@
   color: #22c55e;
 
   word-break: break-word;
+}
+
+.optionsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.optionButton {
+  width: 100%;
+  min-height: 60px;
+  padding: 16px 20px;
+
+  border: 2px solid #dbeafe;
+  border-radius: 14px;
+
+  background: #fff;
+  color: #1e40af;
+
+  font-size: 22px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s,
+    background-color 0.2s,
+    box-shadow 0.2s,
+    transform 0.15s;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+}
+
+.optionButton.correct {
+  border-color: #16a34a;
+  background: #dcfce7;
+
+  animation: correctPulse 0.2s;
+}
+
+.optionButton.wrong {
+  border-color: #dc2626;
+  background: #fee2e2;
+
+  animation: shake 0.3s;
+}
+
+.optionButton:disabled {
+  cursor: default;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-6px);
+  }
+
+  40% {
+    transform: translateX(6px);
+  }
+
+  60% {
+    transform: translateX(-4px);
+  }
+
+  80% {
+    transform: translateX(4px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes correctPulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.03);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }

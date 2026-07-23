@@ -12,6 +12,7 @@ import { TablesEngine } from '../engines/tables.engine';
 import { ArithmeticEngine } from '../engines/arithmetic.engine';
 import { PowerEngine } from '../engines/power.engine';
 import { ConversionEngine } from '../engines/conversion.engine';
+import { PolityEngine } from '../engines/polity.engine';
 
 @Injectable({
   providedIn: 'root',
@@ -28,6 +29,7 @@ export class QuestionService {
     private tablesEngine: TablesEngine,
     private powerEngine: PowerEngine,
     private conversionEngine: ConversionEngine,
+    private polityEngine: PolityEngine,
   ) {}
 
   nextQuestion() {
@@ -99,6 +101,9 @@ export class QuestionService {
       case PracticeMode.DecimalPercentage:
         this._currentQuestion.set(this.conversionEngine.generateQuestion());
         break;
+
+      case PracticeMode.Articles:
+        this._currentQuestion.set(this.polityEngine.generateArticles());
     }
   }
 }
