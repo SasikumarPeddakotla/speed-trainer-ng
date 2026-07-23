@@ -112,6 +112,12 @@ export class QuestionService {
         this._currentQuestion.set(
           this.vocabularyEngine.generateSynonymQuestion(),
         );
+        break;
+
+      case PracticeMode.Antonyms:
+        this._currentQuestion.set(
+          this.vocabularyEngine.generateAntonymQuestion(),
+        );
     }
   }
 }

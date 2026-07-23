@@ -24,4 +24,5 @@ export enum PracticeMode {
   Articles = 'articles',
 
   Synonyms = 'synonyms',
+  Antonyms = 'antonyms',
 }

@@ -8,6 +8,7 @@ import { Question } from '../models/question.model';
 import { Synonym } from '../models/synonym.model';
 import { RandomService } from '../../utils/random.service';
 import { InputType } from '../enums/input-type.enum';
+import { Antonym } from '../models/antonym.model';
 
 @Injectable({
   providedIn: 'root',
@@ -41,6 +42,33 @@ export class VocabularyEngine {
       displayType: 'text',
 
       explanation: `${synonym.word} - ${synonym.meaning}`,
+    };
+  }
+
+  generateAntonymQuestion(): Question<Antonym> {
+    const antonym = this.randomService.getRandomItem(ANTONYMS);
+
+    return {
+      question: antonym.word,
+
+      answer: antonym.antonyms[0],
+
+      acceptedAnswers: antonym.antonyms,
+
+      options: this.randomService.buildOptions(
+        antonym,
+        ANTONYMS,
+        (a) => a.antonyms[0],
+        (a) => a.word,
+      ),
+
+      data: antonym,
+
+      inputType: InputType.MultipleChoice,
+
+      displayType: 'text',
+
+      explanation: `${antonym.word} - ${antonym.meaning}`,
     };
   }
 }

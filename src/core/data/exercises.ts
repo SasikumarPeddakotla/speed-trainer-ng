@@ -185,4 +185,13 @@ export const exercises: Exercise[] = [
 
     settings: [SettingType.SessionType],
   },
+  {
+    title: 'Antonyms',
+    route: 'antonyms',
+    mode: PracticeMode.Antonyms,
+    topic: 'vocabulary',
+    implemented: true,
+
+    settings: [SettingType.SessionType],
+  },
 ];
