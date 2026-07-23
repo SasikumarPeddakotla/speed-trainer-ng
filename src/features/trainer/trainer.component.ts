@@ -235,4 +235,18 @@ export class TrainerComponent implements OnInit, OnDestroy {
 
     return `${size}px`;
   }
+
+  get revealedAnswerFontSize(): string {
+    const revealedAnswer = this.questionService.currentQuestion()?.answer;
+
+    if (!revealedAnswer) {
+      return '30px';
+    }
+
+    const length = revealedAnswer.length;
+
+    const size = Math.max(22, 46 - (length - 10) * 0.5);
+
+    return `${size}px`;
+  }
 }

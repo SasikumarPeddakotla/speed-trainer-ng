@@ -9,6 +9,7 @@ import { Synonym } from '../models/synonym.model';
 import { RandomService } from '../../utils/random.service';
 import { InputType } from '../enums/input-type.enum';
 import { Antonym } from '../models/antonym.model';
+import { OneWord } from '../models/one-word.model';
 
 @Injectable({
   providedIn: 'root',
@@ -69,6 +70,29 @@ export class VocabularyEngine {
       displayType: 'text',
 
       explanation: `${antonym.word} - ${antonym.meaning}`,
+    };
+  }
+
+  generateOneWordQuestion(): Question<OneWord> {
+    const oneWord = this.randomService.getRandomItem(ONE_WORDS);
+
+    return {
+      question: oneWord.word,
+
+      answer: oneWord.phrase,
+
+      options: this.randomService.buildOptions(
+        oneWord,
+        ONE_WORDS,
+        (o) => o.phrase,
+        (o) => o.word,
+      ),
+
+      data: oneWord,
+
+      inputType: InputType.MultipleChoice,
+
+      displayType: 'text',
     };
   }
 }

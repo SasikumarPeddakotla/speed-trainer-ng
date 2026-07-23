@@ -194,4 +194,13 @@ export const exercises: Exercise[] = [
 
     settings: [SettingType.SessionType],
   },
+  {
+    title: 'One Word Substitutions',
+    route: 'one-word-substitutions',
+    mode: PracticeMode.OneWord,
+    topic: 'vocabulary',
+    implemented: true,
+
+    settings: [SettingType.SessionType],
+  },
 ];

@@ -118,6 +118,13 @@ export class QuestionService {
         this._currentQuestion.set(
           this.vocabularyEngine.generateAntonymQuestion(),
         );
+        break;
+
+      case PracticeMode.OneWord:
+        this._currentQuestion.set(
+          this.vocabularyEngine.generateOneWordQuestion(),
+        );
+        break;
     }
   }
 }
