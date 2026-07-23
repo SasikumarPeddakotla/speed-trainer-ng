@@ -10,6 +10,7 @@ import { RandomService } from '../../utils/random.service';
 import { InputType } from '../enums/input-type.enum';
 import { Antonym } from '../models/antonym.model';
 import { OneWord } from '../models/one-word.model';
+import { Idiom } from '../models/idiom.model';
 
 @Injectable({
   providedIn: 'root',
@@ -89,6 +90,29 @@ export class VocabularyEngine {
       ),
 
       data: oneWord,
+
+      inputType: InputType.MultipleChoice,
+
+      displayType: 'text',
+    };
+  }
+
+  generateIdiomQuestion(): Question<Idiom> {
+    const idiom = this.randomService.getRandomItem(IDIOMS);
+
+    return {
+      question: idiom.idiom,
+
+      answer: idiom.meaning,
+
+      options: this.randomService.buildOptions(
+        idiom,
+        IDIOMS,
+        (o) => o.meaning,
+        (o) => o.idiom,
+      ),
+
+      data: idiom,
 
       inputType: InputType.MultipleChoice,
 

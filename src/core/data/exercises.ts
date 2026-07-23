@@ -203,4 +203,13 @@ export const exercises: Exercise[] = [
 
     settings: [SettingType.SessionType],
   },
+  {
+    title: 'Idioms',
+    route: 'idioms',
+    mode: PracticeMode.Idioms,
+    topic: 'vocabulary',
+    implemented: true,
+
+    settings: [SettingType.SessionType],
+  },
 ];

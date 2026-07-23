@@ -125,6 +125,12 @@ export class QuestionService {
           this.vocabularyEngine.generateOneWordQuestion(),
         );
         break;
+
+      case PracticeMode.Idioms:
+        this._currentQuestion.set(
+          this.vocabularyEngine.generateIdiomQuestion(),
+        );
+        break;
     }
   }
 }

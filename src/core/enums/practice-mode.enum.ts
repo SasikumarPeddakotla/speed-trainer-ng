@@ -26,4 +26,5 @@ export enum PracticeMode {
   Synonyms = 'synonyms',
   Antonyms = 'antonyms',
   OneWord = 'one-word',
+  Idioms = 'idioms',
 }
