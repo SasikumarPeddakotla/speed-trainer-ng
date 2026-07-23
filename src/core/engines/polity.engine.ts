@@ -26,9 +26,7 @@ export class PolityEngine {
       return {
         question: `Article ${article.article}`,
         answer: article.title,
-        data: {
-          options,
-        },
+        options: options,
         inputType: 'multiple-choice',
         displayType: 'text',
       };

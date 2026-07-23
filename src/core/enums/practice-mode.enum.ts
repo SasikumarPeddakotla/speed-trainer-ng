@@ -22,4 +22,6 @@ export enum PracticeMode {
   DecimalPercentage = 'dp',
 
   Articles = 'articles',
+
+  Synonyms = 'synonyms',
 }

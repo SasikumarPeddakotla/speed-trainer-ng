@@ -174,4 +174,15 @@ export const exercises: Exercise[] = [
 
     settings: [SettingType.SessionType, SettingType.Direction],
   },
+
+  // English
+  {
+    title: 'Synonyms',
+    route: 'synonyms',
+    mode: PracticeMode.Synonyms,
+    topic: 'vocabulary',
+    implemented: true,
+
+    settings: [SettingType.SessionType],
+  },
 ];

@@ -69,6 +69,18 @@
         <div class="revealed-answer">
           {{ revealedAnswer }}
         </div>
+
+        @if (question.explanation) {
+          <div class="revealed-divider"></div>
+
+          <div class="revealed-explanation">
+            <div class="revealed-explanation-title">Explanation</div>
+
+            <div class="revealed-explanation-text">
+              {{ question.explanation }}
+            </div>
+          </div>
+        }
       </div>
 
       <button class="action-btn understand-btn" (click)="understood()">
@@ -101,17 +113,9 @@
             (ngModelChange)="onTextChanged()"
           />
         </div>
-
-        <div
-          class="feedbackLabel"
-          [class.correct]="feedback.includes('Correct')"
-          [class.wrong]="feedback.includes('Wrong')"
-        >
-          {{ feedback }}
-        </div>
       } @else if (question.inputType === "multiple-choice") {
         <div class="optionsContainer">
-          @for (option of articleOptions; track option) {
+          @for (option of question.options; track option) {
             <button
               type="button"
               class="optionButton"

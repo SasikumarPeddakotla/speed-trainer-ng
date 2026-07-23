@@ -13,6 +13,7 @@ import { ArithmeticEngine } from '../engines/arithmetic.engine';
 import { PowerEngine } from '../engines/power.engine';
 import { ConversionEngine } from '../engines/conversion.engine';
 import { PolityEngine } from '../engines/polity.engine';
+import { VocabularyEngine } from '../engines/vocabulary.engine';
 
 @Injectable({
   providedIn: 'root',
@@ -30,6 +31,7 @@ export class QuestionService {
     private powerEngine: PowerEngine,
     private conversionEngine: ConversionEngine,
     private polityEngine: PolityEngine,
+    private vocabularyEngine: VocabularyEngine,
   ) {}
 
   nextQuestion() {
@@ -104,6 +106,12 @@ export class QuestionService {
 
       case PracticeMode.Articles:
         this._currentQuestion.set(this.polityEngine.generateArticles());
+        break;
+
+      case PracticeMode.Synonyms:
+        this._currentQuestion.set(
+          this.vocabularyEngine.generateSynonymQuestion(),
+        );
     }
   }
 }

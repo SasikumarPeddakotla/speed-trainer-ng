@@ -5,11 +5,15 @@ export interface Question<T = unknown> {
 
   answer: string;
 
-  data: T;
+  data?: T;
 
   acceptedAnswers?: string[];
 
   inputType: InputType;
 
+  options?: string[];
+
   displayType: 'symbol' | 'text';
+
+  explanation?: string;
 }

@@ -334,6 +334,29 @@
   word-break: break-word;
 }
 
+.revealed-divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 18px 0;
+}
+
+.revealed-explanation {
+  text-align: left;
+}
+
+.revealed-explanation-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.revealed-explanation-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #334155;
+}
+
 .optionsContainer {
   display: flex;
   flex-direction: column;

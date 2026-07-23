@@ -33,8 +33,6 @@ export class TrainerComponent implements OnInit, OnDestroy {
 
   readonly SessionType = SessionType;
 
-  feedback = '';
-
   revealedAnswer: string | null = null;
 
   selectedOption: string | null = null;
@@ -112,11 +110,9 @@ export class TrainerComponent implements OnInit, OnDestroy {
       this.sessionService.correct();
 
       this.inputState = 'correct';
-      this.feedback = '✔ Correct';
 
       setTimeout(() => {
         this.answer = '';
-        this.feedback = '';
 
         this.inputState = 'normal';
         this.selectedOption = null;
@@ -128,11 +124,9 @@ export class TrainerComponent implements OnInit, OnDestroy {
       this.sessionService.wrong();
 
       this.inputState = 'wrong';
-      this.feedback = '✖ Wrong';
 
       setTimeout(() => {
         this.answer = '';
-        this.feedback = '';
         this.inputState = 'normal';
         this.selectedOption = null;
       }, 150);
@@ -196,7 +190,6 @@ export class TrainerComponent implements OnInit, OnDestroy {
   understood() {
     this.revealedAnswer = null;
     this.answer = '';
-    this.feedback = '';
     this.inputState = 'normal';
 
     this.questionService.nextQuestion();
@@ -213,17 +206,17 @@ export class TrainerComponent implements OnInit, OnDestroy {
     this.submit();
   }
 
-  get articleOptions(): string[] {
-    const question = this.questionService.currentQuestion();
-    if (!question) {
-      return [];
-    }
-    if (question.inputType !== 'multiple-choice') {
-      return [];
-    }
+  // get articleOptions(): string[] {
+  //   const question = this.questionService.currentQuestion();
+  //   if (!question) {
+  //     return [];
+  //   }
+  //   if (question.inputType !== 'multiple-choice') {
+  //     return [];
+  //   }
 
-    return (question.data as ArticleQuestionData).options;
-  }
+  //   return question.options as string[];
+  // }
 
   get questionFontSize(): string {
     const question = this.questionService.currentQuestion();

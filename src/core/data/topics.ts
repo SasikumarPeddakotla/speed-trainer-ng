@@ -71,11 +71,10 @@ export const topics: Topic[] = [
   },
 
   // English
-
   {
-    title: 'Articles',
-    route: 'articles',
+    title: 'Vocabulary',
+    route: 'vocabulary',
     subject: 'english',
-    implemented: false,
+    implemented: true,
   },
 ];
