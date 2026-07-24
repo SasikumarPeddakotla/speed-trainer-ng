@@ -41,7 +41,7 @@ export class VocabularyEngine {
 
       displayType: 'text',
 
-      explanation: `${synonym.word} - ${synonym.meaning}`,
+      explanation: `${synonym.word}(${synonym.partsOfSpeech}) - ${synonym.meaning}`,
     };
   }
 
