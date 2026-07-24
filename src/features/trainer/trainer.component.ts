@@ -245,7 +245,7 @@ export class TrainerComponent implements OnInit, OnDestroy {
 
     const length = revealedAnswer.length;
 
-    const size = Math.max(22, 46 - (length - 10) * 0.5);
+    const size = Math.max(16, 30 - length * 0.8);
 
     return `${size}px`;
   }
