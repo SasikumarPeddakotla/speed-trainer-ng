@@ -37,9 +37,9 @@ export class ExerciseComponent {
       this.exercises = exercises.filter((exercise) => exercise.topic === topic);
 
       // If there is only one exercise, skip this page
-      if (this.exercises.length === 1) {
-        this.openExercise(this.exercises[0]);
-      }
+      // if (this.exercises.length === 1) {
+      //   this.openExercise(this.exercises[0]);
+      // }
     });
   }
 

@@ -9,24 +9,6 @@ export const topics: Topic[] = [
     subject: 'reasoning',
     implemented: true,
   },
-  {
-    title: 'Coding-Decoding',
-    route: 'coding-decoding',
-    subject: 'reasoning',
-    implemented: false,
-  },
-  {
-    title: 'Analogy',
-    route: 'analogy',
-    subject: 'reasoning',
-    implemented: false,
-  },
-  {
-    title: 'Series',
-    route: 'series',
-    subject: 'reasoning',
-    implemented: false,
-  },
 
   // Aptitude
 
@@ -62,12 +44,6 @@ export const topics: Topic[] = [
     route: 'polity',
     subject: 'awareness',
     implemented: true,
-  },
-  {
-    title: 'History',
-    route: 'history',
-    subject: 'awareness',
-    implemented: false,
   },
 
   // English

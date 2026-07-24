@@ -18,8 +18,6 @@ import { Idiom } from '../models/idiom.model';
 export class VocabularyEngine {
   constructor(private randomService: RandomService) {}
 
-  private readonly synonymAnswerPool = SYNONYMS.flatMap((s) => s.synonyms);
-
   generateSynonymQuestion(): Question<Synonym> {
     const synonym = this.randomService.getRandomItem(SYNONYMS);
 
