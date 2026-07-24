@@ -4,12 +4,16 @@ import { Settings } from '../models/settings.model';
 import { PracticeMode } from '../enums/practice-mode.enum';
 import { SessionType } from '../enums/session-type.enum';
 import { Exercise } from '../models/exercise.model';
+import { Subject } from '../models/subject.model';
+import { Topic } from '../models/topic.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SettingsService {
   private readonly _settings = signal<Settings>({
+    selectedSubject: null,
+    selectedTopic: null,
     selectedExercise: null,
 
     digitSelection: '1x1',
@@ -29,6 +33,20 @@ export class SettingsService {
   });
 
   readonly settings = this._settings.asReadonly();
+
+  setSubject(subject: Subject) {
+    this._settings.update((settings) => ({
+      ...settings,
+      selectedSubject: subject,
+    }));
+  }
+
+  setTopic(topic: Topic) {
+    this._settings.update((settings) => ({
+      ...settings,
+      selectedTopic: topic,
+    }));
+  }
 
   setExercise(exercise: Exercise) {
     this._settings.update((settings) => ({

@@ -1,8 +1,6 @@
 export enum PracticeMode {
-  LetterToPosition = 'l2p',
-  PositionToLetter = 'p2l',
-  LetterToReversePosition = 'l2rp',
-  ReversePositionToLetter = 'rp2l',
+  LetterPosition = 'lp',
+  LetterReversePosition = 'lrp',
   MirrorLetter = 'mirror',
 
   Addition = 'add',

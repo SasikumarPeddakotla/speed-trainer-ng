@@ -124,6 +124,16 @@
               <option value="forward">Article → Description</option>
               <option value="backward">Description → Article</option>
             }
+
+            @case (PracticeMode.LetterPosition) {
+              <option value="forward">Letter → Position</option>
+              <option value="backward">Position → Letter</option>
+            }
+
+            @case (PracticeMode.LetterReversePosition) {
+              <option value="forward">Letter → Reverse Position</option>
+              <option value="backward">Reverse Position → Letter</option>
+            }
           }
         </select>
       </div>

@@ -46,9 +46,33 @@
 
   @if (questionService.currentQuestion(); as question) {
     <div class="question-card">
-      <div class="question" [style.fontSize]="questionFontSize">
-        {{ question.question }}
-      </div>
+      @if (countdownValue !== null) {
+        @switch (countdownValue) {
+          @case (3) {
+            <div class="countdown">3</div>
+          }
+
+          @case (2) {
+            <div class="countdown">2</div>
+          }
+
+          @case (1) {
+            <div class="countdown">1</div>
+          }
+
+          @case (0) {
+            <div class="countdown">GO!</div>
+          }
+
+          <!-- @default {
+            <div class="countdown">GO!</div>
+          } -->
+        }
+      } @else {
+        <div class="question" [style.fontSize]="questionFontSize">
+          {{ question.question }}
+        </div>
+      }
     </div>
 
     <div class="action-area">
@@ -113,7 +137,9 @@
             (ngModelChange)="onTextChanged()"
           />
         </div>
-      } @else if (question.inputType === "multiple-choice") {
+      } @else if (
+        countdownValue === null && question.inputType === "multiple-choice"
+      ) {
         <div class="optionsContainer">
           @for (option of question.options; track option) {
             <button

@@ -114,7 +114,9 @@
 }
 
 .question {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-weight: bold;
   color: #2563eb;
   min-height: 80px;
@@ -451,5 +453,30 @@
 
   100% {
     transform: scale(1);
+  }
+}
+
+.countdown {
+  font-size: 72px;
+  font-weight: 700;
+  text-align: center;
+  user-select: none;
+  animation: pop 0.9s ease-in-out;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+
+  60% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
 }

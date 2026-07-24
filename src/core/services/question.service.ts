@@ -36,24 +36,9 @@ export class QuestionService {
 
   nextQuestion() {
     switch (this.settingsService.settings().selectedExercise?.mode) {
-      case PracticeMode.LetterToPosition:
-        this._currentQuestion.set(this.alphabetEngine.letterToPosition());
-        break;
-
-      case PracticeMode.PositionToLetter:
-        this._currentQuestion.set(this.alphabetEngine.positionToLetter());
-        break;
-
-      case PracticeMode.LetterToReversePosition:
-        this._currentQuestion.set(
-          this.alphabetEngine.letterToReversePosition(),
-        );
-        break;
-
-      case PracticeMode.ReversePositionToLetter:
-        this._currentQuestion.set(
-          this.alphabetEngine.reversePositionToLetter(),
-        );
+      case PracticeMode.LetterPosition:
+      case PracticeMode.LetterReversePosition:
+        this._currentQuestion.set(this.alphabetEngine.generateQuestion());
         break;
 
       case PracticeMode.MirrorLetter:

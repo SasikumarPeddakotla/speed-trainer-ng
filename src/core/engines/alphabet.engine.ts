@@ -4,12 +4,37 @@ import { Question } from '../models/question.model';
 
 import { alphabetData } from '../data/alphabet';
 import { Alphabet } from '../models/alphabet.model';
+import { SettingsService } from '../services/settings.service';
+import { Direction } from '../enums/direction.enum';
+import { PracticeMode } from '../enums/practice-mode.enum';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AlphabetEngine {
   private alphabets = this.shuffle([...alphabetData]);
+
+  constructor(private settingsService: SettingsService) {}
+
+  generateQuestion() {
+    const mode = this.settingsService.settings().selectedExercise?.mode;
+    const direction = this.settingsService.settings().direction;
+
+    switch (mode) {
+      case PracticeMode.LetterPosition:
+        return direction === Direction.Forward
+          ? this.letterToPosition()
+          : this.positionToLetter();
+
+      case PracticeMode.LetterReversePosition:
+        return direction === Direction.Forward
+          ? this.letterToReversePosition()
+          : this.reversePositionToLetter();
+
+      default:
+        return null;
+    }
+  }
 
   letterToPosition(): Question<Alphabet> {
     const alphabet = this.nextAlphabet();

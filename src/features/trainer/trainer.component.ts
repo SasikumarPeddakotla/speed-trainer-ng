@@ -37,6 +37,8 @@ export class TrainerComponent implements OnInit, OnDestroy {
 
   selectedOption: string | null = null;
 
+  countdownValue: number | null = null;
+
   @ViewChild('textInput')
   textInput?: ElementRef<HTMLInputElement>;
 
@@ -84,13 +86,44 @@ export class TrainerComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.questionService.nextQuestion();
+    if (this.settingsService.settings().sessionType === SessionType.Countdown) {
+      this.startCountdown();
+    } else {
+      this.startPractice();
+    }
+  }
+
+  private startPractice(): void {
     if (this.settingsService.settings().sessionType === SessionType.Countdown) {
       this.timerService.start(
         this.settingsService.settings().countdownDuration,
       );
     }
-    this.questionService.nextQuestion();
+
+    // this.questionService.nextQuestion();
     this.focusTextInput();
+  }
+
+  private startCountdown(): void {
+    this.countdownValue = 3;
+
+    const interval = setInterval(() => {
+      if (this.countdownValue! > 1) {
+        this.countdownValue!--;
+        return;
+      }
+
+      clearInterval(interval);
+
+      // Show GO!
+      this.countdownValue = 0;
+
+      setTimeout(() => {
+        this.countdownValue = null;
+        this.startPractice();
+      }, 500);
+    }, 1000);
   }
 
   ngOnDestroy(): void {
@@ -231,7 +264,7 @@ export class TrainerComponent implements OnInit, OnDestroy {
 
     const length = question.question.length;
 
-    const size = Math.max(22, 46 - (length - 10) * 0.5);
+    const size = Math.max(22, 35 - (length - 10) * 0.5);
 
     return `${size}px`;
   }
