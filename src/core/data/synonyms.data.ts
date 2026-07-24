@@ -87,7 +87,7 @@ export const SYNONYMS: Synonym[] = [
   },
   {
     word: 'Revel',
-    meaning: 'To spend time enjoying yourself in a noisy, enthusiastic way. - ప్రశాంతమైన',
+    meaning: 'To spend time enjoying yourself in a noisy, enthusiastic way. - అత్యధికంగా ఆనందించు',
     partsOfSpeech: 'verb',
     synonyms: ['Make merry'],
   },
