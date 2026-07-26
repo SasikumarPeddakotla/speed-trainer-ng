@@ -141,14 +141,12 @@ export class TrainerComponent implements OnInit, OnDestroy {
 
     const correct = this.validationService.validate(question, this.answer);
 
-    const exerciseKey = this.getExerciseKey();
-
     let wasReview = false;
 
     if (correct) {
       this.sessionService.correct();
 
-      wasReview = this.reviewService.recordCorrect(exerciseKey);
+      wasReview = this.reviewService.recordCorrect();
 
       this.inputState = 'correct';
 
@@ -162,13 +160,13 @@ export class TrainerComponent implements OnInit, OnDestroy {
         this.focusTextInput();
 
         if (!wasReview) {
-          this.reviewService.advanceDelays(exerciseKey);
+          this.reviewService.advanceDelays();
         }
       }, 150);
     } else {
       this.sessionService.wrong();
 
-      wasReview = this.reviewService.recordWrong(exerciseKey, question.data);
+      wasReview = this.reviewService.recordWrong(question.data);
 
       this.inputState = 'wrong';
 

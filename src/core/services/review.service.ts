@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { ReviewItem } from '../models/review-item.model';
+import { ExerciseService } from '../../utils/exercise.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ReviewService {
+  constructor(private exerciseService: ExerciseService) {}
   /**
    * One review queue per exercise.
    *
@@ -29,7 +31,8 @@ export class ReviewService {
     return queue;
   }
 
-  getNextReviewQuestion<T>(exerciseKey: string): T | null {
+  getNextReviewQuestion<T>(): T | null {
+    const exerciseKey = this.exerciseService.getExerciseKey();
     const queue = this.getQueue(exerciseKey);
     const index = queue.findIndex((review) => review.delay === 0);
 
@@ -44,7 +47,8 @@ export class ReviewService {
     return review.question as T;
   }
 
-  advanceDelays(exerciseKey: string): void {
+  advanceDelays(): void {
+    const exerciseKey = this.exerciseService.getExerciseKey();
     const queue = this.getQueue(exerciseKey);
 
     for (const review of queue) {
@@ -54,7 +58,8 @@ export class ReviewService {
     }
   }
 
-  recordWrong<T>(exerciseKey: string, question: T): boolean {
+  recordWrong<T>(question: T): boolean {
+    const exerciseKey = this.exerciseService.getExerciseKey();
     const currentReview = this.currentReviewItem.get(exerciseKey);
 
     // Wrong while answering a review
@@ -88,7 +93,8 @@ export class ReviewService {
     return false;
   }
 
-  recordCorrect(exerciseKey: string): boolean {
+  recordCorrect(): boolean {
+    const exerciseKey = this.exerciseService.getExerciseKey();
     const review = this.currentReviewItem.get(exerciseKey);
 
     // Normal question

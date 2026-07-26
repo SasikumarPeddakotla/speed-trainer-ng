@@ -103,9 +103,7 @@ export class AlphabetEngine {
   }
 
   private nextAlphabet(): Alphabet {
-    const exerciseKey = this.getExerciseKey();
-    let review =
-      this.reviewService.getNextReviewQuestion<Alphabet>(exerciseKey);
+    let review = this.reviewService.getNextReviewQuestion<Alphabet>();
 
     if (review) {
       return review;
@@ -114,7 +112,7 @@ export class AlphabetEngine {
     if (this.alphabets.length === 0) {
       this.alphabets = this.randomService.shuffle([...alphabetData]);
 
-      review = this.reviewService.getNextReviewQuestion<Alphabet>(exerciseKey);
+      review = this.reviewService.getNextReviewQuestion<Alphabet>();
 
       if (review) {
         return review;
@@ -122,14 +120,5 @@ export class AlphabetEngine {
     }
 
     return this.alphabets.shift()!;
-  }
-
-  private getExerciseKey(): string {
-    const settings = this.settingsService.settings();
-
-    const mode = settings.selectedExercise!.mode;
-    const direction = settings.direction;
-
-    return direction ? `${mode}_${direction}` : mode;
   }
 }
