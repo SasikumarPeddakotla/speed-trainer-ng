@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { FRACTION_CONVERSIONS } from '../data/fraction-conversions';
 import { FractionConversion } from '../models/fraction-conversion.model';
 import { SettingsService } from '../services/settings.service';
@@ -12,16 +12,10 @@ import { PracticeMode } from '../enums/practice-mode.enum';
   providedIn: 'root',
 })
 export class ConversionEngine {
-  constructor(
-    private settingsService: SettingsService,
-    private randomService: RandomService,
-  ) {}
+  private randomService = inject(RandomService);
+  private conversions = this.randomService.shuffle([...FRACTION_CONVERSIONS]);
 
-  private randomConversion(): FractionConversion {
-    return FRACTION_CONVERSIONS[
-      this.randomService.random(0, FRACTION_CONVERSIONS.length - 1)
-    ];
-  }
+  constructor(private settingsService: SettingsService) {}
 
   generateQuestion() {
     const mode = this.settingsService.settings().selectedExercise?.mode;
@@ -51,7 +45,7 @@ export class ConversionEngine {
     questionKey: keyof FractionConversion,
     answerKey: keyof FractionConversion,
   ): Question<ConversionQuestion> {
-    const conversion = this.randomConversion();
+    const conversion = this.nextConversion();
 
     return {
       question:
@@ -63,5 +57,13 @@ export class ConversionEngine {
       inputType: 'number',
       displayType: 'symbol',
     };
+  }
+
+  private nextConversion(): FractionConversion {
+    if (this.conversions.length === 0) {
+      this.conversions = this.randomService.shuffle([...FRACTION_CONVERSIONS]);
+    }
+
+    return this.conversions.shift()!;
   }
 }

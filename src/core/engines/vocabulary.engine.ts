@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 
 import { SYNONYMS } from '../data/synonyms.data';
 import { ANTONYMS } from '../data/antonyms.data';
@@ -16,10 +16,15 @@ import { Idiom } from '../models/idiom.model';
   providedIn: 'root',
 })
 export class VocabularyEngine {
-  constructor(private randomService: RandomService) {}
+  private randomService = inject(RandomService);
+
+  private synonyms = this.randomService.shuffle([...SYNONYMS]);
+  private antonyms = this.randomService.shuffle([...ANTONYMS]);
+  private oneWords = this.randomService.shuffle([...ONE_WORDS]);
+  private idioms = this.randomService.shuffle([...IDIOMS]);
 
   generateSynonymQuestion(): Question<Synonym> {
-    const synonym = this.randomService.getRandomItem(SYNONYMS);
+    const synonym = this.nextSynonym();
 
     return {
       question: synonym.word,
@@ -45,8 +50,16 @@ export class VocabularyEngine {
     };
   }
 
+  private nextSynonym(): Synonym {
+    if (this.synonyms.length === 0) {
+      this.synonyms = this.randomService.shuffle([...SYNONYMS]);
+    }
+
+    return this.synonyms.shift()!;
+  }
+
   generateAntonymQuestion(): Question<Antonym> {
-    const antonym = this.randomService.getRandomItem(ANTONYMS);
+    const antonym = this.nextAntonym();
 
     return {
       question: antonym.word,
@@ -72,8 +85,16 @@ export class VocabularyEngine {
     };
   }
 
+  private nextAntonym(): Antonym {
+    if (this.synonyms.length === 0) {
+      this.antonyms = this.randomService.shuffle([...ANTONYMS]);
+    }
+
+    return this.antonyms.shift()!;
+  }
+
   generateOneWordQuestion(): Question<OneWord> {
-    const oneWord = this.randomService.getRandomItem(ONE_WORDS);
+    const oneWord = this.nextOneWord();
 
     return {
       question: oneWord.word,
@@ -95,8 +116,16 @@ export class VocabularyEngine {
     };
   }
 
+  private nextOneWord(): OneWord {
+    if (this.oneWords.length === 0) {
+      this.oneWords = this.randomService.shuffle([...ONE_WORDS]);
+    }
+
+    return this.oneWords.shift()!;
+  }
+
   generateIdiomQuestion(): Question<Idiom> {
-    const idiom = this.randomService.getRandomItem(IDIOMS);
+    const idiom = this.nextIdiom();
 
     return {
       question: idiom.idiom,
@@ -116,5 +145,13 @@ export class VocabularyEngine {
 
       displayType: 'text',
     };
+  }
+
+  private nextIdiom(): Idiom {
+    if (this.idioms.length === 0) {
+      this.idioms = this.randomService.shuffle([...IDIOMS]);
+    }
+
+    return this.idioms.shift()!;
   }
 }

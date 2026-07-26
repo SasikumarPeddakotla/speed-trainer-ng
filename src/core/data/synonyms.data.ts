@@ -177,7 +177,7 @@ export const SYNONYMS: Synonym[] = [
   },
   {
     word: 'Rivet',
-    meaning: "To fasten; to attract and keep someone's attention; engage. - ప్రశాంతమైన",
+    meaning: "To fasten; to attract and keep someone's attention; engage. - ప్రశాంతమైన", //Telugu meaning doubt
     partsOfSpeech: 'verb',
     synonyms: ['engage'],
   },

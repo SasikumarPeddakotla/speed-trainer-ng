@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { RandomService } from '../../utils/random.service';
 import { ArticleQuestionData } from '../models/article-question-data.model';
 import { Question } from '../models/question.model';
@@ -11,13 +11,13 @@ import { Direction } from '../enums/direction.enum';
   providedIn: 'root',
 })
 export class PolityEngine {
-  constructor(
-    private settingsService: SettingsService,
-    private randomService: RandomService,
-  ) {}
+  private randomService = inject(RandomService);
+  private articles = this.randomService.shuffle([...ARTICLES]);
+
+  constructor(private settingsService: SettingsService) {}
 
   generateArticles(): Question<ArticleQuestionData> {
-    const article = this.getRandomArticle();
+    const article = this.nextArticle();
 
     const direction = this.settingsService.settings().direction;
     const options = this.buildOptions(article);
@@ -43,18 +43,16 @@ export class PolityEngine {
     };
   }
 
-  private previousArticle?: Article;
+  private nextArticle(): Article {
+    if (this.articles.length === 0) {
+      this.articles = this.randomService.shuffle([...ARTICLES]);
+    }
+
+    return this.articles.shift()!;
+  }
 
   private getRandomArticle(): Article {
-    let article: Article;
-
-    do {
-      article = ARTICLES[this.randomService.random(0, ARTICLES.length - 1)];
-    } while (article === this.previousArticle);
-
-    this.previousArticle = article;
-
-    return article;
+    return ARTICLES[this.randomService.random(0, ARTICLES.length - 1)];
   }
 
   private buildOptions(article: Article): string[] {

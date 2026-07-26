@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 
 import { Question } from '../models/question.model';
 
@@ -7,14 +7,20 @@ import { Alphabet } from '../models/alphabet.model';
 import { SettingsService } from '../services/settings.service';
 import { Direction } from '../enums/direction.enum';
 import { PracticeMode } from '../enums/practice-mode.enum';
+import { RandomService } from '../../utils/random.service';
+import { ReviewService } from '../services/review.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AlphabetEngine {
-  private alphabets = this.shuffle([...alphabetData]);
+  private randomService = inject(RandomService);
+  private alphabets = this.randomService.shuffle([...alphabetData]);
 
-  constructor(private settingsService: SettingsService) {}
+  constructor(
+    private settingsService: SettingsService,
+    private reviewService: ReviewService,
+  ) {}
 
   generateQuestion() {
     const mode = this.settingsService.settings().selectedExercise?.mode;
@@ -96,21 +102,34 @@ export class AlphabetEngine {
     };
   }
 
-  private shuffle(items: Alphabet[]): Alphabet[] {
-    for (let i = items.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
+  private nextAlphabet(): Alphabet {
+    const exerciseKey = this.getExerciseKey();
+    let review =
+      this.reviewService.getNextReviewQuestion<Alphabet>(exerciseKey);
 
-      [items[i], items[j]] = [items[j], items[i]];
+    if (review) {
+      return review;
     }
 
-    return items;
-  }
-
-  private nextAlphabet(): Alphabet {
     if (this.alphabets.length === 0) {
-      this.alphabets = this.shuffle([...alphabetData]);
+      this.alphabets = this.randomService.shuffle([...alphabetData]);
+
+      review = this.reviewService.getNextReviewQuestion<Alphabet>(exerciseKey);
+
+      if (review) {
+        return review;
+      }
     }
 
     return this.alphabets.shift()!;
+  }
+
+  private getExerciseKey(): string {
+    const settings = this.settingsService.settings();
+
+    const mode = settings.selectedExercise!.mode;
+    const direction = settings.direction;
+
+    return direction ? `${mode}_${direction}` : mode;
   }
 }
