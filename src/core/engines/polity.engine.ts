@@ -1,6 +1,5 @@
 import { inject, Injectable } from '@angular/core';
 import { RandomService } from '../../utils/random.service';
-import { ArticleQuestionData } from '../models/article-question-data.model';
 import { Question } from '../models/question.model';
 import { SettingsService } from '../services/settings.service';
 import { ARTICLES } from '../data/articles.data';
@@ -16,7 +15,7 @@ export class PolityEngine {
 
   constructor(private settingsService: SettingsService) {}
 
-  generateArticles(): Question<ArticleQuestionData> {
+  generateArticles(): Question<Article> {
     const article = this.nextArticle();
 
     const direction = this.settingsService.settings().direction;
@@ -27,6 +26,7 @@ export class PolityEngine {
         question: `Article ${article.article}`,
         answer: article.title,
         options: options,
+        data: article,
         inputType: 'multiple-choice',
         displayType: 'text',
       };
@@ -36,6 +36,7 @@ export class PolityEngine {
       question: article.title,
       answer: `Article ${article.article}`,
       options: options,
+      data: article,
       inputType: 'multiple-choice',
       displayType: 'text',
     };

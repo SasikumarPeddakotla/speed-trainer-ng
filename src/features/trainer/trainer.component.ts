@@ -16,7 +16,6 @@ import { SettingsService } from '../../core/services/settings.service';
 import { KeyboardComponent } from '../keyboard/keyboard.component';
 import { TimerService } from '../../core/services/timer.service';
 import { Router } from '@angular/router';
-import { ArticleQuestionData } from '../../core/models/article-question-data.model';
 import { ReviewService } from '../../core/services/review.service';
 
 @Component({
