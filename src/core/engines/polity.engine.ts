@@ -35,9 +35,7 @@ export class PolityEngine {
     return {
       question: article.title,
       answer: `Article ${article.article}`,
-      data: {
-        options,
-      },
+      options: options,
       inputType: 'multiple-choice',
       displayType: 'text',
     };
