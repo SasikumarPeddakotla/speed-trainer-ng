@@ -47,24 +47,24 @@
           <option value="custom">Custom</option>
         </select>
       </div>
-    }
-    @if (tableSelection() === "custom") {
-      <div class="setting">
-        <label>Choose Tables</label>
+      @if (tableSelection() === "custom") {
+        <div class="setting">
+          <label>Choose Tables</label>
 
-        <div class="table-grid">
-          @for (table of tables; track table) {
-            <button
-              type="button"
-              class="table-chip"
-              [class.selected]="isTableSelected(table)"
-              (click)="toggleTable(table)"
-            >
-              {{ table }}
-            </button>
-          }
+          <div class="table-grid">
+            @for (table of tables; track table) {
+              <button
+                type="button"
+                class="table-chip"
+                [class.selected]="isTableSelected(table)"
+                (click)="toggleTable(table)"
+              >
+                {{ table }}
+              </button>
+            }
+          </div>
         </div>
-      </div>
+      }
     }
 
     @if (hasSetting(SettingType.MultiplierLimit)) {
