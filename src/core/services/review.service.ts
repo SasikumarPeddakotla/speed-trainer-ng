@@ -1,12 +1,25 @@
 import { Injectable } from '@angular/core';
 import { ReviewItem } from '../models/review-item.model';
 import { ExerciseService } from '../../utils/exercise.service';
+import { StorageKeys } from '../enums/storage-keys.enum';
+import { StorageService } from './storage.service';
+
+interface ReviewStorage {
+  version: number;
+  queues: Record<string, ReviewItem<any>[]>;
+}
 
 @Injectable({
   providedIn: 'root',
 })
 export class ReviewService {
-  constructor(private exerciseService: ExerciseService) {}
+  constructor(
+    private exerciseService: ExerciseService,
+    private storageService: StorageService,
+  ) {
+    this.load();
+  }
+
   /**
    * One review queue per exercise.
    *
@@ -56,6 +69,8 @@ export class ReviewService {
         review.delay--;
       }
     }
+
+    this.save();
   }
 
   recordWrong<T>(question: T): boolean {
@@ -90,6 +105,7 @@ export class ReviewService {
       });
     }
 
+    this.save();
     return false;
   }
 
@@ -123,6 +139,59 @@ export class ReviewService {
 
     this.currentReviewItem.delete(exerciseKey);
 
+    this.save();
     return true;
+  }
+
+  private save(): void {
+    const queues: Record<string, ReviewItem<any>[]> = {};
+
+    // Clone queues
+    for (const [key, value] of this.reviewQueues.entries()) {
+      queues[key] = [...value];
+    }
+
+    // Put active review back into its queue before saving
+    for (const [key, review] of this.currentReviewItem.entries()) {
+      queues[key] ??= [];
+      queues[key].push({
+        ...review,
+        delay: 0,
+      });
+    }
+
+    const storage: ReviewStorage = {
+      version: 1,
+      queues,
+    };
+
+    this.storageService.set(StorageKeys.ReviewQueues, storage);
+  }
+
+  private load(): void {
+    const storage = this.storageService.get<ReviewStorage>(
+      StorageKeys.ReviewQueues,
+    );
+
+    if (!storage) {
+      return;
+    }
+
+    if (storage.version !== 1) {
+      return;
+    }
+
+    this.reviewQueues.clear();
+
+    for (const [key, queue] of Object.entries(storage.queues)) {
+      this.reviewQueues.set(key, queue);
+    }
+  }
+
+  clear(): void {
+    this.reviewQueues.clear();
+    this.currentReviewItem.clear();
+
+    this.storageService.remove(StorageKeys.ReviewQueues);
   }
 }
