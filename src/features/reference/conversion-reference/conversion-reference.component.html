@@ -1,0 +1,21 @@
+<div class="conversion-table-container">
+  <table class="conversion-table">
+    <thead>
+      <tr>
+        <th>Fraction</th>
+        <th>Decimal</th>
+        <th>Percentage</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (conversion of conversions; track conversion.fraction) {
+        <tr>
+          <td>{{ conversion.fraction }}</td>
+          <td>{{ conversion.decimal }}</td>
+          <td>{{ conversion.percentage }}%</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

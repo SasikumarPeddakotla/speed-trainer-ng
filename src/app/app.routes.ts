@@ -8,6 +8,7 @@ import { StatisticsComponent } from '../features/statistics/statistics.component
 import { SettingsComponent } from '../features/settings/settings.component';
 import { TopicComponent } from '../features/topic/topic.component';
 import { ExerciseComponent } from '../features/exercise/exercise.component';
+import { ReferenceComponent } from '../features/reference/reference.component';
 
 export const routes: Routes = [
   {
@@ -32,8 +33,12 @@ export const routes: Routes = [
     component: PracticeSettingsComponent,
   },
   {
-    path: 'trainer',
+    path: ':exercise/trainer',
     component: TrainerComponent,
+  },
+  {
+    path: ':exercise/reference',
+    component: ReferenceComponent,
   },
   {
     path: 'summary',

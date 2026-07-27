@@ -83,4 +83,8 @@ export class ConversionEngine {
 
     return this.conversions.shift()!;
   }
+
+  getConversionsReference(): FractionConversion[] {
+    return FRACTION_CONVERSIONS;
+  }
 }

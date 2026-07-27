@@ -1,0 +1,65 @@
+:host {
+  display: block;
+  padding: 24px;
+}
+
+.conversion-table-container {
+  max-width: 900px;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+
+.conversion-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.conversion-table thead {
+  background: #2563eb;
+}
+
+.conversion-table th {
+  padding: 16px;
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.conversion-table td {
+  padding: 16px;
+  text-align: center;
+  font-size: 18px;
+  color: #334155;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.conversion-table tbody tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+.conversion-table tbody tr:hover {
+  background: #eff6ff;
+}
+
+.conversion-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.conversion-table td:first-child {
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.conversion-table td:nth-child(2) {
+  color: #7c3aed;
+}
+
+.conversion-table td:last-child {
+  font-weight: 700;
+  color: #16a34a;
+}

@@ -1,0 +1,60 @@
+<div class="reference-grid">
+  @if (synonyms.length) {
+    @for (word of synonyms; track word.word) {
+      <div class="reference-card">
+        <h3>{{ word.word }} ({{ word.partsOfSpeech }})</h3>
+
+        <p>
+          <strong>Meaning</strong><br />
+          {{ word.meaning }}
+        </p>
+
+        <p>
+          <strong>Synonyms</strong><br />
+          {{ word.synonyms.join(", ") }}
+        </p>
+      </div>
+    }
+  }
+  @if (antonyms.length) {
+    @for (word of antonyms; track word.word) {
+      <div class="reference-card">
+        <h3>{{ word.word }} ({{ word.partsOfSpeech }})</h3>
+
+        <p>
+          <strong>Meaning</strong><br />
+          {{ word.meaning }}
+        </p>
+
+        <p>
+          <strong>Antonyms</strong><br />
+          {{ word.antonyms.join(", ") }}
+        </p>
+      </div>
+    }
+  }
+  @if (oneWords.length) {
+    @for (word of oneWords; track word.word) {
+      <div class="reference-card">
+        <h3>{{ word.word }} ({{ word.partsOfSpeech }})</h3>
+
+        <p>
+          <strong>Phrase</strong><br />
+          {{ word.phrase }}
+        </p>
+      </div>
+    }
+  }
+  @if (idioms.length) {
+    @for (word of idioms; track word.idiom) {
+      <div class="reference-card">
+        <h3>{{ word.idiom }}</h3>
+
+        <p>
+          <strong>Meaning</strong><br />
+          {{ word.meaning }}
+        </p>
+      </div>
+    }
+  }
+</div>

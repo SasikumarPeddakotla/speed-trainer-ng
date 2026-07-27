@@ -35,7 +35,14 @@ export class PracticeSettingsComponent {
   startPractice() {
     this.sessionService.reset();
     this.timerService.reset();
-    this.router.navigate(['/trainer']);
+
+    const exercise = this.settingsService.settings().selectedExercise;
+    this.router.navigate([exercise?.route, 'trainer']);
+  }
+
+  openReference() {
+    const exercise = this.settingsService.settings().selectedExercise;
+    this.router.navigate([exercise?.route, 'reference']);
   }
 
   hasSetting(setting: SettingType): boolean {

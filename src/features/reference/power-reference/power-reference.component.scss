@@ -1,0 +1,51 @@
+:host {
+  display: block;
+  padding: 24px;
+}
+
+.powers-container {
+  max-width: 700px;
+  margin: 0 auto;
+
+  background: white;
+
+  border-radius: 18px;
+  border: 1px solid #e5e7eb;
+
+  padding: 20px;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.power-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  align-items: center;
+
+  padding: 12px 0;
+
+  border-bottom: 1px solid #f1f5f9;
+
+  font-size: 22px;
+}
+
+.power-row:last-child {
+  border-bottom: none;
+}
+
+.power-row span:first-child {
+  text-align: center;
+  font-weight: 600;
+}
+
+.power-row span:nth-child(2) {
+  text-align: center;
+}
+
+.power-row span:last-child {
+  text-align: center;
+
+  font-weight: 700;
+  color: #16a34a;
+}

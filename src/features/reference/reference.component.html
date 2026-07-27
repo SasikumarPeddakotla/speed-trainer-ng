@@ -1,0 +1,37 @@
+<div class="reference-header">
+  <h1>{{ topic?.title }}</h1>
+
+  @if (exercise) {
+    <p>{{ exercise.title }}</p>
+  }
+</div>
+
+@switch (topic?.route) {
+  @case ("alphabet") {
+    <app-alphabet-reference />
+  }
+
+  @case ("vocabulary") {
+    <app-vocabulary-reference />
+  }
+
+  @case ("tables") {
+    <app-tables-reference />
+  }
+
+  @case ("powers") {
+    <app-power-reference />
+  }
+
+  @case ("conversions") {
+    <app-conversion-reference />
+  }
+
+  @case ("polity") {
+    <app-polity-reference />
+  }
+
+  @default {
+    <p>No reference available.</p>
+  }
+}

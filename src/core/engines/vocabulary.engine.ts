@@ -12,6 +12,8 @@ import { Antonym } from '../models/antonym.model';
 import { OneWord } from '../models/one-word.model';
 import { Idiom } from '../models/idiom.model';
 import { ReviewService } from '../services/review.service';
+import { SettingsService } from '../services/settings.service';
+import { PracticeMode } from '../enums/practice-mode.enum';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +26,10 @@ export class VocabularyEngine {
   private oneWords = this.randomService.shuffle([...ONE_WORDS]);
   private idioms = this.randomService.shuffle([...IDIOMS]);
 
-  constructor(private reviewService: ReviewService) {}
+  constructor(
+    private reviewService: ReviewService,
+    private settingsService: SettingsService,
+  ) {}
 
   generateSynonymQuestion(): Question<Synonym> {
     const synonym = this.nextSynonym();
@@ -204,5 +209,21 @@ export class VocabularyEngine {
     }
 
     return this.idioms.shift()!;
+  }
+
+  getSynonymsReference(): Synonym[] {
+    return SYNONYMS;
+  }
+
+  getAntonymsReference(): Antonym[] {
+    return ANTONYMS;
+  }
+
+  getOneWordsReference(): OneWord[] {
+    return ONE_WORDS;
+  }
+
+  getIdiomsReference(): Idiom[] {
+    return IDIOMS;
   }
 }

@@ -1,0 +1,23 @@
+<div class="alphabet-table-container">
+  <table class="alphabet-table">
+    <thead>
+      <tr>
+        <th>Letter</th>
+        <th>Position</th>
+        <th>Reverse</th>
+        <th>Mirror</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (alphabet of alphabets; track alphabet.letter) {
+        <tr>
+          <td>{{ alphabet.letter }}</td>
+          <td>{{ alphabet.position }}</td>
+          <td>{{ alphabet.reversePosition }}</td>
+          <td>{{ alphabet.mirrorLetter }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

@@ -74,4 +74,12 @@ export class TablesEngine {
 
     this.questions = this.randomService.shuffle(questions);
   }
+
+  getTablesReference(): number[] {
+    const settings = this.settingsService.settings();
+
+    return settings.tableSelection === 'random'
+      ? Array.from({ length: 19 }, (_, i) => i + 2)
+      : settings.selectedTables;
+  }
 }

@@ -1,0 +1,41 @@
+@use "../reference.component.scss";
+
+.reference-card {
+  padding: 24px 28px;
+}
+
+.reference-card h3 {
+  margin: 0;
+
+  color: #2563eb;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.divider {
+  width: 90px;
+  height: 3px;
+
+  margin: 14px 0 20px;
+
+  background: #2563eb;
+  border-radius: 999px;
+}
+
+.reference-card h4 {
+  margin: 0;
+
+  color: #1f2937;
+  font-size: 18px;
+  font-weight: 600;
+
+  line-height: 1.5;
+}
+
+.part {
+  margin-top: 18px;
+
+  color: #64748b;
+  font-size: 16px;
+  font-weight: 500;
+}

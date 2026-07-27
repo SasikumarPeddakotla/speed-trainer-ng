@@ -1,0 +1,15 @@
+<div class="reference-grid">
+  @for (article of articles; track article.article) {
+    <div class="reference-card">
+      <h3>Article {{ article.article }}</h3>
+
+      <div class="divider"></div>
+
+      <h4>{{ article.title }}</h4>
+
+      @if (article.part) {
+        <p class="part">{{ article.part }}</p>
+      }
+    </div>
+  }
+</div>

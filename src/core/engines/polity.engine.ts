@@ -95,4 +95,8 @@ export class PolityEngine {
 
     return this.randomService.shuffle(options);
   }
+
+  getArticlesReference(): Article[] {
+    return ARTICLES;
+  }
 }

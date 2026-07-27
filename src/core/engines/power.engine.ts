@@ -4,6 +4,7 @@ import { PowerQuestion } from '../models/power-question.model';
 import { Question } from '../models/question.model';
 import { RandomService } from '../../utils/random.service';
 import { ReviewService } from '../services/review.service';
+import { PracticeMode } from '../enums/practice-mode.enum';
 
 @Injectable({
   providedIn: 'root',
@@ -104,5 +105,11 @@ export class PowerEngine {
     }
 
     this.numbers = this.randomService.shuffle(numbers);
+  }
+
+  getNumbersReference(): number[] {
+    const max = Number(this.settingsService.settings().numberRange);
+
+    return Array.from({ length: max - 1 }, (_, i) => i + 2);
   }
 }

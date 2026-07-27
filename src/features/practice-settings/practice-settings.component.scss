@@ -63,7 +63,7 @@ select {
 
 .start-btn {
   width: 100%;
-  margin-top: 36px;
+  margin-top: 14px;
   padding: 18px;
   border: none;
   border-radius: 18px;
@@ -80,5 +80,32 @@ select {
 }
 
 .start-btn:active {
+  transform: scale(.98);
+}
+
+.reference-btn {
+  width: 100%;
+  margin-top: 36px;
+  padding: 18px;
+
+  border: 2px solid #2563eb;
+  border-radius: 18px;
+
+  background: white;
+  color: #2563eb;
+
+  font-size: 18px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all .2s ease;
+}
+
+.reference-btn:hover {
+  background: #eff6ff;
+}
+
+.reference-btn:active {
   transform: scale(.98);
 }

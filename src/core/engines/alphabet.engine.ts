@@ -121,4 +121,8 @@ export class AlphabetEngine {
 
     return this.alphabets.shift()!;
   }
+
+  getAlphabetReference(): Alphabet[] {
+    return alphabetData;
+  }
 }
