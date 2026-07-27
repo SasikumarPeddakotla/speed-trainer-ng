@@ -11,6 +11,7 @@ import { InputType } from '../enums/input-type.enum';
 import { Antonym } from '../models/antonym.model';
 import { OneWord } from '../models/one-word.model';
 import { Idiom } from '../models/idiom.model';
+import { ReviewService } from '../services/review.service';
 
 @Injectable({
   providedIn: 'root',
@@ -22,6 +23,8 @@ export class VocabularyEngine {
   private antonyms = this.randomService.shuffle([...ANTONYMS]);
   private oneWords = this.randomService.shuffle([...ONE_WORDS]);
   private idioms = this.randomService.shuffle([...IDIOMS]);
+
+  constructor(private reviewService: ReviewService) {}
 
   generateSynonymQuestion(): Question<Synonym> {
     const synonym = this.nextSynonym();
@@ -51,7 +54,19 @@ export class VocabularyEngine {
   }
 
   private nextSynonym(): Synonym {
+    let review = this.reviewService.getNextReviewQuestion<Synonym>();
+
+    if (review) {
+      return review;
+    }
+
     if (this.synonyms.length === 0) {
+      let review = this.reviewService.getNextReviewQuestion<Synonym>();
+
+      if (review) {
+        return review;
+      }
+
       this.synonyms = this.randomService.shuffle([...SYNONYMS]);
     }
 
@@ -86,7 +101,19 @@ export class VocabularyEngine {
   }
 
   private nextAntonym(): Antonym {
-    if (this.synonyms.length === 0) {
+    let review = this.reviewService.getNextReviewQuestion<Antonym>();
+
+    if (review) {
+      return review;
+    }
+
+    if (this.antonyms.length === 0) {
+      let review = this.reviewService.getNextReviewQuestion<Antonym>();
+
+      if (review) {
+        return review;
+      }
+
       this.antonyms = this.randomService.shuffle([...ANTONYMS]);
     }
 
@@ -117,7 +144,19 @@ export class VocabularyEngine {
   }
 
   private nextOneWord(): OneWord {
+    let review = this.reviewService.getNextReviewQuestion<OneWord>();
+
+    if (review) {
+      return review;
+    }
+
     if (this.oneWords.length === 0) {
+      let review = this.reviewService.getNextReviewQuestion<OneWord>();
+
+      if (review) {
+        return review;
+      }
+
       this.oneWords = this.randomService.shuffle([...ONE_WORDS]);
     }
 
@@ -148,7 +187,19 @@ export class VocabularyEngine {
   }
 
   private nextIdiom(): Idiom {
+    let review = this.reviewService.getNextReviewQuestion<Idiom>();
+
+    if (review) {
+      return review;
+    }
+
     if (this.idioms.length === 0) {
+      let review = this.reviewService.getNextReviewQuestion<Idiom>();
+
+      if (review) {
+        return review;
+      }
+
       this.idioms = this.randomService.shuffle([...IDIOMS]);
     }
 

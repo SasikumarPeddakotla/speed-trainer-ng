@@ -7,6 +7,7 @@ import { Direction } from '../enums/direction.enum';
 import { ConversionQuestion } from '../models/conversion-question.model';
 import { Question } from '../models/question.model';
 import { PracticeMode } from '../enums/practice-mode.enum';
+import { ReviewService } from '../services/review.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,10 @@ export class ConversionEngine {
   private randomService = inject(RandomService);
   private conversions = this.randomService.shuffle([...FRACTION_CONVERSIONS]);
 
-  constructor(private settingsService: SettingsService) {}
+  constructor(
+    private settingsService: SettingsService,
+    private reviewService: ReviewService,
+  ) {}
 
   generateQuestion() {
     const mode = this.settingsService.settings().selectedExercise?.mode;
@@ -60,7 +64,20 @@ export class ConversionEngine {
   }
 
   private nextConversion(): FractionConversion {
+    let review = this.reviewService.getNextReviewQuestion<FractionConversion>();
+
+    if (review) {
+      return review;
+    }
+
     if (this.conversions.length === 0) {
+      let review =
+        this.reviewService.getNextReviewQuestion<FractionConversion>();
+
+      if (review) {
+        return review;
+      }
+
       this.conversions = this.randomService.shuffle([...FRACTION_CONVERSIONS]);
     }
 

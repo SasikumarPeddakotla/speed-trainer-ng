@@ -1,20 +1,25 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { SettingsService } from '../services/settings.service';
 import { PowerQuestion } from '../models/power-question.model';
 import { Question } from '../models/question.model';
 import { RandomService } from '../../utils/random.service';
+import { ReviewService } from '../services/review.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PowerEngine {
+  private randomService = inject(RandomService);
+
+  private numbers: number[] = [];
+
   constructor(
     private settingsService: SettingsService,
-    private randomService: RandomService,
+    private reviewService: ReviewService,
   ) {}
 
   generateSquare(): Question<PowerQuestion> {
-    const number = this.generateNumber();
+    const number = this.nextNumber();
 
     return {
       question: `${number}²`,
@@ -28,7 +33,7 @@ export class PowerEngine {
   }
 
   generateCube(): Question<PowerQuestion> {
-    const number = this.generateNumber();
+    const number = this.nextNumber();
 
     return {
       question: `${number}³`,
@@ -42,7 +47,7 @@ export class PowerEngine {
   }
 
   generateSquareRoot(): Question<PowerQuestion> {
-    const number = this.generateNumber();
+    const number = this.nextNumber();
 
     return {
       question: `√${number * number}`,
@@ -56,7 +61,7 @@ export class PowerEngine {
   }
 
   generateCubeRoot(): Question<PowerQuestion> {
-    const number = this.generateNumber();
+    const number = this.nextNumber();
 
     return {
       question: `∛${number ** 3}`,
@@ -69,9 +74,35 @@ export class PowerEngine {
     };
   }
 
-  private generateNumber(): number {
+  private nextNumber(): number {
+    let review = this.reviewService.getNextReviewQuestion<number>();
+
+    if (review !== null) {
+      return review;
+    }
+
+    if (this.numbers.length === 0) {
+      review = this.reviewService.getNextReviewQuestion<number>();
+
+      if (review !== null) {
+        return review;
+      }
+
+      this.resetNumbers();
+    }
+
+    return this.numbers.shift()!;
+  }
+
+  private resetNumbers(): void {
     const max = Number(this.settingsService.settings().numberRange);
 
-    return this.randomService.random(2, max);
+    const numbers: number[] = [];
+
+    for (let i = 2; i <= max; i++) {
+      numbers.push(i);
+    }
+
+    this.numbers = this.randomService.shuffle(numbers);
   }
 }

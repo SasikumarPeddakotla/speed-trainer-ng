@@ -110,13 +110,13 @@ export class AlphabetEngine {
     }
 
     if (this.alphabets.length === 0) {
-      this.alphabets = this.randomService.shuffle([...alphabetData]);
-
       review = this.reviewService.getNextReviewQuestion<Alphabet>();
 
       if (review) {
         return review;
       }
+
+      this.alphabets = this.randomService.shuffle([...alphabetData]);
     }
 
     return this.alphabets.shift()!;

@@ -5,6 +5,7 @@ import { SettingsService } from '../services/settings.service';
 import { ARTICLES } from '../data/articles.data';
 import { Article } from '../models/article.model';
 import { Direction } from '../enums/direction.enum';
+import { ReviewService } from '../services/review.service';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,10 @@ export class PolityEngine {
   private randomService = inject(RandomService);
   private articles = this.randomService.shuffle([...ARTICLES]);
 
-  constructor(private settingsService: SettingsService) {}
+  constructor(
+    private settingsService: SettingsService,
+    private reviewService: ReviewService,
+  ) {}
 
   generateArticles(): Question<Article> {
     const article = this.nextArticle();
@@ -43,7 +47,19 @@ export class PolityEngine {
   }
 
   private nextArticle(): Article {
+    let review = this.reviewService.getNextReviewQuestion<Article>();
+
+    if (review) {
+      return review;
+    }
+
     if (this.articles.length === 0) {
+      let review = this.reviewService.getNextReviewQuestion<Article>();
+
+      if (review) {
+        return review;
+      }
+
       this.articles = this.randomService.shuffle([...ARTICLES]);
     }
 
