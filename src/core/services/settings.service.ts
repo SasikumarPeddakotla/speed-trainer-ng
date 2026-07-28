@@ -39,6 +39,8 @@ export class SettingsService {
     questionTarget: 10,
 
     direction: 'forward',
+
+    wordsLimit: '10',
   };
 
   private readonly _settings = signal<Settings>(this.DEFAULT_SETTINGS);
@@ -132,6 +134,13 @@ export class SettingsService {
     this.updateSettings((settings) => ({
       ...settings,
       direction: direction,
+    }));
+  }
+
+  setWordsLimit(limit: string) {
+    this.updateSettings((settings) => ({
+      ...settings,
+      wordsLimit: limit,
     }));
   }
 }

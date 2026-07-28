@@ -165,7 +165,7 @@ export const exercises: Exercise[] = [
     topic: 'vocabulary',
     implemented: true,
 
-    settings: [SettingType.SessionType],
+    settings: [SettingType.SessionType, SettingType.WordsLimit],
   },
   {
     title: 'Antonyms',
@@ -174,7 +174,7 @@ export const exercises: Exercise[] = [
     topic: 'vocabulary',
     implemented: true,
 
-    settings: [SettingType.SessionType],
+    settings: [SettingType.SessionType, SettingType.WordsLimit],
   },
   {
     title: 'One Word Substitutions',
@@ -183,7 +183,7 @@ export const exercises: Exercise[] = [
     topic: 'vocabulary',
     implemented: true,
 
-    settings: [SettingType.SessionType],
+    settings: [SettingType.SessionType, SettingType.WordsLimit],
   },
   {
     title: 'Idioms',
@@ -192,6 +192,6 @@ export const exercises: Exercise[] = [
     topic: 'vocabulary',
     implemented: true,
 
-    settings: [SettingType.SessionType],
+    settings: [SettingType.SessionType, SettingType.WordsLimit],
   },
 ];

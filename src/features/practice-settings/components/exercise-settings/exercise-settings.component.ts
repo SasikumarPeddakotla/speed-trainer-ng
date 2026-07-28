@@ -4,6 +4,7 @@ import { SettingsService } from '../../../../core/services/settings.service';
 import { SettingType } from '../../../../core/enums/setting-type.enum';
 import { FormsModule } from '@angular/forms';
 import { PracticeMode } from '../../../../core/enums/practice-mode.enum';
+import { VocabularyEngine } from '../../../../core/engines/vocabulary.engine';
 
 @Component({
   selector: 'app-exercise-settings',
@@ -17,6 +18,10 @@ export class ExerciseSettingsComponent {
   readonly tables = Array.from({ length: 19 }, (_, i) => i + 2);
 
   readonly settingsService = inject(SettingsService);
+
+  private vocabularyEngine = inject(VocabularyEngine);
+
+  protected readonly totalWords = this.vocabularyEngine.getVocabularyCount();
 
   digitSelectionOperator = computed(() => {
     switch (this.settingsService.settings().selectedExercise?.mode) {
@@ -117,5 +122,47 @@ export class ExerciseSettingsComponent {
 
   setDirection(value: 'forward' | 'backward') {
     this.settingsService.setDirection(value);
+  }
+
+  wordsLimit() {
+    return this.settingsService.settings().wordsLimit;
+  }
+
+  setWordsLimit(value: number): void {
+    value = Number(value);
+
+    if (isNaN(value)) {
+      value = 10;
+    }
+
+    value = Math.max(10, Math.min(value, this.totalWords));
+
+    this.settingsService.setWordsLimit(value.toString());
+  }
+
+  increaseWordsLimit() {
+    const current = Number(this.wordsLimit());
+
+    this.setWordsLimit(Math.min(current + 10, this.totalWords));
+  }
+
+  decreaseWordsLimit() {
+    const current = Number(this.wordsLimit());
+
+    this.setWordsLimit(Math.max(current - 10, 10));
+  }
+
+  validateWordsLimit(input: HTMLInputElement): void {
+    let value = Number(input.value);
+
+    if (isNaN(value)) {
+      value = 10;
+    }
+
+    value = Math.max(10, Math.min(value, this.totalWords));
+
+    input.value = value.toString();
+
+    this.setWordsLimit(value);
   }
 }

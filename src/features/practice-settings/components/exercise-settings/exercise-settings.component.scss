@@ -58,3 +58,68 @@ select {
   background: #2563eb;
   color: white;
 }
+
+.vocabulary-size {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+
+  background: white;
+  border-radius: 16px;
+  padding: 12px 16px;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+}
+
+.countDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.vocabulary-size input {
+  width: 50%;
+  border: none;
+  outline: none;
+
+  text-align: right;
+
+  font-size: 20px;
+  font-weight: 700;
+
+  background: transparent;
+}
+
+.vocabulary-size span {
+  width: 50%;
+  text-align: left;
+
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.step-btn {
+  width: 40px;
+  height: 40px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #2563eb;
+  color: white;
+
+  font-size: 24px;
+  cursor: pointer;
+
+  transition: .2s;
+}
+
+.step-btn:hover {
+  background: #1d4ed8;
+}
+
+.step-btn:active {
+  transform: scale(.95);
+}

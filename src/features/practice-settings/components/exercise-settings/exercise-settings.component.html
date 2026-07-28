@@ -3,7 +3,8 @@
   hasSetting(SettingType.TableSelection) ||
   hasSetting(SettingType.MultiplierLimit) ||
   hasSetting(SettingType.NumberRange) ||
-  hasSetting(SettingType.Direction)
+  hasSetting(SettingType.Direction) ||
+  hasSetting(SettingType.WordsLimit)
 ) {
   <div class="section">
     <div class="section-title">Exercise Settings</div>
@@ -136,6 +137,37 @@
             }
           }
         </select>
+      </div>
+    }
+
+    @if (hasSetting(SettingType.WordsLimit)) {
+      <div class="setting">
+        <label>Vocabulary Size</label>
+
+        <div class="vocabulary-size">
+          <button type="button" class="step-btn" (click)="decreaseWordsLimit()">
+            −
+          </button>
+
+          <div class="countDiv">
+            <input
+              #wordsInput
+              type="number"
+              [ngModel]="wordsLimit()"
+              (ngModelChange)="setWordsLimit($event)"
+              (blur)="validateWordsLimit(wordsInput)"
+              min="10"
+              [max]="totalWords"
+              step="10"
+            />
+
+            <span>/ {{ totalWords }}</span>
+          </div>
+
+          <button type="button" class="step-btn" (click)="increaseWordsLimit()">
+            +
+          </button>
+        </div>
       </div>
     }
   </div>

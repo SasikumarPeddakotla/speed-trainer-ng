@@ -24,4 +24,6 @@ export interface Settings {
   questionTarget: number;
 
   direction: 'forward' | 'backward';
+
+  wordsLimit: string;
 }
