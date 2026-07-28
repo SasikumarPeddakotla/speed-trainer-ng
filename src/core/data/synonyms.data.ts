@@ -57,9 +57,9 @@ export const SYNONYMS: Synonym[] = [
   },
   {
     word: 'Taciturn',
-    meaning: 'Tending not to say very much. - అల్పభాషి',
+    meaning: 'Tending not to say very much; untalkative; quiet; reserved; reticent. - అల్పభాషి',
     partsOfSpeech: 'adj',
-    synonyms: ['Silent'],
+    synonyms: ['Silent','Reticent'],
   },
   {
     word: 'Fury',
@@ -77,7 +77,7 @@ export const SYNONYMS: Synonym[] = [
     word: 'Proficient ',
     meaning: 'Able to do something well; skilled. - నైపుణ్యం కలిగిన',
     partsOfSpeech: 'adj',
-    synonyms: ['Adept'],
+    synonyms: ['Adept','Skilled'],
   },
   {
     word: 'Admonish',
@@ -177,7 +177,7 @@ export const SYNONYMS: Synonym[] = [
   },
   {
     word: 'Rivet',
-    meaning: "To fasten; to attract and keep someone's attention; engage. - ప్రశాంతమైన", //Telugu meaning doubt
+    meaning: "To fasten; to attract and keep someone's attention; engage. -దృష్టి సారించూట", 
     partsOfSpeech: 'verb',
     synonyms: ['engage'],
   },
@@ -570,6 +570,138 @@ export const SYNONYMS: Synonym[] = [
     meaning: 'Wail; moan; grieve; mourn. - విలపించు',
     partsOfSpeech: 'verb',
     synonyms: ['Mourn'],
+  },
+  {
+    word: 'Perplex',
+    meaning: 'Make someone feel completely baffled; puzzle; bewilder; worry. - గందరగోళానికి గురిచేయు',
+    partsOfSpeech: 'verb',
+    synonyms: ['Bewilder'],
+  },
+  {
+    word: 'Defer',
+    meaning: 'To leave something until a later time; postpone; delay. - వాయిదా వేయు',
+    partsOfSpeech: 'verb',
+    synonyms: ['Delay'],
+  },
+  {
+    word: 'Mammoth',
+    meaning: 'Gigantic; huge. - అతి పెద్ద',
+    partsOfSpeech: 'adj',
+    synonyms: ['Gigantic'],
+  },
+  {
+    word: 'Exult',
+    meaning: 'Praise; glorify; rejoice greatly. -అత్యంత ఆనందించు',
+    partsOfSpeech: 'verb',
+    synonyms: ['Praise'],
+  },
+  {
+    word: 'Concise',
+    meaning: 'Short; brief. - క్లుప్తంగా అన్ని అంశాలతో కూడిన',
+    partsOfSpeech: 'adj',
+    synonyms: ['Brief'],
+  },
+  {
+    word: 'Devout',
+    meaning: 'Believing strongly in a religion and obeying all its rules or principles; pious; devoted to religion. - భక్తిగల',
+    partsOfSpeech: 'adj',
+    synonyms: ['Pious'],
+  },
+  {
+    word: 'Renown',
+    meaning: 'The state of being famous; fame; celebrity. - కీర్తి ప్రతిష్ట',
+    partsOfSpeech: 'noun',
+    synonyms: ['Fame'],
+  },
+  {
+    word: 'Intricate',
+    meaning: 'Very complicated; detailed; complex. - చిక్కుపడిన,సంక్లిష్టమైన',
+    partsOfSpeech: 'adj',
+    synonyms: ['Complex'],
+  },
+  {
+    word: 'Assist',
+    meaning: 'To help; aid; or support someone; - సహాయం చేయు',
+    partsOfSpeech: 'verb',
+    synonyms: ['Help'],
+  },
+  {
+    word: 'Initiate',
+    meaning: 'To start something; begin; or set a plan in motion; commence; introduce. - ప్రారంభించు',
+    partsOfSpeech: 'verb',
+    synonyms: ['Start'],
+  },
+  {
+    word: 'Obstacle',
+    meaning: 'Something that blocks movement or progress; barrier; hurdle. - అడ్డంకి',
+    partsOfSpeech: 'noun',
+    synonyms: ['Barrier'],
+  },
+  {
+    word: 'Endeavour',
+    meaning: 'Try to do something; attempt; strive. - ప్రయత్నించు',
+    partsOfSpeech: 'verb',
+    synonyms: ['Attempt'],
+  },
+  {
+    word: 'Insult',
+    meaning: 'Offend; speak or treat with disrespect or scornful abuse. - అవమానించు',
+    partsOfSpeech: 'verb',
+    synonyms: ['Offend'],
+  },
+  {
+    word: 'Hostility',
+    meaning: 'Unfriendliness; hostile behaviour; opposition; enmity. -శత్రుభావం',
+    partsOfSpeech: 'noun',
+    synonyms: ['Enmity'],
+  },
+  {
+    word: 'Attribute',
+    meaning: 'A quality; feature; characteristic. - లక్షణం',
+    partsOfSpeech: 'noun',
+    synonyms: ['Quality'],
+  },
+  {
+    word: 'Fuse',
+    meaning: 'Combine; blend; merge. - కలపడం',
+    partsOfSpeech: 'verb',
+    synonyms: ['Combine'],
+  },
+  {
+    word: 'Converse',
+    meaning: 'To talk with someone; to have a conversation or exchange thoughts with another person. - అభిప్రాయాలు తెలుసుకునేలా చర్చించడం',
+    partsOfSpeech: 'verb',
+    synonyms: ['Talk'],
+  },
+  {
+    word: 'Austere',
+    meaning: 'Severe; stern; strict. - కఠినమైన',
+    partsOfSpeech: 'adj',
+    synonyms: ['Strict'],
+  },
+  {
+    word: 'Philanthropist',
+    meaning: 'A lover of humanity; a person who helps the poor and those in need. - దాత',
+    partsOfSpeech: 'noun',
+    synonyms: ['Humanitarian'],
+  },
+  {
+    word: 'Impoverished',
+    meaning: 'Very poor; destitute; penniless. - పేదవాడు',
+    partsOfSpeech: 'adj',
+    synonyms: ['Penniless'],
+  },
+  {
+    word: 'Stoical',
+    meaning: 'Patient; long-suffering; uncomplaining; unemotional; apathetic; forbearing. - సహనశీలి,ఓపిక గలవాడు',
+    partsOfSpeech: 'adj',
+    synonyms: ['Apathetic'],
+  },
+  {
+    word: 'Evidence',
+    meaning: 'Anything that helps prove whether something is true or not; proof; indication; deposition. - సాక్ష్యం',
+    partsOfSpeech: 'noun',
+    synonyms: ['Indication'],
   },
 ];
 
