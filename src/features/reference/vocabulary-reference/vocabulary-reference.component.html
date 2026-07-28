@@ -1,8 +1,8 @@
 <div class="reference-grid">
   @if (synonyms.length) {
-    @for (word of synonyms; track word.word) {
+    @for (word of filteredSynonyms(); track word.word; let i = $index) {
       <div class="reference-card">
-        <h3>{{ word.word }} ({{ word.partsOfSpeech }})</h3>
+        <h3>{{ i + 1 }}. {{ word.word }} ({{ word.partsOfSpeech }})</h3>
 
         <p>
           <strong>Meaning</strong><br />
@@ -17,9 +17,9 @@
     }
   }
   @if (antonyms.length) {
-    @for (word of antonyms; track word.word) {
+    @for (word of filteredAntonyms(); track word.word; let i = $index) {
       <div class="reference-card">
-        <h3>{{ word.word }} ({{ word.partsOfSpeech }})</h3>
+        <h3>{{ i + 1 }}. {{ word.word }} ({{ word.partsOfSpeech }})</h3>
 
         <p>
           <strong>Meaning</strong><br />
@@ -34,9 +34,9 @@
     }
   }
   @if (oneWords.length) {
-    @for (word of oneWords; track word.word) {
+    @for (word of filteredOneWords(); track word.word; let i = $index) {
       <div class="reference-card">
-        <h3>{{ word.word }} ({{ word.partsOfSpeech }})</h3>
+        <h3>{{ i + 1 }}. {{ word.word }} ({{ word.partsOfSpeech }})</h3>
 
         <p>
           <strong>Phrase</strong><br />
@@ -46,9 +46,9 @@
     }
   }
   @if (idioms.length) {
-    @for (word of idioms; track word.idiom) {
+    @for (word of filteredIdioms(); track word.idiom; let i = $index) {
       <div class="reference-card">
-        <h3>{{ word.idiom }}</h3>
+        <h3>{{ i + 1 }}. {{ word.idiom }}</h3>
 
         <p>
           <strong>Meaning</strong><br />

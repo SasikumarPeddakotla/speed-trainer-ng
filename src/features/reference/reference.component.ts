@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 
 import { SettingsService } from '../../core/services/settings.service';
 
@@ -30,4 +30,6 @@ export class ReferenceComponent {
 
   protected readonly exercise =
     this.settingsService.settings().selectedExercise;
+
+  protected readonly searchText = signal('');
 }

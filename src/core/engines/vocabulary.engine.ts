@@ -21,10 +21,10 @@ import { PracticeMode } from '../enums/practice-mode.enum';
 export class VocabularyEngine {
   private randomService = inject(RandomService);
 
-  private synonyms = this.randomService.shuffle([...SYNONYMS]);
-  private antonyms = this.randomService.shuffle([...ANTONYMS]);
-  private oneWords = this.randomService.shuffle([...ONE_WORDS]);
-  private idioms = this.randomService.shuffle([...IDIOMS]);
+  private synonyms: Synonym[] = [];
+  private antonyms: Antonym[] = [];
+  private oneWords: OneWord[] = [];
+  private idioms: Idiom[] = [];
 
   constructor(
     private reviewService: ReviewService,
@@ -72,7 +72,7 @@ export class VocabularyEngine {
         return review;
       }
 
-      this.synonyms = this.randomService.shuffle([...SYNONYMS]);
+      this.synonyms = this.randomService.shuffle([...this.getSynonyms()]);
     }
 
     return this.synonyms.shift()!;
@@ -119,7 +119,7 @@ export class VocabularyEngine {
         return review;
       }
 
-      this.antonyms = this.randomService.shuffle([...ANTONYMS]);
+      this.antonyms = this.randomService.shuffle([...this.getAntonyms()]);
     }
 
     return this.antonyms.shift()!;
@@ -162,7 +162,7 @@ export class VocabularyEngine {
         return review;
       }
 
-      this.oneWords = this.randomService.shuffle([...ONE_WORDS]);
+      this.oneWords = this.randomService.shuffle([...this.getOneWords()]);
     }
 
     return this.oneWords.shift()!;
@@ -205,25 +205,64 @@ export class VocabularyEngine {
         return review;
       }
 
-      this.idioms = this.randomService.shuffle([...IDIOMS]);
+      this.idioms = this.randomService.shuffle([...this.getIdioms()]);
     }
 
     return this.idioms.shift()!;
   }
 
+  private getWordLimit(): number {
+    return Number(this.settingsService.settings().wordsLimit);
+  }
+
+  private getSynonyms(): Synonym[] {
+    return SYNONYMS.slice(0, this.getWordLimit());
+  }
+
+  private getAntonyms(): Antonym[] {
+    return ANTONYMS.slice(0, this.getWordLimit());
+  }
+
+  private getOneWords(): OneWord[] {
+    return ONE_WORDS.slice(0, this.getWordLimit());
+  }
+
+  private getIdioms(): Idiom[] {
+    return IDIOMS.slice(0, this.getWordLimit());
+  }
+
   getSynonymsReference(): Synonym[] {
-    return SYNONYMS;
+    return this.getSynonyms();
   }
 
   getAntonymsReference(): Antonym[] {
-    return ANTONYMS;
+    return this.getAntonyms();
   }
 
   getOneWordsReference(): OneWord[] {
-    return ONE_WORDS;
+    return this.getOneWords();
   }
 
   getIdiomsReference(): Idiom[] {
-    return IDIOMS;
+    return this.getIdioms();
+  }
+
+  getVocabularyCount(): number {
+    switch (this.settingsService.settings().selectedExercise?.mode) {
+      case PracticeMode.Synonyms:
+        return SYNONYMS.length;
+
+      case PracticeMode.Antonyms:
+        return ANTONYMS.length;
+
+      case PracticeMode.OneWord:
+        return ONE_WORDS.length;
+
+      case PracticeMode.Idioms:
+        return IDIOMS.length;
+
+      default:
+        return 0;
+    }
   }
 }

@@ -4,6 +4,16 @@
   @if (exercise) {
     <p>{{ exercise.title }}</p>
   }
+
+  @if (topic?.route === "vocabulary" || topic?.route === "polity") {
+    <input
+      class="search-box"
+      type="text"
+      placeholder="Search..."
+      [value]="searchText()"
+      (input)="searchText.set($any($event.target).value)"
+    />
+  }
 </div>
 
 @switch (topic?.route) {
@@ -12,7 +22,7 @@
   }
 
   @case ("vocabulary") {
-    <app-vocabulary-reference />
+    <app-vocabulary-reference [searchText]="searchText()" />
   }
 
   @case ("tables") {
@@ -28,10 +38,10 @@
   }
 
   @case ("polity") {
-    <app-polity-reference />
+    <app-polity-reference [searchText]="searchText()" />
   }
 
   @default {
-    <p>No reference available.</p>
+    <p style="text-align: center">No reference available.</p>
   }
 }
