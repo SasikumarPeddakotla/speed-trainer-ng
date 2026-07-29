@@ -3,6 +3,8 @@ import { ReviewItem } from '../models/review-item.model';
 import { ExerciseService } from '../../utils/exercise.service';
 import { StorageKeys } from '../enums/storage-keys.enum';
 import { StorageService } from './storage.service';
+import { PracticeMode } from '../enums/practice-mode.enum';
+import { ReviewQueueSummary } from '../models/review-queue-summary.model';
 
 interface ReviewStorage {
   version: number;
@@ -193,5 +195,79 @@ export class ReviewService {
     this.currentReviewItem.clear();
 
     this.storageService.remove(StorageKeys.ReviewQueues);
+  }
+
+  getPendingCount(mode: PracticeMode): number {
+    let count = 0;
+
+    for (const [key, queue] of this.reviewQueues.entries()) {
+      const queueMode = key.split('_')[0] as PracticeMode;
+
+      if (queueMode === mode) {
+        count += queue.length;
+      }
+    }
+
+    return count;
+  }
+
+  clearQueue(mode: PracticeMode): void {
+    for (const key of [...this.reviewQueues.keys()]) {
+      const queueMode = key.split('_')[0] as PracticeMode;
+
+      if (queueMode === mode) {
+        this.reviewQueues.delete(key);
+        this.currentReviewItem.delete(key);
+      }
+    }
+
+    this.save();
+  }
+
+  getReviewSummaries(): ReviewQueueSummary[] {
+    const counts = this.getReviewCounts();
+
+    return Array.from(counts.entries()).map(([mode, count]) => ({
+      mode,
+      count,
+    }));
+  }
+
+  getReviewCounts(): Map<PracticeMode, number> {
+    const counts = new Map<PracticeMode, number>();
+
+    for (const [key, queue] of this.reviewQueues.entries()) {
+      const mode = key.split('_')[0] as PracticeMode;
+
+      counts.set(mode, (counts.get(mode) ?? 0) + queue.length);
+    }
+
+    return counts;
+  }
+
+  clearMode(mode: PracticeMode): void {
+    for (const key of this.reviewQueues.keys()) {
+      const exerciseMode = key.split('_')[0] as PracticeMode;
+      if (exerciseMode === mode) {
+        this.reviewQueues.delete(key);
+        this.currentReviewItem.delete(key);
+      }
+    }
+
+    this.save();
+  }
+
+  getPendingQuestions<T>(mode: PracticeMode): T[] {
+    const questions: T[] = [];
+
+    for (const [key, queue] of this.reviewQueues.entries()) {
+      const queueMode = key.split('_')[0] as PracticeMode;
+
+      if (queueMode === mode) {
+        questions.push(...queue.map((item) => item.question as T));
+      }
+    }
+
+    return questions;
   }
 }

@@ -1,6 +1,8 @@
 import { Component, inject } from '@angular/core';
 
 import { AlphabetEngine } from '../../../core/engines/alphabet.engine';
+import { Alphabet } from '../../../core/models/alphabet.model';
+import { StudyListService } from '../../../core/services/study-list.service';
 
 @Component({
   selector: 'app-alphabet-reference',
@@ -11,6 +13,9 @@ import { AlphabetEngine } from '../../../core/engines/alphabet.engine';
 })
 export class AlphabetReferenceComponent {
   private alphabetEngine = inject(AlphabetEngine);
+  private studyListService = inject(StudyListService);
 
-  protected readonly alphabets = this.alphabetEngine.getAlphabetReference();
+  protected readonly alphabets =
+    this.studyListService.getQuestions<Alphabet>() ??
+    this.alphabetEngine.getAlphabetReference();
 }

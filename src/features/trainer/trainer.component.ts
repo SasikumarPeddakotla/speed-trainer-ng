@@ -229,6 +229,7 @@ export class TrainerComponent implements OnInit, OnDestroy {
     }
 
     this.revealedAnswer = question.answer;
+    this.reviewService.recordWrong(question.data);
   }
 
   understood() {

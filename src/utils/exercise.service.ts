@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { SettingsService } from '../core/services/settings.service';
+import { SettingType } from '../core/enums/setting-type.enum';
 
 @Injectable({
   providedIn: 'root',
@@ -11,8 +12,11 @@ export class ExerciseService {
     const settings = this.settingsService.settings();
 
     const mode = settings.selectedExercise!.mode;
+    const hasDirection = settings.selectedExercise?.settings.includes(
+      SettingType.Direction,
+    );
     const direction = settings.direction;
 
-    return direction ? `${mode}_${direction}` : mode;
+    return hasDirection ? `${mode}_${direction}` : mode;
   }
 }

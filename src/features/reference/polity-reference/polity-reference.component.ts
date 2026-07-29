@@ -2,6 +2,7 @@ import { Component, computed, inject, input } from '@angular/core';
 
 import { PolityEngine } from '../../../core/engines/polity.engine';
 import { Article } from '../../../core/models/article.model';
+import { StudyListService } from '../../../core/services/study-list.service';
 
 @Component({
   selector: 'app-polity-reference',
@@ -14,7 +15,10 @@ export class PolityReferenceComponent {
 
   private polityEngine = inject(PolityEngine);
 
+  private studyListService = inject(StudyListService);
+
   protected readonly articles: Article[] =
+    this.studyListService.getQuestions<Article>() ??
     this.polityEngine.getArticlesReference();
 
   readonly filteredArticles = computed(() => {

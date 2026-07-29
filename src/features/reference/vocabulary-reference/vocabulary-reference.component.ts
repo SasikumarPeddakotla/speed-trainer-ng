@@ -7,6 +7,7 @@ import { Synonym } from '../../../core/models/synonym.model';
 import { Antonym } from '../../../core/models/antonym.model';
 import { OneWord } from '../../../core/models/one-word.model';
 import { Idiom } from '../../../core/models/idiom.model';
+import { StudyListService } from '../../../core/services/study-list.service';
 
 @Component({
   selector: 'app-vocabulary-reference',
@@ -19,6 +20,7 @@ export class VocabularyReferenceComponent {
   searchText = input<string>();
 
   private settingsService = inject(SettingsService);
+  private studyListService = inject(StudyListService);
 
   synonyms: Synonym[] = [];
   antonyms: Antonym[] = [];
@@ -106,7 +108,9 @@ export class VocabularyReferenceComponent {
   constructor(private vocabularyEngine: VocabularyEngine) {
     switch (this.settingsService.settings().selectedExercise?.mode) {
       case PracticeMode.Synonyms:
-        this.synonyms = this.vocabularyEngine.getSynonymsReference();
+        this.synonyms =
+          this.studyListService.getQuestions<Synonym>() ??
+          this.vocabularyEngine.getSynonymsReference();
         break;
 
       case PracticeMode.Antonyms:

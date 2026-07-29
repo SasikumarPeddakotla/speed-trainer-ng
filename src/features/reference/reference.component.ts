@@ -8,6 +8,7 @@ import { TablesReferenceComponent } from './tables-reference/tables-reference.co
 import { PowerReferenceComponent } from './power-reference/power-reference.component';
 import { ConversionReferenceComponent } from './conversion-reference/conversion-reference.component';
 import { PolityReferenceComponent } from './polity-reference/polity-reference.component';
+import { StudyListService } from '../../core/services/study-list.service';
 
 @Component({
   selector: 'app-reference',
@@ -25,6 +26,7 @@ import { PolityReferenceComponent } from './polity-reference/polity-reference.co
 })
 export class ReferenceComponent {
   private settingsService = inject(SettingsService);
+  private studyListService = inject(StudyListService);
 
   protected readonly topic = this.settingsService.settings().selectedTopic;
 
@@ -32,4 +34,8 @@ export class ReferenceComponent {
     this.settingsService.settings().selectedExercise;
 
   protected readonly searchText = signal('');
+
+  ngOnDestroy(): void {
+    this.studyListService.clear();
+  }
 }

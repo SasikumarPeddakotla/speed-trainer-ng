@@ -8,12 +8,12 @@ export const subjects: Subject[] = [
   },
   {
     title: 'Quantitative Aptitude',
-    icon: '➗',
+    icon: '🧮',
     route: 'aptitude',
   },
   {
     title: 'General Awareness',
-    icon: '📚',
+    icon: '🌍',
     route: 'awareness',
   },
   {

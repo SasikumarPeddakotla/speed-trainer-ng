@@ -1,0 +1,176 @@
+:host {
+  display: block;
+}
+
+.page {
+  min-height: 100vh;
+  background: #f5f7fb;
+  padding: 24px 20px;
+}
+
+.card {
+  max-width: 520px;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+  color: #2563eb;
+  margin-bottom: 36px;
+}
+
+.section-title {
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+
+.review-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 12px;
+  padding: 16px 18px;
+
+  background: white;
+  border-radius: 16px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+}
+
+.review-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.review-count {
+  min-width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+
+  background: #dbeafe;
+  color: #2563eb;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.review-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+// .clear-btn {
+//   border: none;
+//   border-radius: 12px;
+
+//   padding: 8px 16px;
+
+//   background: #ef4444;
+//   color: white;
+
+//   font-size: 14px;
+//   font-weight: 600;
+
+//   cursor: pointer;
+//   transition: .2s;
+// }
+
+// .clear-btn:hover:not(:disabled) {
+//   background: #dc2626;
+// }
+
+// .clear-btn:disabled {
+//   background: #d1d5db;
+//   cursor: not-allowed;
+// }
+
+// .clear-all-btn {
+//   width: 100%;
+//   margin-top: 24px;
+
+//   padding: 16px;
+
+//   border: none;
+//   border-radius: 16px;
+
+//   background: #dc2626;
+//   color: white;
+
+//   font-size: 16px;
+//   font-weight: 600;
+
+//   cursor: pointer;
+//   transition: .2s;
+// }
+
+// .clear-all-btn:hover {
+//   background: #b91c1c;
+// }
+
+// .clear-all-btn:disabled {
+//   background: #d1d5db;
+//   cursor: not-allowed;
+// }
+
+.topic-section {
+  margin-bottom: 28px;
+}
+
+.topic-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 12px;
+}
+
+.topic-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2563eb;
+  text-transform: capitalize;
+}
+
+.topic-count {
+  min-width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+
+  background: #dbeafe;
+  color: #2563eb;
+
+  font-weight: 700;
+}
+
+.clickable {
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.clickable:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.review-arrow {
+  font-size: 22px;
+  font-weight: bold;
+  color: #94a3b8;
+}

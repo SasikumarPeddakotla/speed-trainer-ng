@@ -32,4 +32,8 @@ export class HomeComponent {
   openSettings() {
     this.router.navigate(['/settings']);
   }
+
+  openWeakAreas() {
+    this.router.navigate(['/weak-areas']);
+  }
 }
