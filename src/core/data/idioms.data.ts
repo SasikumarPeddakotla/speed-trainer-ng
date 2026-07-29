@@ -51,10 +51,6 @@ export const IDIOMS: Idiom[] = [
     meaning: 'A confusing mixture of abbreviations or acronyms.',
   },
   {
-    idiom: 'Whoop it up',
-    meaning: 'To enjoy oneself in a noisy and lively way, usually in a group.',
-  },
-  {
     idiom: 'Be all one to',
     meaning: 'Make no difference to; be indifferent to.',
   },
@@ -783,7 +779,359 @@ export const IDIOMS: Idiom[] = [
     meaning: 'Uncertain; precarious',
   },
   {
-    idiom: 'Hit the stack',
+    idiom: 'Hit the sack',
     meaning: 'Go to bed; retire; go to sleep',
+  },
+  {
+    idiom: 'Bell the cat',
+    meaning: 'To undertake or agree to perform a risky, dangerous or impossible task',
+  },
+  {
+    idiom: 'Apple of discord',
+    meaning: 'A subject of contention and envy; reason for quarrel',
+  },
+  {
+    idiom: 'Get in someone\'s hair',
+    meaning: 'To annoy, bother, or irritate someone by being overly involved in their affairs',
+  },
+  {
+    idiom: 'Pay lip-service',
+    meaning: 'To give an insincere verbal expression of something, especially friendship, loyalty, respect, support etc',
+  },
+  {
+    idiom: 'For good',
+    meaning: 'For all time; permanently; forever',
+  },
+  {
+    idiom: 'Carry the day',
+    meaning: 'Be victorious or successful; to gain victory',
+  },
+  {
+    idiom: 'To die in harness',
+    meaning: 'To die while still actively working or still of the age to do so i.e, before retirement',
+  },
+  {
+    idiom: 'To take french leave',
+    meaning: 'Leave without any intimation; To absent oneself from some place without permission',
+  },
+  {
+    idiom: 'A snake in a grass',
+    meaning: 'A deceitful or treacherous person; a secret enemy',
+  },
+  {
+    idiom: 'On shank\'s mare',
+    meaning: 'On foot; travel by foot',
+  },
+  {
+    idiom: 'Blow one\'s own trumpet',
+    meaning: 'Praise oneself',
+  },
+  {
+    idiom: 'Back to square one',
+    meaning: 'Come to original point; back to the very first stage of something',
+  },
+  {
+    idiom: 'Dead heat',
+    meaning: 'Tie; competition or contest where two or more participants finish exactly even, with no clear winner.',
+  },
+  {
+    idiom: 'The bee\'s knees',
+    meaning: 'Extraordinary; To be excellent or of an extremely high standard',
+  },
+  {
+    idiom: 'To throw a fit',
+    meaning: 'To become very angry or worried; express extreme anger',
+  },
+  {
+    idiom: 'Bring to light',
+    meaning: 'Reveal',
+  },
+  {
+    idiom: 'Hold water',
+    meaning: 'an idea, argument, or explanation that is sound, logical, and able to withstand scrutiny',
+  },
+  {
+    idiom: 'A closed-fisted person',
+    meaning: 'A miserly person; pettily reluctant to spend money',
+  },
+  {
+    idiom: 'Hobsom\'s choice',
+    meaning: 'No choice at all',
+  },
+  {
+    idiom: 'Chicken-hearted',
+    meaning: 'Easily frightened; cowardly',
+  },
+  {
+    idiom: 'Pull a fast one',
+    meaning: 'To trick someone',
+  },
+  {
+    idiom: 'Look down upon',
+    meaning: 'regard someone or something with a sense of superiority, disdain, or contempt, often used in sense of arrogance',
+  },
+  {
+    idiom: 'Keep abreast of',
+    meaning: 'To remain closely informed/updated',
+  },
+  {
+    idiom: 'Come to the point',
+    meaning: 'To talk about the most important problem, issue etc',
+  },
+  {
+    idiom: 'At large',
+    meaning: 'Not caught; free',
+  },
+  {
+    idiom: 'Make off with',
+    meaning: 'To steal something; to run away',
+  },
+  {
+    idiom: 'Blind alley',
+    meaning: 'A situation or method that is not effective or will not produce results',
+  },
+  {
+    idiom: 'The acid test',
+    meaning: 'The true test of the value of something; ordeal',
+  },
+  {
+    idiom: 'To take a back seat',
+    meaning: 'Step aside, reduce one\'s involvement, or let someone else take the lead',
+  },
+  {
+    idiom: 'Behind the scenes',
+    meaning: 'Secretly; not known or meant to be known by the general populace',
+  },
+  {
+    idiom: 'Hats off',
+    meaning: 'Used to praise or credit to someone; accolade',
+  },
+  {
+    idiom: 'Vanish into the air',
+    meaning: 'To disappear suddenly and completely',
+  },
+  {
+    idiom: 'Touch all bases',
+    meaning: 'To include every desired or required element or aspect',
+  },
+  {
+    idiom: 'Big fish',
+    meaning: 'Powerful person, authority; leader',
+  },
+  {
+    idiom: 'Be behind the time',
+    meaning: 'To be out of date/old-fashioned',
+  },
+  {
+    idiom: 'Chill out',
+    meaning: 'To relax completely; to calm down',
+  },
+  {
+    idiom: 'Eat one\'s words',
+    meaning: 'To admit that what you said was wrong and take it back, often with some embarrassment',
+  },
+  {
+    idiom: 'One track mind',
+    meaning: 'To think about one particular thing and nothing else',
+  },
+  {
+    idiom: 'On the double',
+    meaning: 'At fast pace',
+  },
+  {
+    idiom: 'Over one\'s head',
+    meaning: 'Beyond one\'s capability to understand something ',
+  },
+  {
+    idiom: 'A fair-weather friend',
+    meaning: 'An unreliable friend',
+  },
+  {
+    idiom: 'Breath of fresh air',
+    meaning: 'Someone or something new and refreshing',
+  },
+  {
+    idiom: 'Take exception',
+    meaning: 'To disagree with; object to',
+  },
+  {
+    idiom: 'To call the shorts',
+    meaning: 'Take the initiative in deciding how something should be done',
+  },
+  {
+    idiom: 'A nine day wonder',
+    meaning: 'A short-lived sensation',
+  },
+  {
+    idiom: 'Cast a slur upon',
+    meaning: 'Damaged; to bring discredit',
+  },
+  {
+    idiom: 'Bring to book',
+    meaning: 'Held  accountable; punish somebody',
+  },
+  {
+    idiom: 'Up to the mark',
+    meaning: 'Up to the required standard',
+  },
+  {
+    idiom: 'A cry in the wilderness',
+    meaning: 'A warning, protest, or plea that goes unheard, ignored, or unheeded by others',
+  },
+  {
+    idiom: 'Spread like wild fire',
+    meaning: 'Spread rapidly; spread with great speed',
+  },
+  {
+    idiom: 'Do a good turn',
+    meaning: 'To perform a helpful service to someone',
+  },
+  {
+    idiom: 'Far and wide',
+    meaning: 'In all directions',
+  },
+  {
+    idiom: 'Eye-wash',
+    meaning: 'Nonsense; deception',
+  },
+  {
+    idiom: 'First and foremost',
+    meaning: 'Most important aspect',
+  },
+  {
+    idiom: 'Apple of one\'s eye',
+    meaning: 'Very precious or dear',
+  },
+  {
+    idiom: 'Behind one\'s back',
+    meaning: 'In one\'s absence',
+  },
+  {
+    idiom: 'Little by little',
+    meaning: 'Gradually',
+  },
+  {
+    idiom: 'A dry run',
+    meaning: ' A rehearsal',
+  },
+  {
+    idiom: 'Call on',
+    meaning: 'Visit',
+  },
+  {
+    idiom: 'Look out',
+    meaning: 'Be careful',
+  },
+  {
+    idiom: 'Give ahand',
+    meaning: 'Assist',
+  },
+  {
+    idiom: 'Pocket an isult',
+    meaning: 'Bear an insult quietly',
+  },
+  {
+    idiom: 'Make one\'s make',
+    meaning: 'Attain recognition',
+  },
+  {
+    idiom: 'Kith and kin',
+    meaning: 'Family relations',
+  },
+  {
+    idiom: 'A laughing stock',
+    meaning: 'A person subjected to general mockery or ridicule',
+  },
+  {
+    idiom: 'A far cry',
+    meaning: 'Very distant; a long way',
+  },
+  {
+    idiom: 'To drag one\'s feet',
+    meaning: 'Delay',
+  },
+  {
+    idiom: 'Under wraps',
+    meaning: 'Secret; known to only few people',
+  },
+  {
+    idiom: 'To cut corners',
+    meaning: 'To do something in the easiest, cheapest or fastest way',
+  },
+  {
+    idiom: 'Cook the books',
+    meaning: 'To falsify financial records for a company or an organisation',
+  },
+  {
+    idiom: 'Full of beans',
+    meaning: 'Lively; in high spirits; happy and energetic',
+  },
+  {
+    idiom: 'Keep up appearances',
+    meaning: 'Pretend that a situation is good and as it should be, even though it is not',
+  },
+  {
+    idiom: 'Raise the bar',
+    meaning: 'To set higher goals; to raise the standard of quality',
+  },
+  {
+    idiom: 'Bang for the buck',
+    meaning: 'Value in return for your money',
+  },
+  {
+    idiom: 'To cut a long story short',
+    meaning: 'Tell something briefly',
+  },
+  {
+    idiom: 'Pipe dream',
+    meaning: 'An unattainable or fanciful idea',
+  },
+  {
+    idiom: 'Herculean task',
+    meaning: 'Needing great strength and determination',
+  },
+  {
+    idiom: 'A kick in the teeth',
+    meaning: 'A grave setback',
+  },
+  {
+    idiom: 'A stumbling block',
+    meaning: 'An obstacle to progress',
+  },
+  {
+    idiom: 'A bad egg',
+    meaning: 'A dishonest and unreliable person',
+  },
+  {
+    idiom: 'Tide someone over',
+    meaning: 'Help someone through a difficult period, especially with financial assistance; sustain',
+  },
+  {
+    idiom: 'In full swing',
+    meaning: 'At the highest level of activity',
+  },
+  {
+    idiom: 'On the wane',
+    meaning: 'Becoming weaker or less extensive; on the decline',
+  },
+  {
+    idiom: 'Boil down',
+    meaning: 'To summarize; reduce to essentials',
+  },
+  {
+    idiom: 'At a stretch',
+    meaning: 'In one continuous period',
+  },
+  {
+    idiom: 'Make amends',
+    meaning: 'To do something to correct a mistake that one has made or a bad situation that one has caused',
+  },
+  {
+    idiom: 'Come to light',
+    meaning: 'To become widely known or evident, revealed',
+  },
+  {
+    idiom: 'Beat a retreat',
+    meaning: 'To withdraw quickly, typically in order to avoid something unpleasant; run away',
   },
 ];
