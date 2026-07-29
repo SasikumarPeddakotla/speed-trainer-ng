@@ -1,8 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 
 import { ConversionEngine } from '../../../core/engines/conversion.engine';
 import { FractionConversion } from '../../../core/models/fraction-conversion.model';
-import { StudyListService } from '../../../core/services/study-list.service';
+import { SettingsService } from '../../../core/services/settings.service';
+import { PracticeMode } from '../../../core/enums/practice-mode.enum';
+import { Alphabet } from '../../../core/models/alphabet.model';
+import { ReviewService } from '../../../core/services/review.service';
 
 @Component({
   selector: 'app-conversion-reference',
@@ -12,10 +15,21 @@ import { StudyListService } from '../../../core/services/study-list.service';
 })
 export class ConversionReferenceComponent {
   private conversionEngine = inject(ConversionEngine);
+  private settingsService = inject(SettingsService);
+  private reviewService = inject(ReviewService);
 
-  private studyListService = inject(StudyListService);
+  isWeakMode = input<boolean>();
 
-  protected readonly conversions =
-    this.studyListService.getQuestions<FractionConversion>() ??
-    this.conversionEngine.getConversionsReference();
+  protected readonly mode = this.settingsService.settings().selectedExercise
+    ?.mode as PracticeMode;
+
+  get conversions(): FractionConversion[] {
+    if (this.isWeakMode()) {
+      return this.reviewService.getPendingQuestions<FractionConversion>(
+        this.mode,
+      );
+    }
+
+    return this.conversionEngine.getConversionsReference();
+  }
 }

@@ -1,8 +1,10 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 
 import { AlphabetEngine } from '../../../core/engines/alphabet.engine';
 import { Alphabet } from '../../../core/models/alphabet.model';
-import { StudyListService } from '../../../core/services/study-list.service';
+import { ReviewService } from '../../../core/services/review.service';
+import { PracticeMode } from '../../../core/enums/practice-mode.enum';
+import { SettingsService } from '../../../core/services/settings.service';
 
 @Component({
   selector: 'app-alphabet-reference',
@@ -12,10 +14,19 @@ import { StudyListService } from '../../../core/services/study-list.service';
   styleUrl: './alphabet-reference.component.scss',
 })
 export class AlphabetReferenceComponent {
+  isWeakMode = input<boolean>();
   private alphabetEngine = inject(AlphabetEngine);
-  private studyListService = inject(StudyListService);
+  private reviewService = inject(ReviewService);
+  private settingsService = inject(SettingsService);
 
-  protected readonly alphabets =
-    this.studyListService.getQuestions<Alphabet>() ??
-    this.alphabetEngine.getAlphabetReference();
+  protected readonly mode = this.settingsService.settings().selectedExercise
+    ?.mode as PracticeMode;
+
+  get alphabets(): Alphabet[] {
+    if (this.isWeakMode()) {
+      return this.reviewService.getPendingQuestions<Alphabet>(this.mode);
+    }
+
+    return this.alphabetEngine.getAlphabetReference();
+  }
 }

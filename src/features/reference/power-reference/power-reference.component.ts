@@ -1,9 +1,9 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { PowerEngine } from '../../../core/engines/power.engine';
 import { SettingsService } from '../../../core/services/settings.service';
 import { PracticeMode } from '../../../core/enums/practice-mode.enum';
-import { StudyListService } from '../../../core/services/study-list.service';
 import { PowerQuestion } from '../../../core/models/power-question.model';
+import { ReviewService } from '../../../core/services/review.service';
 
 @Component({
   selector: 'app-power-reference',
@@ -14,15 +14,22 @@ import { PowerQuestion } from '../../../core/models/power-question.model';
 export class PowerReferenceComponent {
   private settingsService = inject(SettingsService);
   private powerEngine = inject(PowerEngine);
+  private reviewService = inject(ReviewService);
 
-  private studyListService = inject(StudyListService);
+  isWeakMode = input<boolean>();
 
   public PracticeMode = PracticeMode;
 
-  protected readonly mode =
-    this.settingsService.settings().selectedExercise?.mode;
+  protected readonly mode = this.settingsService.settings().selectedExercise
+    ?.mode as PracticeMode;
 
-  protected readonly numbers =
-    this.studyListService.getQuestions<PowerQuestion>()?.map((q) => q.number) ??
-    this.powerEngine.getNumbersReference();
+  get numbers(): number[] {
+    if (this.isWeakMode()) {
+      return this.reviewService
+        .getPendingQuestions<PowerQuestion>(this.mode)
+        .map((q) => q.number);
+    }
+
+    return this.powerEngine.getNumbersReference();
+  }
 }

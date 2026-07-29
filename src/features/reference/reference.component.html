@@ -5,6 +5,26 @@
     <p>{{ exercise.title }}</p>
   }
 
+  <div class="reference-toggle">
+    <button
+      type="button"
+      class="toggle-button"
+      [class.active]="!isWeakMode()"
+      (click)="showAllQuestions()"
+    >
+      All Questions
+    </button>
+
+    <button
+      type="button"
+      class="toggle-button"
+      [class.active]="isWeakMode()"
+      (click)="showWeakQuestions()"
+    >
+      Weak Questions
+    </button>
+  </div>
+
   @if (topic?.route === "vocabulary" || topic?.route === "polity") {
     <input
       class="search-box"
@@ -18,27 +38,33 @@
 
 @switch (topic?.route) {
   @case ("alphabet") {
-    <app-alphabet-reference />
+    <app-alphabet-reference [isWeakMode]="isWeakMode()" />
   }
 
   @case ("vocabulary") {
-    <app-vocabulary-reference [searchText]="searchText()" />
+    <app-vocabulary-reference
+      [searchText]="searchText()"
+      [isWeakMode]="isWeakMode()"
+    />
   }
 
   @case ("tables") {
-    <app-tables-reference />
+    <app-tables-reference [isWeakMode]="isWeakMode()" />
   }
 
   @case ("powers") {
-    <app-power-reference />
+    <app-power-reference [isWeakMode]="isWeakMode()" />
   }
 
   @case ("conversions") {
-    <app-conversion-reference />
+    <app-conversion-reference [isWeakMode]="isWeakMode()" />
   }
 
   @case ("polity") {
-    <app-polity-reference [searchText]="searchText()" />
+    <app-polity-reference
+      [searchText]="searchText()"
+      [isWeakMode]="isWeakMode()"
+    />
   }
 
   @default {

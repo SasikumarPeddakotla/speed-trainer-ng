@@ -8,7 +8,7 @@ import { TablesReferenceComponent } from './tables-reference/tables-reference.co
 import { PowerReferenceComponent } from './power-reference/power-reference.component';
 import { ConversionReferenceComponent } from './conversion-reference/conversion-reference.component';
 import { PolityReferenceComponent } from './polity-reference/polity-reference.component';
-import { StudyListService } from '../../core/services/study-list.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-reference',
@@ -26,7 +26,8 @@ import { StudyListService } from '../../core/services/study-list.service';
 })
 export class ReferenceComponent {
   private settingsService = inject(SettingsService);
-  private studyListService = inject(StudyListService);
+
+  protected readonly isWeakMode = signal(false);
 
   protected readonly topic = this.settingsService.settings().selectedTopic;
 
@@ -35,7 +36,11 @@ export class ReferenceComponent {
 
   protected readonly searchText = signal('');
 
-  ngOnDestroy(): void {
-    this.studyListService.clear();
+  showAllQuestions(): void {
+    this.isWeakMode.set(false);
+  }
+
+  showWeakQuestions(): void {
+    this.isWeakMode.set(true);
   }
 }

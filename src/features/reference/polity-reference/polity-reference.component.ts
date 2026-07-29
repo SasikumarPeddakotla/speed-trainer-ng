@@ -2,7 +2,10 @@ import { Component, computed, inject, input } from '@angular/core';
 
 import { PolityEngine } from '../../../core/engines/polity.engine';
 import { Article } from '../../../core/models/article.model';
-import { StudyListService } from '../../../core/services/study-list.service';
+import { SettingsService } from '../../../core/services/settings.service';
+import { PracticeMode } from '../../../core/enums/practice-mode.enum';
+import { Alphabet } from '../../../core/models/alphabet.model';
+import { ReviewService } from '../../../core/services/review.service';
 
 @Component({
   selector: 'app-polity-reference',
@@ -14,12 +17,21 @@ export class PolityReferenceComponent {
   searchText = input<string>();
 
   private polityEngine = inject(PolityEngine);
+  private settingsService = inject(SettingsService);
+  private reviewService = inject(ReviewService);
 
-  private studyListService = inject(StudyListService);
+  isWeakMode = input<boolean>();
 
-  protected readonly articles: Article[] =
-    this.studyListService.getQuestions<Article>() ??
-    this.polityEngine.getArticlesReference();
+  protected readonly mode = this.settingsService.settings().selectedExercise
+    ?.mode as PracticeMode;
+
+  get articles(): Article[] {
+    if (this.isWeakMode()) {
+      return this.reviewService.getPendingQuestions<Article>(this.mode);
+    }
+
+    return this.polityEngine.getArticlesReference();
+  }
 
   readonly filteredArticles = computed(() => {
     const search = this.searchText()!.trim().toLowerCase();

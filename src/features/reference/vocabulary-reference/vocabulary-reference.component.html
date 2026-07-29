@@ -1,5 +1,5 @@
 <div class="reference-grid">
-  @if (synonyms.length) {
+  @if (mode === PracticeMode.Synonyms) {
     @for (word of filteredSynonyms(); track word.word; let i = $index) {
       <div class="reference-card">
         <h3>{{ i + 1 }}. {{ word.word }} ({{ word.partsOfSpeech }})</h3>
@@ -16,7 +16,7 @@
       </div>
     }
   }
-  @if (antonyms.length) {
+  @if (mode === PracticeMode.Antonyms) {
     @for (word of filteredAntonyms(); track word.word; let i = $index) {
       <div class="reference-card">
         <h3>{{ i + 1 }}. {{ word.word }} ({{ word.partsOfSpeech }})</h3>
@@ -33,7 +33,7 @@
       </div>
     }
   }
-  @if (oneWords.length) {
+  @if (mode === PracticeMode.OneWord) {
     @for (word of filteredOneWords(); track word.word; let i = $index) {
       <div class="reference-card">
         <h3>{{ i + 1 }}. {{ word.word }} ({{ word.partsOfSpeech }})</h3>
@@ -45,7 +45,7 @@
       </div>
     }
   }
-  @if (idioms.length) {
+  @if (mode === PracticeMode.Idioms) {
     @for (word of filteredIdioms(); track word.idiom; let i = $index) {
       <div class="reference-card">
         <h3>{{ i + 1 }}. {{ word.idiom }}</h3>

@@ -7,7 +7,7 @@ import { Synonym } from '../../../core/models/synonym.model';
 import { Antonym } from '../../../core/models/antonym.model';
 import { OneWord } from '../../../core/models/one-word.model';
 import { Idiom } from '../../../core/models/idiom.model';
-import { StudyListService } from '../../../core/services/study-list.service';
+import { ReviewService } from '../../../core/services/review.service';
 
 @Component({
   selector: 'app-vocabulary-reference',
@@ -20,12 +20,12 @@ export class VocabularyReferenceComponent {
   searchText = input<string>();
 
   private settingsService = inject(SettingsService);
-  private studyListService = inject(StudyListService);
+  private reviewService = inject(ReviewService);
+  private vocabularyEngine = inject(VocabularyEngine);
 
-  synonyms: Synonym[] = [];
-  antonyms: Antonym[] = [];
-  oneWords: OneWord[] = [];
-  idioms: Idiom[] = [];
+  public PracticeMode = PracticeMode;
+
+  isWeakMode = input<boolean>();
 
   readonly filteredSynonyms = computed(() => {
     const search = this.searchText()!.trim().toLowerCase();
@@ -105,25 +105,38 @@ export class VocabularyReferenceComponent {
     );
   });
 
-  constructor(private vocabularyEngine: VocabularyEngine) {
-    switch (this.settingsService.settings().selectedExercise?.mode) {
-      case PracticeMode.Synonyms:
-        this.synonyms =
-          this.studyListService.getQuestions<Synonym>() ??
-          this.vocabularyEngine.getSynonymsReference();
-        break;
+  protected readonly mode = this.settingsService.settings().selectedExercise
+    ?.mode as PracticeMode;
 
-      case PracticeMode.Antonyms:
-        this.antonyms = this.vocabularyEngine.getAntonymsReference();
-        break;
-
-      case PracticeMode.OneWord:
-        this.oneWords = this.vocabularyEngine.getOneWordsReference();
-        break;
-
-      case PracticeMode.Idioms:
-        this.idioms = this.vocabularyEngine.getIdiomsReference();
-        break;
+  get synonyms(): Synonym[] {
+    if (this.isWeakMode()) {
+      return this.reviewService.getPendingQuestions<Synonym>(this.mode);
     }
+
+    return this.vocabularyEngine.getSynonymsReference();
+  }
+
+  get antonyms(): Antonym[] {
+    if (this.isWeakMode()) {
+      return this.reviewService.getPendingQuestions<Antonym>(this.mode);
+    }
+
+    return this.vocabularyEngine.getAntonymsReference();
+  }
+
+  get oneWords(): OneWord[] {
+    if (this.isWeakMode()) {
+      return this.reviewService.getPendingQuestions<OneWord>(this.mode);
+    }
+
+    return this.vocabularyEngine.getOneWordsReference();
+  }
+
+  get idioms(): Idiom[] {
+    if (this.isWeakMode()) {
+      return this.reviewService.getPendingQuestions<Idiom>(this.mode);
+    }
+
+    return this.vocabularyEngine.getIdiomsReference();
   }
 }
