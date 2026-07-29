@@ -34,18 +34,21 @@ export class VocabularyEngine {
   generateSynonymQuestion(): Question<Synonym> {
     const synonym = this.nextSynonym();
 
+    const pair = this.getRandomWordPair(synonym.word, synonym.synonyms);
+
     return {
-      question: synonym.word,
+      question: pair.question,
 
-      answer: synonym.synonyms[0],
+      answer: pair.answer,
 
-      acceptedAnswers: synonym.synonyms,
+      acceptedAnswers: pair.acceptedAnswers,
 
       options: this.randomService.buildOptions(
         synonym,
         SYNONYMS,
-        (s) => s.synonyms[0],
+        (s) => [s.word, ...s.synonyms],
         (s) => s.word,
+        pair.answer,
       ),
 
       data: synonym,
@@ -81,18 +84,21 @@ export class VocabularyEngine {
   generateAntonymQuestion(): Question<Antonym> {
     const antonym = this.nextAntonym();
 
+    const pair = this.getRandomWordPair(antonym.word, antonym.antonyms);
+
     return {
-      question: antonym.word,
+      question: pair.question,
 
-      answer: antonym.antonyms[0],
+      answer: pair.answer,
 
-      acceptedAnswers: antonym.antonyms,
+      acceptedAnswers: pair.acceptedAnswers,
 
       options: this.randomService.buildOptions(
         antonym,
         ANTONYMS,
-        (a) => a.antonyms[0],
+        (a) => [a.word, ...a.antonyms],
         (a) => a.word,
+        pair.answer,
       ),
 
       data: antonym,
@@ -136,8 +142,9 @@ export class VocabularyEngine {
       options: this.randomService.buildOptions(
         oneWord,
         ONE_WORDS,
-        (o) => o.phrase,
+        (o) => [o.phrase],
         (o) => o.word,
+        oneWord.phrase,
       ),
 
       data: oneWord,
@@ -179,8 +186,9 @@ export class VocabularyEngine {
       options: this.randomService.buildOptions(
         idiom,
         IDIOMS,
-        (o) => o.meaning,
-        (o) => o.idiom,
+        (i) => [i.meaning],
+        (i) => i.idiom,
+        idiom.meaning,
       ),
 
       data: idiom,
@@ -264,5 +272,15 @@ export class VocabularyEngine {
       default:
         return 0;
     }
+  }
+
+  private getRandomWordPair(word: string, relatedWords: string[]) {
+    const group = this.randomService.shuffle([word, ...relatedWords]);
+
+    return {
+      question: group[0],
+      answer: group[1],
+      acceptedAnswers: group.slice(1),
+    };
   }
 }
