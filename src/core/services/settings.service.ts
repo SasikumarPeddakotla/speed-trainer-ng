@@ -41,6 +41,8 @@ export class SettingsService {
     direction: 'forward',
 
     wordsLimit: '10',
+
+    referenceView: 'all',
   };
 
   private readonly _settings = signal<Settings>(this.DEFAULT_SETTINGS);
@@ -141,6 +143,13 @@ export class SettingsService {
     this.updateSettings((settings) => ({
       ...settings,
       wordsLimit: limit,
+    }));
+  }
+
+  setReferenceView(referenceView: 'all' | 'weak' | 'bookmark') {
+    this.updateSettings((settings) => ({
+      ...settings,
+      referenceView,
     }));
   }
 }

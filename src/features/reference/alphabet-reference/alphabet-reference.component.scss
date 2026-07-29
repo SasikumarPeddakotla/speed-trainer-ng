@@ -58,8 +58,20 @@
   color: #2563eb;
 }
 
-.alphabet-table td:last-child {
+.alphabet-table td:nth-child(4) {
   font-size: 22px;
   font-weight: 700;
   color: #0f766e;
+}
+
+.bookmark-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 25px;
+  color: #f4b400;
+}
+
+.bookmark-btn:not(.bookmarked) {
+  color: #cbd5e1;
 }

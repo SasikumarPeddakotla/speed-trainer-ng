@@ -1,40 +1,92 @@
 <div class="powers-container">
   @if (mode === PracticeMode.Squares) {
-    @for (number of numbers; track number) {
-      <div class="power-row">
-        <span>{{ number }}²</span>
+    @for (question of questions(); track question.number) {
+      <div
+        class="power-row"
+        [class.bookmark-mode]="referenceTab() === 'bookmark'"
+      >
+        <span>{{ question.number }}²</span>
         <span>=</span>
-        <span>{{ number * number }}</span>
+        <span>{{ question.number * question.number }}</span>
+        @if (referenceTab() === "bookmark") {
+          <button
+            type="button"
+            class="bookmark-btn"
+            [class.bookmarked]="!isRemoved(question)"
+            (click)="toggleBookmark(question)"
+          >
+            &#9733;
+          </button>
+        }
       </div>
     }
   }
 
   @if (mode === PracticeMode.Cubes) {
-    @for (number of numbers; track number) {
-      <div class="power-row">
-        <span>{{ number }}³</span>
+    @for (question of questions(); track question.number) {
+      <div
+        class="power-row"
+        [class.bookmark-mode]="referenceTab() === 'bookmark'"
+      >
+        <span>{{ question.number }}³</span>
         <span>=</span>
-        <span>{{ number * number * number }}</span>
+        <span>{{ question.number * question.number * question.number }}</span>
+        @if (referenceTab() === "bookmark") {
+          <button
+            type="button"
+            class="bookmark-btn"
+            [class.bookmarked]="!isRemoved(question)"
+            (click)="toggleBookmark(question)"
+          >
+            &#9733;
+          </button>
+        }
       </div>
     }
   }
 
   @if (mode === PracticeMode.SquareRoots) {
-    @for (number of numbers; track number) {
-      <div class="power-row">
-        <span>√{{ number * number }}</span>
+    @for (question of questions(); track question.number) {
+      <div
+        class="power-row"
+        [class.bookmark-mode]="referenceTab() === 'bookmark'"
+      >
+        <span>√{{ question.number * question.number }}</span>
         <span>=</span>
-        <span>{{ number }}</span>
+        <span>{{ question.number }}</span>
+        @if (referenceTab() === "bookmark") {
+          <button
+            type="button"
+            class="bookmark-btn"
+            [class.bookmarked]="!isRemoved(question)"
+            (click)="toggleBookmark(question)"
+          >
+            &#9733;
+          </button>
+        }
       </div>
     }
   }
 
   @if (mode === PracticeMode.CubeRoots) {
-    @for (number of numbers; track number) {
-      <div class="power-row">
-        <span>∛{{ number * number * number }}</span>
+    @for (question of questions(); track question.number) {
+      <div
+        class="power-row"
+        [class.bookmark-mode]="referenceTab() === 'bookmark'"
+      >
+        <span>∛{{ question.number * question.number * question.number }}</span>
         <span>=</span>
-        <span>{{ number }}</span>
+        <span>{{ question.number }}</span>
+        @if (referenceTab() === "bookmark") {
+          <button
+            type="button"
+            class="bookmark-btn"
+            [class.bookmarked]="!isRemoved(question)"
+            (click)="toggleBookmark(question)"
+          >
+            &#9733;
+          </button>
+        }
       </div>
     }
   }

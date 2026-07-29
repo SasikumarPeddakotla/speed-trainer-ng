@@ -107,9 +107,11 @@ export class PowerEngine {
     this.numbers = this.randomService.shuffle(numbers);
   }
 
-  getNumbersReference(): number[] {
+  getNumbersReference(): PowerQuestion[] {
     const max = Number(this.settingsService.settings().numberRange);
 
-    return Array.from({ length: max - 1 }, (_, i) => i + 2);
+    return Array.from({ length: max - 1 }, (_, i) => ({
+      number: i + 2,
+    }));
   }
 }

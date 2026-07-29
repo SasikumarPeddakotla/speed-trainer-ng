@@ -2,6 +2,7 @@ import {
   Component,
   effect,
   ElementRef,
+  inject,
   OnDestroy,
   OnInit,
   ViewChild,
@@ -17,6 +18,7 @@ import { KeyboardComponent } from '../keyboard/keyboard.component';
 import { TimerService } from '../../core/services/timer.service';
 import { Router } from '@angular/router';
 import { ReviewService } from '../../core/services/review.service';
+import { BookmarkService } from '../../core/services/bookmark.service';
 
 @Component({
   selector: 'app-trainer',
@@ -39,6 +41,12 @@ export class TrainerComponent implements OnInit, OnDestroy {
 
   countdownValue: number | null = null;
 
+  public settingsService = inject(SettingsService);
+
+  private get mode() {
+    return this.settingsService.settings().selectedExercise!.mode;
+  }
+
   @ViewChild('textInput')
   textInput?: ElementRef<HTMLInputElement>;
 
@@ -46,10 +54,10 @@ export class TrainerComponent implements OnInit, OnDestroy {
     public questionService: QuestionService,
     private validationService: ValidationService,
     public sessionService: SessionService,
-    public settingsService: SettingsService,
     public timerService: TimerService,
     private router: Router,
     private reviewService: ReviewService,
+    private bookmarkService: BookmarkService,
   ) {
     effect(() => {
       if (
@@ -302,5 +310,25 @@ export class TrainerComponent implements OnInit, OnDestroy {
     const direction = settings.direction;
 
     return direction ? `${mode}_${direction}` : mode;
+  }
+
+  toggleBookmark(): void {
+    const question = this.questionService.currentQuestion();
+
+    if (!question?.data) {
+      return;
+    }
+
+    this.bookmarkService.toggle(this.mode, question.data);
+  }
+
+  isBookmarked(): boolean {
+    const question = this.questionService.currentQuestion();
+
+    if (!question?.data) {
+      return false;
+    }
+
+    return this.bookmarkService.isBookmarked(this.mode, question.data);
   }
 }

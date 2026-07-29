@@ -59,7 +59,19 @@
   color: #7c3aed;
 }
 
-.conversion-table td:last-child {
+.conversion-table td:nth-child(3) {
   font-weight: 700;
   color: #16a34a;
+}
+
+.bookmark-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 25px;
+  color: #f4b400;
+}
+
+.bookmark-btn:not(.bookmarked) {
+  color: #cbd5e1;
 }

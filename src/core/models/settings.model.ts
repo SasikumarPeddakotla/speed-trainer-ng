@@ -26,4 +26,6 @@ export interface Settings {
   direction: 'forward' | 'backward';
 
   wordsLimit: string;
+
+  referenceView: 'all' | 'weak' | 'bookmark';
 }

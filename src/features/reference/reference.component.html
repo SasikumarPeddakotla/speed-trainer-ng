@@ -9,7 +9,7 @@
     <button
       type="button"
       class="toggle-button"
-      [class.active]="!isWeakMode()"
+      [class.active]="referenceTab() === 'all'"
       (click)="showAllQuestions()"
     >
       All Questions
@@ -18,10 +18,19 @@
     <button
       type="button"
       class="toggle-button"
-      [class.active]="isWeakMode()"
+      [class.active]="referenceTab() === 'weak'"
       (click)="showWeakQuestions()"
     >
       Weak Questions
+    </button>
+
+    <button
+      type="button"
+      class="toggle-button"
+      [class.active]="referenceTab() === 'bookmark'"
+      (click)="showBookmarkQuestions()"
+    >
+      Bookmarks
     </button>
   </div>
 
@@ -38,32 +47,32 @@
 
 @switch (topic?.route) {
   @case ("alphabet") {
-    <app-alphabet-reference [isWeakMode]="isWeakMode()" />
+    <app-alphabet-reference [referenceTab]="referenceTab()" />
   }
 
   @case ("vocabulary") {
     <app-vocabulary-reference
       [searchText]="searchText()"
-      [isWeakMode]="isWeakMode()"
+      [referenceTab]="referenceTab()"
     />
   }
 
   @case ("tables") {
-    <app-tables-reference [isWeakMode]="isWeakMode()" />
+    <app-tables-reference [referenceTab]="referenceTab()" />
   }
 
   @case ("powers") {
-    <app-power-reference [isWeakMode]="isWeakMode()" />
+    <app-power-reference [referenceTab]="referenceTab()" />
   }
 
   @case ("conversions") {
-    <app-conversion-reference [isWeakMode]="isWeakMode()" />
+    <app-conversion-reference [referenceTab]="referenceTab()" />
   }
 
   @case ("polity") {
     <app-polity-reference
       [searchText]="searchText()"
-      [isWeakMode]="isWeakMode()"
+      [referenceTab]="referenceTab()"
     />
   }
 

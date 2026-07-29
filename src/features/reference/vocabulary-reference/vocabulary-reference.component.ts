@@ -8,6 +8,7 @@ import { Antonym } from '../../../core/models/antonym.model';
 import { OneWord } from '../../../core/models/one-word.model';
 import { Idiom } from '../../../core/models/idiom.model';
 import { ReviewService } from '../../../core/services/review.service';
+import { BookmarkService } from '../../../core/services/bookmark.service';
 
 @Component({
   selector: 'app-vocabulary-reference',
@@ -22,10 +23,13 @@ export class VocabularyReferenceComponent {
   private settingsService = inject(SettingsService);
   private reviewService = inject(ReviewService);
   private vocabularyEngine = inject(VocabularyEngine);
+  private bookmarkService = inject(BookmarkService);
+
+  private removedBookmarks = new Set<unknown>();
 
   public PracticeMode = PracticeMode;
 
-  isWeakMode = input<boolean>();
+  referenceTab = input<'all' | 'weak' | 'bookmark'>();
 
   readonly filteredSynonyms = computed(() => {
     const search = this.searchText()!.trim().toLowerCase();
@@ -109,34 +113,68 @@ export class VocabularyReferenceComponent {
     ?.mode as PracticeMode;
 
   get synonyms(): Synonym[] {
-    if (this.isWeakMode()) {
-      return this.reviewService.getPendingQuestions<Synonym>(this.mode);
-    }
+    switch (this.referenceTab()) {
+      case 'bookmark':
+        return this.bookmarkService.getBookmarks<Synonym>(this.mode);
 
-    return this.vocabularyEngine.getSynonymsReference();
+      case 'weak':
+        return this.reviewService.getPendingQuestions<Synonym>(this.mode);
+
+      default:
+        return this.vocabularyEngine.getSynonymsReference();
+    }
   }
 
   get antonyms(): Antonym[] {
-    if (this.isWeakMode()) {
-      return this.reviewService.getPendingQuestions<Antonym>(this.mode);
-    }
+    switch (this.referenceTab()) {
+      case 'bookmark':
+        return this.bookmarkService.getBookmarks<Antonym>(this.mode);
 
-    return this.vocabularyEngine.getAntonymsReference();
+      case 'weak':
+        return this.reviewService.getPendingQuestions<Antonym>(this.mode);
+
+      default:
+        return this.vocabularyEngine.getAntonymsReference();
+    }
   }
 
   get oneWords(): OneWord[] {
-    if (this.isWeakMode()) {
-      return this.reviewService.getPendingQuestions<OneWord>(this.mode);
-    }
+    switch (this.referenceTab()) {
+      case 'bookmark':
+        return this.bookmarkService.getBookmarks<OneWord>(this.mode);
 
-    return this.vocabularyEngine.getOneWordsReference();
+      case 'weak':
+        return this.reviewService.getPendingQuestions<OneWord>(this.mode);
+
+      default:
+        return this.vocabularyEngine.getOneWordsReference();
+    }
   }
 
   get idioms(): Idiom[] {
-    if (this.isWeakMode()) {
-      return this.reviewService.getPendingQuestions<Idiom>(this.mode);
-    }
+    switch (this.referenceTab()) {
+      case 'bookmark':
+        return this.bookmarkService.getBookmarks<Idiom>(this.mode);
 
-    return this.vocabularyEngine.getIdiomsReference();
+      case 'weak':
+        return this.reviewService.getPendingQuestions<Idiom>(this.mode);
+
+      default:
+        return this.vocabularyEngine.getIdiomsReference();
+    }
+  }
+
+  toggleBookmark<T>(question: T): void {
+    if (this.removedBookmarks.has(question)) {
+      this.bookmarkService.add(this.mode, question);
+      this.removedBookmarks.delete(question);
+    } else {
+      this.bookmarkService.remove(this.mode, question);
+      this.removedBookmarks.add(question);
+    }
+  }
+
+  isRemoved(question: unknown): boolean {
+    return this.removedBookmarks.has(question);
   }
 }

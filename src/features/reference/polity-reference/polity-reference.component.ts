@@ -6,6 +6,7 @@ import { SettingsService } from '../../../core/services/settings.service';
 import { PracticeMode } from '../../../core/enums/practice-mode.enum';
 import { Alphabet } from '../../../core/models/alphabet.model';
 import { ReviewService } from '../../../core/services/review.service';
+import { BookmarkService } from '../../../core/services/bookmark.service';
 
 @Component({
   selector: 'app-polity-reference',
@@ -19,18 +20,26 @@ export class PolityReferenceComponent {
   private polityEngine = inject(PolityEngine);
   private settingsService = inject(SettingsService);
   private reviewService = inject(ReviewService);
+  private bookmarkService = inject(BookmarkService);
 
-  isWeakMode = input<boolean>();
+  private removedBookmarks = new Set<unknown>();
+
+  referenceTab = input<'all' | 'weak' | 'bookmark'>();
 
   protected readonly mode = this.settingsService.settings().selectedExercise
     ?.mode as PracticeMode;
 
   get articles(): Article[] {
-    if (this.isWeakMode()) {
-      return this.reviewService.getPendingQuestions<Article>(this.mode);
-    }
+    switch (this.referenceTab()) {
+      case 'bookmark':
+        return this.bookmarkService.getBookmarks<Article>(this.mode);
 
-    return this.polityEngine.getArticlesReference();
+      case 'weak':
+        return this.reviewService.getPendingQuestions<Article>(this.mode);
+
+      default:
+        return this.polityEngine.getArticlesReference();
+    }
   }
 
   readonly filteredArticles = computed(() => {
@@ -50,4 +59,18 @@ export class PolityReferenceComponent {
         article.title.toLowerCase().includes(search),
     );
   });
+
+  toggleBookmark<T>(question: T): void {
+    if (this.removedBookmarks.has(question)) {
+      this.bookmarkService.add(this.mode, question);
+      this.removedBookmarks.delete(question);
+    } else {
+      this.bookmarkService.remove(this.mode, question);
+      this.removedBookmarks.add(question);
+    }
+  }
+
+  isRemoved(question: unknown): boolean {
+    return this.removedBookmarks.has(question);
+  }
 }

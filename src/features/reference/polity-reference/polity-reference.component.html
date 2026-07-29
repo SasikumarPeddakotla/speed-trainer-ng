@@ -1,7 +1,20 @@
 <div class="reference-grid">
   @for (article of filteredArticles(); track article.article) {
     <div class="reference-card">
-      <h3>Article {{ article.article }}</h3>
+      <div class="card-header">
+        <h3>Article {{ article.article }}</h3>
+
+        @if (referenceTab() === "bookmark") {
+          <button
+            type="button"
+            class="bookmark-btn"
+            [class.bookmarked]="!isRemoved(article)"
+            (click)="toggleBookmark(article)"
+          >
+            &#9733;
+          </button>
+        }
+      </div>
 
       <div class="divider"></div>
 

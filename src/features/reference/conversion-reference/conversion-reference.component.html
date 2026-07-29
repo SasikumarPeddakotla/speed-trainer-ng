@@ -5,15 +5,30 @@
         <th>Fraction</th>
         <th>Decimal</th>
         <th>Percentage</th>
+        @if (referenceTab() === "bookmark") {
+          <th></th>
+        }
       </tr>
     </thead>
 
     <tbody>
-      @for (conversion of conversions; track conversion.fraction) {
+      @for (question of conversions(); track question.conversion.fraction) {
         <tr>
-          <td>{{ conversion.fraction }}</td>
-          <td>{{ conversion.decimal }}</td>
-          <td>{{ conversion.percentage }}%</td>
+          <td>{{ question.conversion.fraction }}</td>
+          <td>{{ question.conversion.decimal }}</td>
+          <td>{{ question.conversion.percentage }}%</td>
+          @if (referenceTab() === "bookmark") {
+            <td>
+              <button
+                type="button"
+                class="bookmark-btn"
+                [class.bookmarked]="!isRemoved(question)"
+                (click)="toggleBookmark(question)"
+              >
+                &#9733;
+              </button>
+            </td>
+          }
         </tr>
       }
     </tbody>

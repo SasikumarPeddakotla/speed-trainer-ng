@@ -43,9 +43,24 @@
   text-align: center;
 }
 
-.power-row span:last-child {
+.power-row span:nth-child(3) {
   text-align: center;
-
   font-weight: 700;
   color: #16a34a;
+}
+
+.power-row.bookmark-mode {
+  grid-template-columns: 1fr 1fr 1fr auto;
+}
+
+.bookmark-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 25px;
+  color: #f4b400;
+}
+
+.bookmark-btn:not(.bookmarked) {
+  color: #cbd5e1;
 }

@@ -1,0 +1,60 @@
+<div class="page">
+  <div class="page-header">
+    <h1>Bookmarks</h1>
+
+    <p class="subtitle">
+      {{ totalBookmarks }}
+      bookmarked {{ totalBookmarks === 1 ? "question" : "questions" }}
+    </p>
+
+    <!-- Uncomment when Practice All is implemented -->
+
+    <!-- <button class="practice-all-btn" (click)="openTrainer()">▶ Practice All Bookmarks</button> -->
+  </div>
+
+  @if (bookmarkTopics.length === 0) {
+    <div class="empty-state">
+      <div class="empty-icon">⭐</div>
+
+      <h2>No bookmarks yet</h2>
+
+      <p>
+        Bookmark questions while practicing to build your own revision list.
+      </p>
+    </div>
+  } @else {
+    @for (topic of bookmarkTopics; track topic.title) {
+      <div class="topic-card">
+        <div class="topic-header">
+          <div class="topic-title">
+            <h2>{{ topic.title }}</h2>
+          </div>
+
+          <span class="badge">{{ topic.total }}</span>
+        </div>
+
+        @for (item of topic.exercises; track item.exercise.mode) {
+          @if (item.count > 0) {
+            <button class="exercise-row" (click)="openBookmarks(item.exercise)">
+              <div class="exercise-info">
+                <div class="exercise-title">
+                  {{ item.exercise.title }}
+                </div>
+
+                <div class="exercise-subtitle">
+                  {{ item.count }}
+                  bookmarked
+                  {{ item.count === 1 ? "question" : "questions" }}
+                </div>
+              </div>
+
+              <div class="exercise-right">
+                <span class="arrow"> → </span>
+              </div>
+            </button>
+          }
+        }
+      </div>
+    }
+  }
+</div>

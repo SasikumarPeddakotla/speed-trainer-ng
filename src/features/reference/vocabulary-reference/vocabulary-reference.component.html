@@ -2,7 +2,20 @@
   @if (mode === PracticeMode.Synonyms) {
     @for (word of filteredSynonyms(); track word.word; let i = $index) {
       <div class="reference-card">
-        <h3>{{ i + 1 }}. {{ word.word }} ({{ word.partsOfSpeech }})</h3>
+        <div class="card-header">
+          <h3>{{ i + 1 }}. {{ word.word }} ({{ word.partsOfSpeech }})</h3>
+
+          @if (referenceTab() === "bookmark") {
+            <button
+              type="button"
+              class="bookmark-btn"
+              [class.bookmarked]="!isRemoved(word)"
+              (click)="toggleBookmark(word)"
+            >
+              &#9733;
+            </button>
+          }
+        </div>
 
         <p>
           <strong>Meaning</strong><br />
@@ -19,7 +32,20 @@
   @if (mode === PracticeMode.Antonyms) {
     @for (word of filteredAntonyms(); track word.word; let i = $index) {
       <div class="reference-card">
-        <h3>{{ i + 1 }}. {{ word.word }} ({{ word.partsOfSpeech }})</h3>
+        <div class="card-header">
+          <h3>{{ i + 1 }}. {{ word.word }} ({{ word.partsOfSpeech }})</h3>
+
+          @if (referenceTab() === "bookmark") {
+            <button
+              type="button"
+              class="bookmark-btn"
+              [class.bookmarked]="!isRemoved(word)"
+              (click)="toggleBookmark(word)"
+            >
+              &#9733;
+            </button>
+          }
+        </div>
 
         <p>
           <strong>Meaning</strong><br />
@@ -36,7 +62,20 @@
   @if (mode === PracticeMode.OneWord) {
     @for (word of filteredOneWords(); track word.word; let i = $index) {
       <div class="reference-card">
-        <h3>{{ i + 1 }}. {{ word.word }} ({{ word.partsOfSpeech }})</h3>
+        <div class="card-header">
+          <h3>{{ i + 1 }}. {{ word.word }} ({{ word.partsOfSpeech }})</h3>
+
+          @if (referenceTab() === "bookmark") {
+            <button
+              type="button"
+              class="bookmark-btn"
+              [class.bookmarked]="!isRemoved(word)"
+              (click)="toggleBookmark(word)"
+            >
+              &#9733;
+            </button>
+          }
+        </div>
 
         <p>
           <strong>Phrase</strong><br />
@@ -48,7 +87,20 @@
   @if (mode === PracticeMode.Idioms) {
     @for (word of filteredIdioms(); track word.idiom; let i = $index) {
       <div class="reference-card">
-        <h3>{{ i + 1 }}. {{ word.idiom }}</h3>
+        <div class="card-header">
+          <h3>{{ i + 1 }}. {{ word.idiom }}</h3>
+
+          @if (referenceTab() === "bookmark") {
+            <button
+              type="button"
+              class="bookmark-btn"
+              [class.bookmarked]="!isRemoved(word)"
+              (click)="toggleBookmark(word)"
+            >
+              &#9733;
+            </button>
+          }
+        </div>
 
         <p>
           <strong>Meaning</strong><br />

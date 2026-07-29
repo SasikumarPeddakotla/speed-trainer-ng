@@ -1,13 +1,27 @@
 <div class="tables-grid">
-  @for (table of tables; track table.table) {
+  @for (table of tables(); track table.table) {
     <div class="table-card">
       <h3>{{ table.table }} Table</h3>
 
-      @for (multiplier of table.multipliers; track multiplier) {
-        <div class="table-row">
-          <span>{{ table.table }} × {{ multiplier }}</span>
+      @for (question of table.questions; track question.multiplier) {
+        <div
+          class="table-row"
+          [class.bookmark-mode]="referenceTab() === 'bookmark'"
+        >
+          <span>{{ question.table }} × {{ question.multiplier }}</span>
           <span>=</span>
-          <span>{{ table.table * multiplier }}</span>
+          <span>{{ question.table * question.multiplier }}</span>
+
+          @if (referenceTab() === "bookmark") {
+            <button
+              type="button"
+              class="bookmark-btn"
+              [class.bookmarked]="!isRemoved(question)"
+              (click)="toggleBookmark(question)"
+            >
+              &#9733;
+            </button>
+          }
         </div>
       }
     </div>

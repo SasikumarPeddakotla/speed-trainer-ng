@@ -42,6 +42,7 @@ export class PracticeSettingsComponent {
 
   openReference() {
     const exercise = this.settingsService.settings().selectedExercise;
+    this.settingsService.setReferenceView('all');
     this.router.navigate([exercise?.route, 'reference']);
   }
 

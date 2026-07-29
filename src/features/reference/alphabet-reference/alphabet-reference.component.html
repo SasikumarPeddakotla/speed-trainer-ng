@@ -6,16 +6,31 @@
         <th>Position</th>
         <th>Reverse</th>
         <th>Mirror</th>
+        @if (referenceTab() === "bookmark") {
+          <th></th>
+        }
       </tr>
     </thead>
 
     <tbody>
-      @for (alphabet of alphabets; track alphabet.letter) {
+      @for (alphabet of alphabets(); track alphabet.letter) {
         <tr>
           <td>{{ alphabet.letter }}</td>
           <td>{{ alphabet.position }}</td>
           <td>{{ alphabet.reversePosition }}</td>
           <td>{{ alphabet.mirrorLetter }}</td>
+          @if (referenceTab() === "bookmark") {
+            <td>
+              <button
+                type="button"
+                class="bookmark-btn"
+                [class.bookmarked]="!isRemoved(alphabet)"
+                (click)="toggleBookmark(alphabet)"
+              >
+                &#9733;
+              </button>
+            </td>
+          }
         </tr>
       }
     </tbody>

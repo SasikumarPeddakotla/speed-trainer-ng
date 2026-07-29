@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 
 import { SettingsService } from '../../core/services/settings.service';
 
@@ -8,7 +8,6 @@ import { TablesReferenceComponent } from './tables-reference/tables-reference.co
 import { PowerReferenceComponent } from './power-reference/power-reference.component';
 import { ConversionReferenceComponent } from './conversion-reference/conversion-reference.component';
 import { PolityReferenceComponent } from './polity-reference/polity-reference.component';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-reference',
@@ -27,7 +26,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ReferenceComponent {
   private settingsService = inject(SettingsService);
 
-  protected readonly isWeakMode = signal(false);
+  protected readonly referenceTab = computed(
+    () => this.settingsService.settings().referenceView,
+  );
 
   protected readonly topic = this.settingsService.settings().selectedTopic;
 
@@ -37,10 +38,14 @@ export class ReferenceComponent {
   protected readonly searchText = signal('');
 
   showAllQuestions(): void {
-    this.isWeakMode.set(false);
+    this.settingsService.setReferenceView('all');
   }
 
   showWeakQuestions(): void {
-    this.isWeakMode.set(true);
+    this.settingsService.setReferenceView('weak');
+  }
+
+  showBookmarkQuestions(): void {
+    this.settingsService.setReferenceView('bookmark');
   }
 }

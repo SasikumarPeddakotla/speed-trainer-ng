@@ -1,14 +1,15 @@
-import { Component, inject, input } from '@angular/core';
+import { Component, computed, inject, input } from '@angular/core';
 
 import { TablesEngine } from '../../../core/engines/tables.engine';
 import { SettingsService } from '../../../core/services/settings.service';
 import { TableQuestion } from '../../../core/models/table-question.model';
 import { ReviewService } from '../../../core/services/review.service';
 import { PracticeMode } from '../../../core/enums/practice-mode.enum';
+import { BookmarkService } from '../../../core/services/bookmark.service';
 
 interface TableReference {
   table: number;
-  multipliers: number[];
+  questions: TableQuestion[];
 }
 
 @Component({
@@ -22,14 +23,17 @@ export class TablesReferenceComponent {
   private tablesEngine = inject(TablesEngine);
   private settingsService = inject(SettingsService);
   private reviewService = inject(ReviewService);
+  private bookmarkService = inject(BookmarkService);
 
-  isWeakMode = input<boolean>();
+  private removedBookmarks = new Set<unknown>();
+
+  referenceTab = input<'all' | 'weak' | 'bookmark'>();
 
   protected readonly mode = this.settingsService.settings().selectedExercise
     ?.mode as PracticeMode;
 
   // get tables(): number[] {
-  //   if (this.isWeakMode()) {
+  //   if (this.referenceTab()) {
   //     return this.reviewService
   //       .getPendingQuestions<TableQuestion>(this.mode)
   //       .map((q) => q.table);
@@ -43,33 +47,59 @@ export class TablesReferenceComponent {
     (_, i) => i + 1,
   );
 
-  get tables(): TableReference[] {
-    if (!this.isWeakMode()) {
-      return this.tablesEngine.getTablesReference().map((table) => ({
-        table,
-        multipliers: this.multipliers,
-      }));
+  readonly tables = computed<TableReference[]>(() => {
+    switch (this.referenceTab()) {
+      case 'weak':
+        return this.buildTableReference(
+          this.reviewService.getPendingQuestions<TableQuestion>(this.mode),
+        );
+
+      case 'bookmark':
+        return this.buildTableReference([
+          ...this.bookmarkService.getBookmarks<TableQuestion>(this.mode),
+        ]);
+
+      default:
+        return this.tablesEngine.getTablesReference().map((table) => ({
+          table,
+          questions: this.multipliers.map((multiplier) => ({
+            table,
+            multiplier,
+          })),
+        }));
     }
+  });
 
-    const questions = this.reviewService.getPendingQuestions<TableQuestion>(
-      this.mode,
-    );
-
-    const grouped = new Map<number, Set<number>>();
+  private buildTableReference(questions: TableQuestion[]): TableReference[] {
+    const grouped = new Map<number, TableQuestion[]>();
 
     for (const question of questions) {
       if (!grouped.has(question.table)) {
-        grouped.set(question.table, new Set<number>());
+        grouped.set(question.table, []);
       }
 
-      grouped.get(question.table)!.add(question.multiplier);
+      grouped.get(question.table)!.push(question);
     }
 
     return [...grouped.entries()]
       .sort((a, b) => a[0] - b[0])
-      .map(([table, multipliers]) => ({
+      .map(([table, questions]) => ({
         table,
-        multipliers: [...multipliers].sort((a, b) => a - b),
+        questions: questions.sort((a, b) => a.multiplier - b.multiplier),
       }));
+  }
+
+  toggleBookmark<T>(question: T): void {
+    if (this.removedBookmarks.has(question)) {
+      this.bookmarkService.add(this.mode, question);
+      this.removedBookmarks.delete(question);
+    } else {
+      this.bookmarkService.remove(this.mode, question);
+      this.removedBookmarks.add(question);
+    }
+  }
+
+  isRemoved(question: unknown): boolean {
+    return this.removedBookmarks.has(question);
   }
 }

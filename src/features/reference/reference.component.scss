@@ -40,7 +40,7 @@
 }
 
 .reference-card h3 {
-  margin: 0 0 16px;
+  margin: 0;
   color: #2563eb;
   font-size: 1.15rem;
 }
@@ -134,4 +134,20 @@
 
 .toggle-button:hover:not(.active) {
   background: #f3f4f6;
+}
+
+.bookmark-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 25px;
+  padding: 0;
+}
+
+.bookmark-btn.bookmarked {
+  color: #f4b400;
+}
+
+.bookmark-btn:hover {
+  transform: scale(1.1);
 }

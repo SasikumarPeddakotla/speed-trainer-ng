@@ -9,6 +9,7 @@ import { SettingsComponent } from '../features/settings/settings.component';
 import { TopicComponent } from '../features/topic/topic.component';
 import { ExerciseComponent } from '../features/exercise/exercise.component';
 import { ReferenceComponent } from '../features/reference/reference.component';
+import { BookmarksComponent } from '../features/bookmarks/bookmarks.component';
 
 export const routes: Routes = [
   {
@@ -39,6 +40,10 @@ export const routes: Routes = [
   {
     path: ':exercise/reference',
     component: ReferenceComponent,
+  },
+  {
+    path: 'bookmarks',
+    component: BookmarksComponent,
   },
   {
     path: 'summary',

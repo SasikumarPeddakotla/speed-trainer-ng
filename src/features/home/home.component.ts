@@ -33,7 +33,7 @@ export class HomeComponent {
     this.router.navigate(['/settings']);
   }
 
-  openWeakAreas() {
-    this.router.navigate(['/weak-areas']);
+  openBookmarks() {
+    this.router.navigate(['/bookmarks']);
   }
 }
