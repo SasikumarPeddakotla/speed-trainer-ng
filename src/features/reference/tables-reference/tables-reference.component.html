@@ -1,13 +1,13 @@
 <div class="tables-grid">
-  @for (table of tables; track table) {
+  @for (table of tables; track table.table) {
     <div class="table-card">
-      <h3>{{ table }} Table</h3>
+      <h3>{{ table.table }} Table</h3>
 
-      @for (multiplier of multipliers; track multiplier) {
+      @for (multiplier of table.multipliers; track multiplier) {
         <div class="table-row">
-          <span>{{ table }} × {{ multiplier }}</span>
+          <span>{{ table.table }} × {{ multiplier }}</span>
           <span>=</span>
-          <span>{{ table * multiplier }}</span>
+          <span>{{ table.table * multiplier }}</span>
         </div>
       }
     </div>
