@@ -22,6 +22,10 @@ export class PolityEngine {
   generateArticles(): Question<Article> {
     const article = this.nextArticle();
 
+    return this.createArticleQuestion(article);
+  }
+
+  createArticleQuestion(article: Article): Question<Article> {
     const direction = this.settingsService.settings().direction;
     const options = this.buildOptions(article);
 
@@ -29,7 +33,7 @@ export class PolityEngine {
       return {
         question: `Article ${article.article}`,
         answer: article.title,
-        options: options,
+        options,
         data: article,
         inputType: 'multiple-choice',
         displayType: 'text',
@@ -39,7 +43,7 @@ export class PolityEngine {
     return {
       question: article.title,
       answer: `Article ${article.article}`,
-      options: options,
+      options,
       data: article,
       inputType: 'multiple-choice',
       displayType: 'text',

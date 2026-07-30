@@ -24,33 +24,34 @@ export class ConversionEngine {
   generateQuestion() {
     const mode = this.settingsService.settings().selectedExercise?.mode;
     const direction = this.settingsService.settings().direction;
+    const conversion = this.nextConversion();
+
     switch (mode) {
       case PracticeMode.FractionDecimal:
         return direction === Direction.Forward
-          ? this.generateConversionQuestion('fraction', 'decimal')
-          : this.generateConversionQuestion('decimal', 'fraction');
+          ? this.createConversionQuestion(conversion, 'fraction', 'decimal')
+          : this.createConversionQuestion(conversion, 'decimal', 'fraction');
 
       case PracticeMode.FractionPercentage:
         return direction === Direction.Forward
-          ? this.generateConversionQuestion('fraction', 'percentage')
-          : this.generateConversionQuestion('percentage', 'fraction');
+          ? this.createConversionQuestion(conversion, 'fraction', 'percentage')
+          : this.createConversionQuestion(conversion, 'percentage', 'fraction');
 
       case PracticeMode.DecimalPercentage:
         return direction === Direction.Forward
-          ? this.generateConversionQuestion('decimal', 'percentage')
-          : this.generateConversionQuestion('percentage', 'decimal');
+          ? this.createConversionQuestion(conversion, 'decimal', 'percentage')
+          : this.createConversionQuestion(conversion, 'percentage', 'decimal');
 
       default:
         return null;
     }
   }
 
-  private generateConversionQuestion(
+  createConversionQuestion(
+    conversion: FractionConversion,
     questionKey: keyof FractionConversion,
     answerKey: keyof FractionConversion,
   ): Question<ConversionQuestion> {
-    const conversion = this.nextConversion();
-
     return {
       question:
         conversion[questionKey] + (questionKey === 'percentage' ? '%' : ''),

@@ -64,6 +64,9 @@ export class ReviewService {
 
   advanceDelays(): void {
     const exerciseKey = this.exerciseService.getExerciseKey();
+    if (exerciseKey === PracticeMode.Bookmark) {
+      return;
+    }
     const queue = this.getQueue(exerciseKey);
 
     for (const review of queue) {
@@ -77,6 +80,9 @@ export class ReviewService {
 
   recordWrong<T>(question: T): boolean {
     const exerciseKey = this.exerciseService.getExerciseKey();
+    if (exerciseKey === PracticeMode.Bookmark) {
+      return false;
+    }
     const currentReview = this.currentReviewItem.get(exerciseKey);
 
     // Wrong while answering a review
@@ -113,6 +119,9 @@ export class ReviewService {
 
   recordCorrect(): boolean {
     const exerciseKey = this.exerciseService.getExerciseKey();
+    if (exerciseKey === PracticeMode.Bookmark) {
+      return false;
+    }
     const review = this.currentReviewItem.get(exerciseKey);
 
     // Normal question

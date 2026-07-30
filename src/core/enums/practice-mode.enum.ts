@@ -25,4 +25,6 @@ export enum PracticeMode {
   Antonyms = 'antonyms',
   OneWord = 'one-word',
   Idioms = 'idioms',
+
+  Bookmark = 'bookmark',
 }

@@ -45,6 +45,10 @@ export class AlphabetEngine {
   letterToPosition(): Question<Alphabet> {
     const alphabet = this.nextAlphabet();
 
+    return this.createLetterToPosition(alphabet);
+  }
+
+  createLetterToPosition(alphabet: Alphabet): Question<Alphabet> {
     return {
       question: alphabet.letter,
       answer: String(alphabet.position),
@@ -57,6 +61,10 @@ export class AlphabetEngine {
   positionToLetter(): Question<Alphabet> {
     const alphabet = this.nextAlphabet();
 
+    return this.createPositionToLetter(alphabet);
+  }
+
+  createPositionToLetter(alphabet: Alphabet): Question<Alphabet> {
     return {
       question: String(alphabet.position),
       answer: alphabet.letter,
@@ -69,6 +77,10 @@ export class AlphabetEngine {
   letterToReversePosition(): Question<Alphabet> {
     const alphabet = this.nextAlphabet();
 
+    return this.createLetterToReversePosition(alphabet);
+  }
+
+  createLetterToReversePosition(alphabet: Alphabet): Question<Alphabet> {
     return {
       question: alphabet.letter,
       answer: String(alphabet.reversePosition),
@@ -81,6 +93,10 @@ export class AlphabetEngine {
   reversePositionToLetter(): Question<Alphabet> {
     const alphabet = this.nextAlphabet();
 
+    return this.createReversePositionToLetter(alphabet);
+  }
+
+  createReversePositionToLetter(alphabet: Alphabet): Question<Alphabet> {
     return {
       question: String(alphabet.reversePosition),
       answer: alphabet.letter,
@@ -93,6 +109,10 @@ export class AlphabetEngine {
   mirrorLetter(): Question<Alphabet> {
     const alphabet = this.nextAlphabet();
 
+    return this.createMirrorLetter(alphabet);
+  }
+
+  createMirrorLetter(alphabet: Alphabet): Question<Alphabet> {
     return {
       question: alphabet.letter,
       answer: alphabet.mirrorLetter,

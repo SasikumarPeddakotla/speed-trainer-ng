@@ -22,57 +22,25 @@ export class PowerEngine {
   generateSquare(): Question<PowerQuestion> {
     const number = this.nextNumber();
 
-    return {
-      question: `${number}²`,
-      answer: String(number * number),
-      data: {
-        number,
-      },
-      inputType: 'number',
-      displayType: 'symbol',
-    };
+    return this.createSquare({ number });
   }
 
   generateCube(): Question<PowerQuestion> {
     const number = this.nextNumber();
 
-    return {
-      question: `${number}³`,
-      answer: String(number ** 3),
-      data: {
-        number,
-      },
-      inputType: 'number',
-      displayType: 'symbol',
-    };
+    return this.createCube({ number });
   }
 
   generateSquareRoot(): Question<PowerQuestion> {
     const number = this.nextNumber();
 
-    return {
-      question: `√${number * number}`,
-      answer: String(number),
-      data: {
-        number,
-      },
-      inputType: 'number',
-      displayType: 'symbol',
-    };
+    return this.createSquareRoot({ number });
   }
 
   generateCubeRoot(): Question<PowerQuestion> {
     const number = this.nextNumber();
 
-    return {
-      question: `∛${number ** 3}`,
-      answer: String(number),
-      data: {
-        number,
-      },
-      inputType: 'number',
-      displayType: 'symbol',
-    };
+    return this.createCubeRoot({ number });
   }
 
   private nextNumber(): number {
@@ -105,6 +73,46 @@ export class PowerEngine {
     }
 
     this.numbers = this.randomService.shuffle(numbers);
+  }
+
+  createSquare(question: PowerQuestion): Question<PowerQuestion> {
+    return {
+      question: `${question.number}²`,
+      answer: String(question.number * question.number),
+      data: question,
+      inputType: 'number',
+      displayType: 'symbol',
+    };
+  }
+
+  createCube(question: PowerQuestion): Question<PowerQuestion> {
+    return {
+      question: `${question.number}³`,
+      answer: String(question.number ** 3),
+      data: question,
+      inputType: 'number',
+      displayType: 'symbol',
+    };
+  }
+
+  createSquareRoot(question: PowerQuestion): Question<PowerQuestion> {
+    return {
+      question: `√${question.number * question.number}`,
+      answer: String(question.number),
+      data: question,
+      inputType: 'number',
+      displayType: 'symbol',
+    };
+  }
+
+  createCubeRoot(question: PowerQuestion): Question<PowerQuestion> {
+    return {
+      question: `∛${question.number ** 3}`,
+      answer: String(question.number),
+      data: question,
+      inputType: 'number',
+      displayType: 'symbol',
+    };
   }
 
   getNumbersReference(): PowerQuestion[] {

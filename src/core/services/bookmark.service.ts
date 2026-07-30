@@ -4,6 +4,7 @@ import { PracticeMode } from '../enums/practice-mode.enum';
 import { StorageKeys } from '../enums/storage-keys.enum';
 import { StorageService } from './storage.service';
 import { BookmarkSummary } from '../models/bookmark-summary.model';
+import { BookmarkEntry } from '../models/bookmark-entry.model';
 
 interface BookmarkStorage {
   version: number;
@@ -119,10 +120,6 @@ export class BookmarkService {
     }
   }
 
-  getAllBookmarks(): ReadonlyMap<string, any[]> {
-    return this.bookmarkLists;
-  }
-
   getTotalBookmarks(): number {
     let total = 0;
 
@@ -144,5 +141,22 @@ export class BookmarkService {
         count: questions.length,
       }),
     );
+  }
+
+  getAllBookmarks(): BookmarkEntry[] {
+    const bookmarks: BookmarkEntry[] = [];
+
+    for (const [key, list] of this.bookmarkLists.entries()) {
+      const mode = key.split('_')[0] as PracticeMode;
+
+      for (const question of list) {
+        bookmarks.push({
+          mode,
+          question,
+        });
+      }
+    }
+
+    return bookmarks;
   }
 }

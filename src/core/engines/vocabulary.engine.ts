@@ -32,8 +32,10 @@ export class VocabularyEngine {
   ) {}
 
   generateSynonymQuestion(): Question<Synonym> {
-    const synonym = this.nextSynonym();
+    return this.createSynonymQuestion(this.nextSynonym());
+  }
 
+  createSynonymQuestion(synonym: Synonym): Question<Synonym> {
     const pair = this.getRandomWordPair(synonym.word, synonym.synonyms);
 
     return {
@@ -82,8 +84,10 @@ export class VocabularyEngine {
   }
 
   generateAntonymQuestion(): Question<Antonym> {
-    const antonym = this.nextAntonym();
+    return this.createAntonymQuestion(this.nextAntonym());
+  }
 
+  createAntonymQuestion(antonym: Antonym): Question<Antonym> {
     const pair = this.getRandomWordPair(antonym.word, antonym.antonyms);
 
     return {
@@ -132,8 +136,10 @@ export class VocabularyEngine {
   }
 
   generateOneWordQuestion(): Question<OneWord> {
-    const oneWord = this.nextOneWord();
+    return this.createOneWordQuestion(this.nextOneWord());
+  }
 
+  createOneWordQuestion(oneWord: OneWord): Question<OneWord> {
     return {
       question: oneWord.word,
 
@@ -176,8 +182,10 @@ export class VocabularyEngine {
   }
 
   generateIdiomQuestion(): Question<Idiom> {
-    const idiom = this.nextIdiom();
+    return this.createIdiomQuestion(this.nextIdiom());
+  }
 
+  createIdiomQuestion(idiom: Idiom): Question<Idiom> {
     return {
       question: idiom.idiom,
 

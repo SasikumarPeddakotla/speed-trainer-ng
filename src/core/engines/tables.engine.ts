@@ -20,12 +20,16 @@ export class TablesEngine {
   ) {}
 
   generate(): Question<TableQuestion> {
-    const questionData = this.nextQuestion();
+    const question = this.nextQuestion();
 
+    return this.createQuestion(question);
+  }
+
+  createQuestion(question: TableQuestion): Question<TableQuestion> {
     return {
-      question: `${questionData.table} × ${questionData.multiplier}`,
-      answer: String(questionData.table * questionData.multiplier),
-      data: questionData,
+      question: `${question.table} × ${question.multiplier}`,
+      answer: String(question.table * question.multiplier),
+      data: question,
       inputType: 'number',
       displayType: 'symbol',
     };

@@ -9,6 +9,8 @@ import { SettingsService } from '../../core/services/settings.service';
 
 import { Exercise } from '../../core/models/exercise.model';
 import { ReviewTopic } from '../../core/models/review-topic.model';
+import { PracticeMode } from '../../core/enums/practice-mode.enum';
+import { SessionType } from '../../core/enums/session-type.enum';
 
 @Component({
   selector: 'app-bookmarks',
@@ -67,7 +69,22 @@ export class BookmarksComponent {
     this.router.navigate([`${exercise.route}/reference`]);
   }
 
-  // openTrainer(){
+  practiceBookmarks(): void {
+    const exercise: Exercise = {
+      title: 'Bookmarks',
+      mode: PracticeMode.Bookmark,
+      topic: '',
+      route: 'bookmarks',
+      implemented: true,
+      settings: [],
+    };
 
-  // }
+    this.settingsService.setExercise(exercise);
+
+    this.settingsService.setSessionType(SessionType.QuestionChallenge);
+
+    this.settingsService.setQuestionTarget(this.totalBookmarks);
+
+    this.router.navigate([exercise.route, 'trainer']);
+  }
 }
