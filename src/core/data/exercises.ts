@@ -194,4 +194,15 @@ export const exercises: Exercise[] = [
 
     settings: [SettingType.SessionType, SettingType.WordsLimit],
   },
+
+  // Bookmarks
+  {
+    title: 'Bookmarks',
+    route: 'bookmarks',
+    mode: PracticeMode.Bookmark,
+    topic: '',
+    implemented: true,
+
+    settings: [],
+  },
 ];

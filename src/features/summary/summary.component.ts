@@ -26,6 +26,10 @@ export class SummaryComponent {
       return;
     }
 
+    if (exercise.route === 'bookmarks') {
+      this.router.navigate([exercise.route, 'trainer']);
+    }
+
     this.router.navigate([`/${exercise.route}/practice-settings`]);
   }
 

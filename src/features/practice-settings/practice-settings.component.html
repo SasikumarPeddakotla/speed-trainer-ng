@@ -44,15 +44,26 @@
           <div class="setting">
             <label>Questions</label>
 
-            <select
-              [ngModel]="settingsService.settings().questionTarget"
-              (ngModelChange)="setQuestionTarget($event)"
-            >
-              <option [ngValue]="10">10</option>
-              <option [ngValue]="20">20</option>
-              <option [ngValue]="30">30</option>
-              <option [ngValue]="50">50</option>
-            </select>
+            @if (
+              settingsService.settings().selectedExercise?.mode !==
+              PracticeMode.Bookmark
+            ) {
+              <select
+                [ngModel]="settingsService.settings().questionTarget"
+                (ngModelChange)="setQuestionTarget($event)"
+              >
+                <option [ngValue]="10">10</option>
+                <option [ngValue]="20">20</option>
+                <option [ngValue]="30">30</option>
+                <option [ngValue]="50">50</option>
+              </select>
+            } @else {
+              <p>
+                Answer all {{ totalBookmarks }} bookmarked
+                {{ totalBookmarks === 1 ? "question" : "questions" }} to
+                complete the session.
+              </p>
+            }
           </div>
         }
       </div>
@@ -60,9 +71,14 @@
 
     <app-exercise-settings />
 
-    <button class="reference-btn" (click)="openReference()">
-      📖 Reference
-    </button>
+    @if (
+      settingsService.settings().selectedExercise?.mode !==
+      PracticeMode.Bookmark
+    ) {
+      <button class="reference-btn" (click)="openReference()">
+        📖 Reference
+      </button>
+    }
 
     <button class="start-btn" (click)="startPractice()">
       ▶ Start Practice

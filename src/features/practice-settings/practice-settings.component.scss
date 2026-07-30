@@ -27,7 +27,7 @@ h1 {
   margin-bottom: 12px;
   font-size: 14px;
   font-weight: 700;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
   color: #6b7280;
 }
@@ -36,7 +36,7 @@ h1 {
   padding: 16px 18px;
   background: white;
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .setting {
@@ -51,13 +51,19 @@ h1 {
   color: #374151;
 }
 
+.setting p {
+  font-size: 15px;
+  text-align: center;
+  color: #64748b;
+}
+
 select {
   width: 100%;
   padding: 16px;
   border: none;
   border-radius: 16px;
   background: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   font-size: 16px;
 }
 
@@ -72,7 +78,7 @@ select {
   font-size: 18px;
   font-weight: 600;
   cursor: pointer;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 .start-btn:hover {
@@ -80,7 +86,7 @@ select {
 }
 
 .start-btn:active {
-  transform: scale(.98);
+  transform: scale(0.98);
 }
 
 .reference-btn {
@@ -99,7 +105,7 @@ select {
 
   cursor: pointer;
 
-  transition: all .2s ease;
+  transition: all 0.2s ease;
 }
 
 .reference-btn:hover {
@@ -107,5 +113,5 @@ select {
 }
 
 .reference-btn:active {
-  transform: scale(.98);
+  transform: scale(0.98);
 }

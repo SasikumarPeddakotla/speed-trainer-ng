@@ -85,6 +85,6 @@ export class BookmarksComponent {
 
     this.settingsService.setQuestionTarget(this.totalBookmarks);
 
-    this.router.navigate([exercise.route, 'trainer']);
+    this.router.navigate([exercise.route, 'practice-settings']);
   }
 }

@@ -9,6 +9,8 @@ import { SessionTypeSettingComponent } from './components/session-type-setting/s
 import { ExerciseSettingsComponent } from './components/exercise-settings/exercise-settings.component';
 import { SessionService } from '../../core/services/session.service';
 import { TimerService } from '../../core/services/timer.service';
+import { PracticeMode } from '../../core/enums/practice-mode.enum';
+import { BookmarkService } from '../../core/services/bookmark.service';
 
 @Component({
   selector: 'app-practice-settings',
@@ -24,13 +26,19 @@ import { TimerService } from '../../core/services/timer.service';
 export class PracticeSettingsComponent {
   readonly SessionType = SessionType;
   readonly SettingType = SettingType;
+  readonly PracticeMode = PracticeMode;
 
   constructor(
     public settingsService: SettingsService,
     private router: Router,
     private sessionService: SessionService,
     private timerService: TimerService,
+    private bookmarkService: BookmarkService,
   ) {}
+
+  get totalBookmarks() {
+    return this.bookmarkService.getTotalBookmarks();
+  }
 
   startPractice() {
     this.sessionService.reset();
