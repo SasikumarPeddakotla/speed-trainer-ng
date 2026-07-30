@@ -50,6 +50,7 @@ export class AlphabetEngine {
 
   createLetterToPosition(alphabet: Alphabet): Question<Alphabet> {
     return {
+      id: `lp:f:${alphabet.letter}`,
       question: alphabet.letter,
       answer: String(alphabet.position),
       data: alphabet,
@@ -66,6 +67,7 @@ export class AlphabetEngine {
 
   createPositionToLetter(alphabet: Alphabet): Question<Alphabet> {
     return {
+      id: `lp:r:${alphabet.letter}`,
       question: String(alphabet.position),
       answer: alphabet.letter,
       data: alphabet,
@@ -82,6 +84,7 @@ export class AlphabetEngine {
 
   createLetterToReversePosition(alphabet: Alphabet): Question<Alphabet> {
     return {
+      id: `lrp:f:${alphabet.letter}`,
       question: alphabet.letter,
       answer: String(alphabet.reversePosition),
       data: alphabet,
@@ -98,6 +101,7 @@ export class AlphabetEngine {
 
   createReversePositionToLetter(alphabet: Alphabet): Question<Alphabet> {
     return {
+      id: `lrp:r:${alphabet.letter}`,
       question: String(alphabet.reversePosition),
       answer: alphabet.letter,
       data: alphabet,
@@ -114,6 +118,7 @@ export class AlphabetEngine {
 
   createMirrorLetter(alphabet: Alphabet): Question<Alphabet> {
     return {
+      id: `mirror:${alphabet.letter}`,
       question: alphabet.letter,
       answer: alphabet.mirrorLetter,
       data: alphabet,

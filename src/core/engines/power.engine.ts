@@ -77,6 +77,7 @@ export class PowerEngine {
 
   createSquare(question: PowerQuestion): Question<PowerQuestion> {
     return {
+      id: `square:${question.number}`,
       question: `${question.number}²`,
       answer: String(question.number * question.number),
       data: question,
@@ -87,6 +88,7 @@ export class PowerEngine {
 
   createCube(question: PowerQuestion): Question<PowerQuestion> {
     return {
+      id: `cube:${question.number}`,
       question: `${question.number}³`,
       answer: String(question.number ** 3),
       data: question,
@@ -97,6 +99,7 @@ export class PowerEngine {
 
   createSquareRoot(question: PowerQuestion): Question<PowerQuestion> {
     return {
+      id: `sqrt:${question.number}`,
       question: `√${question.number * question.number}`,
       answer: String(question.number),
       data: question,
@@ -107,6 +110,7 @@ export class PowerEngine {
 
   createCubeRoot(question: PowerQuestion): Question<PowerQuestion> {
     return {
+      id: `cbrt:${question.number}`,
       question: `∛${question.number ** 3}`,
       answer: String(question.number),
       data: question,

@@ -89,12 +89,18 @@ export class TablesReferenceComponent {
       }));
   }
 
-  toggleBookmark<T>(question: T): void {
+  toggleBookmark(question: TableQuestion): void {
+    const entry = {
+      id: `table:${question.table}:${question.multiplier}`,
+      mode: this.mode,
+      question,
+    };
+
     if (this.removedBookmarks.has(question)) {
-      this.bookmarkService.add(this.mode, question);
+      this.bookmarkService.add(entry);
       this.removedBookmarks.delete(question);
     } else {
-      this.bookmarkService.remove(this.mode, question);
+      this.bookmarkService.remove(entry);
       this.removedBookmarks.add(question);
     }
   }

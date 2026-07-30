@@ -31,6 +31,7 @@ export class PolityEngine {
 
     if (direction === Direction.Forward) {
       return {
+        id: `article:forward:${article.article}`,
         question: `Article ${article.article}`,
         answer: article.title,
         options,
@@ -41,6 +42,7 @@ export class PolityEngine {
     }
 
     return {
+      id: `article:reverse:${article.article}`,
       question: article.title,
       answer: `Article ${article.article}`,
       options,

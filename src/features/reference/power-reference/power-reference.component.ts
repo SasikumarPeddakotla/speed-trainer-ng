@@ -5,6 +5,7 @@ import { PracticeMode } from '../../../core/enums/practice-mode.enum';
 import { PowerQuestion } from '../../../core/models/power-question.model';
 import { ReviewService } from '../../../core/services/review.service';
 import { BookmarkService } from '../../../core/services/bookmark.service';
+import { Question } from '../../../core/models/question.model';
 
 @Component({
   selector: 'app-power-reference',
@@ -40,13 +41,38 @@ export class PowerReferenceComponent {
     }
   });
 
-  toggleBookmark<T>(question: T): void {
+  toggleBookmark(question: PowerQuestion): void {
+    const entry = {
+      id: this.getQuestionId(question),
+      mode: this.mode,
+      question,
+    };
+
     if (this.removedBookmarks.has(question)) {
-      this.bookmarkService.add(this.mode, question);
+      this.bookmarkService.add(entry);
       this.removedBookmarks.delete(question);
     } else {
-      this.bookmarkService.remove(this.mode, question);
+      this.bookmarkService.remove(entry);
       this.removedBookmarks.add(question);
+    }
+  }
+
+  private getQuestionId(question: PowerQuestion): string {
+    switch (this.mode) {
+      case PracticeMode.Squares:
+        return `square:${question.number}`;
+
+      case PracticeMode.Cubes:
+        return `cube:${question.number}`;
+
+      case PracticeMode.SquareRoots:
+        return `sqrt:${question.number}`;
+
+      case PracticeMode.CubeRoots:
+        return `cbrt:${question.number}`;
+
+      default:
+        return '';
     }
   }
 

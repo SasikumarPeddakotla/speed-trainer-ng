@@ -53,6 +53,7 @@ export class ConversionEngine {
     answerKey: keyof FractionConversion,
   ): Question<ConversionQuestion> {
     return {
+      id: `${questionKey}-${answerKey}:${conversion.fraction}`,
       question:
         conversion[questionKey] + (questionKey === 'percentage' ? '%' : ''),
       answer: conversion[answerKey],

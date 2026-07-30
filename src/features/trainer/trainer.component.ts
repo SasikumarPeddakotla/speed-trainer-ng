@@ -303,15 +303,6 @@ export class TrainerComponent implements OnInit, OnDestroy {
     return `${size}px`;
   }
 
-  private getExerciseKey(): string {
-    const settings = this.settingsService.settings();
-
-    const mode = settings.selectedExercise!.mode;
-    const direction = settings.direction;
-
-    return direction ? `${mode}_${direction}` : mode;
-  }
-
   toggleBookmark(): void {
     const question = this.questionService.currentQuestion();
 
@@ -319,16 +310,20 @@ export class TrainerComponent implements OnInit, OnDestroy {
       return;
     }
 
-    this.bookmarkService.toggle(this.mode, question.data);
+    this.bookmarkService.toggle({
+      id: question.id,
+      mode: this.mode,
+      question: question.data,
+    });
   }
 
   isBookmarked(): boolean {
     const question = this.questionService.currentQuestion();
 
-    if (!question?.data) {
+    if (!question) {
       return false;
     }
 
-    return this.bookmarkService.isBookmarked(this.mode, question.data);
+    return this.bookmarkService.isBookmarked(this.mode, question.id);
   }
 }

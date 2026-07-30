@@ -5,6 +5,7 @@ import { StorageKeys } from '../enums/storage-keys.enum';
 import { StorageService } from './storage.service';
 import { BookmarkSummary } from '../models/bookmark-summary.model';
 import { BookmarkEntry } from '../models/bookmark-entry.model';
+import { Question } from '../models/question.model';
 
 interface BookmarkStorage {
   version: number;
@@ -28,9 +29,9 @@ export class BookmarkService {
    * Tables
    * Articles
    */
-  private bookmarkLists = new Map<string, any[]>();
+  private bookmarkLists = new Map<PracticeMode, BookmarkEntry[]>();
 
-  private getList(mode: PracticeMode): any[] {
+  private getList(mode: PracticeMode): BookmarkEntry[] {
     let list = this.bookmarkLists.get(mode);
 
     if (!list) {
@@ -41,19 +42,19 @@ export class BookmarkService {
     return list;
   }
 
-  add<T>(mode: PracticeMode, question: T): void {
-    const list = this.getList(mode);
+  add(entry: BookmarkEntry): void {
+    const list = this.getList(entry.mode);
 
-    if (!list.includes(question)) {
-      list.push(question);
+    if (!list.some((b) => b.id === entry.id)) {
+      list.push(entry);
       this.save();
     }
   }
 
-  remove<T>(mode: PracticeMode, question: T): void {
-    const list = this.getList(mode);
+  remove(entry: BookmarkEntry): void {
+    const list = this.getList(entry.mode);
 
-    const index = list.indexOf(question);
+    const index = list.findIndex((b) => b.id === entry.id);
 
     if (index !== -1) {
       list.splice(index, 1);
@@ -61,20 +62,20 @@ export class BookmarkService {
     }
   }
 
-  toggle<T>(mode: PracticeMode, question: T): void {
-    if (this.isBookmarked(mode, question)) {
-      this.remove(mode, question);
+  toggle(entry: BookmarkEntry): void {
+    if (this.isBookmarked(entry.mode, entry.id)) {
+      this.remove(entry);
     } else {
-      this.add(mode, question);
+      this.add(entry);
     }
   }
 
-  isBookmarked<T>(mode: PracticeMode, question: T): boolean {
-    return this.getList(mode).includes(question);
+  isBookmarked(mode: PracticeMode, id: string): boolean {
+    return this.getList(mode).some((b) => b.id === id);
   }
 
   getBookmarks<T>(mode: PracticeMode): T[] {
-    return [...this.getList(mode)] as T[];
+    return this.getList(mode).map((b) => b.question as T);
   }
 
   getBookmarkCount(mode: PracticeMode): number {
@@ -116,7 +117,7 @@ export class BookmarkService {
     this.bookmarkLists.clear();
 
     for (const [mode, list] of Object.entries(storage.bookmarks)) {
-      this.bookmarkLists.set(mode, list);
+      this.bookmarkLists.set(mode as PracticeMode, list as BookmarkEntry[]);
     }
   }
 
@@ -144,19 +145,6 @@ export class BookmarkService {
   }
 
   getAllBookmarks(): BookmarkEntry[] {
-    const bookmarks: BookmarkEntry[] = [];
-
-    for (const [key, list] of this.bookmarkLists.entries()) {
-      const mode = key.split('_')[0] as PracticeMode;
-
-      for (const question of list) {
-        bookmarks.push({
-          mode,
-          question,
-        });
-      }
-    }
-
-    return bookmarks;
+    return Array.from(this.bookmarkLists.values()).flat();
   }
 }

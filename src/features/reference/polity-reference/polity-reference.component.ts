@@ -4,9 +4,9 @@ import { PolityEngine } from '../../../core/engines/polity.engine';
 import { Article } from '../../../core/models/article.model';
 import { SettingsService } from '../../../core/services/settings.service';
 import { PracticeMode } from '../../../core/enums/practice-mode.enum';
-import { Alphabet } from '../../../core/models/alphabet.model';
 import { ReviewService } from '../../../core/services/review.service';
 import { BookmarkService } from '../../../core/services/bookmark.service';
+import { Direction } from '../../../core/enums/direction.enum';
 
 @Component({
   selector: 'app-polity-reference',
@@ -60,14 +60,28 @@ export class PolityReferenceComponent {
     );
   });
 
-  toggleBookmark<T>(question: T): void {
-    if (this.removedBookmarks.has(question)) {
-      this.bookmarkService.add(this.mode, question);
-      this.removedBookmarks.delete(question);
+  toggleBookmark(article: Article): void {
+    const entry = {
+      id: this.getQuestionId(article),
+      mode: this.mode,
+      question: article,
+    };
+
+    if (this.removedBookmarks.has(article)) {
+      this.bookmarkService.add(entry);
+      this.removedBookmarks.delete(article);
     } else {
-      this.bookmarkService.remove(this.mode, question);
-      this.removedBookmarks.add(question);
+      this.bookmarkService.remove(entry);
+      this.removedBookmarks.add(article);
     }
+  }
+
+  private getQuestionId(article: Article): string {
+    const direction = this.settingsService.settings().direction;
+
+    return direction === Direction.Forward
+      ? `article:forward:${article.article}`
+      : `article:reverse:${article.article}`;
   }
 
   isRemoved(question: unknown): boolean {

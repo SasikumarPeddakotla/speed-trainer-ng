@@ -39,6 +39,7 @@ export class VocabularyEngine {
     const pair = this.getRandomWordPair(synonym.word, synonym.synonyms);
 
     return {
+      id: `synonym:${synonym.word}`,
       question: pair.question,
 
       answer: pair.answer,
@@ -91,6 +92,7 @@ export class VocabularyEngine {
     const pair = this.getRandomWordPair(antonym.word, antonym.antonyms);
 
     return {
+      id: `antonym:${antonym.word}`,
       question: pair.question,
 
       answer: pair.answer,
@@ -141,6 +143,7 @@ export class VocabularyEngine {
 
   createOneWordQuestion(oneWord: OneWord): Question<OneWord> {
     return {
+      id: `one-word:${oneWord.word}`,
       question: oneWord.word,
 
       answer: oneWord.phrase,
@@ -187,6 +190,7 @@ export class VocabularyEngine {
 
   createIdiomQuestion(idiom: Idiom): Question<Idiom> {
     return {
+      id: `idiom:${idiom.idiom}`,
       question: idiom.idiom,
 
       answer: idiom.meaning,

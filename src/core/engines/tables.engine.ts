@@ -27,6 +27,7 @@ export class TablesEngine {
 
   createQuestion(question: TableQuestion): Question<TableQuestion> {
     return {
+      id: `table:${question.table}:${question.multiplier}`,
       question: `${question.table} × ${question.multiplier}`,
       answer: String(question.table * question.multiplier),
       data: question,

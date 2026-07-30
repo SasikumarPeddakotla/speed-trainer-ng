@@ -19,6 +19,7 @@ export class ArithmeticEngine {
     const operands = this.randomizeOperandOrder(this.generateRandomOperands());
 
     return {
+      id: `add:${operands.firstNumber}:${operands.secondNumber}`,
       question: `${operands.firstNumber} + ${operands.secondNumber}`,
       answer: String(operands.firstNumber + operands.secondNumber),
       data: operands,
@@ -31,6 +32,7 @@ export class ArithmeticEngine {
     const operands = this.ensureFirstIsGreater(this.generateRandomOperands());
 
     return {
+      id: `sub:${operands.firstNumber}:${operands.secondNumber}`,
       question: `${operands.firstNumber} - ${operands.secondNumber}`,
       answer: String(operands.firstNumber - operands.secondNumber),
       data: operands,
@@ -43,6 +45,7 @@ export class ArithmeticEngine {
     const operands = this.randomizeOperandOrder(this.generateRandomOperands());
 
     return {
+      id: `mul:${operands.firstNumber}:${operands.secondNumber}`,
       question: `${operands.firstNumber} × ${operands.secondNumber}`,
       answer: String(operands.firstNumber * operands.secondNumber),
       data: operands,
@@ -69,6 +72,7 @@ export class ArithmeticEngine {
     } while (this.digitCount(dividend) !== dividendDigits);
 
     return {
+      id: `div:${dividend}:${divisor}`,
       question: `${dividend} ÷ ${divisor}`,
       answer: String(quotient),
       data: {

@@ -1,6 +1,8 @@
 import { InputType } from './input-type.type';
 
 export interface Question<T = unknown> {
+  id: string;
+
   question: string;
 
   answer: string;
