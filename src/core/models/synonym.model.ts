@@ -3,4 +3,5 @@ export interface Synonym {
   meaning: string;
   partsOfSpeech: string;
   synonyms: string[];
+  options?: string[];
 }
