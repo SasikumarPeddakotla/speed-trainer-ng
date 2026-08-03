@@ -23,11 +23,11 @@ export const SYNONYMS: Synonym[] = [
     word: 'Deluge',
     meaning: 'A sudden very heavy fall of rain; flood. - భారీ వర్షపాతం',
     partsOfSpeech: 'noun',
-    synonyms: ['Flood','Overflow'],
+    synonyms: ['Flood'],
   },
   {
     word: 'Preponderance',
-    meaning: 'Being larger in number or more important. - ప్రాబల్యం',
+    meaning: 'Being larger in number or more important. - ఆధిపత్యం',
     partsOfSpeech: 'noun',
     synonyms: ['Dominance'],
   },
@@ -51,7 +51,7 @@ export const SYNONYMS: Synonym[] = [
   },
   {
     word: 'Wander',
-    meaning: 'To wail slowly around often without purpose. - తిరుగుట',
+    meaning: 'To walk slowly around often without purpose. - తిరుగుట',
     partsOfSpeech: 'verb',
     synonyms: ['Roam'],
   },
@@ -59,7 +59,7 @@ export const SYNONYMS: Synonym[] = [
     word: 'Taciturn',
     meaning: 'Tending not to say very much; untalkative; quiet; reserved; reticent. - అల్పభాషి',
     partsOfSpeech: 'adj',
-    synonyms: ['Silent','Reticent'],
+    synonyms: ['Silent'],
   },
   {
     word: 'Fury',
@@ -74,10 +74,10 @@ export const SYNONYMS: Synonym[] = [
     synonyms: ['Rant'],
   },
   {
-    word: 'Proficient ',
+    word: 'Proficient',
     meaning: 'Able to do something well; skilled. - నైపుణ్యం కలిగిన',
     partsOfSpeech: 'adj',
-    synonyms: ['Adept','Skilled'],
+    synonyms: ['Adept'],
   },
   {
     word: 'Admonish',
@@ -123,7 +123,7 @@ export const SYNONYMS: Synonym[] = [
   },
   {
     word: 'Judicious',
-    meaning: 'Sensible; prudent. - వివేకవంతమైన',
+    meaning: 'Having, showing, or done with good judgment, wisdom, or sense; Sensible; prudent. - వివేకవంతమైన',
     partsOfSpeech: 'adj',
     synonyms: ['Wise'],
   },
@@ -141,18 +141,18 @@ export const SYNONYMS: Synonym[] = [
   },
   {
     word: 'Conscientious',
-    meaning: 'Diligent; industrious; honest; meticulous. - విశ్వాసంతో కూడిన',
+    meaning: 'Diligent; industrious; honest; meticulous. - బాధ్యతాయుతమైన',
     partsOfSpeech: 'adj',
     synonyms: ['Honest'],
   },
   {
     word: 'Unruly',
-    meaning: 'Disorderly; rowdy; wild; disobedient; rebellious. - అదుపులేని',
+    meaning: 'Hard to control, manage, or obey; Disorderly; rowdy; wild; disobedient; rebellious. - అదుపులేని',
     partsOfSpeech: 'adj',
     synonyms: ['Disobedient'],
   },
   {
-    word: 'Ennul',
+    word: 'Ennui',
     meaning: 'Boredom; lassitude; weariness; sluggishness. - విసుగు',
     partsOfSpeech: 'noun',
     synonyms: ['Boredom'],
@@ -177,9 +177,9 @@ export const SYNONYMS: Synonym[] = [
   },
   {
     word: 'Rivet',
-    meaning: "To fasten; to attract and keep someone's attention; engage. -దృష్టి సారించూట", 
+    meaning: "To fasten; to attract and keep someone's attention; engage. -దృష్టి సారించుట", 
     partsOfSpeech: 'verb',
-    synonyms: ['engage'],
+    synonyms: ['Engage'],
   },
   {
     word: 'Heretic',
@@ -191,19 +191,25 @@ export const SYNONYMS: Synonym[] = [
     word: 'Covenant',
     meaning: 'Contract; an agreement; pact; accord; pledge; bond. - ఒప్పందం',
     partsOfSpeech: 'noun',
-    synonyms: ['bond'],
+    synonyms: ['Bond'],
   },
   {
     word: 'Obstreperous',
-    meaning: 'Noisy and difficult to control; disorderly; rowdy; wild. - నియంత్రణ లేని గోల ',
+    meaning: 'Noisy and difficult to control; disorderly; rowdy; wild. - నియంత్రణ లేని గోల',
     partsOfSpeech: 'adj',
     synonyms: ['Noisy'],
+  },
+  {
+    word: 'Deluge',
+    meaning: 'A severe flood; spate; inundate; overflow. - భారీ వర్షపాతం',
+    partsOfSpeech: 'noun',
+    synonyms: ['Overflow'],
   },
   {
     word: 'Hackneyed',
     meaning: 'Overused; wornout; tired; common; ordinary; unoriginal and trite. - అతిగా వాడటం; తాజాదనాన్ని కోల్పోయిన',
     partsOfSpeech: 'adj',
-    synonyms: ['tired'],
+    synonyms: ['Tired'],
   },
   {
     word: 'Accede',
@@ -231,7 +237,7 @@ export const SYNONYMS: Synonym[] = [
   },
   {
     word: 'Pejorative',
-    meaning: 'Disparaging; derogatory; defamatory. -  అవమానకరమైన',
+    meaning: 'Intended to make a person or thing seem of little importance or value -  అవమానకరమైన',
     partsOfSpeech: 'adj',
     synonyms: ['Derogatory'],
   },
