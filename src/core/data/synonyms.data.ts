@@ -21,9 +21,9 @@ export const SYNONYMS: Synonym[] = [
   },
   {
     word: 'Deluge',
-    meaning: 'A sudden very heavy fall of rain; flood. - భారీ వర్షపాతం',
+    meaning: 'A severe flood; spate; inundate; overflow. - భారీ వర్షపాతం',
     partsOfSpeech: 'noun',
-    synonyms: ['Flood'],
+    synonyms: ['Flood', 'Overflow'],
   },
   {
     word: 'Preponderance',
@@ -59,7 +59,7 @@ export const SYNONYMS: Synonym[] = [
     word: 'Taciturn',
     meaning: 'Tending not to say very much; untalkative; quiet; reserved; reticent. - అల్పభాషి',
     partsOfSpeech: 'adj',
-    synonyms: ['Silent'],
+    synonyms: ['Silent', 'Reticent'],
   },
   {
     word: 'Fury',
@@ -198,12 +198,6 @@ export const SYNONYMS: Synonym[] = [
     meaning: 'Noisy and difficult to control; disorderly; rowdy; wild. - నియంత్రణ లేని గోల',
     partsOfSpeech: 'adj',
     synonyms: ['Noisy'],
-  },
-  {
-    word: 'Deluge',
-    meaning: 'A severe flood; spate; inundate; overflow. - భారీ వర్షపాతం',
-    partsOfSpeech: 'noun',
-    synonyms: ['Overflow'],
   },
   {
     word: 'Hackneyed',
@@ -518,8 +512,8 @@ export const SYNONYMS: Synonym[] = [
     synonyms: ['Common'],
   },
   {
-    word: 'Hinder',
-    meaning: 'Hamper; restrict. - అడ్డుపడటం',
+    word: 'Exempt',
+    meaning: 'Free from; exclude. - మినహాయింపు',
     partsOfSpeech: 'verb',
     synonyms: ['Exclude'],
   },
@@ -596,8 +590,8 @@ export const SYNONYMS: Synonym[] = [
     synonyms: ['Gigantic'],
   },
   {
-    word: 'Exult',
-    meaning: 'Praise; glorify; rejoice greatly. -అత్యంత ఆనందించు',
+    word: 'Exalt',
+    meaning: 'Praise; glorify; rejoice greatly. - పొగడు',
     partsOfSpeech: 'verb',
     synonyms: ['Praise'],
   },
@@ -630,6 +624,12 @@ export const SYNONYMS: Synonym[] = [
     meaning: 'To help; aid; or support someone; - సహాయం చేయు',
     partsOfSpeech: 'verb',
     synonyms: ['Help'],
+  },
+  {
+    word: 'Adept',
+    meaning: 'Proficient; skilled - నైపుణ్యం కలిగిన',
+    partsOfSpeech: 'adj',
+    synonyms: ['Skilled'],
   },
   {
     word: 'Initiate',

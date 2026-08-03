@@ -1,7 +1,7 @@
 {
   "name": "Speed Trainer",
   "short_name": "Speed Trainer",
-  "description": "Practice SSC aptitude, reasoning, English, polity and more.",
+  "description": "Practice SSC Aptitude, Reasoning, English and General Awareness",
   "display": "standalone",
   "orientation": "portrait",
   "scope": "./",

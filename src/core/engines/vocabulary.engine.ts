@@ -287,7 +287,9 @@ export class VocabularyEngine {
   }
 
   private getRandomWordPair(word: string, relatedWords: string[]) {
-    const group = this.randomService.shuffle([word, ...relatedWords]);
+    // Uncomment the below line to get a random word from word and synonyms array as question and answer
+    // const group = this.randomService.shuffle([word, ...relatedWords]);
+    const group = [word, ...relatedWords];
 
     return {
       question: group[0],
