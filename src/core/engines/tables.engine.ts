@@ -87,4 +87,8 @@ export class TablesEngine {
       ? Array.from({ length: 19 }, (_, i) => i + 2)
       : settings.selectedTables;
   }
+
+  reset() {
+    this.questions = [];
+  }
 }

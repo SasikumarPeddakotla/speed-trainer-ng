@@ -157,4 +157,8 @@ export class BookmarkEngine {
 
     return this.queue.shift()!;
   }
+
+  reset() {
+    this.queue = [];
+  }
 }

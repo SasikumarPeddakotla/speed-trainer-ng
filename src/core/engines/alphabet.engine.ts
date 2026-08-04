@@ -150,4 +150,8 @@ export class AlphabetEngine {
   getAlphabetReference(): Alphabet[] {
     return alphabetData;
   }
+
+  reset() {
+    this.alphabets = [];
+  }
 }

@@ -124,4 +124,14 @@ export class QuestionService {
         break;
     }
   }
+
+  resetAllEngines() {
+    this.alphabetEngine.reset();
+    this.tablesEngine.reset();
+    this.powerEngine.reset();
+    this.conversionEngine.reset();
+    this.polityEngine.reset();
+    this.vocabularyEngine.reset();
+    this.bookmarkEngine.reset();
+  }
 }

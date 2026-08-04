@@ -308,4 +308,11 @@ export class VocabularyEngine {
       acceptedAnswers: group.slice(1),
     };
   }
+
+  reset() {
+    this.synonyms = [];
+    this.antonyms = [];
+    this.oneWords = [];
+    this.idioms = [];
+  }
 }

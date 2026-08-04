@@ -95,6 +95,7 @@ export class TrainerComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.questionService.resetAllEngines();
     this.questionService.nextQuestion();
     if (this.settingsService.settings().sessionType === SessionType.Countdown) {
       this.startCountdown();

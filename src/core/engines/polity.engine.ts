@@ -105,4 +105,8 @@ export class PolityEngine {
   getArticlesReference(): Article[] {
     return ARTICLES;
   }
+
+  reset() {
+    this.articles = [];
+  }
 }

@@ -126,4 +126,8 @@ export class PowerEngine {
       number: i + 2,
     }));
   }
+
+  reset() {
+    this.numbers = [];
+  }
 }
