@@ -23,8 +23,14 @@
         </p>
 
         <p>
-          <strong>Synonyms</strong><br />
+          <strong>Synonym{{ word.synonyms.length > 1 ? "s" : "" }}</strong
+          ><br />
           {{ word.synonyms.join(", ") }}
+        </p>
+
+        <p>
+          <strong>Ex:- </strong>
+          <span [innerHTML]="formatExample(word.word, word.example)"></span>
         </p>
       </div>
     }

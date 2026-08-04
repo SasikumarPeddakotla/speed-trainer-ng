@@ -6,14 +6,15 @@ export const SYNONYMS: Synonym[] = [
     meaning: 'The quality of being clearly expressed and understood. - స్పష్టత',
     partsOfSpeech: 'noun',
     synonyms: ['Clarity'],
-    example: '',
+    example: 'The lucidity of the recipe should ensure a minimum of confusion.',
   },
   {
     word: 'Indict',
     meaning: 'To officially charge somebody with a crime. - నేరం ఆరోపించు',
     partsOfSpeech: 'verb',
     synonyms: ['Charge'],
-    example: '',
+    example:
+      'The grand jury could indict the mayor for fraud and embezzlement.',
   },
   {
     word: 'Appraise',
@@ -21,28 +22,30 @@ export const SYNONYMS: Synonym[] = [
       "To make a formal judgement about the value of a person's work. - విలువ కట్టు",
     partsOfSpeech: 'verb',
     synonyms: ['Judge'],
-    example: '',
+    example: 'We had an expert appraise the house before we bought it.',
   },
   {
     word: 'Deluge',
     meaning: 'A severe flood; spate; inundate; overflow. - భారీ వర్షపాతం',
     partsOfSpeech: 'noun',
     synonyms: ['Flood', 'Overflow'],
-    example: '',
+    example: 'A deluge of thanks and appreciation for the returning troops.',
   },
   {
     word: 'Preponderance',
     meaning: 'Being larger in number or more important. - ఆధిపత్యం',
     partsOfSpeech: 'noun',
     synonyms: ['Dominance'],
-    example: '',
+    example:
+      'Highway vehicles carry increasing traffic, preponderance of short-haul cargo and passengers.',
   },
   {
     word: 'Absurd',
     meaning: 'Completely ridiculous; not logical and sensible. - అర్ధంలేని',
     partsOfSpeech: 'adj',
     synonyms: ['Ridiculous'],
-    example: '',
+    example:
+      'However, it is absurd to place primary blame on the players for this situation.',
   },
   {
     word: 'Solitary',
@@ -50,21 +53,23 @@ export const SYNONYMS: Synonym[] = [
       'Done alone; single; enjoying being alone, without other people. - ఏకాంత',
     partsOfSpeech: 'adj',
     synonyms: ['Lonely'],
-    example: '',
+    example:
+      'I still find this extremely disconcerting so I went in search of a solitary place to relax.',
   },
   {
     word: 'Pacific',
     meaning: 'Peaceful or loving peace. - ప్రశాంతమైన',
     partsOfSpeech: 'adj',
     synonyms: ['Peaceful'],
-    example: '',
+    example:
+      'His spirit was calmed when I played a soothing and pacific melody from my flute his spirit was calmed.',
   },
   {
     word: 'Wander',
     meaning: 'To walk slowly around often without purpose. - తిరుగుట',
     partsOfSpeech: 'verb',
     synonyms: ['Roam'],
-    example: '',
+    example: 'I went for a wander around the Castle yesterday.',
   },
   {
     word: 'Taciturn',
@@ -72,7 +77,8 @@ export const SYNONYMS: Synonym[] = [
       'Tending not to say very much; untalkative; quiet; reserved; reticent. - అల్పభాషి',
     partsOfSpeech: 'adj',
     synonyms: ['Silent', 'Reticent'],
-    example: '',
+    example:
+      'He was seen as an effective leader, despite being taciturn and uncongenial.',
   },
   {
     word: 'Fury',
@@ -80,7 +86,7 @@ export const SYNONYMS: Synonym[] = [
       'Extreme anger that often includes violent behaviour; rage. - తీవ్ర ఆగ్రహం',
     partsOfSpeech: 'noun',
     synonyms: ['Anger'],
-    example: '',
+    example: 'The gods unleashed their fury on the offending mortal.',
   },
   {
     word: 'Tirade',
@@ -88,22 +94,25 @@ export const SYNONYMS: Synonym[] = [
       'A long angry speech criticizing somebody/ something or accusing somebody. - తీవ్రమైన విమర్శల వర్షం',
     partsOfSpeech: 'noun',
     synonyms: ['Rant'],
-    example: '',
+    example:
+      "I entered the living room, purposely sitting at a distance to avoid father's tirade.",
   },
   {
     word: 'Proficient',
     meaning: 'Able to do something well; skilled. - నైపుణ్యం కలిగిన',
     partsOfSpeech: 'adj',
     synonyms: ['Adept'],
-    example: '',
+    example:
+      'To meet those challenges, scholars must be proficient in more than one area of study.',
   },
   {
     word: 'Admonish',
     meaning:
       'Reprove; to tell somebody firmly that you do not approve of something that they have done; scold. - మందలించు',
     partsOfSpeech: 'verb',
-    synonyms: ['Chide'],
-    example: '',
+    synonyms: ['Chide', 'Reprimand'],
+    example:
+      'I really admonish the government because it did not do something sooner about this.',
   },
   {
     word: 'Revel',
@@ -111,43 +120,47 @@ export const SYNONYMS: Synonym[] = [
       'To spend time enjoying yourself in a noisy, enthusiastic way. - అత్యధికంగా ఆనందించు',
     partsOfSpeech: 'verb',
     synonyms: ['Make merry'],
-    example: '',
+    example:
+      'If you revel in a situation or experience, you enjoy it very much.',
   },
   {
     word: 'Brutal',
     meaning: 'Violent and cruel. - క్రూరమైన',
     partsOfSpeech: 'adj',
     synonyms: ['Savage'],
-    example: '',
+    example: 'He was the victim of a very brutal murder.',
   },
   {
     word: 'Stroll',
     meaning: 'To walk somewhere in a slow relaxed way. - హాయిగా నడవడం',
     partsOfSpeech: 'verb',
     synonyms: ['Walk'],
-    example: '',
+    example:
+      'Warm-hearted local people welcome visitors, inviting them to stroll around their buildings.',
   },
   {
     word: 'Eternal',
     meaning: 'Without an end; existing or continuing. - శాశ్వతమైన',
     partsOfSpeech: 'adj',
     synonyms: ['Forever'],
-    example: '',
+    example: 'They promised eternal love to each other on their wedding day.',
   },
   {
     word: 'Turbulence',
     meaning:
-      ' Violent or unsteady movement of air etc; turmoil; upheaval; agitation; chaos; a state of confusion without any order. - అల్లకల్లోలం',
+      'Violent or unsteady movement of air etc; turmoil; upheaval; agitation; chaos; a state of confusion without any order. - అల్లకల్లోలం',
     partsOfSpeech: 'noun',
     synonyms: ['Agitation'],
-    example: '',
+    example:
+      'After World War I increasing poverty of the masses led to political turbulence.',
   },
   {
     word: 'Quiescent',
     meaning: 'Inactive; inert; passive; idle. - నిశ్చలమైన',
     partsOfSpeech: 'adj',
     synonyms: ['Dull'],
-    example: '',
+    example:
+      'The doctor said the disease is currently quiescent and causing no new symptoms.',
   },
   {
     word: 'Judicious',
@@ -155,7 +168,7 @@ export const SYNONYMS: Synonym[] = [
       'Having, showing, or done with good judgment, wisdom, or sense; Sensible; prudent. - వివేకవంతమైన',
     partsOfSpeech: 'adj',
     synonyms: ['Wise'],
-    example: '',
+    example: 'She made a judicious choice by staying calm during the argument.',
   },
   {
     word: 'Behoove',
@@ -163,21 +176,23 @@ export const SYNONYMS: Synonym[] = [
       'Be sensible for; suit; be obligatory for; it is a duty for someone to do something. - అవసరమై ఉండుట',
     partsOfSpeech: 'verb',
     synonyms: ['Necessary'],
-    example: '',
+    example: '"It would behoove the team to practice more often.',
   },
   {
     word: 'Sustenance',
     meaning: 'Support, maintenance; aid. - జీవనాధారం',
     partsOfSpeech: 'noun',
     synonyms: ['Aid'],
-    example: '',
+    example:
+      'Without proper sustenance, the rescued animals would not have survived the harsh winter.',
   },
   {
     word: 'Conscientious',
     meaning: 'Diligent; industrious; honest; meticulous. - బాధ్యతాయుతమైన',
     partsOfSpeech: 'adj',
     synonyms: ['Honest'],
-    example: '',
+    example:
+      'The conscientious student double-checked all her math answers before turning in the test.',
   },
   {
     word: 'Unruly',
@@ -185,22 +200,24 @@ export const SYNONYMS: Synonym[] = [
       'Hard to control, manage, or obey; Disorderly; rowdy; wild; disobedient; rebellious. - అదుపులేని',
     partsOfSpeech: 'adj',
     synonyms: ['Disobedient'],
-    example: '',
+    example: 'The police tried to stop the unruly crowd.',
   },
   {
     word: 'Ennui',
     meaning: 'Boredom; lassitude; weariness; sluggishness. - విసుగు',
     partsOfSpeech: 'noun',
     synonyms: ['Boredom'],
-    example: '',
+    example:
+      'A deep sense of ennui crept over him during the long, boring lecture.',
   },
   {
     word: 'Eminent',
     meaning:
       'Famous and respected within a particular sphere;  renowned; notable; significant; important. - ప్రముఖ',
     partsOfSpeech: 'adj',
-    synonyms: ['Famous'],
-    example: '',
+    synonyms: ['Famous', 'Prominent'],
+    example:
+      'The university invited an eminent professor to lead the new science class.',
   },
   {
     word: 'Conceited',
@@ -208,7 +225,7 @@ export const SYNONYMS: Synonym[] = [
       'Excessively proud of oneself; egotistic; self admiring; egocentric. - అహంకారపూరితమైన',
     partsOfSpeech: 'adj',
     synonyms: ['Proud'],
-    example: '',
+    example: 'He is so conceited that he spends hours looking in the mirror.',
   },
   {
     word: 'Debonair',
@@ -216,7 +233,8 @@ export const SYNONYMS: Synonym[] = [
       'Confident, stylish and charming; self-assured; genteel, elegent; attractive and carefully dressed. - ఆకర్షణీయమైన',
     partsOfSpeech: 'adj',
     synonyms: ['Elegant'],
-    example: '',
+    example:
+      'The debonair actor walked down the red carpet in a sharp, tailored suit.',
   },
   {
     word: 'Rivet',
@@ -224,22 +242,25 @@ export const SYNONYMS: Synonym[] = [
       "To fasten; to attract and keep someone's attention; engage. -దృష్టి సారించుట",
     partsOfSpeech: 'verb',
     synonyms: ['Engage'],
-    example: '',
+    example:
+      'All eyes were riveted on the singer as she walked onto the stage.',
   },
   {
     word: 'Heretic',
     meaning:
-      'A person who is guilty of heresy; dissident; apostate; iconoclast; cynic; religious outcast; unorthodox. - మతభేధం గలవాడు',
+      'A person who holds opinions against official or accepted beliefs; dissident; apostate; iconoclast; cynic; religious outcast; unorthodox. - మతభేధం గలవాడు',
     partsOfSpeech: 'noun',
     synonyms: ['Cynic'],
-    example: '',
+    example:
+      'He was considered a heretic in the scientific community for doubting the new theory.',
   },
   {
     word: 'Covenant',
     meaning: 'Contract; an agreement; pact; accord; pledge; bond. - ఒప్పందం',
     partsOfSpeech: 'noun',
     synonyms: ['Bond'],
-    example: '',
+    example:
+      'The business partners signed a covenant to share all profits and debts equally.',
   },
   {
     word: 'Obstreperous',
@@ -247,7 +268,8 @@ export const SYNONYMS: Synonym[] = [
       'Noisy and difficult to control; disorderly; rowdy; wild. - నియంత్రణ లేని గోల',
     partsOfSpeech: 'adj',
     synonyms: ['Noisy'],
-    example: '',
+    example:
+      'The judge removed the obstreperous defendant from the courtroom after he kept shouting.',
   },
   {
     word: 'Hackneyed',
@@ -255,7 +277,8 @@ export const SYNONYMS: Synonym[] = [
       'Overused; wornout; tired; common; ordinary; unoriginal and trite. - అతిగా వాడటం; తాజాదనాన్ని కోల్పోయిన',
     partsOfSpeech: 'adj',
     synonyms: ['Tired'],
-    example: '',
+    example:
+      'The book had a hackneyed storyline that offered no new surprises.',
   },
   {
     word: 'Accede',
@@ -263,7 +286,8 @@ export const SYNONYMS: Synonym[] = [
       'Agree to a demand, request or treaty; consent to; accept; assent to. - అంగీకరించు',
     partsOfSpeech: 'verb',
     synonyms: ['Consent'],
-    example: '',
+    example:
+      'The country refused to accede to the unfair demands made by the rival nation.',
   },
   {
     word: 'Insuperable',
@@ -271,7 +295,8 @@ export const SYNONYMS: Synonym[] = [
       'Impossible to solve; especially of a problem, so great or severe that it cannot be defeated or dealt with successfully; insurmountable. - జయించరాని',
     partsOfSpeech: 'adj',
     synonyms: ['Insurmountable'],
-    example: '',
+    example:
+      'My father was convinced that my deafness would be an insuperable obstacle.',
   },
   {
     word: 'Volition',
@@ -279,7 +304,7 @@ export const SYNONYMS: Synonym[] = [
       'The power to make your own decisions; choices. - స్వేచ్ఛా సంకల్పం',
     partsOfSpeech: 'noun',
     synonyms: ['Choice'],
-    example: '',
+    example: 'No one forced her to go; she went of her own volition.',
   },
   {
     word: 'Barbarous',
@@ -287,7 +312,7 @@ export const SYNONYMS: Synonym[] = [
       'Extremely cruel or unpleasant; unkind; crude; primitive and uncivilized. - క్రూరమైన',
     partsOfSpeech: 'adj',
     synonyms: ['Crude'],
-    example: '',
+    example: 'The old laws were very barbarous and harsh.',
   },
   {
     word: 'Pejorative',
@@ -295,7 +320,8 @@ export const SYNONYMS: Synonym[] = [
       'Intended to make a person or thing seem of little importance or value -  అవమానకరమైన',
     partsOfSpeech: 'adj',
     synonyms: ['Derogatory'],
-    example: '',
+    example:
+      'While the detective was supposed to be neutral, he described the suspect in a pejorative manner.',
   },
   {
     word: 'Meticulous',
@@ -303,14 +329,15 @@ export const SYNONYMS: Synonym[] = [
       'Careful, diligent, refusing to accept any standard short of perfection: a meticulous performance. - శ్రద్ధగా పరీశీలించే',
     partsOfSpeech: 'adj',
     synonyms: ['Perfectionist'],
-    example: '',
+    example:
+      'She was meticulous in her work, ensuring every single detail was correct.',
   },
   {
     word: 'Impetus',
     meaning: 'An impelling force; motive force. - ప్రేరణ',
     partsOfSpeech: 'noun',
     synonyms: ['Encouragement'],
-    example: '',
+    example: 'His new idea gave a fresh impetus to the project.',
   },
   {
     word: 'Beguile',
@@ -318,14 +345,15 @@ export const SYNONYMS: Synonym[] = [
       'To persuade, attract or interest someone, sometimes in order to deceive them; charm or enchant someone, often in a deceptive way. - మోసపూర్వకంగా ఆకర్షించు',
     partsOfSpeech: 'verb',
     synonyms: ['Deceive'],
-    example: '',
+    example: 'She was beguiled into thinking the car was brand new.',
   },
   {
     word: 'Farcical',
     meaning: 'Absurd; ridiculous; disapproving. - హాస్యాస్పదమైన',
     partsOfSpeech: 'adj',
     synonyms: ['Absurd'],
-    example: '',
+    example:
+      'His farcical excuse for being late—claiming a raccoon stole his shoes—made everyone laugh',
   },
   {
     word: 'Carouse',
@@ -333,7 +361,8 @@ export const SYNONYMS: Synonym[] = [
       'Drink alcohol and enjoy oneself with others in a noisy, lively way; drink and make merry; go on a drinking bout; quaff; swallow. - అతి తాగుడు',
     partsOfSpeech: 'verb',
     synonyms: ['Quaff'],
-    example: '',
+    example:
+      'He used to carouse with his friends, but he has settled down now that he has a family.',
   },
   {
     word: 'Clement',
@@ -341,14 +370,16 @@ export const SYNONYMS: Synonym[] = [
       'Of weather, mild; of a person, merciful; not severe. - దయగల, మృదువైన',
     partsOfSpeech: 'adj',
     synonyms: ['Mild'],
-    example: '',
+    example:
+      'The weather for the crossing is forecast to be relatively clement.',
   },
   {
     word: 'Mollify',
     meaning: 'Appease the anger or anxiety of someone; pacify. - శాంతింపజేయు',
     partsOfSpeech: 'verb',
     synonyms: ['Pacify'],
-    example: '',
+    example:
+      'The manager tried to mollify the angry customer by offering a full refund.',
   },
   {
     word: 'Importune',
@@ -356,28 +387,30 @@ export const SYNONYMS: Synonym[] = [
       'To make repeated forceful requests; appeal to; plead with. - వేడుకొను',
     partsOfSpeech: 'verb',
     synonyms: ['Appeal'],
-    example: '',
+    example:
+      'The tired mother listened to her young child importune her for a toy.',
   },
   {
     word: 'Divisive',
     meaning: 'Isolating; alternating. - విభజన కలిగించే',
     partsOfSpeech: 'adj',
     synonyms: ['Conflicting'],
-    example: '',
+    example: 'Abortion has always been a divisive issue for the country.',
   },
   {
     word: 'Gaffe',
     meaning: 'A blunder; mistake; slip; goof. - పొరపాటు',
     partsOfSpeech: 'noun',
     synonyms: ['Trick'],
-    example: '',
+    example:
+      "I made a real gaffe by calling his new wife by his ex-wife's name.",
   },
   {
     word: 'Supercilious',
     meaning: 'Arrogant; haughty; conceited; disdainful. - అహంకారపూరితమైన',
     partsOfSpeech: 'adj',
     synonyms: ['Arrogant'],
-    example: '',
+    example: 'The rich man gave a supercilious look at my worn-out shoes.',
   },
   {
     word: 'Insolent',
@@ -385,7 +418,7 @@ export const SYNONYMS: Synonym[] = [
       'Rude and not showing respect; boldly disrespectful in speech or behaviour; impudent. - అవమానకరమైన',
     partsOfSpeech: 'adj',
     synonyms: ['Rude'],
-    example: '',
+    example: 'The boss fired the worker because of his insolent behavior.',
   },
   {
     word: 'Reprove',
@@ -393,7 +426,7 @@ export const SYNONYMS: Synonym[] = [
       'To criticize somebody; diapprove of bad or silly behaviour; scold; reprimand; admonish. - మందలించు',
     partsOfSpeech: 'verb',
     synonyms: ['Scold'],
-    example: '',
+    example: 'Mom reproved him for not washing his hands before dinner.',
   },
   {
     word: 'Jubilant',
@@ -401,14 +434,16 @@ export const SYNONYMS: Synonym[] = [
       'Happy; feeling or showing great happiness because of success; cheerful; elated. - అత్యంత ఆనందభరితమైన',
     partsOfSpeech: 'adj',
     synonyms: ['Happy'],
-    example: '',
+    example:
+      'The children were jubilant after opening their birthday presents.',
   },
   {
     word: 'Banal',
     meaning: 'Commonplace; ordinary; boring; not original. - సాధారణమైన',
     partsOfSpeech: 'adj',
     synonyms: ['Commonplace'],
-    example: '',
+    example:
+      "Because the movie's plot was entirely banal, we knew how it would end right away.",
   },
   {
     word: 'Contrite',
@@ -416,105 +451,96 @@ export const SYNONYMS: Synonym[] = [
       'Feeling or expressing remorse at the recognition that one has done wrong; remorseful; regretful; repentant. - పశ్చాత్తాపపడే',
     partsOfSpeech: 'adj',
     synonyms: ['Regretful'],
-    example: '',
-  },
-  {
-    word: 'Admonish',
-    meaning: 'To reprimand; criticize; scold; chide. - హెచ్చరించు',
-    partsOfSpeech: 'verb',
-    synonyms: ['Reprimand'],
-    example: '',
+    example: 'She was contrite the morning after her angry outburst.',
   },
   {
     word: 'Blabber',
     meaning: 'Foolish or excessive talk; nonsense. - అర్థంలేని మాటలు',
     partsOfSpeech: 'noun',
     synonyms: ['Nonsense'],
-    example: '',
+    example: 'His endless blabber annoyed everyone in the room.',
   },
   {
     word: 'Equanimity',
     meaning: 'Calmness; composure. - ప్రశాంతత',
     partsOfSpeech: 'noun',
     synonyms: ['Calm'],
-    example: '',
+    example:
+      'During the horrible storm, it was hard for us to focus and maintain our equanimity.',
   },
   {
     word: 'Despicable',
     meaning: 'Loathful; very unpleasant; evil. - అసహ్యకరమైన',
     partsOfSpeech: 'adj',
     synonyms: ['Hateful'],
-    example: '',
+    example: 'Stealing money from the charity box was a despicable act.',
   },
   {
     word: 'Pert',
     meaning: 'Attractively lively or cheeky. - ఉల్లాసమైన',
     partsOfSpeech: 'adj',
     synonyms: ['Lively'],
-    example: '',
+    example: 'She gave a pert answer that made everyone in the room laugh.',
   },
   {
     word: 'Copious',
     meaning: 'Abundant; plentiful; profuse. - అపారమైన',
     partsOfSpeech: 'adj',
     synonyms: ['Plentiful'],
-    example: '',
+    example: '"He drank copious cups of coffee to stay awake all night.',
   },
   {
     word: 'Ebullient',
     meaning: 'Full of confidence and energy. - ఉత్సాహభరితమైన',
     partsOfSpeech: 'adj',
     synonyms: ['Enthusiastic'],
-    example: '',
+    example: 'Her ebullient personality lit up every room she walked into.',
   },
   {
     word: 'Superfluous',
     meaning: 'Not needed; unnecessary. - అవసరం లేని',
     partsOfSpeech: 'adj',
     synonyms: ['Extra'],
-    example: '',
+    example:
+      'Clear out the superfluous items from your bag to make it lighter.',
   },
   {
     word: 'Noxious',
     meaning: 'Poisonous; harmful; injurious. - హానికరమైన',
     partsOfSpeech: 'adj',
     synonyms: ['Harmful'],
-    example: '',
+    example:
+      'Workers wore thick masks to stay safe from the noxious fumes coming out of the factory.',
   },
   {
     word: 'Herald',
     meaning: 'A messenger; a person who carries important messages. - దూత',
     partsOfSpeech: 'noun',
     synonyms: ['Messenger'],
-    example: '',
+    example: 'Dark clouds can be a herald of a heavy storm.',
   },
   {
     word: 'Expandable',
     meaning: 'Able to increase in size. - విస్తరించగల',
     partsOfSpeech: 'adj',
     synonyms: ['flexible'],
-    example: '',
+    example:
+      'This travel bag has an expandable zip that creates more space for clothes.',
   },
   {
     word: 'Leisurely',
     meaning: 'Done at leisure; unhurried; relaxed. - తీరికగా',
     partsOfSpeech: 'adv',
     synonyms: ['Relaxed'],
-    example: '',
-  },
-  {
-    word: 'Eminent',
-    meaning: 'Famous; respected; prominent. - ప్రఖ్యాత చెందిన',
-    partsOfSpeech: 'adj',
-    synonyms: ['Prominent'],
-    example: '',
+    example: 'We took a leisurely walk through the park on Sunday morning.',
   },
   {
     word: 'Commence',
     meaning: 'Begin; start. - ప్రారంభించు',
     partsOfSpeech: 'verb',
     synonyms: ['Start'],
-    example: '',
+    example:
+      'The final examination will commence promptly at 9:00 AM tomorrow.',
   },
   {
     word: 'Assert',
@@ -522,56 +548,64 @@ export const SYNONYMS: Synonym[] = [
       'To state something clearly and strongly, to claim your rights, or to show your power. - నొక్కి చెప్పు',
     partsOfSpeech: 'verb',
     synonyms: ['Emphasize'],
-    example: '',
+    example:
+      "The lawyer stood up to assert his client's innocence in front of the judge.",
   },
   {
     word: 'Prohibition',
     meaning: 'The act of forbidding; exclusion. - నిషేధం',
     partsOfSpeech: 'noun',
     synonyms: ['Exclusion'],
-    example: '',
+    example:
+      'There is a strict prohibition against smoking inside the office building.',
   },
   {
     word: 'Complicated',
     meaning: 'Complicated; not simple. - సంక్లిష్టమైన',
     partsOfSpeech: 'adj',
     synonyms: ['Complex'],
-    example: '',
+    example:
+      'The math problem was so complicated that nobody could solve it quickly.',
   },
   {
     word: 'Alteration',
     meaning: 'A change or alteration. - మార్పు',
     partsOfSpeech: 'noun',
     synonyms: ['Modification'],
-    example: '',
+    example:
+      'The tailor made a small alteration to the dress so it fits perfectly.',
   },
   {
     word: 'Overwhelming',
     meaning: 'Very large; astonishing; amazing. - అత్యంత గొప్ప',
     partsOfSpeech: 'adj',
     synonyms: ['Impressive'],
-    example: '',
+    example:
+      'The charity received an overwhelming amount of support from the public.',
   },
   {
     word: 'Distaste',
     meaning: 'Dislike; loathing. - అసహ్యం',
     partsOfSpeech: 'noun',
     synonyms: ['Loathing'],
-    example: '',
+    example:
+      'She looked at the plate of bitter vegetables with clear distaste.',
   },
   {
     word: 'Garrulous',
     meaning: 'Very talkative. - ఎక్కువగా మాట్లాడే',
     partsOfSpeech: 'adj',
     synonyms: ['Talkative'],
-    example: '',
+    example:
+      'The garrulous passenger next to me talked non-stop during the entire flight.',
   },
   {
     word: 'Tilt',
     meaning: 'A sloping position or movement; slant. - వంగిపోవు',
     partsOfSpeech: 'noun',
     synonyms: ['Slant'],
-    example: '',
+    example:
+      'Please adjust the tilt of the computer screen to avoid the sun glare.',
   },
   {
     word: 'Inept',
@@ -579,7 +613,8 @@ export const SYNONYMS: Synonym[] = [
       'Not skilled or effective; incompetent; clumsy; inefficient. - అసమర్థమైన',
     partsOfSpeech: 'adj',
     synonyms: ['Clumsy'],
-    example: '',
+    example:
+      'His inept handling of the delicate situation made the problem much worse.',
   },
   {
     word: 'Inarticulate',
@@ -587,35 +622,38 @@ export const SYNONYMS: Synonym[] = [
       'Unable to express ideas clearly or fluently. - స్పష్టంగా చెప్పలేని',
     partsOfSpeech: 'adj',
     synonyms: ['Incoherent'],
-    example: '',
+    example: 'When he got angry, he became completely inarticulate with rage.',
   },
   {
     word: 'Entice',
     meaning: 'Attract or tempt by offering pleasure or advantage. - ఆకర్షించు',
     partsOfSpeech: 'verb',
     synonyms: ['Entrap'],
-    example: '',
+    example:
+      'The shopkeeper tried to entice customers into the store by offering huge discounts.',
   },
   {
     word: 'Dubious',
     meaning: 'Suspicious; doubtful; fishy. - అనుమానాస్పదమైన',
     partsOfSpeech: 'adj',
     synonyms: ['Fishy'],
-    example: '',
+    example:
+      'The businessman made a dubious claim about making thousands of dollars in one day.',
   },
   {
     word: 'Drag',
     meaning: 'Draw something toward yourself. - లాగు',
     partsOfSpeech: 'verb',
     synonyms: ['Pull'],
-    example: '',
+    example:
+      'The box was too heavy to lift, so I had to drag it across the floor.',
   },
   {
     word: 'Engulf',
     meaning: 'Envelop completely; overtake; submerge. - పూర్తిగా కప్పివేయు',
     partsOfSpeech: 'verb',
     synonyms: ['Envelop'],
-    example: '',
+    example: 'The massive waves threatened to engulf the tiny fishing boat.',
   },
   {
     word: 'Lethal',
@@ -623,7 +661,8 @@ export const SYNONYMS: Synonym[] = [
       'That can cause death or great damage; fatal; extremely dangerous; deadly. - ప్రాణాంతకమైన',
     partsOfSpeech: 'adj',
     synonyms: ['Fatal'],
-    example: '',
+    example:
+      'Certain types of wild mushrooms contain a lethal poison if eaten.',
   },
   {
     word: 'Prevalent',
@@ -631,28 +670,32 @@ export const SYNONYMS: Synonym[] = [
       'Most common in a particular place at a particular time; widespread; happening often. - అమలులో ఉన్న',
     partsOfSpeech: 'adj',
     synonyms: ['Common'],
-    example: '',
+    example:
+      'Flu infections are usually more prevalent during the cold winter months.',
   },
   {
     word: 'Exempt',
     meaning: 'Free from; exclude. - మినహాయింపు',
     partsOfSpeech: 'verb',
     synonyms: ['Exclude'],
-    example: '',
+    example:
+      'The school decided to exempt final-year students from the sports fee.',
   },
   {
     word: 'Rampant',
     meaning: 'Unchecked; out of control. - అదుపు లేని',
     partsOfSpeech: 'adj',
     synonyms: ['Excessive'],
-    example: '',
+    example:
+      'Unemployment was rampant in the country before the new factories opened.',
   },
   {
     word: 'Reticent',
     meaning: 'Quiet; silent; reserved. - తక్కువ మాట్లాడే స్వభావం గల',
     partsOfSpeech: 'adj',
     synonyms: ['Silent'],
-    example: '',
+    example:
+      'She is very reticent about her personal life and rarely shares anything.',
   },
   {
     word: 'Precarious',
@@ -660,29 +703,31 @@ export const SYNONYMS: Synonym[] = [
       'Not safe or certain; dangerous; treacherous; grievous. - ప్రమాదకరమైన',
     partsOfSpeech: 'adj',
     synonyms: ['Dangerous'],
-    example: '',
+    example:
+      'The old ladder was balanced in a precarious position against the wall.',
   },
   {
     word: 'Sterile',
     meaning:
-      'Not able to produce young animalsor babies; unable to produce plants or crops; barren. - నిస్సారమైన',
+      'Not able to produce young animals or babies; unable to produce plants or crops; barren. - నిస్సారమైన',
     partsOfSpeech: 'adj',
     synonyms: ['Barren'],
-    example: '',
+    example: 'Nothing could grow in the sterile, dry soil of the desert.',
   },
   {
     word: 'Pensive',
     meaning: 'Thoughtful; reflective. - ఆలోచనలో మునిగిన',
     partsOfSpeech: 'adj',
     synonyms: ['Reflective'],
-    example: '',
+    example: 'He sat by the window in a pensive mood, staring out at the rain.',
   },
   {
     word: 'Vindictive',
     meaning: 'Revengeful; unforgiving. - ప్రతీకార భావం గల',
     partsOfSpeech: 'adj',
     synonyms: ['Revengeful'],
-    example: '',
+    example:
+      'A vindictive person always tries to hurt someone who has wronged them.',
   },
   {
     word: 'Affinity',
@@ -690,21 +735,24 @@ export const SYNONYMS: Synonym[] = [
       'A natural liking or attraction towards someone or something. - ఇష్టం',
     partsOfSpeech: 'noun',
     synonyms: ['Attraction'],
-    example: '',
+    example:
+      'From a young age, the boy showed a natural affinity for classical music.',
   },
   {
     word: 'Repudiate',
     meaning: 'Reject; renounce. - తిరస్కరించు',
     partsOfSpeech: 'verb',
     synonyms: ['Renounce'],
-    example: '',
+    example:
+      'The leader issued a public statement to repudiate the false accusations.',
   },
   {
     word: 'Lament',
     meaning: 'Wail; moan; grieve; mourn. - విలపించు',
     partsOfSpeech: 'verb',
     synonyms: ['Mourn'],
-    example: '',
+    example:
+      'Many people gathered at the monument to lament the loss of the brave soldiers.',
   },
   {
     word: 'Perplex',
@@ -712,7 +760,8 @@ export const SYNONYMS: Synonym[] = [
       'Make someone feel completely baffled; puzzle; bewilder; worry. - గందరగోళానికి గురిచేయు',
     partsOfSpeech: 'verb',
     synonyms: ['Bewilder'],
-    example: '',
+    example:
+      'The sudden change in the rules will definitely perplex the players.',
   },
   {
     word: 'Defer',
@@ -720,28 +769,32 @@ export const SYNONYMS: Synonym[] = [
       'To leave something until a later time; postpone; delay. - వాయిదా వేయు',
     partsOfSpeech: 'verb',
     synonyms: ['Delay'],
-    example: '',
+    example:
+      'We decided to defer our vacation plans until the weather improves.',
   },
   {
     word: 'Mammoth',
     meaning: 'Gigantic; huge. - అతి పెద్ద',
     partsOfSpeech: 'adj',
     synonyms: ['Gigantic'],
-    example: '',
+    example:
+      'Building the new stadium was a mammoth project that took five years.',
   },
   {
     word: 'Exalt',
     meaning: 'Praise; glorify; rejoice greatly. - పొగడు',
     partsOfSpeech: 'verb',
     synonyms: ['Praise'],
-    example: '',
+    example:
+      'The citizens sang traditional songs to exalt the victories of their king.',
   },
   {
     word: 'Concise',
     meaning: 'Short; brief. - క్లుప్తంగా అన్ని అంశాలతో కూడిన',
     partsOfSpeech: 'adj',
     synonyms: ['Brief'],
-    example: '',
+    example:
+      'Please write a concise summary of the book in under two paragraphs.',
   },
   {
     word: 'Devout',
@@ -749,35 +802,40 @@ export const SYNONYMS: Synonym[] = [
       'Believing strongly in a religion and obeying all its rules or principles; pious; devoted to religion. - భక్తిగల',
     partsOfSpeech: 'adj',
     synonyms: ['Pious'],
-    example: '',
+    example:
+      'The devout old man visits the temple every single morning to offer prayers.',
   },
   {
     word: 'Renown',
     meaning: 'The state of being famous; fame; celebrity. - కీర్తి ప్రతిష్ట',
     partsOfSpeech: 'noun',
     synonyms: ['Fame'],
-    example: '',
+    example:
+      'The painter achieved international renown after winning the prestigious award.',
   },
   {
     word: 'Intricate',
     meaning: 'Very complicated; detailed; complex. - చిక్కుపడిన,సంక్లిష్టమైన',
     partsOfSpeech: 'adj',
     synonyms: ['Complex'],
-    example: '',
+    example:
+      'The wooden box was covered in intricate patterns that took months to carve.',
   },
   {
     word: 'Assist',
     meaning: 'To help; aid; or support someone; - సహాయం చేయు',
     partsOfSpeech: 'verb',
     synonyms: ['Help'],
-    example: '',
+    example:
+      'The nurse will assist the doctor during the routine health checkup.',
   },
   {
     word: 'Adept',
     meaning: 'Proficient; skilled - నైపుణ్యం కలిగిన',
     partsOfSpeech: 'adj',
     synonyms: ['Skilled'],
-    example: '',
+    example:
+      'She is an adept computer programmer who can solve software bugs quickly.',
   },
   {
     word: 'Initiate',
@@ -785,7 +843,8 @@ export const SYNONYMS: Synonym[] = [
       'To start something; begin; or set a plan in motion; commence; introduce. - ప్రారంభించు',
     partsOfSpeech: 'verb',
     synonyms: ['Start'],
-    example: '',
+    example:
+      'The management decided to initiate a new training program for all employees.',
   },
   {
     word: 'Obstacle',
@@ -793,22 +852,25 @@ export const SYNONYMS: Synonym[] = [
       'Something that blocks movement or progress; barrier; hurdle. - అడ్డంకి',
     partsOfSpeech: 'noun',
     synonyms: ['Barrier'],
-    example: '',
+    example:
+      'A fallen tree across the main road became a major obstacle for traffic.',
   },
   {
     word: 'Endeavour',
     meaning: 'Try to do something; attempt; strive. - ప్రయత్నించు',
     partsOfSpeech: 'verb',
     synonyms: ['Attempt'],
-    example: '',
+    example:
+      'We must always endeavour to do our best work, regardless of the challenges.',
   },
   {
     word: 'Insult',
     meaning:
-      'Offend; speak or treat with disrespect or scornful abuse. - అవమానించు',
+      'Offend; speak or treat with disrespect or scornful abuse. - अवమానించు',
     partsOfSpeech: 'verb',
     synonyms: ['Offend'],
-    example: '',
+    example:
+      'It is very rude to insult someone just because you disagree with them.',
   },
   {
     word: 'Hostility',
@@ -816,21 +878,24 @@ export const SYNONYMS: Synonym[] = [
       'Unfriendliness; hostile behaviour; opposition; enmity. -శత్రుభావం',
     partsOfSpeech: 'noun',
     synonyms: ['Enmity'],
-    example: '',
+    example:
+      'There was visible hostility between the two rival teams before the match started.',
   },
   {
     word: 'Attribute',
     meaning: 'A quality; feature; characteristic. - లక్షణం',
     partsOfSpeech: 'noun',
     synonyms: ['Quality'],
-    example: '',
+    example:
+      'Patience is a highly valuable attribute for a school teacher to have.',
   },
   {
     word: 'Fuse',
     meaning: 'Combine; blend; merge. - కలపడం',
     partsOfSpeech: 'verb',
     synonyms: ['Combine'],
-    example: '',
+    example:
+      'The chef loves to fuse traditional Indian spices with modern Western recipes.',
   },
   {
     word: 'Converse',
@@ -838,14 +903,15 @@ export const SYNONYMS: Synonym[] = [
       'To talk with someone; to have a conversation or exchange thoughts with another person. - అభిప్రాయాలు తెలుసుకునేలా చర్చించడం',
     partsOfSpeech: 'verb',
     synonyms: ['Talk'],
-    example: '',
+    example: 'It is polite to look at someone while you converse with them.',
   },
   {
     word: 'Austere',
     meaning: 'Severe; stern; strict. - కఠినమైన',
     partsOfSpeech: 'adj',
     synonyms: ['Strict'],
-    example: '',
+    example:
+      'The monks lived an austere life in the mountains with very few belongings.',
   },
   {
     word: 'Philanthropist',
@@ -853,14 +919,16 @@ export const SYNONYMS: Synonym[] = [
       'A lover of humanity; a person who helps the poor and those in need. - దాత',
     partsOfSpeech: 'noun',
     synonyms: ['Humanitarian'],
-    example: '',
+    example:
+      'The wealthy philanthropist donated millions of dollars to build a public hospital.',
   },
   {
     word: 'Impoverished',
     meaning: 'Very poor; destitute; penniless. - పేదవాడు',
     partsOfSpeech: 'adj',
     synonyms: ['Penniless'],
-    example: '',
+    example:
+      'The local charity provides free clothing and warm food to impoverished families.',
   },
   {
     word: 'Stoical',
@@ -868,7 +936,8 @@ export const SYNONYMS: Synonym[] = [
       'Patient; long-suffering; uncomplaining; unemotional; apathetic; forbearing. - సహనశీలి,ఓపిక గలవాడు',
     partsOfSpeech: 'adj',
     synonyms: ['Apathetic'],
-    example: '',
+    example:
+      'He showed a stoical attitude and kept working despite suffering from a bad headache.',
   },
   {
     word: 'Evidence',
@@ -876,6 +945,7 @@ export const SYNONYMS: Synonym[] = [
       'Anything that helps prove whether something is true or not; proof; indication; deposition. - సాక్ష్యం',
     partsOfSpeech: 'noun',
     synonyms: ['Indication'],
-    example: '',
+    example:
+      'The police gathered fingerprints from the scene to use as evidence in court.',
   },
 ];

@@ -64,8 +64,25 @@ export class VocabularyEngine {
 
       displayType: 'text',
 
-      explanation: `${synonym.word}(${synonym.partsOfSpeech}) - ${synonym.meaning}`,
+      explanation: this.formatExplanation(synonym),
     };
+  }
+
+  private formatExplanation(synonym: Synonym): string {
+    const formattedExample = this.formatExample(synonym.word, synonym.example);
+    return `
+    <strong>${synonym.word}</strong> (${synonym.partsOfSpeech})<br>
+    ${synonym.meaning}<br><br>
+
+    <strong>Ex:- </strong>
+    ${formattedExample}
+  `;
+  }
+
+  formatExample(word: string, example: string): string {
+    const regex = new RegExp(`\\b(${word}(?:s|es|d|ed|ing)?)\\b`, 'gi');
+
+    return example.replace(regex, '<u><strong>$&</strong></u>');
   }
 
   private nextSynonym(): Synonym {

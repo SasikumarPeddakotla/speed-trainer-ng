@@ -202,4 +202,10 @@ export class VocabularyReferenceComponent {
   isRemoved(question: unknown): boolean {
     return this.removedBookmarks.has(question);
   }
+
+  formatExample(word: string, example: string): string {
+    const regex = new RegExp(`\\b(${word}(?:s|es|d|ed|ing)?)\\b`, 'gi');
+
+    return example.replace(regex, '<u><strong>$&</strong></u>');
+  }
 }
