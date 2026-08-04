@@ -38,6 +38,10 @@ export class VocabularyEngine {
   createSynonymQuestion(synonym: Synonym): Question<Synonym> {
     const pair = this.getRandomWordPair(synonym.word, synonym.synonyms);
 
+    const filteredSynonyms = SYNONYMS.filter(
+      (s) => s.partsOfSpeech === synonym.partsOfSpeech,
+    );
+
     return {
       id: `synonym:${synonym.word}`,
       question: pair.question,
@@ -48,7 +52,7 @@ export class VocabularyEngine {
 
       options: this.randomService.buildOptions(
         synonym,
-        SYNONYMS,
+        filteredSynonyms,
         (s) => [s.word, ...s.synonyms],
         (s) => s.word,
         pair.answer,
@@ -91,6 +95,10 @@ export class VocabularyEngine {
   createAntonymQuestion(antonym: Antonym): Question<Antonym> {
     const pair = this.getRandomWordPair(antonym.word, antonym.antonyms);
 
+    const filteredAntonyms = ANTONYMS.filter(
+      (a) => a.partsOfSpeech === antonym.partsOfSpeech,
+    );
+
     return {
       id: `antonym:${antonym.word}`,
       question: pair.question,
@@ -101,7 +109,7 @@ export class VocabularyEngine {
 
       options: this.randomService.buildOptions(
         antonym,
-        ANTONYMS,
+        filteredAntonyms,
         (a) => [a.word, ...a.antonyms],
         (a) => a.word,
         pair.answer,
@@ -142,6 +150,10 @@ export class VocabularyEngine {
   }
 
   createOneWordQuestion(oneWord: OneWord): Question<OneWord> {
+    const filteredOneWords = ONE_WORDS.filter(
+      (o) => o.partsOfSpeech === oneWord.partsOfSpeech,
+    );
+
     return {
       id: `one-word:${oneWord.word}`,
       question: oneWord.word,
@@ -150,7 +162,7 @@ export class VocabularyEngine {
 
       options: this.randomService.buildOptions(
         oneWord,
-        ONE_WORDS,
+        filteredOneWords,
         (o) => [o.phrase],
         (o) => o.word,
         oneWord.phrase,
