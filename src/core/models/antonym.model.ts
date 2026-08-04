@@ -3,4 +3,5 @@ export interface Antonym {
   meaning: string;
   partsOfSpeech: string;
   antonyms: string[];
+  example: string;
 }
