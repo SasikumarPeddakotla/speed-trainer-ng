@@ -11,6 +11,7 @@ import { Exercise } from '../../core/models/exercise.model';
 import { ReviewTopic } from '../../core/models/review-topic.model';
 import { PracticeMode } from '../../core/enums/practice-mode.enum';
 import { SessionType } from '../../core/enums/session-type.enum';
+import { Topic } from '../../core/models/topic.model';
 
 @Component({
   selector: 'app-bookmarks',
@@ -73,13 +74,20 @@ export class BookmarksComponent {
     const exercise: Exercise = {
       title: 'Bookmarks',
       mode: PracticeMode.Bookmark,
-      topic: '',
+      topic: 'bookmarks',
       route: 'bookmarks',
       implemented: true,
       settings: [],
     };
+    const topic: Topic = {
+      title: 'Bookmarks',
+      route: 'bookmarks',
+      subject: '',
+      implemented: true,
+    };
 
     this.settingsService.setExercise(exercise);
+    this.settingsService.setTopic(topic);
 
     this.settingsService.setSessionType(SessionType.QuestionChallenge);
 

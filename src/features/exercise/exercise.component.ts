@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Exercise } from '../../core/models/exercise.model';
 import { exercises } from '../../core/data/exercises';
 import { SettingsService } from '../../core/services/settings.service';
+import { SessionType } from '../../core/enums/session-type.enum';
 
 @Component({
   selector: 'app-exercise',
@@ -50,6 +51,8 @@ export class ExerciseComponent {
     }
 
     this.settingsService.setExercise(exercise);
+    this.settingsService.setSessionType(SessionType.Practice);
+    this.settingsService.setQuestionTarget(10);
 
     this.router.navigate([exercise.route, 'practice-settings']);
   }

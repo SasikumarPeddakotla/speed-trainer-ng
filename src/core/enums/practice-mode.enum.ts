@@ -1,30 +1,30 @@
 export enum PracticeMode {
-  LetterPosition = 'lp',
-  LetterReversePosition = 'lrp',
-  MirrorLetter = 'mirror',
+  LetterPosition = 'Letter ↔ Position',
+  LetterReversePosition = 'Letter ↔ Reverse Position',
+  MirrorLetter = 'Mirror Letter',
 
-  Addition = 'add',
-  Subtraction = 'sub',
-  Multiplication = 'mul',
-  Division = 'div',
+  Addition = 'Addition',
+  Subtraction = 'Subtraction',
+  Multiplication = 'Multiplication',
+  Division = 'Division',
 
-  Tables = 'table',
-  Squares = 'square',
-  Cubes = 'cube',
+  Tables = 'Tables',
+  Squares = 'Squares',
+  Cubes = 'Cubes',
 
-  SquareRoots = 'sqrt',
-  CubeRoots = 'cbrt',
+  SquareRoots = 'Square Roots',
+  CubeRoots = 'Cube Roots',
 
-  FractionPercentage = 'fp',
-  FractionDecimal = 'fd',
-  DecimalPercentage = 'dp',
+  FractionPercentage = 'Fraction ↔ Percentage',
+  FractionDecimal = 'Fraction ↔ Decimal',
+  DecimalPercentage = 'Decimal ↔ Percentage',
 
-  Articles = 'articles',
+  Articles = 'Articles',
 
-  Synonyms = 'synonyms',
-  Antonyms = 'antonyms',
-  OneWord = 'one-word',
-  Idioms = 'idioms',
+  Synonyms = 'Synonyms',
+  Antonyms = 'Antonyms',
+  OneWord = 'One Word Substitutions',
+  Idioms = 'Idioms',
 
-  Bookmark = 'bookmark',
+  Bookmark = 'Bookmarks',
 }

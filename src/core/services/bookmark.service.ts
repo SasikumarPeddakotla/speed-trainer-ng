@@ -31,6 +31,16 @@ export class BookmarkService {
    */
   private bookmarkLists = new Map<PracticeMode, BookmarkEntry[]>();
 
+  private currentBookmark?: BookmarkEntry;
+
+  getCurrentBookmark(): BookmarkEntry | undefined {
+    return this.currentBookmark;
+  }
+
+  setCurrentBookmark(bookmark: BookmarkEntry | undefined) {
+    this.currentBookmark = bookmark;
+  }
+
   private getList(mode: PracticeMode): BookmarkEntry[] {
     let list = this.bookmarkLists.get(mode);
 

@@ -43,9 +43,20 @@ export class TrainerComponent implements OnInit, OnDestroy {
 
   public settingsService = inject(SettingsService);
 
-  private get mode() {
-    return this.settingsService.settings().selectedExercise!.mode;
+  get mode() {
+    const bookmark = this.bookmarkService.getCurrentBookmark();
+
+    if (bookmark) {
+      return bookmark.mode;
+    } else {
+      return this.settingsService.settings().selectedExercise!.mode;
+    }
   }
+
+  protected readonly topic = this.settingsService.settings().selectedTopic;
+
+  protected readonly exercise =
+    this.settingsService.settings().selectedExercise;
 
   @ViewChild('textInput')
   textInput?: ElementRef<HTMLInputElement>;
@@ -89,7 +100,9 @@ export class TrainerComponent implements OnInit, OnDestroy {
 
     effect(() => {
       if (this.sessionService.finished()) {
-        this.router.navigate(['/summary']);
+        setTimeout(() => {
+          this.router.navigate(['/summary']);
+        }, 150);
       }
     });
   }
@@ -310,12 +323,19 @@ export class TrainerComponent implements OnInit, OnDestroy {
     if (!question?.data) {
       return;
     }
+    const bookmark = this.bookmarkService.getCurrentBookmark();
 
-    this.bookmarkService.toggle({
-      id: question.id,
-      mode: this.mode,
-      question: question.data,
-    });
+    if (bookmark) {
+      // Bookmark practice
+      this.bookmarkService.toggle(bookmark);
+    } else {
+      // Normal practice
+      this.bookmarkService.toggle({
+        id: question.id,
+        mode: this.mode,
+        question: question.data,
+      });
+    }
   }
 
   isBookmarked(): boolean {

@@ -19,6 +19,7 @@
 
 .header {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
@@ -26,10 +27,15 @@
 
 .header h1 {
   margin: 0;
-  font-size: 28px;
+  font-size: 2rem;
   color: #2563eb;
 }
 
+.header p {
+  margin-top: 8px;
+  color: #64748b;
+  font-size: 1rem;
+}
 
 /* ---------- STATS ---------- */
 
@@ -60,19 +66,19 @@
 }
 
 .stat-card:nth-child(1) span {
-    color:#22c55e;
+  color: #22c55e;
 }
 
 .stat-card:nth-child(2) span {
-    color:#ef4444;
+  color: #ef4444;
 }
 
 .stat-card:nth-child(3) span {
-    color:#f97316;
+  color: #f97316;
 }
 
 .stat-card:nth-child(4) span {
-    color:#2563eb;
+  color: #2563eb;
 }
 
 /* ---------- STATUS ---------- */
@@ -159,7 +165,7 @@
 
   outline: none;
 
-  transition: border-color .2s ease;
+  transition: border-color 0.2s ease;
   box-sizing: border-box;
 }
 
@@ -197,7 +203,7 @@
 
   cursor: pointer;
 
-  transition: all .15s ease;
+  transition: all 0.15s ease;
 }
 
 .backspace-btn:hover {
@@ -205,7 +211,7 @@
 }
 
 .backspace-btn:active {
-  transform: translateY(-50%) scale(.92);
+  transform: translateY(-50%) scale(0.92);
 }
 
 /* ---------- Action area ---------- */
@@ -260,11 +266,11 @@
 
   cursor: pointer;
 
-  transition: all .2s ease;
+  transition: all 0.2s ease;
 }
 
 .action-btn:active {
-  transform: scale(.98);
+  transform: scale(0.98);
 }
 
 .understand-btn {
@@ -294,7 +300,7 @@
 
   cursor: pointer;
 
-  transition: color .2s ease;
+  transition: color 0.2s ease;
 }
 
 .reveal-link:hover {

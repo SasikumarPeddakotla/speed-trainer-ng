@@ -43,6 +43,7 @@ export class BookmarkEngine {
 
   generateQuestion(): Question {
     const bookmark = this.nextQuestion();
+    this.bookmarkService.setCurrentBookmark(bookmark);
 
     if (!bookmark) {
       throw new Error('No bookmarked questions remaining.');
@@ -160,5 +161,6 @@ export class BookmarkEngine {
 
   reset() {
     this.queue = [];
+    this.bookmarkService.setCurrentBookmark(undefined);
   }
 }

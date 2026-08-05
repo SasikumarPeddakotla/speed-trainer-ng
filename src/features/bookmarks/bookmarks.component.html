@@ -7,11 +7,11 @@
       bookmarked {{ totalBookmarks === 1 ? "question" : "questions" }}
     </p>
 
-    <!-- Uncomment when Practice All is implemented -->
-
-    <button class="practice-all-btn" (click)="practiceBookmarks()">
-      ▶ Practice All Bookmarks
-    </button>
+    @if (totalBookmarks > 0) {
+      <button class="practice-all-btn" (click)="practiceBookmarks()">
+        ▶ Practice All Bookmarks
+      </button>
+    }
   </div>
 
   @if (bookmarkTopics.length === 0) {

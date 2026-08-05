@@ -53,4 +53,12 @@ export const topics: Topic[] = [
     subject: 'english',
     implemented: true,
   },
+
+  // Bookmarks
+  {
+    title: 'Bookmarks',
+    route: 'bookmarks',
+    subject: '',
+    implemented: true,
+  },
 ];
