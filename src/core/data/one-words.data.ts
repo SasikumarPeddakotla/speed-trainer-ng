@@ -2,33 +2,38 @@ import { OneWord } from '../models/one-word.model';
 
 export const ONE_WORDS: OneWord[] = [
   {
-    phrase: 'Code of diplomatic etiquette and precedence.',
+    phrase: 'Code of diplomatic etiquette and precedence',
     word: 'Protocol',
-    partsOfSpeech: '',
+    meaning: '',
+    partsOfSpeech: 'noun',
     example: '',
   },
   {
-    phrase: 'To renounce a high position of authority or control.',
+    phrase: 'To renounce a high position of authority or control',
     word: 'Abdicate',
-    partsOfSpeech: '',
+    meaning: '',
+    partsOfSpeech: 'verb',
     example: '',
   },
   {
-    phrase: 'Not to be moved by entreaty.',
+    phrase: 'Not to be moved by entreaty',
     word: 'Inexorable',
-    partsOfSpeech: '',
+    meaning: '',
+    partsOfSpeech: 'adj',
     example: '',
   },
   {
-    phrase: 'An object or portion serving as a sample.',
+    phrase: 'An object or portion serving as a sample',
     word: 'Specimen',
-    partsOfSpeech: '',
+    meaning: '',
+    partsOfSpeech: 'noun',
     example: '',
   },
   {
-    phrase: 'The practice of submitting a proposal to a popular vote.',
+    phrase: 'The practice of submitting a proposal to a popular vote',
     word: 'Referendum',
-    partsOfSpeech: '',
+    meaning: '',
+    partsOfSpeech: 'noun',
     example: '',
   },
 ];

@@ -156,8 +156,22 @@ export class VocabularyEngine {
 
       displayType: 'text',
 
-      explanation: `${antonym.word} - ${antonym.meaning}`,
+      explanation: this.formatAntonymExplanation(antonym),
     };
+  }
+
+  private formatAntonymExplanation(antonym: Antonym): string {
+    const formattedExample = this.formatExample(antonym.word, antonym.example);
+    return `
+    <strong>${antonym.word}</strong> (${antonym.partsOfSpeech})<br>
+    ${antonym.meaning}<br><br>
+
+    <strong>Antonym${antonym.antonyms.length > 1 ? 's' : ''}:- </strong>
+    ${antonym.antonyms.join(', ')}<br><br>
+
+    <strong>Ex:- </strong>
+    ${formattedExample}
+  `;
   }
 
   private nextAntonym(): Antonym {
@@ -190,17 +204,17 @@ export class VocabularyEngine {
     );
 
     return {
-      id: `one-word:${oneWord.word}`,
-      question: oneWord.word,
+      id: `one-word:${oneWord.phrase}`,
+      question: oneWord.phrase,
 
-      answer: oneWord.phrase,
+      answer: oneWord.word,
 
       options: this.randomService.buildOptions(
         oneWord,
         filteredOneWords,
-        (o) => [o.phrase],
-        (o) => o.word,
-        oneWord.phrase,
+        (o) => [o.word],
+        (o) => o.phrase,
+        oneWord.word,
       ),
 
       data: oneWord,
@@ -208,7 +222,20 @@ export class VocabularyEngine {
       inputType: InputType.MultipleChoice,
 
       displayType: 'text',
+
+      explanation: this.formatOneWordExplanation(oneWord),
     };
+  }
+
+  private formatOneWordExplanation(oneWord: OneWord): string {
+    const formattedExample = this.formatExample(oneWord.word, oneWord.example);
+    return `
+    <strong>${oneWord.word}</strong> (${oneWord.partsOfSpeech})<br>
+    ${oneWord.meaning}<br><br>
+
+    <strong>Ex:- </strong>
+    ${formattedExample}
+  `;
   }
 
   private nextOneWord(): OneWord {
@@ -255,7 +282,20 @@ export class VocabularyEngine {
       inputType: InputType.MultipleChoice,
 
       displayType: 'text',
+
+      explanation: this.formatIdiomExplanation(idiom),
     };
+  }
+
+  private formatIdiomExplanation(idiom: Idiom): string {
+    const formattedExample = this.formatExample(idiom.idiom, idiom.example);
+    return `
+    <strong>${idiom.idiom}</strong><br>
+    ${idiom.meaning}<br><br>
+
+    <strong>Ex:- </strong>
+    ${formattedExample}
+  `;
   }
 
   private nextIdiom(): Idiom {

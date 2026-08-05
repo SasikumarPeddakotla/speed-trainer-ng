@@ -59,8 +59,14 @@
         </p>
 
         <p>
-          <strong>Antonyms</strong><br />
+          <strong>Antonym{{ word.antonyms.length > 1 ? "s" : "" }}</strong
+          ><br />
           {{ word.antonyms.join(", ") }}
+        </p>
+
+        <p>
+          <strong>Ex:- </strong>
+          <span [innerHTML]="formatExample(word.word, word.example)"></span>
         </p>
       </div>
     }
@@ -84,8 +90,12 @@
         </div>
 
         <p>
-          <strong>Phrase</strong><br />
-          {{ word.phrase }}
+          <strong>Meaning</strong><br />
+          {{ word.meaning }}
+        </p>
+        <p>
+          <strong>Ex:- </strong>
+          <span [innerHTML]="formatExample(word.word, word.example)"></span>
         </p>
       </div>
     }
