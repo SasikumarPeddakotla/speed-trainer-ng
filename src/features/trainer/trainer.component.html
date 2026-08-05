@@ -106,13 +106,13 @@
         @if (question.explanation) {
           <div class="revealed-divider"></div>
 
-          <div class="revealed-explanation">
-            <div class="revealed-explanation-title">Explanation</div>
+          <details class="revealed-explanation">
+            <summary class="revealed-explanation-title">Explanation</summary>
 
             <div class="revealed-explanation-text">
               <span [innerHTML]="question.explanation"></span>
             </div>
-          </div>
+          </details>
         }
       </div>
 

@@ -74,6 +74,9 @@ export class VocabularyEngine {
     <strong>${synonym.word}</strong> (${synonym.partsOfSpeech})<br>
     ${synonym.meaning}<br><br>
 
+    <strong>Synonym${synonym.synonyms.length > 1 ? 's' : ''}:- </strong>
+    ${synonym.synonyms.join(', ')}<br><br>
+
     <strong>Ex:- </strong>
     ${formattedExample}
   `;
