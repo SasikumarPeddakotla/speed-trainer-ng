@@ -222,14 +222,14 @@ export class VocabularyEngine {
       id: `idiom:${idiom.idiom}`,
       question: idiom.idiom,
 
-      answer: idiom.meaning,
+      answer: idiom.option,
 
       options: this.randomService.buildOptions(
         idiom,
         IDIOMS,
-        (i) => [i.meaning],
+        (i) => [i.option],
         (i) => i.idiom,
-        idiom.meaning,
+        idiom.option,
       ),
 
       data: idiom,
