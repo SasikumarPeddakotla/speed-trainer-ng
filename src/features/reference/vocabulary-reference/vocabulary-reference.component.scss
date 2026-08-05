@@ -7,3 +7,22 @@
   gap: 12px;
 }
 
+.origin-details {
+  margin-top: 0.75rem;
+
+  summary {
+    cursor: pointer;
+    user-select: none;
+  }
+}
+
+.origin-text {
+  margin-top: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: #f8f9fa;
+  border-left: 4px solid #3b82f6;
+  border-radius: 8px;
+  color: #4b5563;
+  line-height: 1.6;
+  font-style: italic;
+}

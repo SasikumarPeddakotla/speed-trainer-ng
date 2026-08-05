@@ -126,10 +126,12 @@
           <strong>Ex:- </strong>
           <span [innerHTML]="formatExample(word.idiom, word.example)"></span>
         </p>
-        <details>
+        <details class="origin-details">
           <summary><strong>Origin</strong></summary>
 
-          <p>{{ word.origin }}</p>
+          <p class="origin-text">
+            {{ word.origin }}
+          </p>
         </details>
       </div>
     }
