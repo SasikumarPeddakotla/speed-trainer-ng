@@ -116,10 +116,11 @@
           <strong>Ex:- </strong>
           {{ word.example }}
         </p>
-        <p>
-          <strong>Origin</strong><br />
-          {{ word.origin }}
-        </p>
+        <details>
+          <summary><strong>Origin</strong></summary>
+
+          <p>{{ word.origin }}</p>
+        </details>
       </div>
     }
   }
