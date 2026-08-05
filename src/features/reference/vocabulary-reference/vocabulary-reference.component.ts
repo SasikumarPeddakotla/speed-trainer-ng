@@ -10,6 +10,9 @@ import { Idiom } from '../../../core/models/idiom.model';
 import { ReviewService } from '../../../core/services/review.service';
 import { BookmarkService } from '../../../core/services/bookmark.service';
 
+import * as lemmatizer from 'wink-lemmatizer';
+import { ExampleFormatterService } from '../../../utils/example-formatter.service';
+
 @Component({
   selector: 'app-vocabulary-reference',
   standalone: true,
@@ -24,6 +27,7 @@ export class VocabularyReferenceComponent {
   private reviewService = inject(ReviewService);
   private vocabularyEngine = inject(VocabularyEngine);
   private bookmarkService = inject(BookmarkService);
+  public formatterService = inject(ExampleFormatterService);
 
   private removedBookmarks = new Set<unknown>();
 
@@ -201,26 +205,5 @@ export class VocabularyReferenceComponent {
 
   isRemoved(question: unknown): boolean {
     return this.removedBookmarks.has(question);
-  }
-
-  formatExample(word: string, example: string): string {
-    const forms = [word];
-
-    if (word.endsWith('e')) {
-      const stem = word.slice(0, -1);
-
-      forms.push(`${stem}ing`);
-      forms.push(`${stem}ed`);
-    } else {
-      forms.push(`${word}ing`);
-      forms.push(`${word}ed`);
-    }
-
-    forms.push(`${word}s`);
-    forms.push(`${word}es`);
-
-    const regex = new RegExp(`\\b(${forms.join('|')})\\b`, 'gi');
-
-    return example.replace(regex, '<u><strong>$1</strong></u>');
   }
 }

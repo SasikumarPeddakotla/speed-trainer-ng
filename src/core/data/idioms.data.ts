@@ -59,7 +59,7 @@ export const IDIOMS: Idiom[] = [
     meaning: 'To waste time or make no progress.',
     option: 'waste your time or efforts',
     example:
-      'We spent hours discussing the issue but were only spinning our wheels.',
+      'You spent hours discussing the issue but were only spinning your wheels.',
     origin:
       'It comes from vehicles whose wheels spin helplessly in mud, sand, or snow without moving forward. The image perfectly describes putting in effort without making any real progress.',
   },
@@ -80,7 +80,7 @@ export const IDIOMS: Idiom[] = [
       "The word 'whirl' means a quick spin or turn. The phrase likely developed from the idea of giving something a spin to see how it works, and now simply means to try something.",
   },
   {
-    idiom: 'Up in the air(about someone/something)',
+    idiom: 'Up in the air',
     meaning: 'In an uncertain or undecided state.',
     option: 'still to be settled',
     example: 'Our travel plans are still up in the air because of the weather.',
@@ -88,7 +88,7 @@ export const IDIOMS: Idiom[] = [
       'Something hanging in the air has not yet landed or settled. This image led to the figurative meaning of a decision or plan that is still uncertain or unresolved.',
   },
   {
-    idiom: 'Give oneself airs',
+    idiom: 'Give himself airs',
     meaning: 'Pretend to be more important or superior than one really is.',
     option: 'pretend to be good',
     example: 'He started giving himself airs after receiving a promotion.',
@@ -322,7 +322,8 @@ export const IDIOMS: Idiom[] = [
     idiom: 'Draconian law',
     meaning: 'A law that is extremely harsh or severe.',
     option: 'Extremely severe law',
-    example: 'Many considered the new regulations draconian.',
+    example:
+      'Many people protested against the draconian law imposed by the government.',
     origin:
       'The idiom comes from Draco, an ancient Athenian lawmaker whose legal code imposed extremely harsh punishments. His name became synonymous with excessive severity.',
   },
@@ -548,13 +549,13 @@ export const IDIOMS: Idiom[] = [
       "The word 'bay' originally referred to holding hunting dogs at a distance. Over time, the expression came to mean keeping danger, enemies, or problems under control.",
   },
   {
-    idiom: 'Ring fencing',
+    idiom: 'Ring-fencing',
     option:
       'Guarantee that funds allocated for a particular purpose will not be spent on anything else',
     meaning:
       'Guaranteeing that a certain amount of money is used for a specific purpose and cannot be spent on anything else.',
     example:
-      'The government ring-fenced the education budget from spending cuts.',
+      'The government is ring-fencing the education budget from spending cuts.',
     origin:
       'A ring fence is a protective fence built around an area. The financial expression uses this idea to describe setting aside and protecting money for a specific purpose.',
   },
@@ -570,7 +571,8 @@ export const IDIOMS: Idiom[] = [
     idiom: 'Let your hair down',
     meaning: 'To relax and be more carefree or uninhibited.',
     option: 'Behave uninhibitedly',
-    example: 'After the exams, everyone let their hair down at the party.',
+    example:
+      'After finishing the exams, you can finally let your hair down at the party.',
     origin:
       'In earlier centuries, women usually kept their hair tied up in public. Letting it down at home symbolized relaxation and freedom from formal behavior.',
   },
@@ -756,7 +758,7 @@ export const IDIOMS: Idiom[] = [
     option: 'to irritate someone very much',
     meaning:
       'To make someone annoyed or frustrated to the point of exasperation.',
-    example: 'The constant noise is driving me up the wall.',
+    example: 'The constant noise can drive someone up the wall.',
     origin:
       'The expression creates the image of someone becoming so frustrated that they could climb the walls. It emphasizes extreme irritation or annoyance.',
   },
@@ -816,7 +818,7 @@ export const IDIOMS: Idiom[] = [
     option: 'being nervous',
     meaning:
       'A feeling of nervousness or excitement, typically before a challenging or important event.',
-    example: 'I always get butterflies in my stomach before giving a speech.',
+    example: 'I always get butterflies in the stomach before giving a speech.',
     origin:
       'People often experience a fluttering sensation in their stomach when anxious or excited. The feeling was compared to butterflies fluttering inside the stomach, giving rise to the expression.',
   },
@@ -971,7 +973,7 @@ export const IDIOMS: Idiom[] = [
     idiom: 'Under his nose',
     meaning: 'Right in front of him.',
     option: 'right in front of him',
-    example: 'The children exchanged notes under the teacher’s nose.',
+    example: 'They carried out the plan under his nose without being noticed.',
     origin:
       "Since the nose is directly in front of a person's face, the phrase describes something happening openly nearby without being noticed by that person.",
   },
@@ -1095,7 +1097,7 @@ export const IDIOMS: Idiom[] = [
     idiom: 'Bit your tongue',
     meaning: 'Stop yourself from saying something.',
     option: 'stop yourself from saying something',
-    example: 'I wanted to argue, but I bit my tongue.',
+    example: 'You bit your tongue to avoid making the situation worse.',
     origin:
       'People sometimes literally bite their tongue to avoid speaking impulsively. The physical action became a metaphor for deliberately remaining silent.',
   },
@@ -1438,7 +1440,7 @@ export const IDIOMS: Idiom[] = [
     meaning: 'Peaple with similar character or interests',
     option: 'People with similar character',
     example:
-      'Those two are birds of the same feather—they enjoy all the same hobbies.',
+      'Those two are birds of a same feather—they enjoy all the same hobbies.',
     origin:
       'Birds with the same type of feathers naturally flock together. The proverb became a metaphor for people with similar personalities or interests spending time together.',
   },
@@ -1470,7 +1472,7 @@ export const IDIOMS: Idiom[] = [
     idiom: 'Cut one short',
     meaning: 'To interrupt someone.',
     option: 'To interrupt someone',
-    example: 'She cut him short before he could finish his explanation.',
+    example: 'Never cut one short before they finish explaining.',
     origin:
       'To cut something short literally means ending it before its natural conclusion. The idiom is commonly used when interrupting a conversation or activity.',
   },
@@ -1581,7 +1583,7 @@ export const IDIOMS: Idiom[] = [
       'In the past, dropping a hat was used as a signal to begin a race or a fight. This led to the expression meaning immediately, without hesitation.',
   },
   {
-    idiom: 'Make a beeline off',
+    idiom: 'Make a beeline for',
     meaning: 'Move quickly or directly towards something; Go straight to',
     option: 'Go straight to',
     example: 'After class, the students made a beeline for the cafeteria.',
@@ -1589,7 +1591,7 @@ export const IDIOMS: Idiom[] = [
       'Bees fly almost directly between their hive and flowers. Their straight flight inspired the phrase for moving quickly and directly toward a destination.',
   },
   {
-    idiom: 'Till the cows from home',
+    idiom: 'Till the cows come home',
     meaning: 'For a very long time',
     option: 'For a long, long time',
     example:
@@ -1762,10 +1764,11 @@ export const IDIOMS: Idiom[] = [
       'A container that holds water without leaking is reliable. Likewise, an argument that holds water remains strong when examined or challenged.',
   },
   {
-    idiom: 'A closed-fisted person',
+    idiom: 'A close-fisted person',
     meaning: 'A miserly person; pettily reluctant to spend money',
     option: 'A miserly person',
-    example: 'He is so close-fisted that he never pays for anyone.',
+    example:
+      'Everyone knows that he is a close-fisted person who never spends money.',
     origin:
       'Someone with a tightly closed fist is unwilling to let money go. The image naturally came to describe a stingy or miserly person.',
   },
@@ -1898,7 +1901,7 @@ export const IDIOMS: Idiom[] = [
       'Large fish naturally stand out and dominate smaller ones. The idiom came to describe influential or important people in an organization or society.',
   },
   {
-    idiom: 'Be behind the time',
+    idiom: 'Be behind the times',
     meaning: 'To be out of date/old-fashioned',
     option: 'Be old fashioned',
     example: 'Using only paper records is behind the times nowadays.',
@@ -1980,7 +1983,7 @@ export const IDIOMS: Idiom[] = [
       'The idiom comes from shooting sports, where the person calling the shots directs the action. It now means making decisions or being in control.',
   },
   {
-    idiom: 'A nine day wonder',
+    idiom: "A nine days' wonder",
     meaning: 'A short-lived sensation',
     option: 'a short-lived sensation',
     example: 'The viral video turned out to be just a nine days’ wonder.',
@@ -2022,7 +2025,7 @@ export const IDIOMS: Idiom[] = [
       'The phrase comes from the Bible, where John the Baptist is described as "a voice crying in the wilderness." It refers to warnings or appeals that people ignore.',
   },
   {
-    idiom: 'Spread like wild fire',
+    idiom: 'Spread like wildfire',
     meaning: 'Spread rapidly; spread with great speed',
     option: 'spread rapidly',
     example:
@@ -2111,7 +2114,7 @@ export const IDIOMS: Idiom[] = [
       'The expression literally means to look outward for danger. It became a common warning telling people to stay alert.',
   },
   {
-    idiom: 'Give ahand',
+    idiom: 'Give a hand',
     meaning: 'Assist',
     option: 'assist',
     example: 'Can you give me a hand with these bags?',
@@ -2119,7 +2122,7 @@ export const IDIOMS: Idiom[] = [
       'Offering your hand is a natural gesture of help. The idiom evolved to mean providing assistance of any kind.',
   },
   {
-    idiom: 'Pocket an isult',
+    idiom: 'Pocket an insult',
     meaning: 'Bear an insult quietly',
     option: 'bear an insult quietly',
     example: 'He pocketed the insult and walked away calmly.',
@@ -2271,7 +2274,7 @@ export const IDIOMS: Idiom[] = [
     option: 'Give temporary help, usually financial',
     meaning:
       'Help someone through a difficult period, especially with financial assistance; sustain',
-    example: 'My parents loaned me some money to tide me over until payday.',
+    example: 'This money will tide someone over until the next paycheck.',
     origin:
       'The phrase comes from the idea of surviving until the tide changes. It refers to temporary help that enables someone to get through a difficult time.',
   },

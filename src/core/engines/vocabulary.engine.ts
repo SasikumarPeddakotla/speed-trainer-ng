@@ -14,6 +14,7 @@ import { Idiom } from '../models/idiom.model';
 import { ReviewService } from '../services/review.service';
 import { SettingsService } from '../services/settings.service';
 import { PracticeMode } from '../enums/practice-mode.enum';
+import { ExampleFormatterService } from '../../utils/example-formatter.service';
 
 @Injectable({
   providedIn: 'root',
@@ -29,6 +30,7 @@ export class VocabularyEngine {
   constructor(
     private reviewService: ReviewService,
     private settingsService: SettingsService,
+    private formatterService: ExampleFormatterService,
   ) {}
 
   generateSynonymQuestion(): Question<Synonym> {
@@ -69,7 +71,10 @@ export class VocabularyEngine {
   }
 
   private formatSynonymExplanation(synonym: Synonym): string {
-    const formattedExample = this.formatExample(synonym.word, synonym.example);
+    const formattedExample = this.formatterService.formatExample(
+      synonym.word,
+      synonym.example,
+    );
     return `
     <strong>${synonym.word}</strong> (${synonym.partsOfSpeech})<br>
     ${synonym.meaning}<br><br>
@@ -80,27 +85,6 @@ export class VocabularyEngine {
     <strong>Ex:- </strong>
     ${formattedExample}
   `;
-  }
-
-  formatExample(word: string, example: string): string {
-    const forms = [word];
-
-    if (word.endsWith('e')) {
-      const stem = word.slice(0, -1);
-
-      forms.push(`${stem}ing`);
-      forms.push(`${stem}ed`);
-    } else {
-      forms.push(`${word}ing`);
-      forms.push(`${word}ed`);
-    }
-
-    forms.push(`${word}s`);
-    forms.push(`${word}es`);
-
-    const regex = new RegExp(`\\b(${forms.join('|')})\\b`, 'gi');
-
-    return example.replace(regex, '<u><strong>$1</strong></u>');
   }
 
   private nextSynonym(): Synonym {
@@ -161,7 +145,10 @@ export class VocabularyEngine {
   }
 
   private formatAntonymExplanation(antonym: Antonym): string {
-    const formattedExample = this.formatExample(antonym.word, antonym.example);
+    const formattedExample = this.formatterService.formatExample(
+      antonym.word,
+      antonym.example,
+    );
     return `
     <strong>${antonym.word}</strong> (${antonym.partsOfSpeech})<br>
     ${antonym.meaning}<br><br>
@@ -228,7 +215,10 @@ export class VocabularyEngine {
   }
 
   private formatOneWordExplanation(oneWord: OneWord): string {
-    const formattedExample = this.formatExample(oneWord.word, oneWord.example);
+    const formattedExample = this.formatterService.formatExample(
+      oneWord.word,
+      oneWord.example,
+    );
     return `
     <strong>${oneWord.word}</strong> (${oneWord.partsOfSpeech})<br>
     ${oneWord.meaning}<br><br>
@@ -288,7 +278,10 @@ export class VocabularyEngine {
   }
 
   private formatIdiomExplanation(idiom: Idiom): string {
-    const formattedExample = this.formatExample(idiom.idiom, idiom.example);
+    const formattedExample = this.formatterService.formatExample(
+      idiom.idiom,
+      idiom.example,
+    );
     return `
     <strong>${idiom.idiom}</strong><br>
     ${idiom.meaning}<br><br>
