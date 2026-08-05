@@ -294,7 +294,15 @@ export class VocabularyEngine {
     ${idiom.meaning}<br><br>
 
     <strong>Ex:- </strong>
-    ${formattedExample}
+    ${formattedExample}<br>
+
+    <details class="origin-details">
+      <summary><strong>💡 Why this idiom?</strong></summary>
+
+      <p class="origin-text">
+        ${idiom.origin}
+      </p>
+    </details>
   `;
   }
 
