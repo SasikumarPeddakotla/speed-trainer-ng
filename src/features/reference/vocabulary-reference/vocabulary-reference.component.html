@@ -114,7 +114,7 @@
         </p>
         <p>
           <strong>Ex:- </strong>
-          {{ word.example }}
+          <span [innerHTML]="formatExample(word.idiom, word.example)"></span>
         </p>
         <details>
           <summary><strong>Origin</strong></summary>

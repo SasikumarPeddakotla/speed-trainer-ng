@@ -53,6 +53,7 @@ export class ExerciseComponent {
     this.settingsService.setExercise(exercise);
     this.settingsService.setSessionType(SessionType.Practice);
     this.settingsService.setQuestionTarget(10);
+    this.settingsService.setWordsLimit('10');
 
     this.router.navigate([exercise.route, 'practice-settings']);
   }
