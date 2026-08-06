@@ -3,4 +3,6 @@ export interface Alphabet {
   position: number;
   reversePosition: number;
   mirrorLetter: string;
+
+  mnemonic: string;
 }

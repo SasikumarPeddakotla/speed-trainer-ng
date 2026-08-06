@@ -75,3 +75,54 @@
 .bookmark-btn:not(.bookmarked) {
   color: #cbd5e1;
 }
+
+.reference-hint {
+  margin-bottom: 14px;
+  text-align: center;
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.reference-hint strong {
+  color: #2563eb;
+}
+
+.clickable {
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease;
+}
+
+.clickable:hover {
+  background: #1d4ed8;
+}
+
+.clickable:active {
+  background: #1e40af;
+}
+
+.mnemonic-cell {
+  text-align: left;
+  font-weight: 600;
+  color: #0f172a;
+  font-size: 16px;
+}
+
+.mirror-pair {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f766e;
+}
+
+.alphabet-table {
+  transition: opacity 0.2s ease;
+}
+
+.mnemonic-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #eff6ff;
+  font-weight: 600;
+}

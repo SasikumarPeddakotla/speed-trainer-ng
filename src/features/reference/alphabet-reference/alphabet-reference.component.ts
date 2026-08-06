@@ -1,4 +1,4 @@
-import { Component, computed, inject, input } from '@angular/core';
+import { Component, computed, inject, input, signal } from '@angular/core';
 
 import { AlphabetEngine } from '../../../core/engines/alphabet.engine';
 import { Alphabet } from '../../../core/models/alphabet.model';
@@ -39,6 +39,12 @@ export class AlphabetReferenceComponent {
         return this.alphabetEngine.getAlphabetReference();
     }
   });
+
+  protected readonly showMnemonics = signal(false);
+
+  toggleReferenceView(): void {
+    this.showMnemonics.update((value) => !value);
+  }
 
   toggleBookmark(alphabet: Alphabet): void {
     const entry = {
