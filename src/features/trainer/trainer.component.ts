@@ -183,7 +183,7 @@ export class TrainerComponent implements OnInit, OnDestroy {
         if (!wasReview) {
           this.reviewService.advanceDelays();
         }
-      }, 150);
+      }, 200);
     } else {
       this.sessionService.wrong();
 
