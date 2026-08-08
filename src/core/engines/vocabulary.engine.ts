@@ -1,6 +1,5 @@
 import { inject, Injectable } from '@angular/core';
 
-import { SYNONYMS } from '../data/synonyms.data';
 import { ANTONYMS } from '../data/antonyms.data';
 import { ONE_WORDS } from '../data/one-words.data';
 import { IDIOMS } from '../data/idioms.data';
@@ -15,6 +14,7 @@ import { ReviewService } from '../services/review.service';
 import { SettingsService } from '../services/settings.service';
 import { PracticeMode } from '../enums/practice-mode.enum';
 import { ExampleFormatterService } from '../../utils/example-formatter.service';
+import { VocabularyDataService } from '../services/vocabulary-data.service';
 
 @Injectable({
   providedIn: 'root',
@@ -31,6 +31,7 @@ export class VocabularyEngine {
     private reviewService: ReviewService,
     private settingsService: SettingsService,
     private formatterService: ExampleFormatterService,
+    private vocabularyDataService: VocabularyDataService,
   ) {}
 
   generateSynonymQuestion(): Question<Synonym> {
@@ -40,9 +41,9 @@ export class VocabularyEngine {
   createSynonymQuestion(synonym: Synonym): Question<Synonym> {
     const pair = this.getRandomWordPair(synonym.word, synonym.synonyms);
 
-    const filteredSynonyms = SYNONYMS.filter(
-      (s) => s.partsOfSpeech === synonym.partsOfSpeech,
-    );
+    const filteredSynonyms = this.vocabularyDataService
+      .getSynonyms()
+      .filter((s) => s.partsOfSpeech === synonym.partsOfSpeech);
 
     return {
       id: `synonym:${synonym.word}`,
@@ -324,7 +325,9 @@ export class VocabularyEngine {
   }
 
   private getSynonyms(): Synonym[] {
-    return SYNONYMS.slice(0, this.getWordLimit());
+    return this.vocabularyDataService
+      .getSynonyms()
+      .slice(0, this.getWordLimit());
   }
 
   private getAntonyms(): Antonym[] {
@@ -358,7 +361,7 @@ export class VocabularyEngine {
   getVocabularyCount(): number {
     switch (this.settingsService.settings().selectedExercise?.mode) {
       case PracticeMode.Synonyms:
-        return SYNONYMS.length;
+        return this.vocabularyDataService.getSynonyms().length;
 
       case PracticeMode.Antonyms:
         return ANTONYMS.length;

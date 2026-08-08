@@ -21,7 +21,9 @@ export class ExerciseSettingsComponent {
 
   private vocabularyEngine = inject(VocabularyEngine);
 
-  protected readonly totalWords = this.vocabularyEngine.getVocabularyCount();
+  get totalWords() {
+    return this.vocabularyEngine.getVocabularyCount();
+  }
 
   digitSelectionOperator = computed(() => {
     switch (this.settingsService.settings().selectedExercise?.mode) {

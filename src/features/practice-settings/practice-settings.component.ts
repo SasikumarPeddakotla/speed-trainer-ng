@@ -11,6 +11,7 @@ import { SessionService } from '../../core/services/session.service';
 import { TimerService } from '../../core/services/timer.service';
 import { PracticeMode } from '../../core/enums/practice-mode.enum';
 import { BookmarkService } from '../../core/services/bookmark.service';
+import { DataPreloadService } from '../../core/services/data-preload.service';
 
 @Component({
   selector: 'app-practice-settings',
@@ -34,7 +35,14 @@ export class PracticeSettingsComponent {
     private sessionService: SessionService,
     private timerService: TimerService,
     private bookmarkService: BookmarkService,
+    private dataPreloadService: DataPreloadService,
   ) {}
+
+  async ngOnInit(): Promise<void> {
+    await this.dataPreloadService.preloadForMode(
+      this.settingsService.settings().selectedExercise?.mode,
+    );
+  }
 
   get totalBookmarks() {
     return this.bookmarkService.getTotalBookmarks();
