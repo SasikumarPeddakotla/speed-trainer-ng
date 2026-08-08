@@ -1,4 +1,4 @@
-import { Component, computed, inject, input } from '@angular/core';
+import { Component, computed, inject, input, signal } from '@angular/core';
 
 import { ConversionEngine } from '../../../core/engines/conversion.engine';
 import { FractionConversion } from '../../../core/models/fraction-conversion.model';
@@ -23,7 +23,7 @@ export class ConversionReferenceComponent {
   private bookmarkService = inject(BookmarkService);
   private idService = inject(IdService);
 
-  private removedBookmarks = new Set<ConversionQuestion>();
+  private refreshBookmarks = signal(0);
 
   referenceTab = input<'all' | 'weak' | 'bookmark'>();
 
@@ -31,11 +31,10 @@ export class ConversionReferenceComponent {
     ?.mode as PracticeMode;
 
   readonly conversions = computed(() => {
+    this.refreshBookmarks();
     switch (this.referenceTab()) {
       case 'bookmark':
-        return [
-          ...this.bookmarkService.getBookmarks<ConversionQuestion>(this.mode),
-        ];
+        return [...this.bookmarkService.getBookmarks<ConversionQuestion>()];
 
       case 'weak':
         return this.reviewService.getPendingQuestions<ConversionQuestion>(
@@ -49,20 +48,15 @@ export class ConversionReferenceComponent {
     }
   });
 
-  toggleBookmark(question: ConversionQuestion): void {
+  async toggleBookmark(question: ConversionQuestion): Promise<void> {
     const entry = {
       id: this.getQuestionId(question),
       mode: this.mode,
       question,
     };
 
-    if (this.removedBookmarks.has(question)) {
-      this.bookmarkService.add(entry);
-      this.removedBookmarks.delete(question);
-    } else {
-      this.bookmarkService.remove(entry);
-      this.removedBookmarks.add(question);
-    }
+    await this.bookmarkService.toggle(entry);
+    this.refreshBookmarks.update((v) => v + 1);
   }
 
   private getQuestionId(question: ConversionQuestion): string {
@@ -89,7 +83,7 @@ export class ConversionReferenceComponent {
     }
   }
 
-  isRemoved(question: ConversionQuestion): boolean {
-    return this.removedBookmarks.has(question);
+  isBookmarked(question: ConversionQuestion): boolean {
+    return this.bookmarkService.isBookmarked(this.getQuestionId(question));
   }
 }

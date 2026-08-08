@@ -8,8 +8,6 @@ import { SettingsService } from '../../../core/services/settings.service';
 import { BookmarkService } from '../../../core/services/bookmark.service';
 import { Direction } from '../../../core/enums/direction.enum';
 import { IdService } from '../../../utils/id.service';
-import { DialogService } from '../../../core/services/dialog.service';
-import { SnackbarService } from '../../../core/services/snackbar.service';
 
 @Component({
   selector: 'app-alphabet-reference',
@@ -26,8 +24,6 @@ export class AlphabetReferenceComponent {
   private settingsService = inject(SettingsService);
   private bookmarkService = inject(BookmarkService);
   private idService = inject(IdService);
-  private dialogService = inject(DialogService);
-  private snackbarService = inject(SnackbarService);
 
   protected readonly mode = this.settingsService.settings().selectedExercise
     ?.mode as PracticeMode;
@@ -38,7 +34,7 @@ export class AlphabetReferenceComponent {
     this.refreshBookmarks();
     switch (this.referenceTab()) {
       case 'bookmark':
-        return this.bookmarkService.getBookmarks<Alphabet>(this.mode);
+        return this.bookmarkService.getBookmarks<Alphabet>();
 
       case 'weak':
         return this.reviewService.getPendingQuestions<Alphabet>(this.mode);
@@ -63,6 +59,10 @@ export class AlphabetReferenceComponent {
 
     await this.bookmarkService.toggle(entry);
     this.refreshBookmarks.update((v) => v + 1);
+  }
+
+  isBookmarked(alphabet: Alphabet): boolean {
+    return this.bookmarkService.isBookmarked(this.getQuestionId(alphabet));
   }
 
   private getQuestionId(alphabet: Alphabet): string {

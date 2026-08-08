@@ -23,10 +23,7 @@
           >
             Mirror ⇄
           </th>
-
-          @if (referenceTab() === "bookmark") {
-            <th></th>
-          }
+          <th></th>
         </tr>
       } @else {
         <tr>
@@ -67,17 +64,16 @@
             </td>
           }
 
-          @if (referenceTab() === "bookmark") {
-            <td>
-              <button
-                type="button"
-                class="bookmark-btn bookmarked"
-                (click)="toggleBookmark(alphabet)"
-              >
-                &#9733;
-              </button>
-            </td>
-          }
+          <td>
+            <button
+              type="button"
+              class="bookmark-btn"
+              [class.bookmarked]="isBookmarked(alphabet)"
+              (click)="toggleBookmark(alphabet)"
+            >
+              &#9733;
+            </button>
+          </td>
         </tr>
       }
     </tbody>

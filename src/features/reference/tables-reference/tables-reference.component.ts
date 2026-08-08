@@ -1,4 +1,4 @@
-import { Component, computed, inject, input } from '@angular/core';
+import { Component, computed, inject, input, signal } from '@angular/core';
 
 import { TablesEngine } from '../../../core/engines/tables.engine';
 import { SettingsService } from '../../../core/services/settings.service';
@@ -27,7 +27,7 @@ export class TablesReferenceComponent {
   private bookmarkService = inject(BookmarkService);
   private idService = inject(IdService);
 
-  private removedBookmarks = new Set<unknown>();
+  private refreshBookmarks = signal(0);
 
   referenceTab = input<'all' | 'weak' | 'bookmark'>();
 
@@ -50,6 +50,7 @@ export class TablesReferenceComponent {
   );
 
   readonly tables = computed<TableReference[]>(() => {
+    this.refreshBookmarks();
     switch (this.referenceTab()) {
       case 'weak':
         return this.buildTableReference(
@@ -57,9 +58,9 @@ export class TablesReferenceComponent {
         );
 
       case 'bookmark':
-        return this.buildTableReference([
-          ...this.bookmarkService.getBookmarks<TableQuestion>(this.mode),
-        ]);
+        return this.buildTableReference(
+          this.bookmarkService.getBookmarks<TableQuestion>(),
+        );
 
       default:
         return this.tablesEngine.getTablesReference().map((table) => ({
@@ -91,7 +92,7 @@ export class TablesReferenceComponent {
       }));
   }
 
-  toggleBookmark(question: TableQuestion): void {
+  async toggleBookmark(question: TableQuestion): Promise<void> {
     const entry = {
       id: this.idService.getQuestionId(
         `${question.table} × ${question.multiplier}`,
@@ -100,16 +101,15 @@ export class TablesReferenceComponent {
       question,
     };
 
-    if (this.removedBookmarks.has(question)) {
-      this.bookmarkService.add(entry);
-      this.removedBookmarks.delete(question);
-    } else {
-      this.bookmarkService.remove(entry);
-      this.removedBookmarks.add(question);
-    }
+    await this.bookmarkService.toggle(entry);
+    this.refreshBookmarks.update((v) => v + 1);
   }
 
-  isRemoved(question: unknown): boolean {
-    return this.removedBookmarks.has(question);
+  isBookmarked(question: TableQuestion): boolean {
+    return this.bookmarkService.isBookmarked(
+      this.idService.getQuestionId(
+        `${question.table} × ${question.multiplier}`,
+      ),
+    );
   }
 }

@@ -4,17 +4,14 @@
       <div class="reference-card">
         <div class="card-header">
           <h3>{{ i + 1 }}. {{ word.word }} ({{ word.partsOfSpeech }})</h3>
-
-          @if (referenceTab() === "bookmark") {
-            <button
-              type="button"
-              class="bookmark-btn"
-              [class.bookmarked]="!isRemoved(word)"
-              (click)="toggleBookmark(word)"
-            >
-              &#9733;
-            </button>
-          }
+          <button
+            type="button"
+            class="bookmark-btn"
+            [class.bookmarked]="isBookmarked(word)"
+            (click)="toggleBookmark(word)"
+          >
+            &#9733;
+          </button>
         </div>
 
         <p>
@@ -45,16 +42,14 @@
         <div class="card-header">
           <h3>{{ i + 1 }}. {{ word.word }} ({{ word.partsOfSpeech }})</h3>
 
-          @if (referenceTab() === "bookmark") {
-            <button
-              type="button"
-              class="bookmark-btn"
-              [class.bookmarked]="!isRemoved(word)"
-              (click)="toggleBookmark(word)"
-            >
-              &#9733;
-            </button>
-          }
+          <button
+            type="button"
+            class="bookmark-btn"
+            [class.bookmarked]="isBookmarked(word)"
+            (click)="toggleBookmark(word)"
+          >
+            &#9733;
+          </button>
         </div>
 
         <p>
@@ -85,16 +80,14 @@
         <div class="card-header">
           <h3>{{ i + 1 }}. {{ word.word }} ({{ word.partsOfSpeech }})</h3>
 
-          @if (referenceTab() === "bookmark") {
-            <button
-              type="button"
-              class="bookmark-btn"
-              [class.bookmarked]="!isRemoved(word)"
-              (click)="toggleBookmark(word)"
-            >
-              &#9733;
-            </button>
-          }
+          <button
+            type="button"
+            class="bookmark-btn"
+            [class.bookmarked]="isBookmarked(word)"
+            (click)="toggleBookmark(word)"
+          >
+            &#9733;
+          </button>
         </div>
 
         <p>
@@ -118,16 +111,14 @@
         <div class="card-header">
           <h3>{{ i + 1 }}. {{ word.idiom }}</h3>
 
-          @if (referenceTab() === "bookmark") {
-            <button
-              type="button"
-              class="bookmark-btn"
-              [class.bookmarked]="!isRemoved(word)"
-              (click)="toggleBookmark(word)"
-            >
-              &#9733;
-            </button>
-          }
+          <button
+            type="button"
+            class="bookmark-btn"
+            [class.bookmarked]="isBookmarked(word)"
+            (click)="toggleBookmark(word)"
+          >
+            &#9733;
+          </button>
         </div>
 
         <p>

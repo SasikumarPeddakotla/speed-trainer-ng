@@ -1,4 +1,4 @@
-import { Component, computed, inject, input } from '@angular/core';
+import { Component, computed, inject, input, signal } from '@angular/core';
 import { PowerEngine } from '../../../core/engines/power.engine';
 import { SettingsService } from '../../../core/services/settings.service';
 import { PracticeMode } from '../../../core/enums/practice-mode.enum';
@@ -20,7 +20,7 @@ export class PowerReferenceComponent {
   private bookmarkService = inject(BookmarkService);
   private idService = inject(IdService);
 
-  private removedBookmarks = new Set<unknown>();
+  private refreshBookmarks = signal(0);
 
   referenceTab = input<'all' | 'weak' | 'bookmark'>();
 
@@ -30,9 +30,10 @@ export class PowerReferenceComponent {
     ?.mode as PracticeMode;
 
   readonly questions = computed(() => {
+    this.refreshBookmarks();
     switch (this.referenceTab()) {
       case 'bookmark':
-        return [...this.bookmarkService.getBookmarks<PowerQuestion>(this.mode)];
+        return this.bookmarkService.getBookmarks<PowerQuestion>();
 
       case 'weak':
         return this.reviewService.getPendingQuestions<PowerQuestion>(this.mode);
@@ -42,20 +43,15 @@ export class PowerReferenceComponent {
     }
   });
 
-  toggleBookmark(question: PowerQuestion): void {
+  async toggleBookmark(question: PowerQuestion): Promise<void> {
     const entry = {
       id: this.getQuestionId(question),
       mode: this.mode,
       question,
     };
 
-    if (this.removedBookmarks.has(question)) {
-      this.bookmarkService.add(entry);
-      this.removedBookmarks.delete(question);
-    } else {
-      this.bookmarkService.remove(entry);
-      this.removedBookmarks.add(question);
-    }
+    await this.bookmarkService.toggle(entry);
+    this.refreshBookmarks.update((v) => v + 1);
   }
 
   private getQuestionId(question: PowerQuestion): string {
@@ -77,7 +73,7 @@ export class PowerReferenceComponent {
     }
   }
 
-  isRemoved(question: unknown): boolean {
-    return this.removedBookmarks.has(question);
+  isBookmarked(question: PowerQuestion): boolean {
+    return this.bookmarkService.isBookmarked(this.getQuestionId(question));
   }
 }

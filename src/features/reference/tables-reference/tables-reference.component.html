@@ -4,24 +4,18 @@
       <h3>{{ table.table }} Table</h3>
 
       @for (question of table.questions; track question.multiplier) {
-        <div
-          class="table-row"
-          [class.bookmark-mode]="referenceTab() === 'bookmark'"
-        >
+        <div class="table-row">
           <span>{{ question.table }} × {{ question.multiplier }}</span>
           <span>=</span>
           <span>{{ question.table * question.multiplier }}</span>
-
-          @if (referenceTab() === "bookmark") {
-            <button
-              type="button"
-              class="bookmark-btn"
-              [class.bookmarked]="!isRemoved(question)"
-              (click)="toggleBookmark(question)"
-            >
-              &#9733;
-            </button>
-          }
+          <button
+            type="button"
+            class="bookmark-btn"
+            [class.bookmarked]="isBookmarked(question)"
+            (click)="toggleBookmark(question)"
+          >
+            &#9733;
+          </button>
         </div>
       }
     </div>

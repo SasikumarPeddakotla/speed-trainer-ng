@@ -1,92 +1,76 @@
 <div class="powers-container">
   @if (mode === PracticeMode.Squares) {
     @for (question of questions(); track question.number) {
-      <div
-        class="power-row"
-        [class.bookmark-mode]="referenceTab() === 'bookmark'"
-      >
+      <div class="power-row">
         <span>{{ question.number }}²</span>
         <span>=</span>
         <span>{{ question.number * question.number }}</span>
-        @if (referenceTab() === "bookmark") {
-          <button
-            type="button"
-            class="bookmark-btn"
-            [class.bookmarked]="!isRemoved(question)"
-            (click)="toggleBookmark(question)"
-          >
-            &#9733;
-          </button>
-        }
+
+        <button
+          type="button"
+          class="bookmark-btn"
+          [class.bookmarked]="isBookmarked(question)"
+          (click)="toggleBookmark(question)"
+        >
+          &#9733;
+        </button>
       </div>
     }
   }
 
   @if (mode === PracticeMode.Cubes) {
     @for (question of questions(); track question.number) {
-      <div
-        class="power-row"
-        [class.bookmark-mode]="referenceTab() === 'bookmark'"
-      >
+      <div class="power-row">
         <span>{{ question.number }}³</span>
         <span>=</span>
         <span>{{ question.number * question.number * question.number }}</span>
-        @if (referenceTab() === "bookmark") {
-          <button
-            type="button"
-            class="bookmark-btn"
-            [class.bookmarked]="!isRemoved(question)"
-            (click)="toggleBookmark(question)"
-          >
-            &#9733;
-          </button>
-        }
+
+        <button
+          type="button"
+          class="bookmark-btn"
+          [class.bookmarked]="isBookmarked(question)"
+          (click)="toggleBookmark(question)"
+        >
+          &#9733;
+        </button>
       </div>
     }
   }
 
   @if (mode === PracticeMode.SquareRoots) {
     @for (question of questions(); track question.number) {
-      <div
-        class="power-row"
-        [class.bookmark-mode]="referenceTab() === 'bookmark'"
-      >
+      <div class="power-row">
         <span>√{{ question.number * question.number }}</span>
         <span>=</span>
         <span>{{ question.number }}</span>
-        @if (referenceTab() === "bookmark") {
-          <button
-            type="button"
-            class="bookmark-btn"
-            [class.bookmarked]="!isRemoved(question)"
-            (click)="toggleBookmark(question)"
-          >
-            &#9733;
-          </button>
-        }
+
+        <button
+          type="button"
+          class="bookmark-btn"
+          [class.bookmarked]="isBookmarked(question)"
+          (click)="toggleBookmark(question)"
+        >
+          &#9733;
+        </button>
       </div>
     }
   }
 
   @if (mode === PracticeMode.CubeRoots) {
     @for (question of questions(); track question.number) {
-      <div
-        class="power-row"
-        [class.bookmark-mode]="referenceTab() === 'bookmark'"
-      >
+      <div class="power-row">
         <span>∛{{ question.number * question.number * question.number }}</span>
         <span>=</span>
         <span>{{ question.number }}</span>
-        @if (referenceTab() === "bookmark") {
-          <button
-            type="button"
-            class="bookmark-btn"
-            [class.bookmarked]="!isRemoved(question)"
-            (click)="toggleBookmark(question)"
-          >
-            &#9733;
-          </button>
-        }
+
+        <button
+          type="button"
+          class="bookmark-btn"
+          [class.bookmarked]="isBookmarked(question)"
+          (click)="toggleBookmark(question)"
+        >
+          &#9733;
+        </button>
       </div>
     }
   }

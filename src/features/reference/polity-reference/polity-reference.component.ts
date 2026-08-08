@@ -1,4 +1,4 @@
-import { Component, computed, inject, input } from '@angular/core';
+import { Component, computed, inject, input, signal } from '@angular/core';
 
 import { PolityEngine } from '../../../core/engines/polity.engine';
 import { Article } from '../../../core/models/article.model';
@@ -24,7 +24,7 @@ export class PolityReferenceComponent {
   private bookmarkService = inject(BookmarkService);
   private idService = inject(IdService);
 
-  private removedBookmarks = new Set<unknown>();
+  private refreshBookmarks = signal(0);
 
   referenceTab = input<'all' | 'weak' | 'bookmark'>();
 
@@ -32,9 +32,10 @@ export class PolityReferenceComponent {
     ?.mode as PracticeMode;
 
   get articles(): Article[] {
+    this.refreshBookmarks();
     switch (this.referenceTab()) {
       case 'bookmark':
-        return this.bookmarkService.getBookmarks<Article>(this.mode);
+        return this.bookmarkService.getBookmarks<Article>();
 
       case 'weak':
         return this.reviewService.getPendingQuestions<Article>(this.mode);
@@ -62,20 +63,15 @@ export class PolityReferenceComponent {
     );
   });
 
-  toggleBookmark(article: Article): void {
+  async toggleBookmark(article: Article): Promise<void> {
     const entry = {
       id: this.getQuestionId(article),
       mode: this.mode,
       question: article,
     };
 
-    if (this.removedBookmarks.has(article)) {
-      this.bookmarkService.add(entry);
-      this.removedBookmarks.delete(article);
-    } else {
-      this.bookmarkService.remove(entry);
-      this.removedBookmarks.add(article);
-    }
+    this.bookmarkService.toggle(entry);
+    this.refreshBookmarks.update((v) => v + 1);
   }
 
   private getQuestionId(article: Article): string {
@@ -86,7 +82,7 @@ export class PolityReferenceComponent {
       : this.idService.getQuestionId(article.title);
   }
 
-  isRemoved(question: unknown): boolean {
-    return this.removedBookmarks.has(question);
+  isBookmarked(question: Article): boolean {
+    return this.bookmarkService.isBookmarked(this.getQuestionId(question));
   }
 }

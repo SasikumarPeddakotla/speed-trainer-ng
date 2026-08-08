@@ -3,17 +3,14 @@
     <div class="reference-card">
       <div class="card-header">
         <h3>Article {{ article.article }}</h3>
-
-        @if (referenceTab() === "bookmark") {
-          <button
-            type="button"
-            class="bookmark-btn"
-            [class.bookmarked]="!isRemoved(article)"
-            (click)="toggleBookmark(article)"
-          >
-            &#9733;
-          </button>
-        }
+        <button
+          type="button"
+          class="bookmark-btn"
+          [class.bookmarked]="isBookmarked(article)"
+          (click)="toggleBookmark(article)"
+        >
+          &#9733;
+        </button>
       </div>
 
       <div class="divider"></div>

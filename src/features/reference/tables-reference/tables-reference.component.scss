@@ -34,7 +34,7 @@
 
 .table-row {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr auto;
 
   align-items: center;
 
@@ -56,10 +56,6 @@
 
 .table-row span:nth-child(2) {
   text-align: center;
-}
-
-.table-row.bookmark-mode {
-  grid-template-columns: 1fr 1fr 1fr auto;
 }
 
 .table-row span:nth-child(3) {
