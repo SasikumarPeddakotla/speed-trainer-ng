@@ -49,7 +49,7 @@ export class BookmarkEngine {
       throw new Error('No bookmarked questions remaining.');
     }
 
-    const direction = this.settingsService.settings().direction;
+    const direction = this.getBookmarkDirection(bookmark);
 
     switch (bookmark.mode) {
       case PracticeMode.Tables:
@@ -99,25 +99,43 @@ export class BookmarkEngine {
         );
 
       case PracticeMode.FractionDecimal:
-        return this.conversionEngine.createConversionQuestion(
-          (bookmark.question as ConversionQuestion).conversion,
-          'fraction',
-          'decimal',
-        );
+        return direction === Direction.Forward
+          ? this.conversionEngine.createConversionQuestion(
+              (bookmark.question as ConversionQuestion).conversion,
+              'fraction',
+              'decimal',
+            )
+          : this.conversionEngine.createConversionQuestion(
+              (bookmark.question as ConversionQuestion).conversion,
+              'decimal',
+              'fraction',
+            );
 
       case PracticeMode.FractionPercentage:
-        return this.conversionEngine.createConversionQuestion(
-          (bookmark.question as ConversionQuestion).conversion,
-          'fraction',
-          'percentage',
-        );
+        return direction === Direction.Forward
+          ? this.conversionEngine.createConversionQuestion(
+              (bookmark.question as ConversionQuestion).conversion,
+              'fraction',
+              'percentage',
+            )
+          : this.conversionEngine.createConversionQuestion(
+              (bookmark.question as ConversionQuestion).conversion,
+              'percentage',
+              'fraction',
+            );
 
       case PracticeMode.DecimalPercentage:
-        return this.conversionEngine.createConversionQuestion(
-          (bookmark.question as ConversionQuestion).conversion,
-          'decimal',
-          'percentage',
-        );
+        return direction === Direction.Forward
+          ? this.conversionEngine.createConversionQuestion(
+              (bookmark.question as ConversionQuestion).conversion,
+              'decimal',
+              'percentage',
+            )
+          : this.conversionEngine.createConversionQuestion(
+              (bookmark.question as ConversionQuestion).conversion,
+              'percentage',
+              'decimal',
+            );
 
       case PracticeMode.Synonyms:
         return this.vocabularyEngine.createSynonymQuestion(
@@ -142,6 +160,7 @@ export class BookmarkEngine {
       case PracticeMode.Articles:
         return this.polityEngine.createArticleQuestion(
           bookmark.question as Article,
+          direction,
         );
 
       default:
@@ -162,5 +181,13 @@ export class BookmarkEngine {
   reset() {
     this.queue = [];
     this.bookmarkService.setCurrentBookmark(undefined);
+  }
+
+  private getBookmarkDirection(bookmark: BookmarkEntry): Direction {
+    if (bookmark.id.includes('_Backward_')) {
+      return Direction.Backward;
+    }
+
+    return Direction.Forward;
   }
 }

@@ -23,13 +23,16 @@ export class PolityEngine {
 
   generateArticles(): Question<Article> {
     const article = this.nextArticle();
+    const direction = this.settingsService.settings().direction;
 
-    return this.createArticleQuestion(article);
+    return this.createArticleQuestion(article, direction);
   }
 
-  createArticleQuestion(article: Article): Question<Article> {
-    const direction = this.settingsService.settings().direction;
-    const options = this.buildOptions(article);
+  createArticleQuestion(
+    article: Article,
+    direction: Direction,
+  ): Question<Article> {
+    const options = this.buildOptions(article, direction);
 
     if (direction === Direction.Forward) {
       return {
@@ -78,9 +81,7 @@ export class PolityEngine {
     return ARTICLES[this.randomService.random(0, ARTICLES.length - 1)];
   }
 
-  private buildOptions(article: Article): string[] {
-    const direction = this.settingsService.settings().direction;
-
+  private buildOptions(article: Article, direction: Direction): string[] {
     const correctOption =
       direction === Direction.Forward
         ? article.title
