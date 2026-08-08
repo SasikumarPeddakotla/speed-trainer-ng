@@ -187,7 +187,7 @@ export class TrainerComponent implements OnInit, OnDestroy {
     } else {
       this.sessionService.wrong();
 
-      wasReview = this.reviewService.recordWrong(question.data);
+      wasReview = this.reviewService.recordWrong(question.data, question.id);
 
       this.inputState = 'wrong';
 
@@ -251,7 +251,7 @@ export class TrainerComponent implements OnInit, OnDestroy {
     }
 
     this.revealedAnswer = question.answer;
-    this.reviewService.recordWrong(question.data);
+    this.reviewService.recordWrong(question.data, question.id);
   }
 
   understood() {

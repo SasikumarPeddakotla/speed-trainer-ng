@@ -1,5 +1,6 @@
 export interface ReviewItem<T> {
-  question: T;
+  questionId: string;
+  questionData: T;
   delay: number;
   stage: number;
 }

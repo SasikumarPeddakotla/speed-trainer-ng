@@ -59,7 +59,7 @@ export class ReviewService {
 
     this.currentReviewItem.set(exerciseKey, review);
 
-    return review.question as T;
+    return review.questionData as T;
   }
 
   advanceDelays(): void {
@@ -78,11 +78,13 @@ export class ReviewService {
     this.save();
   }
 
-  recordWrong<T>(question: T): boolean {
+  recordWrong<T>(questionData: T, questionId: string): boolean {
     const exerciseKey = this.exerciseService.getExerciseKey();
+
     if (exerciseKey === PracticeMode.Bookmark) {
       return false;
     }
+
     const currentReview = this.currentReviewItem.get(exerciseKey);
 
     // Wrong while answering a review
@@ -90,9 +92,19 @@ export class ReviewService {
       currentReview.stage = 1;
       currentReview.delay = 3;
 
-      this.getQueue(exerciseKey).push(currentReview);
+      const queue = this.getQueue(exerciseKey);
+
+      const existing = queue.find(
+        (review) => review.questionId === currentReview.questionId,
+      );
+
+      if (!existing) {
+        queue.push(currentReview);
+      }
 
       this.currentReviewItem.delete(exerciseKey);
+
+      this.save();
 
       return true;
     }
@@ -100,28 +112,32 @@ export class ReviewService {
     // Wrong on a normal question
     const queue = this.getQueue(exerciseKey);
 
-    const existing = queue.find((review) => review.question === question);
+    const existing = queue.find((review) => review.questionId === questionId);
 
     if (existing) {
       existing.stage = 1;
       existing.delay = 3;
     } else {
       queue.push({
-        question,
+        questionId,
+        questionData,
         delay: 3,
         stage: 1,
       });
     }
 
     this.save();
+
     return false;
   }
 
   recordCorrect(): boolean {
     const exerciseKey = this.exerciseService.getExerciseKey();
+
     if (exerciseKey === PracticeMode.Bookmark) {
       return false;
     }
+
     const review = this.currentReviewItem.get(exerciseKey);
 
     // Normal question
@@ -129,28 +145,38 @@ export class ReviewService {
       return false;
     }
 
+    const queue = this.getQueue(exerciseKey);
+
     switch (review.stage) {
       case 1:
         review.stage = 2;
         review.delay = 6;
-        this.getQueue(exerciseKey).push(review);
+
+        if (!queue.some((item) => item.questionId === review.questionId)) {
+          queue.push(review);
+        }
+
         break;
 
       case 2:
         review.stage = 3;
         review.delay = 10;
-        this.getQueue(exerciseKey).push(review);
+
+        if (!queue.some((item) => item.questionId === review.questionId)) {
+          queue.push(review);
+        }
+
         break;
 
       case 3:
-        // Mastered.
-        // Do not add it back.
+        // Mastered: do not add it back.
         break;
     }
 
     this.currentReviewItem.delete(exerciseKey);
 
     this.save();
+
     return true;
   }
 
@@ -273,10 +299,26 @@ export class ReviewService {
       const queueMode = key.split('_')[0] as PracticeMode;
 
       if (queueMode === mode) {
-        questions.push(...queue.map((item) => item.question as T));
+        questions.push(...queue.map((item) => item.questionData as T));
       }
     }
 
     return questions;
+  }
+
+  removePendingQuestion(mode: PracticeMode, questionId: string): void {
+    for (const [key, queue] of this.reviewQueues.entries()) {
+      const queueMode = key.split('_')[0] as PracticeMode;
+
+      if (queueMode !== mode) {
+        continue;
+      }
+
+      const filtered = queue.filter((item) => item.questionId !== questionId);
+
+      this.reviewQueues.set(key, filtered);
+    }
+
+    this.save();
   }
 }
