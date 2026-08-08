@@ -8,6 +8,8 @@ import { SettingsService } from '../../../core/services/settings.service';
 import { BookmarkService } from '../../../core/services/bookmark.service';
 import { Direction } from '../../../core/enums/direction.enum';
 import { IdService } from '../../../utils/id.service';
+import { DialogService } from '../../../core/services/dialog.service';
+import { SnackbarService } from '../../../core/services/snackbar.service';
 
 @Component({
   selector: 'app-alphabet-reference',
@@ -18,21 +20,25 @@ import { IdService } from '../../../utils/id.service';
 })
 export class AlphabetReferenceComponent {
   referenceTab = input<'all' | 'weak' | 'bookmark'>();
+
   private alphabetEngine = inject(AlphabetEngine);
   private reviewService = inject(ReviewService);
   private settingsService = inject(SettingsService);
   private bookmarkService = inject(BookmarkService);
   private idService = inject(IdService);
-
-  private removedBookmarks = new Set<Alphabet>();
+  private dialogService = inject(DialogService);
+  private snackbarService = inject(SnackbarService);
 
   protected readonly mode = this.settingsService.settings().selectedExercise
     ?.mode as PracticeMode;
 
+  private refreshBookmarks = signal(0);
+
   readonly alphabets = computed(() => {
+    this.refreshBookmarks();
     switch (this.referenceTab()) {
       case 'bookmark':
-        return [...this.bookmarkService.getBookmarks<Alphabet>(this.mode)];
+        return this.bookmarkService.getBookmarks<Alphabet>(this.mode);
 
       case 'weak':
         return this.reviewService.getPendingQuestions<Alphabet>(this.mode);
@@ -48,20 +54,15 @@ export class AlphabetReferenceComponent {
     this.showMnemonics.update((value) => !value);
   }
 
-  toggleBookmark(alphabet: Alphabet): void {
+  async toggleBookmark(alphabet: Alphabet): Promise<void> {
     const entry = {
       id: this.getQuestionId(alphabet),
       mode: this.mode,
       question: alphabet,
     };
 
-    if (this.removedBookmarks.has(alphabet)) {
-      this.bookmarkService.add(entry);
-      this.removedBookmarks.delete(alphabet);
-    } else {
-      this.bookmarkService.remove(entry);
-      this.removedBookmarks.add(alphabet);
-    }
+    await this.bookmarkService.toggle(entry);
+    this.refreshBookmarks.update((v) => v + 1);
   }
 
   private getQuestionId(alphabet: Alphabet): string {
@@ -84,9 +85,5 @@ export class AlphabetReferenceComponent {
       default:
         return '';
     }
-  }
-
-  isRemoved(alphabet: Alphabet): boolean {
-    return this.removedBookmarks.has(alphabet);
   }
 }

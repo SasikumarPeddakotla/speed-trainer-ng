@@ -1,0 +1,19 @@
+@if (dialog.state().open) {
+  <div class="backdrop">
+    <div class="dialog">
+      <h3>{{ dialog.state().title }}</h3>
+
+      <p>{{ dialog.state().message }}</p>
+
+      <div class="actions">
+        <button class="cancel" (click)="dialog.close()">
+          {{ dialog.state().cancelText }}
+        </button>
+
+        <button class="confirm" (click)="dialog.confirm()">
+          {{ dialog.state().confirmText }}
+        </button>
+      </div>
+    </div>
+  </div>
+}

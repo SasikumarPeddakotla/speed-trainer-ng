@@ -5,30 +5,26 @@ import { StorageKeys } from '../enums/storage-keys.enum';
 import { StorageService } from './storage.service';
 import { BookmarkSummary } from '../models/bookmark-summary.model';
 import { BookmarkEntry } from '../models/bookmark-entry.model';
-import { Question } from '../models/question.model';
+import { DialogService } from './dialog.service';
+import { SnackbarService } from './snackbar.service';
 
 interface BookmarkStorage {
   version: number;
-  bookmarks: Record<string, any[]>;
+  bookmarks: Record<string, BookmarkEntry[]>;
 }
 
 @Injectable({
   providedIn: 'root',
 })
 export class BookmarkService {
-  constructor(private storageService: StorageService) {
+  constructor(
+    private storageService: StorageService,
+    private dialogService: DialogService,
+    private snackbarService: SnackbarService,
+  ) {
     this.load();
   }
 
-  /**
-   * One bookmark list per exercise.
-   *
-   * Example keys:
-   * LetterPosition
-   * Synonyms
-   * Tables
-   * Articles
-   */
   private bookmarkLists = new Map<PracticeMode, BookmarkEntry[]>();
 
   private currentBookmark?: BookmarkEntry;
@@ -37,7 +33,7 @@ export class BookmarkService {
     return this.currentBookmark;
   }
 
-  setCurrentBookmark(bookmark: BookmarkEntry | undefined) {
+  setCurrentBookmark(bookmark: BookmarkEntry | undefined): void {
     this.currentBookmark = bookmark;
   }
 
@@ -58,10 +54,12 @@ export class BookmarkService {
     if (!list.some((b) => b.id === entry.id)) {
       list.push(entry);
       this.save();
+
+      this.snackbarService.show('Added to bookmarks');
     }
   }
 
-  remove(entry: BookmarkEntry): void {
+  private removeInternal(entry: BookmarkEntry): void {
     const list = this.getList(entry.mode);
 
     const index = list.findIndex((b) => b.id === entry.id);
@@ -69,15 +67,41 @@ export class BookmarkService {
     if (index !== -1) {
       list.splice(index, 1);
       this.save();
+
+      this.snackbarService.show('Removed from bookmarks');
     }
   }
 
-  toggle(entry: BookmarkEntry): void {
+  remove(entry: BookmarkEntry): Promise<boolean> {
+    return new Promise((resolve) => {
+      this.dialogService.openConfirm({
+        title: 'Remove bookmark',
+        message: 'Remove this item from bookmarks?',
+        confirmText: 'Remove',
+        cancelText: 'Cancel',
+        onConfirm: () => {
+          this.removeInternal(entry);
+          resolve(true);
+        },
+      });
+
+      // If dialog closes without confirmation
+      const originalClose = this.dialogService.close.bind(this.dialogService);
+
+      this.dialogService.close = () => {
+        originalClose();
+        resolve(false);
+      };
+    });
+  }
+
+  async toggle(entry: BookmarkEntry): Promise<boolean> {
     if (this.isBookmarked(entry.mode, entry.id)) {
-      this.remove(entry);
-    } else {
-      this.add(entry);
+      return await this.remove(entry);
     }
+
+    this.add(entry);
+    return true;
   }
 
   isBookmarked(mode: PracticeMode, id: string): boolean {
@@ -116,18 +140,14 @@ export class BookmarkService {
       StorageKeys.Bookmarks,
     );
 
-    if (!storage) {
-      return;
-    }
-
-    if (storage.version !== 1) {
+    if (!storage || storage.version !== 1) {
       return;
     }
 
     this.bookmarkLists.clear();
 
     for (const [mode, list] of Object.entries(storage.bookmarks)) {
-      this.bookmarkLists.set(mode as PracticeMode, list as BookmarkEntry[]);
+      this.bookmarkLists.set(mode as PracticeMode, list);
     }
   }
 
@@ -148,7 +168,7 @@ export class BookmarkService {
   getBookmarkSummaries(): BookmarkSummary[] {
     return Array.from(this.bookmarkLists.entries()).map(
       ([mode, questions]) => ({
-        mode: mode as PracticeMode,
+        mode,
         count: questions.length,
       }),
     );
