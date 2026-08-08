@@ -1,8 +1,5 @@
 import { inject, Injectable } from '@angular/core';
 
-import { ANTONYMS } from '../data/antonyms.data';
-import { ONE_WORDS } from '../data/one-words.data';
-import { IDIOMS } from '../data/idioms.data';
 import { Question } from '../models/question.model';
 import { Synonym } from '../models/synonym.model';
 import { RandomService } from '../../utils/random.service';
@@ -115,9 +112,9 @@ export class VocabularyEngine {
   createAntonymQuestion(antonym: Antonym): Question<Antonym> {
     const pair = this.getRandomWordPair(antonym.word, antonym.antonyms);
 
-    const filteredAntonyms = ANTONYMS.filter(
-      (a) => a.partsOfSpeech === antonym.partsOfSpeech,
-    );
+    const filteredAntonyms = this.vocabularyDataService
+      .getAntonyms()
+      .filter((a) => a.partsOfSpeech === antonym.partsOfSpeech);
 
     return {
       id: `antonym:${antonym.word}`,
@@ -187,9 +184,9 @@ export class VocabularyEngine {
   }
 
   createOneWordQuestion(oneWord: OneWord): Question<OneWord> {
-    const filteredOneWords = ONE_WORDS.filter(
-      (o) => o.partsOfSpeech === oneWord.partsOfSpeech,
-    );
+    const filteredOneWords = this.vocabularyDataService
+      .getOneWords()
+      .filter((o) => o.partsOfSpeech === oneWord.partsOfSpeech);
 
     return {
       id: `one-word:${oneWord.phrase}`,
@@ -262,7 +259,7 @@ export class VocabularyEngine {
 
       options: this.randomService.buildOptions(
         idiom,
-        IDIOMS,
+        this.vocabularyDataService.getIdioms(),
         (i) => [i.option],
         (i) => i.idiom,
         idiom.option,
@@ -331,15 +328,19 @@ export class VocabularyEngine {
   }
 
   private getAntonyms(): Antonym[] {
-    return ANTONYMS.slice(0, this.getWordLimit());
+    return this.vocabularyDataService
+      .getAntonyms()
+      .slice(0, this.getWordLimit());
   }
 
   private getOneWords(): OneWord[] {
-    return ONE_WORDS.slice(0, this.getWordLimit());
+    return this.vocabularyDataService
+      .getOneWords()
+      .slice(0, this.getWordLimit());
   }
 
   private getIdioms(): Idiom[] {
-    return IDIOMS.slice(0, this.getWordLimit());
+    return this.vocabularyDataService.getIdioms().slice(0, this.getWordLimit());
   }
 
   getSynonymsReference(): Synonym[] {
@@ -364,13 +365,13 @@ export class VocabularyEngine {
         return this.vocabularyDataService.getSynonyms().length;
 
       case PracticeMode.Antonyms:
-        return ANTONYMS.length;
+        return this.vocabularyDataService.getAntonyms().length;
 
       case PracticeMode.OneWord:
-        return ONE_WORDS.length;
+        return this.vocabularyDataService.getOneWords().length;
 
       case PracticeMode.Idioms:
-        return IDIOMS.length;
+        return this.vocabularyDataService.getIdioms().length;
 
       default:
         return 0;
