@@ -7,6 +7,7 @@ export interface ConfirmDialogState {
   confirmText: string;
   cancelText: string;
   onConfirm?: () => void;
+  onCancel?: () => void;
 }
 
 @Injectable({
@@ -29,16 +30,29 @@ export class DialogService {
   }
 
   close(): void {
-    this.state.update((s) => ({
-      ...s,
+    const current = this.state();
+
+    current.onCancel?.();
+
+    this.state.set({
       open: false,
-    }));
+      title: '',
+      message: '',
+      confirmText: 'OK',
+      cancelText: 'Cancel',
+    });
   }
 
   confirm(): void {
     const callback = this.state().onConfirm;
 
-    this.close();
+    this.state.set({
+      open: false,
+      title: '',
+      message: '',
+      confirmText: 'OK',
+      cancelText: 'Cancel',
+    });
 
     callback?.();
   }

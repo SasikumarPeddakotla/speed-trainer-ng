@@ -7,6 +7,7 @@ import { Subject } from '../models/subject.model';
 import { Topic } from '../models/topic.model';
 import { StorageService } from './storage.service';
 import { StorageKeys } from '../enums/storage-keys.enum';
+import { Direction } from '../enums/direction.enum';
 
 @Injectable({
   providedIn: 'root',
@@ -38,7 +39,7 @@ export class SettingsService {
     countdownDuration: 60,
     questionTarget: 10,
 
-    direction: 'forward',
+    direction: Direction.Forward,
 
     wordsLimit: '10',
 
@@ -132,7 +133,7 @@ export class SettingsService {
     }));
   }
 
-  setDirection(direction: 'forward' | 'backward') {
+  setDirection(direction: Direction) {
     this.updateSettings((settings) => ({
       ...settings,
       direction: direction,

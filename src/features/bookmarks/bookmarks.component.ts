@@ -12,6 +12,8 @@ import { ReviewTopic } from '../../core/models/review-topic.model';
 import { PracticeMode } from '../../core/enums/practice-mode.enum';
 import { SessionType } from '../../core/enums/session-type.enum';
 import { Topic } from '../../core/models/topic.model';
+import { SettingType } from '../../core/enums/setting-type.enum';
+import { Direction } from '../../core/enums/direction.enum';
 
 @Component({
   selector: 'app-bookmarks',
@@ -28,8 +30,14 @@ export class BookmarksComponent {
   get bookmarkTopics(): ReviewTopic[] {
     const grouped = new Map<string, ReviewTopic>();
 
-    for (const exercise of exercises) {
-      const count = this.bookmarkService.getBookmarkCount(exercise.mode);
+    for (const summary of this.bookmarkService.getBookmarkSummaries()) {
+      const [mode, direction] = summary.exerciseKey.split('_');
+
+      const exercise = exercises.find((e) => e.mode === mode);
+
+      if (!exercise) {
+        continue;
+      }
 
       const topicTitle =
         topics.find((t) => t.route === exercise.topic)?.title ?? exercise.topic;
@@ -44,15 +52,21 @@ export class BookmarksComponent {
 
       const topic = grouped.get(exercise.topic)!;
 
-      topic.total += count;
+      topic.total += summary.count;
+
+      // Create a display exercise object
+      const displayExercise: Exercise = {
+        ...exercise,
+        title: this.getDisplayTitle(exercise.title, direction as Direction),
+      };
 
       topic.exercises.push({
-        exercise,
-        count,
+        exercise: displayExercise,
+        count: summary.count,
       });
     }
 
-    return [...grouped.values()].filter((topic) => topic.total > 0);
+    return [...grouped.values()];
   }
 
   get totalBookmarks(): number {
@@ -61,6 +75,13 @@ export class BookmarksComponent {
 
   openBookmarks(exercise: Exercise): void {
     this.settingsService.setExercise(exercise);
+
+    // Detect direction from title
+    if (exercise.title.includes('(Forward)')) {
+      this.settingsService.setDirection(Direction.Forward);
+    } else if (exercise.title.includes('(Backward)')) {
+      this.settingsService.setDirection(Direction.Backward);
+    }
 
     const topic = topics.find((t) => t.route === exercise.topic)!;
     this.settingsService.setTopic(topic);
@@ -94,5 +115,45 @@ export class BookmarksComponent {
     this.settingsService.setQuestionTarget(this.totalBookmarks);
 
     this.router.navigate([exercise.route, 'practice-settings']);
+  }
+
+  private getExerciseKey(exercise: Exercise): string {
+    // Exercises without direction
+    if (!exercise.settings.some((s) => s === SettingType.Direction)) {
+      return exercise.mode;
+    }
+
+    // Count both directions
+    const forward = `${exercise.mode}_Forward`;
+    const backward = `${exercise.mode}_Backward`;
+
+    return [forward, backward].join('|');
+  }
+
+  private getExerciseBookmarkCount(exercise: Exercise): number {
+    const hasDirection = exercise.settings.some(
+      (s) => s === SettingType.Direction,
+    );
+
+    if (!hasDirection) {
+      return this.bookmarkService.getBookmarkCountForExerciseKey(exercise.mode);
+    }
+
+    return (
+      this.bookmarkService.getBookmarkCountForExerciseKey(
+        `${exercise.mode}_Forward`,
+      ) +
+      this.bookmarkService.getBookmarkCountForExerciseKey(
+        `${exercise.mode}_Backward`,
+      )
+    );
+  }
+
+  private getDisplayTitle(title: string, direction?: Direction): string {
+    if (!direction) {
+      return title;
+    }
+
+    return `${title} (${direction})`;
   }
 }

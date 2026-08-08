@@ -345,6 +345,6 @@ export class TrainerComponent implements OnInit, OnDestroy {
       return false;
     }
 
-    return this.bookmarkService.isBookmarked(this.mode, question.id);
+    return this.bookmarkService.isBookmarked(question.id);
   }
 }

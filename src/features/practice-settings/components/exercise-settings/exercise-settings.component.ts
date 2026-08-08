@@ -5,6 +5,7 @@ import { SettingType } from '../../../../core/enums/setting-type.enum';
 import { FormsModule } from '@angular/forms';
 import { PracticeMode } from '../../../../core/enums/practice-mode.enum';
 import { VocabularyEngine } from '../../../../core/engines/vocabulary.engine';
+import { Direction } from '../../../../core/enums/direction.enum';
 
 @Component({
   selector: 'app-exercise-settings',
@@ -122,7 +123,7 @@ export class ExerciseSettingsComponent {
     return this.settingsService.settings().direction;
   }
 
-  setDirection(value: 'forward' | 'backward') {
+  setDirection(value: Direction) {
     this.settingsService.setDirection(value);
   }
 

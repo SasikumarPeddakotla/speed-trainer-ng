@@ -1,4 +1,4 @@
 export enum Direction {
-  Forward = 'forward',
-  Backward = 'backward',
+  Forward = 'Forward',
+  Backward = 'Backward',
 }

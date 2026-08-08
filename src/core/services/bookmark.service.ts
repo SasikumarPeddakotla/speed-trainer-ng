@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 
-import { PracticeMode } from '../enums/practice-mode.enum';
 import { StorageKeys } from '../enums/storage-keys.enum';
 import { StorageService } from './storage.service';
 import { BookmarkSummary } from '../models/bookmark-summary.model';
 import { BookmarkEntry } from '../models/bookmark-entry.model';
 import { DialogService } from './dialog.service';
 import { SnackbarService } from './snackbar.service';
+import { IdService } from '../../utils/id.service';
 
 interface BookmarkStorage {
   version: number;
@@ -21,11 +21,21 @@ export class BookmarkService {
     private storageService: StorageService,
     private dialogService: DialogService,
     private snackbarService: SnackbarService,
+    private idService: IdService,
   ) {
     this.load();
   }
 
-  private bookmarkLists = new Map<PracticeMode, BookmarkEntry[]>();
+  /**
+   * One bookmark list per exercise key.
+   *
+   * Example keys:
+   * - LetterPosition_Forward
+   * - LetterPosition_Backward
+   * - Synonyms
+   * - Articles_Forward
+   */
+  private bookmarkLists = new Map<string, BookmarkEntry[]>();
 
   private currentBookmark?: BookmarkEntry;
 
@@ -37,22 +47,28 @@ export class BookmarkService {
     this.currentBookmark = bookmark;
   }
 
-  private getList(mode: PracticeMode): BookmarkEntry[] {
-    let list = this.bookmarkLists.get(mode);
+  private getExerciseKey(): string {
+    return this.idService.getExerciseKey();
+  }
+
+  private getList(exerciseKey: string): BookmarkEntry[] {
+    let list = this.bookmarkLists.get(exerciseKey);
 
     if (!list) {
       list = [];
-      this.bookmarkLists.set(mode, list);
+      this.bookmarkLists.set(exerciseKey, list);
     }
 
     return list;
   }
 
   add(entry: BookmarkEntry): void {
-    const list = this.getList(entry.mode);
+    const exerciseKey = this.getExerciseKey();
+    const list = this.getList(exerciseKey);
 
     if (!list.some((b) => b.id === entry.id)) {
       list.push(entry);
+
       this.save();
 
       this.snackbarService.show('Added to bookmarks');
@@ -60,12 +76,14 @@ export class BookmarkService {
   }
 
   private removeInternal(entry: BookmarkEntry): void {
-    const list = this.getList(entry.mode);
+    const exerciseKey = this.getExerciseKey();
+    const list = this.getList(exerciseKey);
 
     const index = list.findIndex((b) => b.id === entry.id);
 
     if (index !== -1) {
       list.splice(index, 1);
+
       this.save();
 
       this.snackbarService.show('Removed from bookmarks');
@@ -76,59 +94,78 @@ export class BookmarkService {
     return new Promise((resolve) => {
       this.dialogService.openConfirm({
         title: 'Remove bookmark',
+
         message: 'Remove this item from bookmarks?',
+
         confirmText: 'Remove',
+
         cancelText: 'Cancel',
+
         onConfirm: () => {
           this.removeInternal(entry);
+
           resolve(true);
         },
+
+        onCancel: () => {
+          resolve(false);
+        },
       });
-
-      // If dialog closes without confirmation
-      const originalClose = this.dialogService.close.bind(this.dialogService);
-
-      this.dialogService.close = () => {
-        originalClose();
-        resolve(false);
-      };
     });
   }
 
   async toggle(entry: BookmarkEntry): Promise<boolean> {
-    if (this.isBookmarked(entry.mode, entry.id)) {
+    if (this.isBookmarked(entry.id)) {
       return await this.remove(entry);
     }
 
     this.add(entry);
+
     return true;
   }
 
-  isBookmarked(mode: PracticeMode, id: string): boolean {
-    return this.getList(mode).some((b) => b.id === id);
+  isBookmarked(id: string): boolean {
+    const exerciseKey = this.getExerciseKey();
+
+    return this.getList(exerciseKey).some((b) => b.id === id);
   }
 
-  getBookmarks<T>(mode: PracticeMode): T[] {
-    return this.getList(mode).map((b) => b.question as T);
+  getBookmarks<T>(): T[] {
+    const exerciseKey = this.getExerciseKey();
+
+    return this.getList(exerciseKey).map((b) => b.question as T);
   }
 
-  getBookmarkCount(mode: PracticeMode): number {
-    return this.getList(mode).length;
+  getEntries(): BookmarkEntry[] {
+    const exerciseKey = this.getExerciseKey();
+
+    return [...this.getList(exerciseKey)];
   }
 
-  clearMode(mode: PracticeMode): void {
-    this.bookmarkLists.delete(mode);
+  getBookmarkCount(): number {
+    const exerciseKey = this.getExerciseKey();
+
+    return this.getList(exerciseKey).length;
+  }
+
+  clearCurrentExercise(): void {
+    const exerciseKey = this.getExerciseKey();
+
+    this.bookmarkLists.delete(exerciseKey);
+
     this.save();
   }
 
   clear(): void {
     this.bookmarkLists.clear();
+
     this.storageService.remove(StorageKeys.Bookmarks);
   }
 
   private save(): void {
     const storage: BookmarkStorage = {
       version: 1,
+
       bookmarks: Object.fromEntries(this.bookmarkLists),
     };
 
@@ -146,8 +183,8 @@ export class BookmarkService {
 
     this.bookmarkLists.clear();
 
-    for (const [mode, list] of Object.entries(storage.bookmarks)) {
-      this.bookmarkLists.set(mode as PracticeMode, list);
+    for (const [exerciseKey, list] of Object.entries(storage.bookmarks)) {
+      this.bookmarkLists.set(exerciseKey, list);
     }
   }
 
@@ -161,14 +198,15 @@ export class BookmarkService {
     return total;
   }
 
-  hasBookmarks(mode: PracticeMode): boolean {
-    return this.getBookmarkCount(mode) > 0;
+  hasBookmarks(): boolean {
+    return this.getBookmarkCount() > 0;
   }
 
   getBookmarkSummaries(): BookmarkSummary[] {
     return Array.from(this.bookmarkLists.entries()).map(
-      ([mode, questions]) => ({
-        mode,
+      ([exerciseKey, questions]) => ({
+        exerciseKey: exerciseKey,
+
         count: questions.length,
       }),
     );
@@ -176,5 +214,9 @@ export class BookmarkService {
 
   getAllBookmarks(): BookmarkEntry[] {
     return Array.from(this.bookmarkLists.values()).flat();
+  }
+
+  getBookmarkCountForExerciseKey(exerciseKey: string): number {
+    return this.getList(exerciseKey).length;
   }
 }
