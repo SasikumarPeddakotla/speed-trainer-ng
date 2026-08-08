@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ReviewItem } from '../models/review-item.model';
-import { ExerciseService } from '../../utils/exercise.service';
+import { IdService } from '../../utils/id.service';
 import { StorageKeys } from '../enums/storage-keys.enum';
 import { StorageService } from './storage.service';
 import { PracticeMode } from '../enums/practice-mode.enum';
@@ -16,7 +16,7 @@ interface ReviewStorage {
 })
 export class ReviewService {
   constructor(
-    private exerciseService: ExerciseService,
+    private idService: IdService,
     private storageService: StorageService,
   ) {
     this.load();
@@ -47,7 +47,7 @@ export class ReviewService {
   }
 
   getNextReviewQuestion<T>(): T | null {
-    const exerciseKey = this.exerciseService.getExerciseKey();
+    const exerciseKey = this.idService.getExerciseKey();
     const queue = this.getQueue(exerciseKey);
     const index = queue.findIndex((review) => review.delay === 0);
 
@@ -63,7 +63,7 @@ export class ReviewService {
   }
 
   advanceDelays(): void {
-    const exerciseKey = this.exerciseService.getExerciseKey();
+    const exerciseKey = this.idService.getExerciseKey();
     if (exerciseKey === PracticeMode.Bookmark) {
       return;
     }
@@ -79,7 +79,7 @@ export class ReviewService {
   }
 
   recordWrong<T>(questionData: T, questionId: string): boolean {
-    const exerciseKey = this.exerciseService.getExerciseKey();
+    const exerciseKey = this.idService.getExerciseKey();
 
     if (exerciseKey === PracticeMode.Bookmark) {
       return false;
@@ -132,7 +132,7 @@ export class ReviewService {
   }
 
   recordCorrect(): boolean {
-    const exerciseKey = this.exerciseService.getExerciseKey();
+    const exerciseKey = this.idService.getExerciseKey();
 
     if (exerciseKey === PracticeMode.Bookmark) {
       return false;

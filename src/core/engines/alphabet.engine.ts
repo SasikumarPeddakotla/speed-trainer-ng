@@ -9,6 +9,7 @@ import { Direction } from '../enums/direction.enum';
 import { PracticeMode } from '../enums/practice-mode.enum';
 import { RandomService } from '../../utils/random.service';
 import { ReviewService } from '../services/review.service';
+import { IdService } from '../../utils/id.service';
 
 @Injectable({
   providedIn: 'root',
@@ -20,6 +21,7 @@ export class AlphabetEngine {
   constructor(
     private settingsService: SettingsService,
     private reviewService: ReviewService,
+    private idService: IdService,
   ) {}
 
   generateQuestion() {
@@ -50,7 +52,7 @@ export class AlphabetEngine {
 
   createLetterToPosition(alphabet: Alphabet): Question<Alphabet> {
     return {
-      id: `lp:f:${alphabet.letter}`,
+      id: this.idService.getQuestionId(alphabet.letter),
       question: alphabet.letter,
       answer: String(alphabet.position),
       data: alphabet,
@@ -67,7 +69,7 @@ export class AlphabetEngine {
 
   createPositionToLetter(alphabet: Alphabet): Question<Alphabet> {
     return {
-      id: `lp:r:${alphabet.letter}`,
+      id: this.idService.getQuestionId(alphabet.position),
       question: String(alphabet.position),
       answer: alphabet.letter,
       data: alphabet,
@@ -84,7 +86,7 @@ export class AlphabetEngine {
 
   createLetterToReversePosition(alphabet: Alphabet): Question<Alphabet> {
     return {
-      id: `lrp:f:${alphabet.letter}`,
+      id: this.idService.getQuestionId(alphabet.letter),
       question: alphabet.letter,
       answer: String(alphabet.reversePosition),
       data: alphabet,
@@ -101,7 +103,7 @@ export class AlphabetEngine {
 
   createReversePositionToLetter(alphabet: Alphabet): Question<Alphabet> {
     return {
-      id: `lrp:r:${alphabet.letter}`,
+      id: this.idService.getQuestionId(alphabet.reversePosition),
       question: String(alphabet.reversePosition),
       answer: alphabet.letter,
       data: alphabet,
@@ -118,7 +120,7 @@ export class AlphabetEngine {
 
   createMirrorLetter(alphabet: Alphabet): Question<Alphabet> {
     return {
-      id: `mirror:${alphabet.letter}`,
+      id: this.idService.getQuestionId(alphabet.letter),
       question: alphabet.letter,
       answer: alphabet.mirrorLetter,
       data: alphabet,

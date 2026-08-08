@@ -5,6 +5,7 @@ import { SettingsService } from '../services/settings.service';
 import { Question } from '../models/question.model';
 import { ArithmeticQuestion } from '../models/arithmetic-question.model';
 import { RandomService } from '../../utils/random.service';
+import { IdService } from '../../utils/id.service';
 
 @Injectable({
   providedIn: 'root',
@@ -13,13 +14,16 @@ export class ArithmeticEngine {
   constructor(
     private settingsService: SettingsService,
     private randomService: RandomService,
+    private idService: IdService,
   ) {}
 
   generateAddition(): Question<ArithmeticQuestion> {
     const operands = this.randomizeOperandOrder(this.generateRandomOperands());
 
     return {
-      id: `add:${operands.firstNumber}:${operands.secondNumber}`,
+      id: this.idService.getQuestionId(
+        `${operands.firstNumber} + ${operands.secondNumber}`,
+      ),
       question: `${operands.firstNumber} + ${operands.secondNumber}`,
       answer: String(operands.firstNumber + operands.secondNumber),
       data: operands,
@@ -32,7 +36,9 @@ export class ArithmeticEngine {
     const operands = this.ensureFirstIsGreater(this.generateRandomOperands());
 
     return {
-      id: `sub:${operands.firstNumber}:${operands.secondNumber}`,
+      id: this.idService.getQuestionId(
+        `${operands.firstNumber} - ${operands.secondNumber}`,
+      ),
       question: `${operands.firstNumber} - ${operands.secondNumber}`,
       answer: String(operands.firstNumber - operands.secondNumber),
       data: operands,
@@ -45,7 +51,9 @@ export class ArithmeticEngine {
     const operands = this.randomizeOperandOrder(this.generateRandomOperands());
 
     return {
-      id: `mul:${operands.firstNumber}:${operands.secondNumber}`,
+      id: this.idService.getQuestionId(
+        `${operands.firstNumber} × ${operands.secondNumber}`,
+      ),
       question: `${operands.firstNumber} × ${operands.secondNumber}`,
       answer: String(operands.firstNumber * operands.secondNumber),
       data: operands,
@@ -72,7 +80,7 @@ export class ArithmeticEngine {
     } while (this.digitCount(dividend) !== dividendDigits);
 
     return {
-      id: `div:${dividend}:${divisor}`,
+      id: this.idService.getQuestionId(`${dividend} ÷ ${divisor}`),
       question: `${dividend} ÷ ${divisor}`,
       answer: String(quotient),
       data: {

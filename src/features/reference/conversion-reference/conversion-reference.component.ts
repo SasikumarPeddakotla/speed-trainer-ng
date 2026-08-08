@@ -8,6 +8,7 @@ import { ReviewService } from '../../../core/services/review.service';
 import { ConversionQuestion } from '../../../core/models/conversion-question.model';
 import { BookmarkService } from '../../../core/services/bookmark.service';
 import { Direction } from '../../../core/enums/direction.enum';
+import { IdService } from '../../../utils/id.service';
 
 @Component({
   selector: 'app-conversion-reference',
@@ -20,6 +21,7 @@ export class ConversionReferenceComponent {
   private settingsService = inject(SettingsService);
   private reviewService = inject(ReviewService);
   private bookmarkService = inject(BookmarkService);
+  private idService = inject(IdService);
 
   private removedBookmarks = new Set<ConversionQuestion>();
 
@@ -65,23 +67,22 @@ export class ConversionReferenceComponent {
 
   private getQuestionId(question: ConversionQuestion): string {
     const direction = this.settingsService.settings().direction;
-    const fraction = question.conversion.fraction;
 
     switch (this.mode) {
       case PracticeMode.FractionDecimal:
         return direction === Direction.Forward
-          ? `fraction-decimal:${fraction}`
-          : `decimal-fraction:${fraction}`;
+          ? this.idService.getQuestionId(question.conversion.fraction)
+          : this.idService.getQuestionId(question.conversion.decimal);
 
       case PracticeMode.FractionPercentage:
         return direction === Direction.Forward
-          ? `fraction-percentage:${fraction}`
-          : `percentage-fraction:${fraction}`;
+          ? this.idService.getQuestionId(question.conversion.fraction)
+          : this.idService.getQuestionId(question.conversion.percentage);
 
       case PracticeMode.DecimalPercentage:
         return direction === Direction.Forward
-          ? `decimal-percentage:${fraction}`
-          : `percentage-decimal:${fraction}`;
+          ? this.idService.getQuestionId(question.conversion.decimal)
+          : this.idService.getQuestionId(question.conversion.percentage);
 
       default:
         return '';

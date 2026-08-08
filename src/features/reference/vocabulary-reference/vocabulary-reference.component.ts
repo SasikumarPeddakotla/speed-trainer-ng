@@ -12,6 +12,7 @@ import { BookmarkService } from '../../../core/services/bookmark.service';
 
 import * as lemmatizer from 'wink-lemmatizer';
 import { ExampleFormatterService } from '../../../utils/example-formatter.service';
+import { IdService } from '../../../utils/id.service';
 
 @Component({
   selector: 'app-vocabulary-reference',
@@ -28,6 +29,7 @@ export class VocabularyReferenceComponent {
   private vocabularyEngine = inject(VocabularyEngine);
   private bookmarkService = inject(BookmarkService);
   public formatterService = inject(ExampleFormatterService);
+  private idService = inject(IdService);
 
   private removedBookmarks = new Set<unknown>();
 
@@ -187,16 +189,16 @@ export class VocabularyReferenceComponent {
   private getQuestionId(question: Synonym | Antonym | OneWord | Idiom): string {
     switch (this.mode) {
       case PracticeMode.Synonyms:
-        return `synonym:${(question as Synonym).word}`;
+        return this.idService.getQuestionId((question as Synonym).word);
 
       case PracticeMode.Antonyms:
-        return `antonym:${(question as Antonym).word}`;
+        return this.idService.getQuestionId((question as Antonym).word);
 
       case PracticeMode.OneWord:
-        return `one-word:${(question as OneWord).word}`;
+        return this.idService.getQuestionId((question as OneWord).phrase);
 
       case PracticeMode.Idioms:
-        return `idiom:${(question as Idiom).idiom}`;
+        return this.idService.getQuestionId((question as Idiom).idiom);
 
       default:
         return '';

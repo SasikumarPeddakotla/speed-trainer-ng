@@ -12,6 +12,7 @@ import { SettingsService } from '../services/settings.service';
 import { PracticeMode } from '../enums/practice-mode.enum';
 import { ExampleFormatterService } from '../../utils/example-formatter.service';
 import { VocabularyDataService } from '../services/vocabulary-data.service';
+import { IdService } from '../../utils/id.service';
 
 @Injectable({
   providedIn: 'root',
@@ -29,6 +30,7 @@ export class VocabularyEngine {
     private settingsService: SettingsService,
     private formatterService: ExampleFormatterService,
     private vocabularyDataService: VocabularyDataService,
+    private idService: IdService,
   ) {}
 
   generateSynonymQuestion(): Question<Synonym> {
@@ -43,7 +45,7 @@ export class VocabularyEngine {
       .filter((s) => s.partsOfSpeech === synonym.partsOfSpeech);
 
     return {
-      id: `synonym:${synonym.word}`,
+      id: this.idService.getQuestionId(synonym.word),
       question: pair.question,
 
       answer: pair.answer,
@@ -117,7 +119,7 @@ export class VocabularyEngine {
       .filter((a) => a.partsOfSpeech === antonym.partsOfSpeech);
 
     return {
-      id: `antonym:${antonym.word}`,
+      id: this.idService.getQuestionId(antonym.word),
       question: pair.question,
 
       answer: pair.answer,
@@ -189,7 +191,7 @@ export class VocabularyEngine {
       .filter((o) => o.partsOfSpeech === oneWord.partsOfSpeech);
 
     return {
-      id: `one-word:${oneWord.phrase}`,
+      id: this.idService.getQuestionId(oneWord.phrase),
       question: oneWord.phrase,
 
       answer: oneWord.word,
@@ -252,7 +254,7 @@ export class VocabularyEngine {
 
   createIdiomQuestion(idiom: Idiom): Question<Idiom> {
     return {
-      id: `idiom:${idiom.idiom}`,
+      id: this.idService.getQuestionId(idiom.idiom),
       question: idiom.idiom,
 
       answer: idiom.option,

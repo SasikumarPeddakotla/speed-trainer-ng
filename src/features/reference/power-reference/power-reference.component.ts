@@ -5,7 +5,7 @@ import { PracticeMode } from '../../../core/enums/practice-mode.enum';
 import { PowerQuestion } from '../../../core/models/power-question.model';
 import { ReviewService } from '../../../core/services/review.service';
 import { BookmarkService } from '../../../core/services/bookmark.service';
-import { Question } from '../../../core/models/question.model';
+import { IdService } from '../../../utils/id.service';
 
 @Component({
   selector: 'app-power-reference',
@@ -18,6 +18,7 @@ export class PowerReferenceComponent {
   private powerEngine = inject(PowerEngine);
   private reviewService = inject(ReviewService);
   private bookmarkService = inject(BookmarkService);
+  private idService = inject(IdService);
 
   private removedBookmarks = new Set<unknown>();
 
@@ -60,16 +61,16 @@ export class PowerReferenceComponent {
   private getQuestionId(question: PowerQuestion): string {
     switch (this.mode) {
       case PracticeMode.Squares:
-        return `square:${question.number}`;
+        return this.idService.getQuestionId(question.number);
 
       case PracticeMode.Cubes:
-        return `cube:${question.number}`;
+        return this.idService.getQuestionId(question.number);
 
       case PracticeMode.SquareRoots:
-        return `sqrt:${question.number}`;
+        return this.idService.getQuestionId(question.number * question.number);
 
       case PracticeMode.CubeRoots:
-        return `cbrt:${question.number}`;
+        return this.idService.getQuestionId(question.number ** 3);
 
       default:
         return '';

@@ -5,6 +5,7 @@ import { Question } from '../models/question.model';
 import { TableQuestion } from '../models/table-question.model';
 import { RandomService } from '../../utils/random.service';
 import { ReviewService } from '../services/review.service';
+import { IdService } from '../../utils/id.service';
 
 @Injectable({
   providedIn: 'root',
@@ -17,6 +18,7 @@ export class TablesEngine {
   constructor(
     private settingsService: SettingsService,
     private reviewService: ReviewService,
+    private idService: IdService,
   ) {}
 
   generate(): Question<TableQuestion> {
@@ -27,7 +29,9 @@ export class TablesEngine {
 
   createQuestion(question: TableQuestion): Question<TableQuestion> {
     return {
-      id: `table:${question.table}:${question.multiplier}`,
+      id: this.idService.getQuestionId(
+        `${question.table} × ${question.multiplier}`,
+      ),
       question: `${question.table} × ${question.multiplier}`,
       answer: String(question.table * question.multiplier),
       data: question,

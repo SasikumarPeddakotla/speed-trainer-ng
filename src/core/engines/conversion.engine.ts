@@ -8,6 +8,7 @@ import { ConversionQuestion } from '../models/conversion-question.model';
 import { Question } from '../models/question.model';
 import { PracticeMode } from '../enums/practice-mode.enum';
 import { ReviewService } from '../services/review.service';
+import { IdService } from '../../utils/id.service';
 
 @Injectable({
   providedIn: 'root',
@@ -19,6 +20,7 @@ export class ConversionEngine {
   constructor(
     private settingsService: SettingsService,
     private reviewService: ReviewService,
+    private idService: IdService,
   ) {}
 
   generateQuestion() {
@@ -53,7 +55,7 @@ export class ConversionEngine {
     answerKey: keyof FractionConversion,
   ): Question<ConversionQuestion> {
     return {
-      id: `${questionKey}-${answerKey}:${conversion.fraction}`,
+      id: this.idService.getQuestionId(conversion[questionKey]),
       question:
         conversion[questionKey] + (questionKey === 'percentage' ? '%' : ''),
       answer: conversion[answerKey],

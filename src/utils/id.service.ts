@@ -5,7 +5,7 @@ import { SettingType } from '../core/enums/setting-type.enum';
 @Injectable({
   providedIn: 'root',
 })
-export class ExerciseService {
+export class IdService {
   constructor(private settingsService: SettingsService) {}
 
   getExerciseKey(): string {
@@ -18,5 +18,10 @@ export class ExerciseService {
     const direction = settings.direction;
 
     return hasDirection ? `${mode}_${direction}` : mode;
+  }
+
+  getQuestionId<T>(question: T): string {
+    const exerciseKey = this.getExerciseKey();
+    return `${exerciseKey}_${question}`;
   }
 }

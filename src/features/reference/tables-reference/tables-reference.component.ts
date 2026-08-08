@@ -6,6 +6,7 @@ import { TableQuestion } from '../../../core/models/table-question.model';
 import { ReviewService } from '../../../core/services/review.service';
 import { PracticeMode } from '../../../core/enums/practice-mode.enum';
 import { BookmarkService } from '../../../core/services/bookmark.service';
+import { IdService } from '../../../utils/id.service';
 
 interface TableReference {
   table: number;
@@ -24,6 +25,7 @@ export class TablesReferenceComponent {
   private settingsService = inject(SettingsService);
   private reviewService = inject(ReviewService);
   private bookmarkService = inject(BookmarkService);
+  private idService = inject(IdService);
 
   private removedBookmarks = new Set<unknown>();
 
@@ -91,7 +93,9 @@ export class TablesReferenceComponent {
 
   toggleBookmark(question: TableQuestion): void {
     const entry = {
-      id: `table:${question.table}:${question.multiplier}`,
+      id: this.idService.getQuestionId(
+        `${question.table} × ${question.multiplier}`,
+      ),
       mode: this.mode,
       question,
     };

@@ -6,6 +6,7 @@ import { ARTICLES } from '../data/articles.data';
 import { Article } from '../models/article.model';
 import { Direction } from '../enums/direction.enum';
 import { ReviewService } from '../services/review.service';
+import { IdService } from '../../utils/id.service';
 
 @Injectable({
   providedIn: 'root',
@@ -17,6 +18,7 @@ export class PolityEngine {
   constructor(
     private settingsService: SettingsService,
     private reviewService: ReviewService,
+    private idService: IdService,
   ) {}
 
   generateArticles(): Question<Article> {
@@ -31,7 +33,7 @@ export class PolityEngine {
 
     if (direction === Direction.Forward) {
       return {
-        id: `article:forward:${article.article}`,
+        id: this.idService.getQuestionId(article.article),
         question: `Article ${article.article}`,
         answer: article.title,
         options,
@@ -42,7 +44,7 @@ export class PolityEngine {
     }
 
     return {
-      id: `article:reverse:${article.article}`,
+      id: this.idService.getQuestionId(article.title),
       question: article.title,
       answer: `Article ${article.article}`,
       options,

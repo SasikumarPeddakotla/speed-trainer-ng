@@ -4,7 +4,7 @@ import { PowerQuestion } from '../models/power-question.model';
 import { Question } from '../models/question.model';
 import { RandomService } from '../../utils/random.service';
 import { ReviewService } from '../services/review.service';
-import { PracticeMode } from '../enums/practice-mode.enum';
+import { IdService } from '../../utils/id.service';
 
 @Injectable({
   providedIn: 'root',
@@ -17,6 +17,7 @@ export class PowerEngine {
   constructor(
     private settingsService: SettingsService,
     private reviewService: ReviewService,
+    private idService: IdService,
   ) {}
 
   generateSquare(): Question<PowerQuestion> {
@@ -77,7 +78,7 @@ export class PowerEngine {
 
   createSquare(question: PowerQuestion): Question<PowerQuestion> {
     return {
-      id: `square:${question.number}`,
+      id: this.idService.getQuestionId(question.number),
       question: `${question.number}²`,
       answer: String(question.number * question.number),
       data: question,
@@ -88,7 +89,7 @@ export class PowerEngine {
 
   createCube(question: PowerQuestion): Question<PowerQuestion> {
     return {
-      id: `cube:${question.number}`,
+      id: this.idService.getQuestionId(question.number),
       question: `${question.number}³`,
       answer: String(question.number ** 3),
       data: question,
@@ -99,7 +100,7 @@ export class PowerEngine {
 
   createSquareRoot(question: PowerQuestion): Question<PowerQuestion> {
     return {
-      id: `sqrt:${question.number}`,
+      id: this.idService.getQuestionId(question.number * question.number),
       question: `√${question.number * question.number}`,
       answer: String(question.number),
       data: question,
@@ -110,7 +111,7 @@ export class PowerEngine {
 
   createCubeRoot(question: PowerQuestion): Question<PowerQuestion> {
     return {
-      id: `cbrt:${question.number}`,
+      id: this.idService.getQuestionId(question.number ** 3),
       question: `∛${question.number ** 3}`,
       answer: String(question.number),
       data: question,

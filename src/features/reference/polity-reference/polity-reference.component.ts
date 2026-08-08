@@ -7,6 +7,7 @@ import { PracticeMode } from '../../../core/enums/practice-mode.enum';
 import { ReviewService } from '../../../core/services/review.service';
 import { BookmarkService } from '../../../core/services/bookmark.service';
 import { Direction } from '../../../core/enums/direction.enum';
+import { IdService } from '../../../utils/id.service';
 
 @Component({
   selector: 'app-polity-reference',
@@ -21,6 +22,7 @@ export class PolityReferenceComponent {
   private settingsService = inject(SettingsService);
   private reviewService = inject(ReviewService);
   private bookmarkService = inject(BookmarkService);
+  private idService = inject(IdService);
 
   private removedBookmarks = new Set<unknown>();
 
@@ -80,8 +82,8 @@ export class PolityReferenceComponent {
     const direction = this.settingsService.settings().direction;
 
     return direction === Direction.Forward
-      ? `article:forward:${article.article}`
-      : `article:reverse:${article.article}`;
+      ? this.idService.getQuestionId(article.article)
+      : this.idService.getQuestionId(article.title);
   }
 
   isRemoved(question: unknown): boolean {

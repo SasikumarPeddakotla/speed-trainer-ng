@@ -7,6 +7,7 @@ import { PracticeMode } from '../../../core/enums/practice-mode.enum';
 import { SettingsService } from '../../../core/services/settings.service';
 import { BookmarkService } from '../../../core/services/bookmark.service';
 import { Direction } from '../../../core/enums/direction.enum';
+import { IdService } from '../../../utils/id.service';
 
 @Component({
   selector: 'app-alphabet-reference',
@@ -21,6 +22,7 @@ export class AlphabetReferenceComponent {
   private reviewService = inject(ReviewService);
   private settingsService = inject(SettingsService);
   private bookmarkService = inject(BookmarkService);
+  private idService = inject(IdService);
 
   private removedBookmarks = new Set<Alphabet>();
 
@@ -68,16 +70,16 @@ export class AlphabetReferenceComponent {
     switch (this.mode) {
       case PracticeMode.LetterPosition:
         return direction === Direction.Forward
-          ? `lp:f:${alphabet.letter}`
-          : `lp:r:${alphabet.letter}`;
+          ? this.idService.getQuestionId(alphabet.letter)
+          : this.idService.getQuestionId(alphabet.position);
 
       case PracticeMode.LetterReversePosition:
         return direction === Direction.Forward
-          ? `lrp:f:${alphabet.letter}`
-          : `lrp:r:${alphabet.letter}`;
+          ? this.idService.getQuestionId(alphabet.letter)
+          : this.idService.getQuestionId(alphabet.reversePosition);
 
       case PracticeMode.MirrorLetter:
-        return `mirror:${alphabet.letter}`;
+        return this.idService.getQuestionId(alphabet.letter);
 
       default:
         return '';
