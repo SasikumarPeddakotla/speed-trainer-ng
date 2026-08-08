@@ -26,37 +26,42 @@
     </div>
   } @else {
     @for (topic of bookmarkTopics; track topic.title) {
-      <div class="topic-card">
-        <div class="topic-header">
-          <div class="topic-title">
-            <h2>{{ topic.title }}</h2>
+      @if (topic.total > 0) {
+        <div class="topic-card">
+          <div class="topic-header">
+            <div class="topic-title">
+              <h2>{{ topic.title }}</h2>
+            </div>
+
+            <span class="badge">{{ topic.total }}</span>
           </div>
 
-          <span class="badge">{{ topic.total }}</span>
-        </div>
+          @for (item of topic.exercises; track item.exercise.mode) {
+            @if (item.count > 0) {
+              <button
+                class="exercise-row"
+                (click)="openBookmarks(item.exercise)"
+              >
+                <div class="exercise-info">
+                  <div class="exercise-title">
+                    {{ item.exercise.title }}
+                  </div>
 
-        @for (item of topic.exercises; track item.exercise.mode) {
-          @if (item.count > 0) {
-            <button class="exercise-row" (click)="openBookmarks(item.exercise)">
-              <div class="exercise-info">
-                <div class="exercise-title">
-                  {{ item.exercise.title }}
+                  <div class="exercise-subtitle">
+                    {{ item.count }}
+                    bookmarked
+                    {{ item.count === 1 ? "question" : "questions" }}
+                  </div>
                 </div>
 
-                <div class="exercise-subtitle">
-                  {{ item.count }}
-                  bookmarked
-                  {{ item.count === 1 ? "question" : "questions" }}
+                <div class="exercise-right">
+                  <span class="arrow"> → </span>
                 </div>
-              </div>
-
-              <div class="exercise-right">
-                <span class="arrow"> → </span>
-              </div>
-            </button>
+              </button>
+            }
           }
-        }
-      </div>
+        </div>
+      }
     }
   }
 </div>

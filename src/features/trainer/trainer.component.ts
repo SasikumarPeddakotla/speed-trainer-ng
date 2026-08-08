@@ -195,7 +195,18 @@ export class TrainerComponent implements OnInit, OnDestroy {
         this.answer = '';
         this.inputState = 'normal';
         this.selectedOption = null;
-      }, 150);
+
+        if (
+          this.settingsService.settings().sessionType !== SessionType.Practice
+        ) {
+          this.questionService.nextQuestion();
+          this.focusTextInput();
+
+          if (!wasReview) {
+            this.reviewService.advanceDelays();
+          }
+        }
+      }, 200);
     }
   }
 
