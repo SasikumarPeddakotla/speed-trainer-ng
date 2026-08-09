@@ -47,14 +47,16 @@
 
   @if (questionService.currentQuestion(); as question) {
     <div class="question-card">
-      <button
-        type="button"
-        class="bookmark-btn"
-        [class.bookmarked]="isBookmarked()"
-        (click)="toggleBookmark()"
-      >
-        ★
-      </button>
+      @if (topic?.title !== "Arithmetic") {
+        <button
+          type="button"
+          class="bookmark-btn"
+          [class.bookmarked]="isBookmarked()"
+          (click)="toggleBookmark()"
+        >
+          ★
+        </button>
+      }
       @if (countdownValue !== null) {
         @switch (countdownValue) {
           @case (3) {

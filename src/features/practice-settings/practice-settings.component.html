@@ -73,7 +73,7 @@
 
     @if (
       settingsService.settings().selectedExercise?.mode !==
-      PracticeMode.Bookmark
+      PracticeMode.Bookmark && settingsService.settings().selectedExercise?.topic !== "arithmetic"
     ) {
       <button class="reference-btn" (click)="openReference()">
         📖 Reference
