@@ -7,7 +7,6 @@ import { Question } from '../models/question.model';
 import { SettingsService } from './settings.service';
 
 import { PracticeMode } from '../enums/practice-mode.enum';
-import { Alphabet } from '../models/alphabet.model';
 import { TablesEngine } from '../engines/tables.engine';
 import { ArithmeticEngine } from '../engines/arithmetic.engine';
 import { PowerEngine } from '../engines/power.engine';
@@ -38,9 +37,24 @@ export class QuestionService {
 
   nextQuestion() {
     switch (this.settingsService.settings().selectedExercise?.mode) {
-      case PracticeMode.LetterPosition:
-      case PracticeMode.LetterReversePosition:
-        this._currentQuestion.set(this.alphabetEngine.generateQuestion());
+      case PracticeMode.LetterToPosition:
+        this._currentQuestion.set(this.alphabetEngine.letterToPosition());
+        break;
+
+      case PracticeMode.PositionToLetter:
+        this._currentQuestion.set(this.alphabetEngine.positionToLetter());
+        break;
+
+      case PracticeMode.LetterToReversePosition:
+        this._currentQuestion.set(
+          this.alphabetEngine.letterToReversePosition(),
+        );
+        break;
+
+      case PracticeMode.ReversePositionToLetter:
+        this._currentQuestion.set(
+          this.alphabetEngine.reversePositionToLetter(),
+        );
         break;
 
       case PracticeMode.MirrorLetter:
@@ -85,14 +99,20 @@ export class QuestionService {
         this._currentQuestion.set(this.powerEngine.generateCubeRoot());
         break;
 
-      case PracticeMode.FractionDecimal:
-      case PracticeMode.FractionPercentage:
-      case PracticeMode.DecimalPercentage:
+      case PracticeMode.FractionToDecimal:
+      case PracticeMode.DecimalToFraction:
+      case PracticeMode.FractionToPercentage:
+      case PracticeMode.PercentageToFraction:
+      case PracticeMode.DecimalToPercentage:
+      case PracticeMode.PercentageToDecimal:
         this._currentQuestion.set(this.conversionEngine.generateQuestion());
         break;
 
-      case PracticeMode.Articles:
-        this._currentQuestion.set(this.polityEngine.generateArticles());
+      case PracticeMode.ArticleToTitle:
+        this._currentQuestion.set(this.polityEngine.generateArticleToTitle());
+        break;
+      case PracticeMode.TitleToArticle:
+        this._currentQuestion.set(this.polityEngine.generateTitleToArticle());
         break;
 
       case PracticeMode.Synonyms:

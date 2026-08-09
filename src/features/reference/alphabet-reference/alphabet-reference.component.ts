@@ -6,7 +6,6 @@ import { ReviewService } from '../../../core/services/review.service';
 import { PracticeMode } from '../../../core/enums/practice-mode.enum';
 import { SettingsService } from '../../../core/services/settings.service';
 import { BookmarkService } from '../../../core/services/bookmark.service';
-import { Direction } from '../../../core/enums/direction.enum';
 import { IdService } from '../../../utils/id.service';
 
 @Component({
@@ -66,18 +65,16 @@ export class AlphabetReferenceComponent {
   }
 
   private getQuestionId(alphabet: Alphabet): string {
-    const direction = this.settingsService.settings().direction;
-
     switch (this.mode) {
-      case PracticeMode.LetterPosition:
-        return direction === Direction.Forward
-          ? this.idService.getQuestionId(alphabet.letter)
-          : this.idService.getQuestionId(alphabet.position);
+      case PracticeMode.LetterToPosition:
+        return this.idService.getQuestionId(alphabet.letter);
+      case PracticeMode.PositionToLetter:
+        return this.idService.getQuestionId(alphabet.position);
 
-      case PracticeMode.LetterReversePosition:
-        return direction === Direction.Forward
-          ? this.idService.getQuestionId(alphabet.letter)
-          : this.idService.getQuestionId(alphabet.reversePosition);
+      case PracticeMode.LetterToReversePosition:
+        return this.idService.getQuestionId(alphabet.letter);
+      case PracticeMode.ReversePositionToLetter:
+        return this.idService.getQuestionId(alphabet.reversePosition);
 
       case PracticeMode.MirrorLetter:
         return this.idService.getQuestionId(alphabet.letter);

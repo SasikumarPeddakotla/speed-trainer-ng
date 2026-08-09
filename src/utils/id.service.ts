@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { SettingsService } from '../core/services/settings.service';
-import { SettingType } from '../core/enums/setting-type.enum';
 
 @Injectable({
   providedIn: 'root',
@@ -8,20 +7,29 @@ import { SettingType } from '../core/enums/setting-type.enum';
 export class IdService {
   constructor(private settingsService: SettingsService) {}
 
+  /**
+   * Returns the currently selected exercise mode.
+   *
+   * Examples:
+   * - LetterToPosition
+   * - PositionToLetter
+   * - FractionToDecimal
+   * - Synonyms
+   */
   getExerciseKey(): string {
-    const settings = this.settingsService.settings();
-
-    const mode = settings.selectedExercise!.mode;
-    const hasDirection = settings.selectedExercise?.settings.includes(
-      SettingType.Direction,
-    );
-    const direction = settings.direction;
-
-    return hasDirection ? `${mode}_${direction}` : mode;
+    return this.settingsService.settings().selectedExercise!.mode;
   }
 
-  getQuestionId<T>(question: T): string {
-    const exerciseKey = this.getExerciseKey();
-    return `${exerciseKey}_${question}`;
+  /**
+   * Creates a unique question id for the current question.
+   *
+   * Examples:
+   * - LetterToPosition_A
+   * - PositionToLetter_1
+   * - FractionToDecimal_1/4
+   * - Synonyms_Lucidity
+   */
+  getQuestionId(question: string | number): string {
+    return `${this.getExerciseKey()}_${question}`;
   }
 }

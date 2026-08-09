@@ -3,7 +3,6 @@
   hasSetting(SettingType.TableSelection) ||
   hasSetting(SettingType.MultiplierLimit) ||
   hasSetting(SettingType.NumberRange) ||
-  hasSetting(SettingType.Direction) ||
   hasSetting(SettingType.WordsLimit)
 ) {
   <div class="section">
@@ -96,46 +95,6 @@
           <option value="30">Up to 30</option>
           <option value="50">Up to 50</option>
           <option value="100">Up to 100</option>
-        </select>
-      </div>
-    }
-
-    @if (hasSetting(SettingType.Direction)) {
-      <div class="setting">
-        <label>Direction</label>
-
-        <select [ngModel]="direction()" (ngModelChange)="setDirection($event)">
-          @switch (mode()) {
-            @case (PracticeMode.FractionDecimal) {
-              <option value="Forward">Fraction → Decimal</option>
-              <option value="Backward">Decimal → Fraction</option>
-            }
-
-            @case (PracticeMode.FractionPercentage) {
-              <option value="Forward">Fraction → Percentage</option>
-              <option value="Backward">Percentage → Fraction</option>
-            }
-
-            @case (PracticeMode.DecimalPercentage) {
-              <option value="Forward">Decimal → Percentage</option>
-              <option value="Backward">Percentage → Decimal</option>
-            }
-
-            @case (PracticeMode.Articles) {
-              <option value="Forward">Article → Description</option>
-              <option value="Backward">Description → Article</option>
-            }
-
-            @case (PracticeMode.LetterPosition) {
-              <option value="Forward">Letter → Position</option>
-              <option value="Backward">Position → Letter</option>
-            }
-
-            @case (PracticeMode.LetterReversePosition) {
-              <option value="Forward">Letter → Reverse Position</option>
-              <option value="Backward">Reverse Position → Letter</option>
-            }
-          }
         </select>
       </div>
     }

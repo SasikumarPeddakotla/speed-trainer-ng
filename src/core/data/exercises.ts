@@ -4,22 +4,40 @@ import { Exercise } from '../models/exercise.model';
 
 export const exercises: Exercise[] = [
   {
-    title: 'Letter ↔ Position',
-    route: 'letter-position',
-    mode: PracticeMode.LetterPosition,
+    title: 'Letter → Position',
+    route: 'letter-to-position',
+    mode: PracticeMode.LetterToPosition,
     topic: 'alphabet',
     implemented: true,
 
-    settings: [SettingType.SessionType, SettingType.Direction],
+    settings: [SettingType.SessionType],
   },
   {
-    title: 'Letter ↔ Reverse Position',
-    route: 'letter-reversePosition',
-    mode: PracticeMode.LetterReversePosition,
+    title: 'Position → Letter',
+    route: 'position-to-letter',
+    mode: PracticeMode.PositionToLetter,
     topic: 'alphabet',
     implemented: true,
 
-    settings: [SettingType.SessionType, SettingType.Direction],
+    settings: [SettingType.SessionType],
+  },
+  {
+    title: 'Letter → Reverse Position',
+    route: 'letter-to-reversePosition',
+    mode: PracticeMode.LetterToReversePosition,
+    topic: 'alphabet',
+    implemented: true,
+
+    settings: [SettingType.SessionType],
+  },
+  {
+    title: 'Reverse Position → Letter',
+    route: 'reversePosition-to-letter',
+    mode: PracticeMode.ReversePositionToLetter,
+    topic: 'alphabet',
+    implemented: true,
+
+    settings: [SettingType.SessionType],
   },
   {
     title: 'Mirror Letter',
@@ -120,41 +138,77 @@ export const exercises: Exercise[] = [
   },
 
   {
-    title: 'Fraction ↔ Decimal',
-    route: 'fraction-decimal',
-    mode: PracticeMode.FractionDecimal,
+    title: 'Fraction → Decimal',
+    route: 'fraction-to-decimal',
+    mode: PracticeMode.FractionToDecimal,
     topic: 'conversions',
     implemented: true,
 
-    settings: [SettingType.SessionType, SettingType.Direction],
+    settings: [SettingType.SessionType],
   },
   {
-    title: 'Fraction ↔ Percentage',
-    route: 'fraction-percentage',
-    mode: PracticeMode.FractionPercentage,
+    title: 'Decimal → Fraction',
+    route: 'decimal-to-fraction',
+    mode: PracticeMode.DecimalToFraction,
     topic: 'conversions',
     implemented: true,
 
-    settings: [SettingType.SessionType, SettingType.Direction],
+    settings: [SettingType.SessionType],
   },
   {
-    title: 'Decimal ↔ Percentage',
-    route: 'decimal-percentage',
-    mode: PracticeMode.DecimalPercentage,
+    title: 'Fraction → Percentage',
+    route: 'fraction-to-percentage',
+    mode: PracticeMode.FractionToPercentage,
     topic: 'conversions',
     implemented: true,
 
-    settings: [SettingType.SessionType, SettingType.Direction],
+    settings: [SettingType.SessionType],
+  },
+  {
+    title: 'Percentage → Fraction',
+    route: 'percentage-to-fraction',
+    mode: PracticeMode.PercentageToFraction,
+    topic: 'conversions',
+    implemented: true,
+
+    settings: [SettingType.SessionType],
+  },
+  {
+    title: 'Decimal → Percentage',
+    route: 'decimal-to-percentage',
+    mode: PracticeMode.DecimalToPercentage,
+    topic: 'conversions',
+    implemented: true,
+
+    settings: [SettingType.SessionType],
+  },
+  {
+    title: 'Percentage → Decimal',
+    route: 'percentage-to-decimal',
+    mode: PracticeMode.PercentageToDecimal,
+    topic: 'conversions',
+    implemented: true,
+
+    settings: [SettingType.SessionType],
   },
 
   {
-    title: 'Articles',
-    route: 'articles',
-    mode: PracticeMode.Articles,
+    title: 'Article → Title',
+    route: 'article-to-title',
+    mode: PracticeMode.ArticleToTitle,
     topic: 'polity',
     implemented: true,
 
-    settings: [SettingType.SessionType, SettingType.Direction],
+    settings: [SettingType.SessionType],
+  },
+  {
+    title: 'Title → Article',
+    route: 'title-to-article',
+    mode: PracticeMode.TitleToArticle,
+    topic: 'polity',
+    implemented: true,
+
+    settings: [SettingType.SessionType],
   },
 
   // English

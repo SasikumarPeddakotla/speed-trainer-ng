@@ -5,7 +5,6 @@ import { SettingType } from '../../../../core/enums/setting-type.enum';
 import { FormsModule } from '@angular/forms';
 import { PracticeMode } from '../../../../core/enums/practice-mode.enum';
 import { VocabularyEngine } from '../../../../core/engines/vocabulary.engine';
-import { Direction } from '../../../../core/enums/direction.enum';
 
 @Component({
   selector: 'app-exercise-settings',
@@ -117,14 +116,6 @@ export class ExerciseSettingsComponent {
 
   isTableSelected(table: number) {
     return this.selectedTables().includes(table);
-  }
-
-  direction() {
-    return this.settingsService.settings().direction;
-  }
-
-  setDirection(value: Direction) {
-    this.settingsService.setDirection(value);
   }
 
   wordsLimit() {

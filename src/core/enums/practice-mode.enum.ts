@@ -1,6 +1,8 @@
 export enum PracticeMode {
-  LetterPosition = 'Letter ↔ Position',
-  LetterReversePosition = 'Letter ↔ Reverse Position',
+  LetterToPosition = 'Letter → Position',
+  PositionToLetter = 'Position → Letter',
+  LetterToReversePosition = 'Letter → Reverse Position',
+  ReversePositionToLetter = 'Reverse Position → Letter',
   MirrorLetter = 'Mirror Letter',
 
   Addition = 'Addition',
@@ -15,11 +17,15 @@ export enum PracticeMode {
   SquareRoots = 'Square Roots',
   CubeRoots = 'Cube Roots',
 
-  FractionPercentage = 'Fraction ↔ Percentage',
-  FractionDecimal = 'Fraction ↔ Decimal',
-  DecimalPercentage = 'Decimal ↔ Percentage',
+  FractionToPercentage = 'Fraction → Percentage',
+  PercentageToFraction = 'Percentage → Fraction',
+  FractionToDecimal = 'Fraction → Decimal',
+  DecimalToFraction = 'Decimal → Fraction',
+  DecimalToPercentage = 'Decimal → Percentage',
+  PercentageToDecimal = 'Percentage → Decimal',
 
-  Articles = 'Articles',
+  ArticleToTitle = 'Article → Title',
+  TitleToArticle = 'Title → Article',
 
   Synonyms = 'Synonyms',
   Antonyms = 'Antonyms',

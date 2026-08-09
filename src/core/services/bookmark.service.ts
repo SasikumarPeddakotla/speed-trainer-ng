@@ -30,10 +30,10 @@ export class BookmarkService {
    * One bookmark list per exercise key.
    *
    * Example keys:
-   * - LetterPosition_Forward
-   * - LetterPosition_Backward
+   * - LetterPosition
+   * - LetterPosition
    * - Synonyms
-   * - Articles_Forward
+   * - Articles
    */
   private bookmarkLists = new Map<string, BookmarkEntry[]>();
 

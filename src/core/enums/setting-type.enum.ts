@@ -9,7 +9,5 @@ export enum SettingType {
 
   NumberRange = 'numberRange',
 
-  Direction = 'direction',
-
   WordsLimit = 'wordsLimit',
 }

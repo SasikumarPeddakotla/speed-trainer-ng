@@ -26,10 +26,10 @@ export class ReviewService {
    * One review queue per exercise.
    *
    * Example keys:
-   * LetterPosition_Forward
-   * LetterPosition_Backward
+   * LetterPosition
+   * LetterPosition
    * Synonyms
-   * Articles_Forward
+   * Articles
    */
   private reviewQueues = new Map<string, ReviewItem<any>[]>();
 

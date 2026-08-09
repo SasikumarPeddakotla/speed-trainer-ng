@@ -2,7 +2,6 @@ import { Subject } from './subject.model';
 import { SessionType } from '../enums/session-type.enum';
 import { Exercise } from './exercise.model';
 import { Topic } from './topic.model';
-import { Direction } from '../enums/direction.enum';
 
 export interface Settings {
   selectedSubject: Subject | null;
@@ -23,8 +22,6 @@ export interface Settings {
   countdownDuration: number;
 
   questionTarget: number;
-
-  direction: Direction;
 
   wordsLimit: string;
 

@@ -3,7 +3,6 @@ import { FRACTION_CONVERSIONS } from '../data/fraction-conversions';
 import { FractionConversion } from '../models/fraction-conversion.model';
 import { SettingsService } from '../services/settings.service';
 import { RandomService } from '../../utils/random.service';
-import { Direction } from '../enums/direction.enum';
 import { ConversionQuestion } from '../models/conversion-question.model';
 import { Question } from '../models/question.model';
 import { PracticeMode } from '../enums/practice-mode.enum';
@@ -25,24 +24,40 @@ export class ConversionEngine {
 
   generateQuestion() {
     const mode = this.settingsService.settings().selectedExercise?.mode;
-    const direction = this.settingsService.settings().direction;
     const conversion = this.nextConversion();
 
     switch (mode) {
-      case PracticeMode.FractionDecimal:
-        return direction === Direction.Forward
-          ? this.createConversionQuestion(conversion, 'fraction', 'decimal')
-          : this.createConversionQuestion(conversion, 'decimal', 'fraction');
+      case PracticeMode.FractionToDecimal:
+        return this.createConversionQuestion(conversion, 'fraction', 'decimal');
 
-      case PracticeMode.FractionPercentage:
-        return direction === Direction.Forward
-          ? this.createConversionQuestion(conversion, 'fraction', 'percentage')
-          : this.createConversionQuestion(conversion, 'percentage', 'fraction');
+      case PracticeMode.DecimalToFraction:
+        return this.createConversionQuestion(conversion, 'decimal', 'fraction');
 
-      case PracticeMode.DecimalPercentage:
-        return direction === Direction.Forward
-          ? this.createConversionQuestion(conversion, 'decimal', 'percentage')
-          : this.createConversionQuestion(conversion, 'percentage', 'decimal');
+      case PracticeMode.FractionToPercentage:
+        return this.createConversionQuestion(
+          conversion,
+          'fraction',
+          'percentage',
+        );
+      case PracticeMode.PercentageToFraction:
+        return this.createConversionQuestion(
+          conversion,
+          'percentage',
+          'fraction',
+        );
+
+      case PracticeMode.DecimalToPercentage:
+        return this.createConversionQuestion(
+          conversion,
+          'decimal',
+          'percentage',
+        );
+      case PracticeMode.PercentageToDecimal:
+        return this.createConversionQuestion(
+          conversion,
+          'percentage',
+          'decimal',
+        );
 
       default:
         return null;

@@ -1,13 +1,11 @@
 import { Component, computed, inject, input, signal } from '@angular/core';
 
 import { ConversionEngine } from '../../../core/engines/conversion.engine';
-import { FractionConversion } from '../../../core/models/fraction-conversion.model';
 import { SettingsService } from '../../../core/services/settings.service';
 import { PracticeMode } from '../../../core/enums/practice-mode.enum';
 import { ReviewService } from '../../../core/services/review.service';
 import { ConversionQuestion } from '../../../core/models/conversion-question.model';
 import { BookmarkService } from '../../../core/services/bookmark.service';
-import { Direction } from '../../../core/enums/direction.enum';
 import { IdService } from '../../../utils/id.service';
 
 @Component({
@@ -62,23 +60,21 @@ export class ConversionReferenceComponent {
   }
 
   private getQuestionId(question: ConversionQuestion): string {
-    const direction = this.settingsService.settings().direction;
-
     switch (this.mode) {
-      case PracticeMode.FractionDecimal:
-        return direction === Direction.Forward
-          ? this.idService.getQuestionId(question.conversion.fraction)
-          : this.idService.getQuestionId(question.conversion.decimal);
+      case PracticeMode.FractionToDecimal:
+        return this.idService.getQuestionId(question.conversion.fraction);
+      case PracticeMode.DecimalToFraction:
+        return this.idService.getQuestionId(question.conversion.decimal);
 
-      case PracticeMode.FractionPercentage:
-        return direction === Direction.Forward
-          ? this.idService.getQuestionId(question.conversion.fraction)
-          : this.idService.getQuestionId(question.conversion.percentage);
+      case PracticeMode.FractionToPercentage:
+        return this.idService.getQuestionId(question.conversion.fraction);
+      case PracticeMode.PercentageToFraction:
+        return this.idService.getQuestionId(question.conversion.percentage);
 
-      case PracticeMode.DecimalPercentage:
-        return direction === Direction.Forward
-          ? this.idService.getQuestionId(question.conversion.decimal)
-          : this.idService.getQuestionId(question.conversion.percentage);
+      case PracticeMode.DecimalToPercentage:
+        return this.idService.getQuestionId(question.conversion.decimal);
+      case PracticeMode.PercentageToDecimal:
+        return this.idService.getQuestionId(question.conversion.percentage);
 
       default:
         return '';

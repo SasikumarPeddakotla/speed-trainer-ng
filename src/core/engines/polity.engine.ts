@@ -1,10 +1,8 @@
 import { inject, Injectable } from '@angular/core';
 import { RandomService } from '../../utils/random.service';
 import { Question } from '../models/question.model';
-import { SettingsService } from '../services/settings.service';
 import { ARTICLES } from '../data/articles.data';
 import { Article } from '../models/article.model';
-import { Direction } from '../enums/direction.enum';
 import { ReviewService } from '../services/review.service';
 import { IdService } from '../../utils/id.service';
 
@@ -16,41 +14,50 @@ export class PolityEngine {
   private articles = this.randomService.shuffle([...ARTICLES]);
 
   constructor(
-    private settingsService: SettingsService,
     private reviewService: ReviewService,
     private idService: IdService,
   ) {}
 
-  generateArticles(): Question<Article> {
+  generateArticleToTitle(): Question<Article> {
     const article = this.nextArticle();
-    const direction = this.settingsService.settings().direction;
-
-    return this.createArticleQuestion(article, direction);
+    return this.createArticleToTitleQuestion(article);
   }
 
-  createArticleQuestion(
-    article: Article,
-    direction: Direction,
-  ): Question<Article> {
-    const options = this.buildOptions(article, direction);
+  createArticleToTitleQuestion(article: Article): Question<Article> {
+    return {
+      id: this.idService.getQuestionId(article.article),
+      question: `Article ${article.article}`,
+      answer: article.title,
+      options: this.randomService.buildOptions(
+        article,
+        ARTICLES,
+        (a) => [a.title],
+        (a) => a.article,
+        article.title,
+      ),
+      data: article,
+      inputType: 'multiple-choice',
+      displayType: 'text',
+    };
+  }
 
-    if (direction === Direction.Forward) {
-      return {
-        id: this.idService.getQuestionId(article.article),
-        question: `Article ${article.article}`,
-        answer: article.title,
-        options,
-        data: article,
-        inputType: 'multiple-choice',
-        displayType: 'text',
-      };
-    }
+  generateTitleToArticle(): Question<Article> {
+    const article = this.nextArticle();
+    return this.createTitleToArticleQuestion(article);
+  }
 
+  createTitleToArticleQuestion(article: Article): Question<Article> {
     return {
       id: this.idService.getQuestionId(article.title),
       question: article.title,
       answer: `Article ${article.article}`,
-      options,
+      options: this.randomService.buildOptions(
+        article,
+        ARTICLES,
+        (a) => [`Article ${a.article}`],
+        (a) => a.title,
+        `Article ${article.article}`,
+      ),
       data: article,
       inputType: 'multiple-choice',
       displayType: 'text',
@@ -75,34 +82,6 @@ export class PolityEngine {
     }
 
     return this.articles.shift()!;
-  }
-
-  private getRandomArticle(): Article {
-    return ARTICLES[this.randomService.random(0, ARTICLES.length - 1)];
-  }
-
-  private buildOptions(article: Article, direction: Direction): string[] {
-    const correctOption =
-      direction === Direction.Forward
-        ? article.title
-        : `Article ${article.article}`;
-
-    const options = [correctOption];
-
-    while (options.length < 4) {
-      const randomArticle = this.getRandomArticle();
-
-      const option =
-        direction === Direction.Forward
-          ? randomArticle.title
-          : `Article ${randomArticle.article}`;
-
-      if (!options.includes(option)) {
-        options.push(option);
-      }
-    }
-
-    return this.randomService.shuffle(options);
   }
 
   getArticlesReference(): Article[] {

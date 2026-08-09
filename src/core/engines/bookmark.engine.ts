@@ -8,7 +8,6 @@ import { PolityEngine } from './polity.engine';
 import { PowerEngine } from './power.engine';
 import { TablesEngine } from './tables.engine';
 import { VocabularyEngine } from './vocabulary.engine';
-import { Direction } from '../enums/direction.enum';
 import { PracticeMode } from '../enums/practice-mode.enum';
 import { Alphabet } from '../models/alphabet.model';
 import { Antonym } from '../models/antonym.model';
@@ -28,8 +27,6 @@ import { RandomService } from '../../utils/random.service';
 export class BookmarkEngine {
   private bookmarkService = inject(BookmarkService);
 
-  private settingsService = inject(SettingsService);
-
   private alphabetEngine = inject(AlphabetEngine);
   private tablesEngine = inject(TablesEngine);
   private powerEngine = inject(PowerEngine);
@@ -48,8 +45,6 @@ export class BookmarkEngine {
     if (!bookmark) {
       throw new Error('No bookmarked questions remaining.');
     }
-
-    const direction = this.getBookmarkDirection(bookmark);
 
     switch (bookmark.mode) {
       case PracticeMode.Tables:
@@ -75,67 +70,67 @@ export class BookmarkEngine {
           bookmark.question as PowerQuestion,
         );
 
-      case PracticeMode.LetterPosition:
-        return direction === Direction.Forward
-          ? this.alphabetEngine.createLetterToPosition(
-              bookmark.question as Alphabet,
-            )
-          : this.alphabetEngine.createPositionToLetter(
-              bookmark.question as Alphabet,
-            );
+      case PracticeMode.LetterToPosition:
+        return this.alphabetEngine.createLetterToPosition(
+          bookmark.question as Alphabet,
+        );
+      case PracticeMode.PositionToLetter:
+        return this.alphabetEngine.createPositionToLetter(
+          bookmark.question as Alphabet,
+        );
 
-      case PracticeMode.LetterReversePosition:
-        return direction === Direction.Forward
-          ? this.alphabetEngine.createLetterToReversePosition(
-              bookmark.question as Alphabet,
-            )
-          : this.alphabetEngine.createReversePositionToLetter(
-              bookmark.question as Alphabet,
-            );
+      case PracticeMode.LetterToReversePosition:
+        return this.alphabetEngine.createLetterToReversePosition(
+          bookmark.question as Alphabet,
+        );
+      case PracticeMode.ReversePositionToLetter:
+        return this.alphabetEngine.createReversePositionToLetter(
+          bookmark.question as Alphabet,
+        );
 
       case PracticeMode.MirrorLetter:
         return this.alphabetEngine.createMirrorLetter(
           bookmark.question as Alphabet,
         );
 
-      case PracticeMode.FractionDecimal:
-        return direction === Direction.Forward
-          ? this.conversionEngine.createConversionQuestion(
-              (bookmark.question as ConversionQuestion).conversion,
-              'fraction',
-              'decimal',
-            )
-          : this.conversionEngine.createConversionQuestion(
-              (bookmark.question as ConversionQuestion).conversion,
-              'decimal',
-              'fraction',
-            );
+      case PracticeMode.FractionToDecimal:
+        return this.conversionEngine.createConversionQuestion(
+          (bookmark.question as ConversionQuestion).conversion,
+          'fraction',
+          'decimal',
+        );
+      case PracticeMode.DecimalToFraction:
+        return this.conversionEngine.createConversionQuestion(
+          (bookmark.question as ConversionQuestion).conversion,
+          'decimal',
+          'fraction',
+        );
 
-      case PracticeMode.FractionPercentage:
-        return direction === Direction.Forward
-          ? this.conversionEngine.createConversionQuestion(
-              (bookmark.question as ConversionQuestion).conversion,
-              'fraction',
-              'percentage',
-            )
-          : this.conversionEngine.createConversionQuestion(
-              (bookmark.question as ConversionQuestion).conversion,
-              'percentage',
-              'fraction',
-            );
+      case PracticeMode.FractionToPercentage:
+        return this.conversionEngine.createConversionQuestion(
+          (bookmark.question as ConversionQuestion).conversion,
+          'fraction',
+          'percentage',
+        );
+      case PracticeMode.PercentageToFraction:
+        return this.conversionEngine.createConversionQuestion(
+          (bookmark.question as ConversionQuestion).conversion,
+          'percentage',
+          'fraction',
+        );
 
-      case PracticeMode.DecimalPercentage:
-        return direction === Direction.Forward
-          ? this.conversionEngine.createConversionQuestion(
-              (bookmark.question as ConversionQuestion).conversion,
-              'decimal',
-              'percentage',
-            )
-          : this.conversionEngine.createConversionQuestion(
-              (bookmark.question as ConversionQuestion).conversion,
-              'percentage',
-              'decimal',
-            );
+      case PracticeMode.DecimalToPercentage:
+        return this.conversionEngine.createConversionQuestion(
+          (bookmark.question as ConversionQuestion).conversion,
+          'decimal',
+          'percentage',
+        );
+      case PracticeMode.PercentageToDecimal:
+        return this.conversionEngine.createConversionQuestion(
+          (bookmark.question as ConversionQuestion).conversion,
+          'percentage',
+          'decimal',
+        );
 
       case PracticeMode.Synonyms:
         return this.vocabularyEngine.createSynonymQuestion(
@@ -157,10 +152,13 @@ export class BookmarkEngine {
           bookmark.question as Idiom,
         );
 
-      case PracticeMode.Articles:
-        return this.polityEngine.createArticleQuestion(
+      case PracticeMode.ArticleToTitle:
+        return this.polityEngine.createArticleToTitleQuestion(
           bookmark.question as Article,
-          direction,
+        );
+      case PracticeMode.TitleToArticle:
+        return this.polityEngine.createTitleToArticleQuestion(
+          bookmark.question as Article,
         );
 
       default:
@@ -181,13 +179,5 @@ export class BookmarkEngine {
   reset() {
     this.queue = [];
     this.bookmarkService.setCurrentBookmark(undefined);
-  }
-
-  private getBookmarkDirection(bookmark: BookmarkEntry): Direction {
-    if (bookmark.id.includes('_Backward_')) {
-      return Direction.Backward;
-    }
-
-    return Direction.Forward;
   }
 }

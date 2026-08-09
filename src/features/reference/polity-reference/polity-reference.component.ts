@@ -6,7 +6,6 @@ import { SettingsService } from '../../../core/services/settings.service';
 import { PracticeMode } from '../../../core/enums/practice-mode.enum';
 import { ReviewService } from '../../../core/services/review.service';
 import { BookmarkService } from '../../../core/services/bookmark.service';
-import { Direction } from '../../../core/enums/direction.enum';
 import { IdService } from '../../../utils/id.service';
 
 @Component({
@@ -75,9 +74,7 @@ export class PolityReferenceComponent {
   }
 
   private getQuestionId(article: Article): string {
-    const direction = this.settingsService.settings().direction;
-
-    return direction === Direction.Forward
+    return this.mode === PracticeMode.ArticleToTitle
       ? this.idService.getQuestionId(article.article)
       : this.idService.getQuestionId(article.title);
   }

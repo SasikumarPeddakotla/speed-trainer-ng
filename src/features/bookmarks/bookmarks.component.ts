@@ -12,8 +12,6 @@ import { ReviewTopic } from '../../core/models/review-topic.model';
 import { PracticeMode } from '../../core/enums/practice-mode.enum';
 import { SessionType } from '../../core/enums/session-type.enum';
 import { Topic } from '../../core/models/topic.model';
-import { SettingType } from '../../core/enums/setting-type.enum';
-import { Direction } from '../../core/enums/direction.enum';
 
 @Component({
   selector: 'app-bookmarks',
@@ -24,14 +22,16 @@ import { Direction } from '../../core/enums/direction.enum';
 })
 export class BookmarksComponent {
   private bookmarkService = inject(BookmarkService);
+
   private settingsService = inject(SettingsService);
+
   private router = inject(Router);
 
   get bookmarkTopics(): ReviewTopic[] {
     const grouped = new Map<string, ReviewTopic>();
 
     for (const summary of this.bookmarkService.getBookmarkSummaries()) {
-      const [mode, direction] = summary.exerciseKey.split('_');
+      const mode = summary.exerciseKey;
 
       const exercise = exercises.find((e) => e.mode === mode);
 
@@ -54,14 +54,8 @@ export class BookmarksComponent {
 
       topic.total += summary.count;
 
-      // Create a display exercise object
-      const displayExercise: Exercise = {
-        ...exercise,
-        title: this.getDisplayTitle(exercise.title, direction as Direction),
-      };
-
       topic.exercises.push({
-        exercise: displayExercise,
+        exercise,
         count: summary.count,
       });
     }
@@ -76,14 +70,8 @@ export class BookmarksComponent {
   openBookmarks(exercise: Exercise): void {
     this.settingsService.setExercise(exercise);
 
-    // Detect direction from title
-    if (exercise.title.includes('(Forward)')) {
-      this.settingsService.setDirection(Direction.Forward);
-    } else if (exercise.title.includes('(Backward)')) {
-      this.settingsService.setDirection(Direction.Backward);
-    }
-
     const topic = topics.find((t) => t.route === exercise.topic)!;
+
     this.settingsService.setTopic(topic);
 
     this.settingsService.setReferenceView('bookmark');
@@ -100,6 +88,7 @@ export class BookmarksComponent {
       implemented: true,
       settings: [],
     };
+
     const topic: Topic = {
       title: 'Bookmarks',
       route: 'bookmarks',
@@ -108,6 +97,7 @@ export class BookmarksComponent {
     };
 
     this.settingsService.setExercise(exercise);
+
     this.settingsService.setTopic(topic);
 
     this.settingsService.setSessionType(SessionType.QuestionChallenge);
@@ -115,45 +105,5 @@ export class BookmarksComponent {
     this.settingsService.setQuestionTarget(this.totalBookmarks);
 
     this.router.navigate([exercise.route, 'practice-settings']);
-  }
-
-  private getExerciseKey(exercise: Exercise): string {
-    // Exercises without direction
-    if (!exercise.settings.some((s) => s === SettingType.Direction)) {
-      return exercise.mode;
-    }
-
-    // Count both directions
-    const forward = `${exercise.mode}_Forward`;
-    const backward = `${exercise.mode}_Backward`;
-
-    return [forward, backward].join('|');
-  }
-
-  private getExerciseBookmarkCount(exercise: Exercise): number {
-    const hasDirection = exercise.settings.some(
-      (s) => s === SettingType.Direction,
-    );
-
-    if (!hasDirection) {
-      return this.bookmarkService.getBookmarkCountForExerciseKey(exercise.mode);
-    }
-
-    return (
-      this.bookmarkService.getBookmarkCountForExerciseKey(
-        `${exercise.mode}_Forward`,
-      ) +
-      this.bookmarkService.getBookmarkCountForExerciseKey(
-        `${exercise.mode}_Backward`,
-      )
-    );
-  }
-
-  private getDisplayTitle(title: string, direction?: Direction): string {
-    if (!direction) {
-      return title;
-    }
-
-    return `${title} (${direction})`;
   }
 }
