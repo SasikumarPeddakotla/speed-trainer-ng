@@ -8,10 +8,11 @@ import { BookmarkService } from '../../core/services/bookmark.service';
 import { SettingsService } from '../../core/services/settings.service';
 
 import { Exercise } from '../../core/models/exercise.model';
-import { ReviewTopic } from '../../core/models/review-topic.model';
 import { PracticeMode } from '../../core/enums/practice-mode.enum';
 import { SessionType } from '../../core/enums/session-type.enum';
 import { Topic } from '../../core/models/topic.model';
+import { subjects } from '../../core/data/subjects';
+import { Subject } from '../../core/models/subject.model';
 
 @Component({
   selector: 'app-bookmarks',
@@ -27,13 +28,14 @@ export class BookmarksComponent {
 
   private router = inject(Router);
 
-  get bookmarkTopics(): ReviewTopic[] {
-    const grouped = new Map<string, ReviewTopic>();
+  get bookmarkTopics() {
+    const grouped = new Map<string, any>();
 
-    for (const summary of this.bookmarkService.getBookmarkSummaries()) {
-      const mode = summary.exerciseKey;
-
-      const exercise = exercises.find((e) => e.mode === mode);
+    for (const [
+      exerciseKey,
+      entries,
+    ] of this.bookmarkService.getBookmarkGroups()) {
+      const exercise = exercises.find((e) => e.mode === exerciseKey);
 
       if (!exercise) {
         continue;
@@ -52,11 +54,11 @@ export class BookmarksComponent {
 
       const topic = grouped.get(exercise.topic)!;
 
-      topic.total += summary.count;
+      topic.total += entries.length;
 
       topic.exercises.push({
         exercise,
-        count: summary.count,
+        count: entries.length,
       });
     }
 
@@ -71,8 +73,10 @@ export class BookmarksComponent {
     this.settingsService.setExercise(exercise);
 
     const topic = topics.find((t) => t.route === exercise.topic)!;
-
     this.settingsService.setTopic(topic);
+
+    const subject = subjects.find((s) => s.route === topic.subject)!;
+    this.settingsService.setSubject(subject);
 
     this.settingsService.setReferenceView('bookmark');
 
@@ -88,17 +92,21 @@ export class BookmarksComponent {
       implemented: true,
       settings: [],
     };
-
     const topic: Topic = {
       title: 'Bookmarks',
       route: 'bookmarks',
       subject: '',
       implemented: true,
     };
+    const subject: Subject = {
+      title: 'Bookmarks',
+      route: 'bookmarks',
+      icon: '',
+    };
 
     this.settingsService.setExercise(exercise);
-
     this.settingsService.setTopic(topic);
+    this.settingsService.setSubject(subject);
 
     this.settingsService.setSessionType(SessionType.QuestionChallenge);
 

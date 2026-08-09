@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 
 import { StorageKeys } from '../enums/storage-keys.enum';
 import { StorageService } from './storage.service';
-import { BookmarkSummary } from '../models/bookmark-summary.model';
 import { BookmarkEntry } from '../models/bookmark-entry.model';
 import { DialogService } from './dialog.service';
 import { SnackbarService } from './snackbar.service';
@@ -188,22 +187,21 @@ export class BookmarkService {
     return total;
   }
 
-  getBookmarkSummaries(): BookmarkSummary[] {
-    return Array.from(this.bookmarkLists.entries()).map(
-      ([exerciseKey, questions]) => ({
-        exerciseKey: exerciseKey,
-
-        count: questions.length,
-      }),
-    );
-  }
-
   // Returns an array of all bookmarks. For bookmark engine to show questions one by one.
   getAllBookmarks(): BookmarkEntry[] {
     return Array.from(this.bookmarkLists.values()).flat();
   }
 
-  getBookmarkCountForExerciseKey(exerciseKey: string): number {
-    return this.getList(exerciseKey).length;
+  /**
+   * Returns all bookmark groups keyed by exercise.
+   *
+   * Example:
+   * Map {
+   *   'LetterToPosition' => [BookmarkEntry, BookmarkEntry],
+   *   'Synonyms' => [BookmarkEntry]
+   * }
+   */
+  getBookmarkGroups(): Map<string, BookmarkEntry[]> {
+    return new Map(this.bookmarkLists);
   }
 }
