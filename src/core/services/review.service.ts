@@ -22,14 +22,15 @@ export class ReviewService {
     this.load();
   }
 
-  /**
-   * One review queue per exercise.
+  /** * One review queue per exercise.
    *
-   * Example keys:
-   * LetterPosition
-   * LetterPosition
-   * Synonyms
-   * Articles
+   * -Example keys:
+   * -LetterToPosition
+   * -PositionToLetter
+   * -FractionToDecimal
+   * -DecimalToFraction
+   * -Synonyms
+   * -ArticleToDescription
    */
   private reviewQueues = new Map<string, ReviewItem<any>[]>();
 
@@ -233,29 +234,12 @@ export class ReviewService {
   }
 
   getPendingCount(mode: PracticeMode): number {
-    let count = 0;
-
-    for (const [key, queue] of this.reviewQueues.entries()) {
-      const queueMode = key.split('_')[0] as PracticeMode;
-
-      if (queueMode === mode) {
-        count += queue.length;
-      }
-    }
-
-    return count;
+    return this.getQueue(mode).length;
   }
 
   clearQueue(mode: PracticeMode): void {
-    for (const key of [...this.reviewQueues.keys()]) {
-      const queueMode = key.split('_')[0] as PracticeMode;
-
-      if (queueMode === mode) {
-        this.reviewQueues.delete(key);
-        this.currentReviewItem.delete(key);
-      }
-    }
-
+    this.reviewQueues.delete(mode);
+    this.currentReviewItem.delete(mode);
     this.save();
   }
 
@@ -270,55 +254,28 @@ export class ReviewService {
 
   getReviewCounts(): Map<PracticeMode, number> {
     const counts = new Map<PracticeMode, number>();
-
     for (const [key, queue] of this.reviewQueues.entries()) {
-      const mode = key.split('_')[0] as PracticeMode;
-
-      counts.set(mode, (counts.get(mode) ?? 0) + queue.length);
+      counts.set(key as PracticeMode, queue.length);
     }
-
     return counts;
   }
 
   clearMode(mode: PracticeMode): void {
-    for (const key of this.reviewQueues.keys()) {
-      const exerciseMode = key.split('_')[0] as PracticeMode;
-      if (exerciseMode === mode) {
-        this.reviewQueues.delete(key);
-        this.currentReviewItem.delete(key);
-      }
-    }
-
+    this.reviewQueues.delete(mode);
+    this.currentReviewItem.delete(mode);
     this.save();
   }
 
   getPendingQuestions<T>(mode: PracticeMode): T[] {
-    const questions: T[] = [];
-
-    for (const [key, queue] of this.reviewQueues.entries()) {
-      const queueMode = key.split('_')[0] as PracticeMode;
-
-      if (queueMode === mode) {
-        questions.push(...queue.map((item) => item.questionData as T));
-      }
-    }
-
-    return questions;
+    return this.getQueue(mode).map((item) => item.questionData as T);
   }
 
   removePendingQuestion(mode: PracticeMode, questionId: string): void {
-    for (const [key, queue] of this.reviewQueues.entries()) {
-      const queueMode = key.split('_')[0] as PracticeMode;
-
-      if (queueMode !== mode) {
-        continue;
-      }
-
-      const filtered = queue.filter((item) => item.questionId !== questionId);
-
-      this.reviewQueues.set(key, filtered);
-    }
-
+    const queue = this.getQueue(mode);
+    this.reviewQueues.set(
+      mode,
+      queue.filter((item) => item.questionId !== questionId),
+    );
     this.save();
   }
 }
