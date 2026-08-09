@@ -1,3 +1,4 @@
+@if(filteredArticles().length>0){
 <div class="reference-grid">
   @for (article of filteredArticles(); track article.article) {
     <div class="reference-card">
@@ -23,3 +24,9 @@
     </div>
   }
 </div>
+}
+@else{
+  <p class="no-data">
+    No data available
+  </p>
+}

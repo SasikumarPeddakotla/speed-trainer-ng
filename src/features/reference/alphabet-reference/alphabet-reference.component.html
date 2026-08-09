@@ -1,81 +1,88 @@
-<p class="reference-hint">
-  @if (!showMnemonics()) {
-    💡 Tap the <strong>Mirror</strong> column header to view mirror pair
-    mnemonics.
-  } @else {
-    💡 Tap the <strong>Mirror Pair</strong> column header to return to alphabet
-    positions.
-  }
-</p>
+@if (alphabets().length > 0) {
+  <p class="reference-hint">
+    @if (!showMnemonics()) {
+      💡 Tap the <strong>Mirror</strong> column header to view mirror pair
+      mnemonics.
+    } @else {
+      💡 Tap the <strong>Mirror Pair</strong> column header to return to
+      alphabet positions.
+    }
+  </p>
 
-<div class="alphabet-table-container">
-  <table class="alphabet-table">
-    <thead>
-      @if (!showMnemonics()) {
-        <tr>
-          <th>Letter</th>
-          <th>Position</th>
-          <th>Reverse</th>
-          <th
-            class="clickable"
-            (click)="toggleReferenceView()"
-            style="background: blue"
-          >
-            Mirror ⇄
-          </th>
-          <th></th>
-        </tr>
-      } @else {
-        <tr>
-          <th
-            class="clickable"
-            (click)="toggleReferenceView()"
-            style="background: blue"
-          >
-            Mirror Pair ⇄
-          </th>
-
-          <th>Mnemonic</th>
-
-          @if (referenceTab() === "bookmark") {
-            <th></th>
-          }
-        </tr>
-      }
-    </thead>
-
-    <tbody>
-      @for (alphabet of alphabets(); track alphabet.letter) {
-        <tr>
-          @if (!showMnemonics()) {
-            <td>{{ alphabet.letter }}</td>
-            <td>{{ alphabet.position }}</td>
-            <td>{{ alphabet.reversePosition }}</td>
-            <td>{{ alphabet.mirrorLetter }}</td>
-          } @else {
-            <td class="mirror-pair">
-              {{ alphabet.letter }} ↔ {{ alphabet.mirrorLetter }}
-            </td>
-
-            <td class="mnemonic-cell">
-              <span class="mnemonic-badge">
-                {{ alphabet.mnemonic }}
-              </span>
-            </td>
-          }
-
-          <td>
-            <button
-              type="button"
-              class="bookmark-btn"
-              [class.bookmarked]="isBookmarked(alphabet)"
-              (click)="toggleBookmark(alphabet)"
+  <div class="alphabet-table-container">
+    <table class="alphabet-table">
+      <thead>
+        @if (!showMnemonics()) {
+          <tr>
+            <th>Letter</th>
+            <th>Position</th>
+            <th>Reverse</th>
+            <th
+              class="clickable"
+              (click)="toggleReferenceView()"
+              style="background: blue"
             >
-              &#9733;
-            </button>
-          </td>
-        </tr>
-      }
-    </tbody>
-  </table>
-</div>
+              Mirror ⇄
+            </th>
+            <th></th>
+          </tr>
+        } @else {
+          <tr>
+            <th
+              class="clickable"
+              (click)="toggleReferenceView()"
+              style="background: blue"
+            >
+              Mirror Pair ⇄
+            </th>
+
+            <th>Mnemonic</th>
+
+            @if (referenceTab() === "bookmark") {
+              <th></th>
+            }
+          </tr>
+        }
+      </thead>
+
+      <tbody>
+        @for (alphabet of alphabets(); track alphabet.letter) {
+          <tr>
+            @if (!showMnemonics()) {
+              <td>{{ alphabet.letter }}</td>
+              <td>{{ alphabet.position }}</td>
+              <td>{{ alphabet.reversePosition }}</td>
+              <td>{{ alphabet.mirrorLetter }}</td>
+            } @else {
+              <td class="mirror-pair">
+                {{ alphabet.letter }} ↔ {{ alphabet.mirrorLetter }}
+              </td>
+
+              <td class="mnemonic-cell">
+                <span class="mnemonic-badge">
+                  {{ alphabet.mnemonic }}
+                </span>
+              </td>
+            }
+
+            <td>
+              <button
+                type="button"
+                class="bookmark-btn"
+                [class.bookmarked]="isBookmarked(alphabet)"
+                (click)="toggleBookmark(alphabet)"
+              >
+                &#9733;
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+}
+@else{
+  <p class="no-data">
+    No data available
+  </p>
+}

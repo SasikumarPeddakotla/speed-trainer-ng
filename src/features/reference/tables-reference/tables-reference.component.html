@@ -1,3 +1,4 @@
+@if(tables().length>0){
 <div class="tables-grid">
   @for (table of tables(); track table.table) {
     <div class="table-card">
@@ -21,3 +22,9 @@
     </div>
   }
 </div>
+}
+@else{
+  <p class="no-data">
+    No data available
+  </p>
+}

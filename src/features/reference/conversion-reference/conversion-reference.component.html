@@ -1,3 +1,4 @@
+@if(conversions().length>0){
 <div class="conversion-table-container">
   <table class="conversion-table">
     <thead>
@@ -30,3 +31,9 @@
     </tbody>
   </table>
 </div>
+}
+@else{
+  <p class="no-data">
+    No data available
+  </p>
+}

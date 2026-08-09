@@ -1,3 +1,4 @@
+@if(questions().length>0){
 <div class="powers-container">
   @if (mode === PracticeMode.Squares) {
     @for (question of questions(); track question.number) {
@@ -75,3 +76,9 @@
     }
   }
 </div>
+}
+@else{
+  <p class="no-data">
+    No data available
+  </p>
+}
