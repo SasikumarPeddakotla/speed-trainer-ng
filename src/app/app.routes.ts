@@ -5,7 +5,7 @@ import { PracticeSettingsComponent } from '../features/practice-settings/practic
 import { TrainerComponent } from '../features/trainer/trainer.component';
 import { SummaryComponent } from '../features/summary/summary.component';
 import { StatisticsComponent } from '../features/statistics/statistics.component';
-import { SettingsComponent } from '../features/settings/settings.component';
+import { AppSettingsComponent } from '../features/app-settings/app-settings.component';
 import { TopicComponent } from '../features/topic/topic.component';
 import { ExerciseComponent } from '../features/exercise/exercise.component';
 import { ReferenceComponent } from '../features/reference/reference.component';
@@ -55,7 +55,7 @@ export const routes: Routes = [
   },
   {
     path: 'settings',
-    component: SettingsComponent,
+    component: AppSettingsComponent,
   },
   {
     path: '**',

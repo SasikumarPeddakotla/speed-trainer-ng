@@ -146,8 +146,10 @@ export class BookmarkService {
 
   clearAll(): void {
     this.bookmarkLists.clear();
+    this.setCurrentBookmark(undefined);
 
     this.storageService.remove(StorageKeys.Bookmarks);
+    this.snackbarService.show('All bookmarks cleared');
   }
 
   private save(): void {

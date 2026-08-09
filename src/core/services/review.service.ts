@@ -5,6 +5,7 @@ import { StorageKeys } from '../enums/storage-keys.enum';
 import { StorageService } from './storage.service';
 import { PracticeMode } from '../enums/practice-mode.enum';
 import { ReviewQueueSummary } from '../models/review-queue-summary.model';
+import { SnackbarService } from './snackbar.service';
 
 interface ReviewStorage {
   version: number;
@@ -18,6 +19,7 @@ export class ReviewService {
   constructor(
     private idService: IdService,
     private storageService: StorageService,
+    private snackbarService: SnackbarService,
   ) {
     this.load();
   }
@@ -226,11 +228,12 @@ export class ReviewService {
     }
   }
 
-  clear(): void {
+  clearAll(): void {
     this.reviewQueues.clear();
     this.currentReviewItem.clear();
 
     this.storageService.remove(StorageKeys.ReviewQueues);
+    this.snackbarService.show('All weak questions cleared');
   }
 
   getPendingCount(mode: PracticeMode): number {
