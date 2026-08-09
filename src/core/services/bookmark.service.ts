@@ -130,22 +130,11 @@ export class BookmarkService {
     return this.getList(exerciseKey).some((b) => b.id === id);
   }
 
-  getBookmarks<T>(): T[] {
+  // Returns only questionData as an array. For reference pages to show in the bookmarks tab.
+  getBookmarkedQuestions<T>(): T[] {
     const exerciseKey = this.getExerciseKey();
 
     return this.getList(exerciseKey).map((b) => b.question as T);
-  }
-
-  getEntries(): BookmarkEntry[] {
-    const exerciseKey = this.getExerciseKey();
-
-    return [...this.getList(exerciseKey)];
-  }
-
-  getBookmarkCount(): number {
-    const exerciseKey = this.getExerciseKey();
-
-    return this.getList(exerciseKey).length;
   }
 
   clearCurrentExercise(): void {
@@ -156,7 +145,7 @@ export class BookmarkService {
     this.save();
   }
 
-  clear(): void {
+  clearAll(): void {
     this.bookmarkLists.clear();
 
     this.storageService.remove(StorageKeys.Bookmarks);
@@ -170,6 +159,7 @@ export class BookmarkService {
     };
 
     this.storageService.set(StorageKeys.Bookmarks, storage);
+    this.load();
   }
 
   private load(): void {
@@ -198,10 +188,6 @@ export class BookmarkService {
     return total;
   }
 
-  hasBookmarks(): boolean {
-    return this.getBookmarkCount() > 0;
-  }
-
   getBookmarkSummaries(): BookmarkSummary[] {
     return Array.from(this.bookmarkLists.entries()).map(
       ([exerciseKey, questions]) => ({
@@ -212,6 +198,7 @@ export class BookmarkService {
     );
   }
 
+  // Returns an array of all bookmarks. For bookmark engine to show questions one by one.
   getAllBookmarks(): BookmarkEntry[] {
     return Array.from(this.bookmarkLists.values()).flat();
   }

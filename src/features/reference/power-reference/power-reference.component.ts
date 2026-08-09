@@ -33,7 +33,7 @@ export class PowerReferenceComponent {
     this.refreshBookmarks();
     switch (this.referenceTab()) {
       case 'bookmark':
-        return this.bookmarkService.getBookmarks<PowerQuestion>();
+        return this.bookmarkService.getBookmarkedQuestions<PowerQuestion>();
 
       case 'weak':
         return this.reviewService.getPendingQuestions<PowerQuestion>(this.mode);

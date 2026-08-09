@@ -34,7 +34,9 @@ export class ConversionReferenceComponent {
     this.refreshBookmarks();
     switch (this.referenceTab()) {
       case 'bookmark':
-        return [...this.bookmarkService.getBookmarks<ConversionQuestion>()];
+        return [
+          ...this.bookmarkService.getBookmarkedQuestions<ConversionQuestion>(),
+        ];
 
       case 'weak':
         return this.reviewService.getPendingQuestions<ConversionQuestion>(

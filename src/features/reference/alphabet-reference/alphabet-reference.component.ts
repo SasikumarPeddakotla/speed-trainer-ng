@@ -34,7 +34,7 @@ export class AlphabetReferenceComponent {
     this.refreshBookmarks();
     switch (this.referenceTab()) {
       case 'bookmark':
-        return this.bookmarkService.getBookmarks<Alphabet>();
+        return this.bookmarkService.getBookmarkedQuestions<Alphabet>();
 
       case 'weak':
         return this.reviewService.getPendingQuestions<Alphabet>(this.mode);

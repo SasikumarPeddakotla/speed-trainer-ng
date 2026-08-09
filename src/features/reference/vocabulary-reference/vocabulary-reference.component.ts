@@ -122,7 +122,7 @@ export class VocabularyReferenceComponent {
     this.refreshBookmarks();
     switch (this.referenceTab()) {
       case 'bookmark':
-        return this.bookmarkService.getBookmarks<Synonym>();
+        return this.bookmarkService.getBookmarkedQuestions<Synonym>();
 
       case 'weak':
         return this.reviewService.getPendingQuestions<Synonym>(this.mode);
@@ -136,7 +136,7 @@ export class VocabularyReferenceComponent {
     this.refreshBookmarks();
     switch (this.referenceTab()) {
       case 'bookmark':
-        return this.bookmarkService.getBookmarks<Antonym>();
+        return this.bookmarkService.getBookmarkedQuestions<Antonym>();
 
       case 'weak':
         return this.reviewService.getPendingQuestions<Antonym>(this.mode);
@@ -150,7 +150,7 @@ export class VocabularyReferenceComponent {
     this.refreshBookmarks();
     switch (this.referenceTab()) {
       case 'bookmark':
-        return this.bookmarkService.getBookmarks<OneWord>();
+        return this.bookmarkService.getBookmarkedQuestions<OneWord>();
 
       case 'weak':
         return this.reviewService.getPendingQuestions<OneWord>(this.mode);
@@ -164,7 +164,7 @@ export class VocabularyReferenceComponent {
     this.refreshBookmarks();
     switch (this.referenceTab()) {
       case 'bookmark':
-        return this.bookmarkService.getBookmarks<Idiom>();
+        return this.bookmarkService.getBookmarkedQuestions<Idiom>();
 
       case 'weak':
         return this.reviewService.getPendingQuestions<Idiom>(this.mode);

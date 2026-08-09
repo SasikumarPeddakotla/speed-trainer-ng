@@ -35,7 +35,7 @@ export class PolityReferenceComponent {
     this.refreshBookmarks();
     switch (this.referenceTab()) {
       case 'bookmark':
-        return this.bookmarkService.getBookmarks<Article>();
+        return this.bookmarkService.getBookmarkedQuestions<Article>();
 
       case 'weak':
         return this.reviewService.getPendingQuestions<Article>(this.mode);

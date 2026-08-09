@@ -59,7 +59,7 @@ export class TablesReferenceComponent {
 
       case 'bookmark':
         return this.buildTableReference(
-          this.bookmarkService.getBookmarks<TableQuestion>(),
+          this.bookmarkService.getBookmarkedQuestions<TableQuestion>(),
         );
 
       default:

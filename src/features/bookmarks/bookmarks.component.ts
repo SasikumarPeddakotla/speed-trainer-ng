@@ -70,7 +70,7 @@ export class BookmarksComponent {
   }
 
   get totalBookmarks(): number {
-    return this.bookmarkTopics.reduce((sum, topic) => sum + topic.total, 0);
+    return this.bookmarkService.getTotalBookmarks();
   }
 
   openBookmarks(exercise: Exercise): void {
