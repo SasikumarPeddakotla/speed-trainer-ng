@@ -7,6 +7,7 @@ import { Question } from '../models/question.model';
 import { PracticeMode } from '../enums/practice-mode.enum';
 import { ReviewService } from '../services/review.service';
 import { IdService } from '../../utils/id.service';
+import { BookmarkService } from '../services/bookmark.service';
 
 @Injectable({
   providedIn: 'root',
@@ -19,6 +20,7 @@ export class ConversionEngine {
     private stateService: StateService,
     private reviewService: ReviewService,
     private idService: IdService,
+    private bookmarkService: BookmarkService,
   ) {}
 
   generateQuestion() {
@@ -80,6 +82,19 @@ export class ConversionEngine {
   }
 
   private nextConversion(): FractionConversion {
+    const referenceView = this.stateService.navigation().referenceView;
+
+    switch (referenceView) {
+      case 'all':
+        return this.nextNormalConversion();
+      case 'weak':
+        return this.nextWeakConversion();
+      case 'bookmark':
+        return this.nextBookmarkConversion();
+    }
+  }
+
+  private nextNormalConversion(): FractionConversion {
     let review = this.reviewService.getNextReviewQuestion<FractionConversion>();
 
     if (review) {
@@ -96,6 +111,27 @@ export class ConversionEngine {
 
       this.resetConversions();
     }
+    return this.conversions.shift()!;
+  }
+
+  private nextWeakConversion(): FractionConversion {
+    if (this.conversions.length === 0) {
+      const mode = this.stateService.navigation().selectedExercise!.mode;
+      const reviewQuestions =
+        this.reviewService.getPendingQuestions<FractionConversion>(mode);
+      this.conversions = this.randomService.shuffle(reviewQuestions);
+    }
+
+    return this.conversions.shift()!;
+  }
+
+  private nextBookmarkConversion(): FractionConversion {
+    if (this.conversions.length === 0) {
+      const bookmarkQuestions =
+        this.bookmarkService.getBookmarkedQuestions<FractionConversion>();
+      this.conversions = this.randomService.shuffle(bookmarkQuestions);
+    }
+
     return this.conversions.shift()!;
   }
 

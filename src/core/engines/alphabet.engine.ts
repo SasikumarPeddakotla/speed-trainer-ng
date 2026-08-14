@@ -122,7 +122,7 @@ export class AlphabetEngine {
     }
   }
 
-  nextNormalAlphabet(): Alphabet {
+  private nextNormalAlphabet(): Alphabet {
     let review = this.reviewService.getNextReviewQuestion<Alphabet>();
 
     if (review) {
@@ -142,7 +142,7 @@ export class AlphabetEngine {
     return this.alphabets.shift()!;
   }
 
-  nextWeakAlphabet(): Alphabet {
+  private nextWeakAlphabet(): Alphabet {
     if (this.alphabets.length === 0) {
       const mode = this.stateService.navigation().selectedExercise!.mode;
       const reviewQuestions =
@@ -153,7 +153,7 @@ export class AlphabetEngine {
     return this.alphabets.shift()!;
   }
 
-  nextBookmarkAlphabet(): Alphabet {
+  private nextBookmarkAlphabet(): Alphabet {
     if (this.alphabets.length === 0) {
       const bookmarkQuestions =
         this.bookmarkService.getBookmarkedQuestions<Alphabet>();
