@@ -11,17 +11,17 @@
       </thead>
 
       <tbody>
-        @for (question of conversions(); track question.conversion.fraction) {
+        @for (conversion of conversions(); track conversion.fraction) {
           <tr>
-            <td>{{ question.conversion.fraction }}</td>
-            <td>{{ question.conversion.percentage }}%</td>
-            <td>{{ question.conversion.decimal }}</td>
+            <td>{{ conversion.fraction }}</td>
+            <td>{{ conversion.percentage }}%</td>
+            <td>{{ conversion.decimal }}</td>
             <td>
               <button
                 type="button"
                 class="bookmark-btn"
-                [class.bookmarked]="isBookmarked(question)"
-                (click)="toggleBookmark(question)"
+                [class.bookmarked]="isBookmarked(conversion)"
+                (click)="toggleBookmark(conversion)"
               >
                 &#9733;
               </button>

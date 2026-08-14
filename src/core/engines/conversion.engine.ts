@@ -3,7 +3,6 @@ import { FRACTION_CONVERSIONS } from '../data/fraction-conversions';
 import { FractionConversion } from '../models/fraction-conversion.model';
 import { SettingsService } from '../services/settings.service';
 import { RandomService } from '../../utils/random.service';
-import { ConversionQuestion } from '../models/conversion-question.model';
 import { Question } from '../models/question.model';
 import { PracticeMode } from '../enums/practice-mode.enum';
 import { ReviewService } from '../services/review.service';
@@ -68,15 +67,13 @@ export class ConversionEngine {
     conversion: FractionConversion,
     questionKey: keyof FractionConversion,
     answerKey: keyof FractionConversion,
-  ): Question<ConversionQuestion> {
+  ): Question<FractionConversion> {
     return {
       id: this.idService.getQuestionId(conversion[questionKey]),
       question:
         conversion[questionKey] + (questionKey === 'percentage' ? '%' : ''),
       answer: conversion[answerKey],
-      data: {
-        conversion,
-      },
+      data: conversion,
       inputType: 'number',
       displayType: 'symbol',
     };
@@ -86,6 +83,7 @@ export class ConversionEngine {
     let review = this.reviewService.getNextReviewQuestion<FractionConversion>();
 
     if (review) {
+      console.log('Review question: ', review);
       return review;
     }
 
@@ -94,12 +92,14 @@ export class ConversionEngine {
         this.reviewService.getNextReviewQuestion<FractionConversion>();
 
       if (review) {
+        console.log('Review question: ', review);
         return review;
       }
 
       this.resetConversions();
     }
 
+    console.log('Normal question: ', this.conversions[0]);
     return this.conversions.shift()!;
   }
 

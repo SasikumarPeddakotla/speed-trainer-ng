@@ -12,7 +12,6 @@ import { PracticeMode } from '../enums/practice-mode.enum';
 import { Alphabet } from '../models/alphabet.model';
 import { Antonym } from '../models/antonym.model';
 import { Article } from '../models/article.model';
-import { ConversionQuestion } from '../models/conversion-question.model';
 import { Idiom } from '../models/idiom.model';
 import { OneWord } from '../models/one-word.model';
 import { PowerQuestion } from '../models/power-question.model';
@@ -20,6 +19,7 @@ import { Question } from '../models/question.model';
 import { Synonym } from '../models/synonym.model';
 import { TableQuestion } from '../models/table-question.model';
 import { RandomService } from '../../utils/random.service';
+import { FractionConversion } from '../models/fraction-conversion.model';
 
 @Injectable({
   providedIn: 'root',
@@ -95,39 +95,39 @@ export class BookmarkEngine {
 
       case PracticeMode.FractionToDecimal:
         return this.conversionEngine.createConversionQuestion(
-          (bookmark.question as ConversionQuestion).conversion,
+          bookmark.question as FractionConversion,
           'fraction',
           'decimal',
         );
       case PracticeMode.DecimalToFraction:
         return this.conversionEngine.createConversionQuestion(
-          (bookmark.question as ConversionQuestion).conversion,
+          bookmark.question as FractionConversion,
           'decimal',
           'fraction',
         );
 
       case PracticeMode.FractionToPercentage:
         return this.conversionEngine.createConversionQuestion(
-          (bookmark.question as ConversionQuestion).conversion,
+          bookmark.question as FractionConversion,
           'fraction',
           'percentage',
         );
       case PracticeMode.PercentageToFraction:
         return this.conversionEngine.createConversionQuestion(
-          (bookmark.question as ConversionQuestion).conversion,
+          bookmark.question as FractionConversion,
           'percentage',
           'fraction',
         );
 
       case PracticeMode.DecimalToPercentage:
         return this.conversionEngine.createConversionQuestion(
-          (bookmark.question as ConversionQuestion).conversion,
+          bookmark.question as FractionConversion,
           'decimal',
           'percentage',
         );
       case PracticeMode.PercentageToDecimal:
         return this.conversionEngine.createConversionQuestion(
-          (bookmark.question as ConversionQuestion).conversion,
+          bookmark.question as FractionConversion,
           'percentage',
           'decimal',
         );
