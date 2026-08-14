@@ -6,6 +6,7 @@ import { TableQuestion } from '../models/table-question.model';
 import { RandomService } from '../../utils/random.service';
 import { ReviewService } from '../services/review.service';
 import { IdService } from '../../utils/id.service';
+import { BookmarkService } from '../services/bookmark.service';
 
 @Injectable({
   providedIn: 'root',
@@ -19,6 +20,7 @@ export class TablesEngine {
     private stateService: StateService,
     private reviewService: ReviewService,
     private idService: IdService,
+    private bookmarkService: BookmarkService,
   ) {}
 
   generate(): Question<TableQuestion> {
@@ -41,6 +43,19 @@ export class TablesEngine {
   }
 
   private nextQuestion(): TableQuestion {
+    const referenceView = this.stateService.navigation().referenceView;
+
+    switch (referenceView) {
+      case 'all':
+        return this.nextNormalTable();
+      case 'weak':
+        return this.nextWeakTable();
+      case 'bookmark':
+        return this.nextBookmarkTable();
+    }
+  }
+
+  private nextNormalTable(): TableQuestion {
     let review = this.reviewService.getNextReviewQuestion<TableQuestion>();
 
     if (review) {
@@ -55,6 +70,27 @@ export class TablesEngine {
       }
 
       this.resetQuestions();
+    }
+
+    return this.questions.shift()!;
+  }
+
+  private nextWeakTable(): TableQuestion {
+    if (this.questions.length === 0) {
+      const mode = this.stateService.navigation().selectedExercise!.mode;
+      const reviewQuestions =
+        this.reviewService.getPendingQuestions<TableQuestion>(mode);
+      this.questions = this.randomService.shuffle(reviewQuestions);
+    }
+
+    return this.questions.shift()!;
+  }
+
+  private nextBookmarkTable(): TableQuestion {
+    if (this.questions.length === 0) {
+      const bookmarkQuestions =
+        this.bookmarkService.getBookmarkedQuestions<TableQuestion>();
+      this.questions = this.randomService.shuffle(bookmarkQuestions);
     }
 
     return this.questions.shift()!;
