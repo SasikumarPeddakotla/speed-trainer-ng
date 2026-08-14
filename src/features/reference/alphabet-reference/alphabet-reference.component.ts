@@ -1,4 +1,12 @@
-import { Component, computed, inject, input, signal } from '@angular/core';
+import {
+  Component,
+  computed,
+  effect,
+  inject,
+  input,
+  output,
+  signal,
+} from '@angular/core';
 
 import { AlphabetEngine } from '../../../core/engines/alphabet.engine';
 import { Alphabet } from '../../../core/models/alphabet.model';
@@ -17,6 +25,11 @@ import { IdService } from '../../../utils/id.service';
 })
 export class AlphabetReferenceComponent {
   referenceTab = input<'all' | 'weak' | 'bookmark'>();
+  count = output<{
+    allCount: number;
+    weakCount: number;
+    bookmarkCount: number;
+  }>();
 
   private alphabetEngine = inject(AlphabetEngine);
   private reviewService = inject(ReviewService);
@@ -29,17 +42,35 @@ export class AlphabetReferenceComponent {
 
   private refreshBookmarks = signal(0);
 
+  private readonly allQuestions = this.alphabetEngine.getAlphabetReference();
+  private readonly weakQuestions = computed(() =>
+    this.reviewService.getPendingQuestions<Alphabet>(this.mode),
+  );
+
+  private readonly bookmarkQuestions = computed(() => {
+    this.refreshBookmarks();
+    return this.bookmarkService.getBookmarkedQuestions<Alphabet>();
+  });
+
+  private readonly emitCountsEffect = effect(() => {
+    this.count.emit({
+      allCount: this.allQuestions.length,
+      weakCount: this.weakQuestions().length,
+      bookmarkCount: this.bookmarkQuestions().length,
+    });
+  });
+
   readonly alphabets = computed(() => {
     this.refreshBookmarks();
     switch (this.referenceTab()) {
       case 'bookmark':
-        return this.bookmarkService.getBookmarkedQuestions<Alphabet>();
+        return this.bookmarkQuestions();
 
       case 'weak':
-        return this.reviewService.getPendingQuestions<Alphabet>(this.mode);
+        return this.weakQuestions();
 
       default:
-        return this.alphabetEngine.getAlphabetReference();
+        return this.allQuestions;
     }
   });
 

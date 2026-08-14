@@ -29,6 +29,12 @@ export class ReferenceComponent {
   private stateService = inject(StateService);
   private router = inject(Router);
 
+  counts = {
+    allCount: 0,
+    weakCount: 0,
+    bookmarkCount: 0,
+  };
+
   protected readonly referenceTab = computed(
     () => this.stateService.navigation().referenceView,
   );
@@ -46,5 +52,13 @@ export class ReferenceComponent {
   practice() {
     this.stateService.resetPractice();
     this.router.navigate([this.exercise?.route, 'practice-settings']);
+  }
+
+  onCountChange(event: {
+    allCount: number;
+    weakCount: number;
+    bookmarkCount: number;
+  }) {
+    this.counts = event;
   }
 }

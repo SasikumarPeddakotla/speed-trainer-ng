@@ -12,7 +12,7 @@
       [class.active]="referenceTab() === 'all'"
       (click)="showQuestions('all')"
     >
-      All Questions
+      All Questions ({{ counts.allCount }})
     </button>
 
     <button
@@ -21,7 +21,7 @@
       [class.active]="referenceTab() === 'weak'"
       (click)="showQuestions('weak')"
     >
-      Weak Questions
+      Weak Questions ({{ counts.weakCount }})
     </button>
 
     <button
@@ -30,7 +30,7 @@
       [class.active]="referenceTab() === 'bookmark'"
       (click)="showQuestions('bookmark')"
     >
-      Bookmarks
+      Bookmarks ({{ counts.bookmarkCount }})
     </button>
   </div>
 
@@ -47,7 +47,10 @@
 
 @switch (topic?.route) {
   @case ("alphabet") {
-    <app-alphabet-reference [referenceTab]="referenceTab()" />
+    <app-alphabet-reference
+      [referenceTab]="referenceTab()"
+      (count)="onCountChange($event)"
+    />
   }
 
   @case ("vocabulary") {
