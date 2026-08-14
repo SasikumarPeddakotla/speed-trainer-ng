@@ -53,6 +53,18 @@ export class TrainerComponent implements OnInit, OnDestroy {
     }
   }
 
+  get referenceView() {
+    const referenceView = this.settingsService.settings().referenceView;
+    switch (referenceView) {
+      case 'all':
+        return 'All';
+      case 'weak':
+        return 'Weak';
+      case 'bookmark':
+        return 'Bookmarks';
+    }
+  }
+
   protected readonly topic = this.settingsService.settings().selectedTopic;
 
   protected readonly exercise =

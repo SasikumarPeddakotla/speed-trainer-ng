@@ -50,11 +50,12 @@ export class ExerciseComponent {
       return;
     }
 
-    this.settingsService.setExercise(exercise);
-    this.settingsService.setSessionType(SessionType.Practice);
-    this.settingsService.setQuestionTarget(10);
-    this.settingsService.setWordsLimit('10');
+    // this.settingsService.setSessionType(SessionType.Practice);
+    // this.settingsService.setQuestionTarget(10);
+    // this.settingsService.setWordsLimit('10');
 
-    this.router.navigate([exercise.route, 'practice-settings']);
+    this.settingsService.setExercise(exercise);
+    this.settingsService.setReferenceView('all');
+    this.router.navigate([exercise?.route, 'reference']);
   }
 }

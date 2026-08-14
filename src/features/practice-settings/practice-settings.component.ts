@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -29,8 +29,9 @@ export class PracticeSettingsComponent {
   readonly SettingType = SettingType;
   readonly PracticeMode = PracticeMode;
 
+  public settingsService = inject(SettingsService);
+
   constructor(
-    public settingsService: SettingsService,
     private router: Router,
     private sessionService: SessionService,
     private timerService: TimerService,
@@ -42,6 +43,22 @@ export class PracticeSettingsComponent {
     await this.dataPreloadService.preloadForMode(
       this.settingsService.settings().selectedExercise?.mode,
     );
+  }
+
+  get selectedExercise() {
+    return this.settingsService.settings().selectedExercise;
+  }
+
+  get referenceView() {
+    const referenceView = this.settingsService.settings().referenceView;
+    switch (referenceView) {
+      case 'all':
+        return 'All';
+      case 'weak':
+        return 'Weak';
+      case 'bookmark':
+        return 'Bookmarks';
+    }
   }
 
   get totalBookmarks() {

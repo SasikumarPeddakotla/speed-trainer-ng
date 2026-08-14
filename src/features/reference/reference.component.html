@@ -10,7 +10,7 @@
       type="button"
       class="toggle-button"
       [class.active]="referenceTab() === 'all'"
-      (click)="showAllQuestions()"
+      (click)="showQuestions('all')"
     >
       All Questions
     </button>
@@ -19,7 +19,7 @@
       type="button"
       class="toggle-button"
       [class.active]="referenceTab() === 'weak'"
-      (click)="showWeakQuestions()"
+      (click)="showQuestions('weak')"
     >
       Weak Questions
     </button>
@@ -28,7 +28,7 @@
       type="button"
       class="toggle-button"
       [class.active]="referenceTab() === 'bookmark'"
-      (click)="showBookmarkQuestions()"
+      (click)="showQuestions('bookmark')"
     >
       Bookmarks
     </button>
@@ -79,4 +79,22 @@
   @default {
     <p style="text-align: center">No reference available.</p>
   }
+}
+
+@if (referenceTab() === "all") {
+  <div class="floating-practice">
+    <button class="practice-btn" (click)="practice()">Practice All</button>
+  </div>
+}
+@if (referenceTab() === "weak") {
+  <div class="floating-practice">
+    <button class="practice-btn" (click)="practice()">Practice Weak</button>
+  </div>
+}
+@if (referenceTab() === "bookmark") {
+  <div class="floating-practice">
+    <button class="practice-btn" (click)="practice()">
+      Practice Bookmarks
+    </button>
+  </div>
 }

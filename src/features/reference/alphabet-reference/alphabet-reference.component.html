@@ -1,11 +1,9 @@
 @if (alphabets().length > 0) {
   <p class="reference-hint">
     @if (!showMnemonics()) {
-      💡 Tap the <strong>Mirror</strong> column header to view mirror pair
-      mnemonics.
+      💡 Tap the <strong>Mirror ⇄</strong> to view mirror pair mnemonics.
     } @else {
-      💡 Tap the <strong>Mirror Pair</strong> column header to return to
-      alphabet positions.
+      💡 Tap the <strong>Mirror Pair ⇄</strong> to return to alphabet positions.
     }
   </p>
 
@@ -80,9 +78,6 @@
       </tbody>
     </table>
   </div>
-}
-@else{
-  <p class="no-data">
-    No data available
-  </p>
+} @else {
+  <p class="no-data">No data available</p>
 }
