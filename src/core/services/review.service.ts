@@ -4,7 +4,6 @@ import { IdService } from '../../utils/id.service';
 import { StorageKeys } from '../enums/storage-keys.enum';
 import { StorageService } from './storage.service';
 import { PracticeMode } from '../enums/practice-mode.enum';
-import { ReviewQueueSummary } from '../models/review-queue-summary.model';
 import { SnackbarService } from './snackbar.service';
 
 interface ReviewStorage {
@@ -246,15 +245,6 @@ export class ReviewService {
     this.reviewQueues.delete(mode);
     this.currentReviewItem.delete(mode);
     this.save();
-  }
-
-  getReviewSummaries(): ReviewQueueSummary[] {
-    const counts = this.getReviewCounts();
-
-    return Array.from(counts.entries()).map(([mode, count]) => ({
-      mode,
-      count,
-    }));
   }
 
   getReviewCounts(): Map<PracticeMode, number> {
