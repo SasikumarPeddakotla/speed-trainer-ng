@@ -1,39 +1,36 @@
-@if(conversions().length>0){
-<div class="conversion-table-container">
-  <table class="conversion-table">
-    <thead>
-      <tr>
-        <th>Fraction</th>
-        <th>Decimal</th>
-        <th>Percentage</th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      @for (question of conversions(); track question.conversion.fraction) {
+@if (conversions().length > 0) {
+  <div class="conversion-table-container">
+    <table class="conversion-table">
+      <thead>
         <tr>
-          <td>{{ question.conversion.fraction }}</td>
-          <td>{{ question.conversion.decimal }}</td>
-          <td>{{ question.conversion.percentage }}%</td>
-          <td>
-            <button
-              type="button"
-              class="bookmark-btn"
-              [class.bookmarked]="isBookmarked(question)"
-              (click)="toggleBookmark(question)"
-            >
-              &#9733;
-            </button>
-          </td>
+          <th>Fraction</th>
+          <th>Percentage</th>
+          <th>Decimal</th>
+          <th></th>
         </tr>
-      }
-    </tbody>
-  </table>
-</div>
-}
-@else{
-  <p class="no-data">
-    No data available
-  </p>
+      </thead>
+
+      <tbody>
+        @for (question of conversions(); track question.conversion.fraction) {
+          <tr>
+            <td>{{ question.conversion.fraction }}</td>
+            <td>{{ question.conversion.percentage }}%</td>
+            <td>{{ question.conversion.decimal }}</td>
+            <td>
+              <button
+                type="button"
+                class="bookmark-btn"
+                [class.bookmarked]="isBookmarked(question)"
+                (click)="toggleBookmark(question)"
+              >
+                &#9733;
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+} @else {
+  <p class="no-data">No data available</p>
 }
