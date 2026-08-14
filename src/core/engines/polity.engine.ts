@@ -5,6 +5,8 @@ import { ARTICLES } from '../data/articles.data';
 import { Article } from '../models/article.model';
 import { ReviewService } from '../services/review.service';
 import { IdService } from '../../utils/id.service';
+import { StateService } from '../services/state.service';
+import { BookmarkService } from '../services/bookmark.service';
 
 @Injectable({
   providedIn: 'root',
@@ -16,6 +18,8 @@ export class PolityEngine {
   constructor(
     private reviewService: ReviewService,
     private idService: IdService,
+    private stateService: StateService,
+    private bookmarkService: BookmarkService,
   ) {}
 
   generateArticleToTitle(): Question<Article> {
@@ -65,6 +69,19 @@ export class PolityEngine {
   }
 
   private nextArticle(): Article {
+    const referenceView = this.stateService.navigation().referenceView;
+
+    switch (referenceView) {
+      case 'all':
+        return this.nextNormalArticle();
+      case 'weak':
+        return this.nextWeakArticle();
+      case 'bookmark':
+        return this.nextBookmarkArticle();
+    }
+  }
+
+  private nextNormalArticle(): Article {
     let review = this.reviewService.getNextReviewQuestion<Article>();
 
     if (review) {
@@ -79,6 +96,27 @@ export class PolityEngine {
       }
 
       this.articles = this.randomService.shuffle([...ARTICLES]);
+    }
+
+    return this.articles.shift()!;
+  }
+
+  private nextWeakArticle(): Article {
+    if (this.articles.length === 0) {
+      const mode = this.stateService.navigation().selectedExercise!.mode;
+      const reviewQuestions =
+        this.reviewService.getPendingQuestions<Article>(mode);
+      this.articles = this.randomService.shuffle(reviewQuestions);
+    }
+
+    return this.articles.shift()!;
+  }
+
+  private nextBookmarkArticle(): Article {
+    if (this.articles.length === 0) {
+      const bookmarkQuestions =
+        this.bookmarkService.getBookmarkedQuestions<Article>();
+      this.articles = this.randomService.shuffle(bookmarkQuestions);
     }
 
     return this.articles.shift()!;
