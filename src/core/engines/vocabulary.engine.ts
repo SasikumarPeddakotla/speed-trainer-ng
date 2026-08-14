@@ -346,19 +346,19 @@ export class VocabularyEngine {
   }
 
   getSynonymsReference(): Synonym[] {
-    return this.getSynonyms();
+    return this.vocabularyDataService.getSynonyms();
   }
 
   getAntonymsReference(): Antonym[] {
-    return this.getAntonyms();
+    return this.vocabularyDataService.getAntonyms();
   }
 
   getOneWordsReference(): OneWord[] {
-    return this.getOneWords();
+    return this.vocabularyDataService.getOneWords();
   }
 
   getIdiomsReference(): Idiom[] {
-    return this.getIdioms();
+    return this.vocabularyDataService.getIdioms();
   }
 
   getVocabularyCount(): number {

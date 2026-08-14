@@ -120,9 +120,9 @@ export class PowerEngine {
   }
 
   getNumbersReference(): number[] {
-    const max = Number(this.stateService.practice().numberRange);
+    // const max = Number(this.stateService.practice().numberRange);
 
-    return Array.from({ length: max - 1 }, (_, i) => i + 2);
+    return Array.from({ length: 99 }, (_, i) => i + 2);
   }
 
   reset() {

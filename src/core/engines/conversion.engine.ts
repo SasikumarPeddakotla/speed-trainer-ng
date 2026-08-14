@@ -118,19 +118,20 @@ export class ConversionEngine {
   }
 
   getConversionsReference(): FractionConversion[] {
-    const { denominatorSelection, selectedDenominators } =
-      this.stateService.practice();
+    return FRACTION_CONVERSIONS;
+    // const { denominatorSelection, selectedDenominators } =
+    //   this.stateService.practice();
 
-    if (denominatorSelection === 'all') {
-      return FRACTION_CONVERSIONS;
-    }
+    // if (denominatorSelection === 'all') {
+    //   return FRACTION_CONVERSIONS;
+    // }
 
-    const selected = new Set(selectedDenominators);
+    // const selected = new Set(selectedDenominators);
 
-    return FRACTION_CONVERSIONS.filter((conversion) => {
-      const denominator = `/${conversion.fraction.split('/')[1]}`;
-      return selected.has(denominator);
-    });
+    // return FRACTION_CONVERSIONS.filter((conversion) => {
+    //   const denominator = `/${conversion.fraction.split('/')[1]}`;
+    //   return selected.has(denominator);
+    // });
   }
 
   reset() {

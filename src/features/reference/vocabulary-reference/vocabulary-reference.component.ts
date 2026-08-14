@@ -12,6 +12,7 @@ import { BookmarkService } from '../../../core/services/bookmark.service';
 
 import { ExampleFormatterService } from '../../../utils/example-formatter.service';
 import { IdService } from '../../../utils/id.service';
+import { DataPreloadService } from '../../../core/services/data-preload.service';
 
 @Component({
   selector: 'app-vocabulary-reference',
@@ -29,6 +30,15 @@ export class VocabularyReferenceComponent {
   private bookmarkService = inject(BookmarkService);
   public formatterService = inject(ExampleFormatterService);
   private idService = inject(IdService);
+
+  constructor(private dataPreloadService: DataPreloadService) {}
+
+  async ngOnInit(): Promise<void> {
+    await this.dataPreloadService.preloadForMode(
+      this.stateService.navigation().selectedExercise?.mode,
+    );
+    this.refreshBookmarks.update((v) => v + 1);
+  }
 
   private refreshBookmarks = signal(0);
 

@@ -36,14 +36,7 @@ export class PracticeSettingsComponent {
     private sessionService: SessionService,
     private timerService: TimerService,
     private bookmarkService: BookmarkService,
-    private dataPreloadService: DataPreloadService,
   ) {}
-
-  async ngOnInit(): Promise<void> {
-    await this.dataPreloadService.preloadForMode(
-      this.stateService.navigation().selectedExercise?.mode,
-    );
-  }
 
   get selectedExercise() {
     return this.stateService.navigation().selectedExercise;

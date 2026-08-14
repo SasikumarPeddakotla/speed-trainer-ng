@@ -44,10 +44,7 @@ export class TablesReferenceComponent {
   //   return this.tablesEngine.getTablesReference();
   // }
 
-  protected readonly multipliers = Array.from(
-    { length: Number(this.stateService.practice().multiplierLimit) },
-    (_, i) => i + 1,
-  );
+  protected readonly multipliers = Array.from({ length: 20 }, (_, i) => i + 1);
 
   readonly tables = computed<TableReference[]>(() => {
     this.refreshBookmarks();

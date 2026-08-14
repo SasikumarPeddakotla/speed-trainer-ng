@@ -85,11 +85,12 @@ export class TablesEngine {
   }
 
   getTablesReference(): number[] {
-    const settings = this.stateService.practice();
+    return Array.from({ length: 19 }, (_, i) => i + 2);
+    // const settings = this.stateService.practice();
 
-    return settings.tableSelection === 'random'
-      ? Array.from({ length: 19 }, (_, i) => i + 2)
-      : settings.selectedTables;
+    // return settings.tableSelection === 'random'
+    //   ? Array.from({ length: 19 }, (_, i) => i + 2)
+    //   : settings.selectedTables;
   }
 
   reset() {
