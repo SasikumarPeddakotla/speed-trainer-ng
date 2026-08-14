@@ -62,6 +62,7 @@ export class ReviewService {
 
     this.currentReviewItem.set(exerciseKey, review);
 
+    console.log('Review question: ', review.questionData);
     return review.questionData as T;
   }
 
@@ -82,6 +83,7 @@ export class ReviewService {
   }
 
   recordWrong<T>(questionData: T, questionId: string): boolean {
+    console.log('review serive questionData: ', questionData);
     const exerciseKey = this.idService.getExerciseKey();
 
     if (exerciseKey === PracticeMode.Bookmark) {

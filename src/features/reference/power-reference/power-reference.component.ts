@@ -2,7 +2,6 @@ import { Component, computed, inject, input, signal } from '@angular/core';
 import { PowerEngine } from '../../../core/engines/power.engine';
 import { SettingsService } from '../../../core/services/settings.service';
 import { PracticeMode } from '../../../core/enums/practice-mode.enum';
-import { PowerQuestion } from '../../../core/models/power-question.model';
 import { ReviewService } from '../../../core/services/review.service';
 import { BookmarkService } from '../../../core/services/bookmark.service';
 import { IdService } from '../../../utils/id.service';
@@ -33,47 +32,47 @@ export class PowerReferenceComponent {
     this.refreshBookmarks();
     switch (this.referenceTab()) {
       case 'bookmark':
-        return this.bookmarkService.getBookmarkedQuestions<PowerQuestion>();
+        return this.bookmarkService.getBookmarkedQuestions<number>();
 
       case 'weak':
-        return this.reviewService.getPendingQuestions<PowerQuestion>(this.mode);
+        return this.reviewService.getPendingQuestions<number>(this.mode);
 
       default:
         return this.powerEngine.getNumbersReference();
     }
   });
 
-  async toggleBookmark(question: PowerQuestion): Promise<void> {
+  async toggleBookmark(number: number): Promise<void> {
     const entry = {
-      id: this.getQuestionId(question),
+      id: this.getQuestionId(number),
       mode: this.mode,
-      question,
+      question: number,
     };
 
     await this.bookmarkService.toggle(entry);
     this.refreshBookmarks.update((v) => v + 1);
   }
 
-  private getQuestionId(question: PowerQuestion): string {
+  private getQuestionId(number: number): string {
     switch (this.mode) {
       case PracticeMode.Squares:
-        return this.idService.getQuestionId(question.number);
+        return this.idService.getQuestionId(number);
 
       case PracticeMode.Cubes:
-        return this.idService.getQuestionId(question.number);
+        return this.idService.getQuestionId(number);
 
       case PracticeMode.SquareRoots:
-        return this.idService.getQuestionId(question.number * question.number);
+        return this.idService.getQuestionId(number * number);
 
       case PracticeMode.CubeRoots:
-        return this.idService.getQuestionId(question.number ** 3);
+        return this.idService.getQuestionId(number ** 3);
 
       default:
         return '';
     }
   }
 
-  isBookmarked(question: PowerQuestion): boolean {
-    return this.bookmarkService.isBookmarked(this.getQuestionId(question));
+  isBookmarked(number: number): boolean {
+    return this.bookmarkService.isBookmarked(this.getQuestionId(number));
   }
 }

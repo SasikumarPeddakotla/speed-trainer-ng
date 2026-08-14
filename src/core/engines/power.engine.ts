@@ -1,6 +1,5 @@
 import { inject, Injectable } from '@angular/core';
 import { SettingsService } from '../services/settings.service';
-import { PowerQuestion } from '../models/power-question.model';
 import { Question } from '../models/question.model';
 import { RandomService } from '../../utils/random.service';
 import { ReviewService } from '../services/review.service';
@@ -20,28 +19,28 @@ export class PowerEngine {
     private idService: IdService,
   ) {}
 
-  generateSquare(): Question<PowerQuestion> {
+  generateSquare(): Question<number> {
     const number = this.nextNumber();
 
-    return this.createSquare({ number });
+    return this.createSquare(number);
   }
 
-  generateCube(): Question<PowerQuestion> {
+  generateCube(): Question<number> {
     const number = this.nextNumber();
 
-    return this.createCube({ number });
+    return this.createCube(number);
   }
 
-  generateSquareRoot(): Question<PowerQuestion> {
+  generateSquareRoot(): Question<number> {
     const number = this.nextNumber();
 
-    return this.createSquareRoot({ number });
+    return this.createSquareRoot(number);
   }
 
-  generateCubeRoot(): Question<PowerQuestion> {
+  generateCubeRoot(): Question<number> {
     const number = this.nextNumber();
 
-    return this.createCubeRoot({ number });
+    return this.createCubeRoot(number);
   }
 
   private nextNumber(): number {
@@ -76,56 +75,54 @@ export class PowerEngine {
     this.numbers = this.randomService.shuffle(numbers);
   }
 
-  createSquare(question: PowerQuestion): Question<PowerQuestion> {
+  createSquare(number: number): Question<number> {
     return {
-      id: this.idService.getQuestionId(question.number),
-      question: `${question.number}²`,
-      answer: String(question.number * question.number),
-      data: question,
+      id: this.idService.getQuestionId(number),
+      question: `${number}²`,
+      answer: String(number * number),
+      data: number,
       inputType: 'number',
       displayType: 'symbol',
     };
   }
 
-  createCube(question: PowerQuestion): Question<PowerQuestion> {
+  createCube(number: number): Question<number> {
     return {
-      id: this.idService.getQuestionId(question.number),
-      question: `${question.number}³`,
-      answer: String(question.number ** 3),
-      data: question,
+      id: this.idService.getQuestionId(number),
+      question: `${number}³`,
+      answer: String(number ** 3),
+      data: number,
       inputType: 'number',
       displayType: 'symbol',
     };
   }
 
-  createSquareRoot(question: PowerQuestion): Question<PowerQuestion> {
+  createSquareRoot(number: number): Question<number> {
     return {
-      id: this.idService.getQuestionId(question.number * question.number),
-      question: `√${question.number * question.number}`,
-      answer: String(question.number),
-      data: question,
+      id: this.idService.getQuestionId(number * number),
+      question: `√${number * number}`,
+      answer: String(number),
+      data: number,
       inputType: 'number',
       displayType: 'symbol',
     };
   }
 
-  createCubeRoot(question: PowerQuestion): Question<PowerQuestion> {
+  createCubeRoot(number: number): Question<number> {
     return {
-      id: this.idService.getQuestionId(question.number ** 3),
-      question: `∛${question.number ** 3}`,
-      answer: String(question.number),
-      data: question,
+      id: this.idService.getQuestionId(number ** 3),
+      question: `∛${number ** 3}`,
+      answer: String(number),
+      data: number,
       inputType: 'number',
       displayType: 'symbol',
     };
   }
 
-  getNumbersReference(): PowerQuestion[] {
+  getNumbersReference(): number[] {
     const max = Number(this.settingsService.settings().numberRange);
 
-    return Array.from({ length: max - 1 }, (_, i) => ({
-      number: i + 2,
-    }));
+    return Array.from({ length: max - 1 }, (_, i) => i + 2);
   }
 
   reset() {

@@ -83,7 +83,6 @@ export class ConversionEngine {
     let review = this.reviewService.getNextReviewQuestion<FractionConversion>();
 
     if (review) {
-      console.log('Review question: ', review);
       return review;
     }
 
@@ -92,14 +91,11 @@ export class ConversionEngine {
         this.reviewService.getNextReviewQuestion<FractionConversion>();
 
       if (review) {
-        console.log('Review question: ', review);
         return review;
       }
 
       this.resetConversions();
     }
-
-    console.log('Normal question: ', this.conversions[0]);
     return this.conversions.shift()!;
   }
 

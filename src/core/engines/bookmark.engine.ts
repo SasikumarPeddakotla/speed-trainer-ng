@@ -1,7 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { BookmarkEntry } from '../models/bookmark-entry.model';
 import { BookmarkService } from '../services/bookmark.service';
-import { SettingsService } from '../services/settings.service';
 import { AlphabetEngine } from './alphabet.engine';
 import { ConversionEngine } from './conversion.engine';
 import { PolityEngine } from './polity.engine';
@@ -14,7 +13,6 @@ import { Antonym } from '../models/antonym.model';
 import { Article } from '../models/article.model';
 import { Idiom } from '../models/idiom.model';
 import { OneWord } from '../models/one-word.model';
-import { PowerQuestion } from '../models/power-question.model';
 import { Question } from '../models/question.model';
 import { Synonym } from '../models/synonym.model';
 import { TableQuestion } from '../models/table-question.model';
@@ -53,22 +51,16 @@ export class BookmarkEngine {
         );
 
       case PracticeMode.Squares:
-        return this.powerEngine.createSquare(
-          bookmark.question as PowerQuestion,
-        );
+        return this.powerEngine.createSquare(bookmark.question as number);
 
       case PracticeMode.Cubes:
-        return this.powerEngine.createCube(bookmark.question as PowerQuestion);
+        return this.powerEngine.createCube(bookmark.question as number);
 
       case PracticeMode.SquareRoots:
-        return this.powerEngine.createSquareRoot(
-          bookmark.question as PowerQuestion,
-        );
+        return this.powerEngine.createSquareRoot(bookmark.question as number);
 
       case PracticeMode.CubeRoots:
-        return this.powerEngine.createCubeRoot(
-          bookmark.question as PowerQuestion,
-        );
+        return this.powerEngine.createCubeRoot(bookmark.question as number);
 
       case PracticeMode.LetterToPosition:
         return this.alphabetEngine.createLetterToPosition(
