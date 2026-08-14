@@ -15,18 +15,18 @@
     }
 
     @if (
-      settingsService.settings().sessionType === SessionType.Countdown ||
-      settingsService.settings().sessionType === SessionType.QuestionChallenge
+      stateService.practice().sessionType === SessionType.Countdown ||
+      stateService.practice().sessionType === SessionType.QuestionChallenge
     ) {
       <div class="section">
         <div class="section-title">Session Settings</div>
 
-        @if (settingsService.settings().sessionType === SessionType.Countdown) {
+        @if (stateService.practice().sessionType === SessionType.Countdown) {
           <div class="setting">
             <label>Duration</label>
 
             <select
-              [ngModel]="settingsService.settings().countdownDuration"
+              [ngModel]="stateService.practice().countdownDuration"
               (ngModelChange)="setCountdownDuration($event)"
             >
               <option [ngValue]="60">1 Minute</option>
@@ -38,18 +38,17 @@
         }
 
         @if (
-          settingsService.settings().sessionType ===
-          SessionType.QuestionChallenge
+          stateService.practice().sessionType === SessionType.QuestionChallenge
         ) {
           <div class="setting">
             <label>Questions</label>
 
             @if (
-              settingsService.settings().selectedExercise?.mode !==
+              stateService.navigation().selectedExercise?.mode !==
               PracticeMode.Bookmark
             ) {
               <select
-                [ngModel]="settingsService.settings().questionTarget"
+                [ngModel]="stateService.practice().questionTarget"
                 (ngModelChange)="setQuestionTarget($event)"
               >
                 <option [ngValue]="10">10</option>
@@ -72,9 +71,9 @@
     <app-exercise-settings />
 
     @if (
-      settingsService.settings().selectedExercise?.mode !==
+      stateService.navigation().selectedExercise?.mode !==
         PracticeMode.Bookmark &&
-      settingsService.settings().selectedExercise?.topic !== "arithmetic"
+      stateService.navigation().selectedExercise?.topic !== "arithmetic"
     ) {
       <button class="reference-btn" (click)="openReference()">
         📖 Reference

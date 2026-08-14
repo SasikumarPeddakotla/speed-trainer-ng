@@ -4,7 +4,7 @@ import { AlphabetEngine } from '../../../core/engines/alphabet.engine';
 import { Alphabet } from '../../../core/models/alphabet.model';
 import { ReviewService } from '../../../core/services/review.service';
 import { PracticeMode } from '../../../core/enums/practice-mode.enum';
-import { SettingsService } from '../../../core/services/settings.service';
+import { StateService } from '../../../core/services/state.service';
 import { BookmarkService } from '../../../core/services/bookmark.service';
 import { IdService } from '../../../utils/id.service';
 
@@ -20,11 +20,11 @@ export class AlphabetReferenceComponent {
 
   private alphabetEngine = inject(AlphabetEngine);
   private reviewService = inject(ReviewService);
-  private settingsService = inject(SettingsService);
+  private stateService = inject(StateService);
   private bookmarkService = inject(BookmarkService);
   private idService = inject(IdService);
 
-  protected readonly mode = this.settingsService.settings().selectedExercise
+  protected readonly mode = this.stateService.navigation().selectedExercise
     ?.mode as PracticeMode;
 
   private refreshBookmarks = signal(0);

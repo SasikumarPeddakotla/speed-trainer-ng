@@ -28,7 +28,7 @@
 
   <div class="statusBar">
     <div class="statusChip">
-      @switch (settingsService.settings().sessionType) {
+      @switch (stateService.practice().sessionType) {
         @case (SessionType.Practice) {
           Practice Mode
         }
@@ -39,7 +39,7 @@
 
         @case (SessionType.QuestionChallenge) {
           🎯 {{ sessionService.totalQuestions() }} /
-          {{ settingsService.settings().questionTarget }}
+          {{ stateService.practice().questionTarget }}
         }
       }
     </div>
@@ -88,7 +88,7 @@
 
     <div class="action-area">
       @if (
-        settingsService.settings().sessionType === SessionType.Practice &&
+        stateService.practice().sessionType === SessionType.Practice &&
         !revealedAnswer
       ) {
         <button class="reveal-link" (click)="revealAnswer()">

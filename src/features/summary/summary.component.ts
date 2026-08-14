@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { SessionService } from '../../core/services/session.service';
-import { SettingsService } from '../../core/services/settings.service';
+import { StateService } from '../../core/services/state.service';
 
 @Component({
   selector: 'app-summary',
@@ -14,12 +14,12 @@ import { SettingsService } from '../../core/services/settings.service';
 export class SummaryComponent {
   constructor(
     public sessionService: SessionService,
-    private settingsService: SettingsService,
+    private stateService: StateService,
     private router: Router,
   ) {}
 
   practiceAgain() {
-    const exercise = this.settingsService.settings().selectedExercise;
+    const exercise = this.stateService.navigation().selectedExercise;
 
     if (!exercise) {
       this.router.navigate(['/subjects']);

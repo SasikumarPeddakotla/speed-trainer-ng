@@ -1,6 +1,6 @@
 import { Component, computed, inject, input, signal } from '@angular/core';
 
-import { SettingsService } from '../../../core/services/settings.service';
+import { StateService } from '../../../core/services/state.service';
 import { VocabularyEngine } from '../../../core/engines/vocabulary.engine';
 import { PracticeMode } from '../../../core/enums/practice-mode.enum';
 import { Synonym } from '../../../core/models/synonym.model';
@@ -10,7 +10,6 @@ import { Idiom } from '../../../core/models/idiom.model';
 import { ReviewService } from '../../../core/services/review.service';
 import { BookmarkService } from '../../../core/services/bookmark.service';
 
-import * as lemmatizer from 'wink-lemmatizer';
 import { ExampleFormatterService } from '../../../utils/example-formatter.service';
 import { IdService } from '../../../utils/id.service';
 
@@ -24,7 +23,7 @@ import { IdService } from '../../../utils/id.service';
 export class VocabularyReferenceComponent {
   searchText = input<string>();
 
-  private settingsService = inject(SettingsService);
+  private stateService = inject(StateService);
   private reviewService = inject(ReviewService);
   private vocabularyEngine = inject(VocabularyEngine);
   private bookmarkService = inject(BookmarkService);
@@ -115,7 +114,7 @@ export class VocabularyReferenceComponent {
     );
   });
 
-  protected readonly mode = this.settingsService.settings().selectedExercise
+  protected readonly mode = this.stateService.navigation().selectedExercise
     ?.mode as PracticeMode;
 
   readonly synonyms = computed(() => {

@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { Subject } from '../../core/models/subject.model';
 import { subjects } from '../../core/data/subjects';
-import { SettingsService } from '../../core/services/settings.service';
+import { StateService } from '../../core/services/state.service';
 
 @Component({
   selector: 'app-home',
@@ -17,11 +17,11 @@ export class HomeComponent {
 
   constructor(
     private router: Router,
-    private settingsService: SettingsService,
+    private stateService: StateService,
   ) {}
 
   openSubject(subject: Subject) {
-    this.settingsService.setSubject(subject);
+    this.stateService.setSubject(subject);
     this.router.navigate([subject.route, 'topics']);
   }
 

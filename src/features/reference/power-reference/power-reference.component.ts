@@ -1,6 +1,6 @@
 import { Component, computed, inject, input, signal } from '@angular/core';
 import { PowerEngine } from '../../../core/engines/power.engine';
-import { SettingsService } from '../../../core/services/settings.service';
+import { StateService } from '../../../core/services/state.service';
 import { PracticeMode } from '../../../core/enums/practice-mode.enum';
 import { ReviewService } from '../../../core/services/review.service';
 import { BookmarkService } from '../../../core/services/bookmark.service';
@@ -13,7 +13,7 @@ import { IdService } from '../../../utils/id.service';
   styleUrl: './power-reference.component.scss',
 })
 export class PowerReferenceComponent {
-  private settingsService = inject(SettingsService);
+  private stateService = inject(StateService);
   private powerEngine = inject(PowerEngine);
   private reviewService = inject(ReviewService);
   private bookmarkService = inject(BookmarkService);
@@ -25,7 +25,7 @@ export class PowerReferenceComponent {
 
   public PracticeMode = PracticeMode;
 
-  protected readonly mode = this.settingsService.settings().selectedExercise
+  protected readonly mode = this.stateService.navigation().selectedExercise
     ?.mode as PracticeMode;
 
   readonly questions = computed(() => {

@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { SettingsService } from '../../core/services/settings.service';
+import { StateService } from '../../core/services/state.service';
 import { SessionType } from '../../core/enums/session-type.enum';
 import { SettingType } from '../../core/enums/setting-type.enum';
 import { SessionTypeSettingComponent } from './components/session-type-setting/session-type-setting.component';
@@ -29,7 +29,7 @@ export class PracticeSettingsComponent {
   readonly SettingType = SettingType;
   readonly PracticeMode = PracticeMode;
 
-  public settingsService = inject(SettingsService);
+  public stateService = inject(StateService);
 
   constructor(
     private router: Router,
@@ -41,16 +41,16 @@ export class PracticeSettingsComponent {
 
   async ngOnInit(): Promise<void> {
     await this.dataPreloadService.preloadForMode(
-      this.settingsService.settings().selectedExercise?.mode,
+      this.stateService.navigation().selectedExercise?.mode,
     );
   }
 
   get selectedExercise() {
-    return this.settingsService.settings().selectedExercise;
+    return this.stateService.navigation().selectedExercise;
   }
 
   get referenceView() {
-    const referenceView = this.settingsService.settings().referenceView;
+    const referenceView = this.stateService.navigation().referenceView;
     switch (referenceView) {
       case 'all':
         return 'All';
@@ -69,29 +69,29 @@ export class PracticeSettingsComponent {
     this.sessionService.reset();
     this.timerService.reset();
 
-    const exercise = this.settingsService.settings().selectedExercise;
+    const exercise = this.stateService.navigation().selectedExercise;
     this.router.navigate([exercise?.route, 'trainer']);
   }
 
   openReference() {
-    const exercise = this.settingsService.settings().selectedExercise;
-    this.settingsService.setReferenceView('all');
+    const exercise = this.stateService.navigation().selectedExercise;
+    this.stateService.setReferenceView('all');
     this.router.navigate([exercise?.route, 'reference']);
   }
 
   hasSetting(setting: SettingType): boolean {
     return (
-      this.settingsService
-        .settings()
+      this.stateService
+        .navigation()
         .selectedExercise?.settings.includes(setting) ?? false
     );
   }
 
   setCountdownDuration(value: number) {
-    this.settingsService.setCountdownDuration(value);
+    this.stateService.setCountdownDuration(value);
   }
 
   setQuestionTarget(value: number) {
-    this.settingsService.setQuestionTarget(value);
+    this.stateService.setQuestionTarget(value);
   }
 }

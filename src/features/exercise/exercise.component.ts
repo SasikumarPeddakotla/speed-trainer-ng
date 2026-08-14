@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { Exercise } from '../../core/models/exercise.model';
 import { exercises } from '../../core/data/exercises';
-import { SettingsService } from '../../core/services/settings.service';
+import { StateService } from '../../core/services/state.service';
 import { SessionType } from '../../core/enums/session-type.enum';
 
 @Component({
@@ -22,7 +22,7 @@ export class ExerciseComponent {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private settingsService: SettingsService,
+    private stateService: StateService,
   ) {}
 
   ngOnInit() {
@@ -50,12 +50,12 @@ export class ExerciseComponent {
       return;
     }
 
-    // this.settingsService.setSessionType(SessionType.Practice);
-    // this.settingsService.setQuestionTarget(10);
-    // this.settingsService.setWordsLimit('10');
+    // this.stateService.setSessionType(SessionType.Practice);
+    // this.stateService.setQuestionTarget(10);
+    // this.stateService.setWordsLimit('10');
 
-    this.settingsService.setExercise(exercise);
-    this.settingsService.setReferenceView('all');
+    this.stateService.setExercise(exercise);
+    this.stateService.setReferenceView('all');
     this.router.navigate([exercise?.route, 'reference']);
   }
 }

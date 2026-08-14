@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { SettingsService } from './settings.service';
+import { StateService } from './state.service';
 import { VocabularyDataService } from './vocabulary-data.service';
 
 import { PracticeMode } from '../enums/practice-mode.enum';

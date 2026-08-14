@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { Topic } from '../../core/models/topic.model';
 import { topics } from '../../core/data/topics';
-import { SettingsService } from '../../core/services/settings.service';
+import { StateService } from '../../core/services/state.service';
 
 @Component({
   selector: 'app-topic',
@@ -21,7 +21,7 @@ export class TopicComponent {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private settingsService: SettingsService,
+    private stateService: StateService,
   ) {}
 
   ngOnInit() {
@@ -44,7 +44,7 @@ export class TopicComponent {
       return;
     }
 
-    this.settingsService.setTopic(topic);
+    this.stateService.setTopic(topic);
     this.router.navigate([topic.route, 'exercises']);
   }
 }

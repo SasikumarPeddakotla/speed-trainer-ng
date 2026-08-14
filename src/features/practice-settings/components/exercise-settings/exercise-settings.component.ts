@@ -1,6 +1,6 @@
 import { Component, computed, inject, OnInit } from '@angular/core';
 
-import { SettingsService } from '../../../../core/services/settings.service';
+import { StateService } from '../../../../core/services/state.service';
 import { SettingType } from '../../../../core/enums/setting-type.enum';
 import { FormsModule } from '@angular/forms';
 import { PracticeMode } from '../../../../core/enums/practice-mode.enum';
@@ -18,7 +18,7 @@ export class ExerciseSettingsComponent {
   readonly tables = Array.from({ length: 19 }, (_, i) => i + 2);
   readonly denominators = Array.from({ length: 15 }, (_, i) => `/${i + 2}`);
 
-  readonly settingsService = inject(SettingsService);
+  readonly stateService = inject(StateService);
 
   private vocabularyEngine = inject(VocabularyEngine);
 
@@ -27,7 +27,7 @@ export class ExerciseSettingsComponent {
   }
 
   digitSelectionOperator = computed(() => {
-    switch (this.settingsService.settings().selectedExercise?.mode) {
+    switch (this.stateService.navigation().selectedExercise?.mode) {
       case PracticeMode.Addition:
         return '+';
 
@@ -46,52 +46,52 @@ export class ExerciseSettingsComponent {
   });
 
   readonly mode = computed(
-    () => this.settingsService.settings().selectedExercise?.mode,
+    () => this.stateService.navigation().selectedExercise?.mode,
   );
   readonly PracticeMode = PracticeMode;
 
   hasSetting(setting: SettingType): boolean {
     return (
-      this.settingsService
-        .settings()
+      this.stateService
+        .navigation()
         .selectedExercise?.settings.includes(setting) ?? false
     );
   }
 
   digitSelection() {
-    return this.settingsService.settings().digitSelection;
+    return this.stateService.practice().digitSelection;
   }
 
   setDigitSelection(value: string) {
-    this.settingsService.setDigitSelection(value);
+    this.stateService.setDigitSelection(value);
   }
 
   tableSelection() {
-    return this.settingsService.settings().tableSelection;
+    return this.stateService.practice().tableSelection;
   }
 
   setTableSelection(value: 'random' | 'custom') {
-    this.settingsService.setTableSelection(value);
+    this.stateService.setTableSelection(value);
   }
 
   multiplierLimit() {
-    return this.settingsService.settings().multiplierLimit;
+    return this.stateService.practice().multiplierLimit;
   }
 
   setMultiplierLimit(value: string) {
-    this.settingsService.setMultiplierLimit(value);
+    this.stateService.setMultiplierLimit(value);
   }
 
   numberRange() {
-    return this.settingsService.settings().numberRange;
+    return this.stateService.practice().numberRange;
   }
 
   setNumberRange(value: string) {
-    this.settingsService.setNumberRange(value);
+    this.stateService.setNumberRange(value);
   }
 
   selectedTables() {
-    return this.settingsService.settings().selectedTables;
+    return this.stateService.practice().selectedTables;
   }
 
   toggleTable(table: number) {
@@ -112,7 +112,7 @@ export class ExerciseSettingsComponent {
 
     selected.sort((a, b) => a - b);
 
-    this.settingsService.setSelectedTables(selected);
+    this.stateService.setSelectedTables(selected);
   }
 
   isTableSelected(table: number) {
@@ -120,7 +120,7 @@ export class ExerciseSettingsComponent {
   }
 
   wordsLimit() {
-    return this.settingsService.settings().wordsLimit;
+    return this.stateService.practice().wordsLimit;
   }
 
   setWordsLimit(value: number): void {
@@ -132,7 +132,7 @@ export class ExerciseSettingsComponent {
 
     value = Math.max(10, Math.min(value, this.totalWords));
 
-    this.settingsService.setWordsLimit(value.toString());
+    this.stateService.setWordsLimit(value.toString());
   }
 
   increaseWordsLimit() {
@@ -162,15 +162,15 @@ export class ExerciseSettingsComponent {
   }
 
   denominatorSelection() {
-    return this.settingsService.settings().denominatorSelection;
+    return this.stateService.practice().denominatorSelection;
   }
 
   setDenominatorSelection(value: 'all' | 'custom') {
-    this.settingsService.setDenominatorSelection(value);
+    this.stateService.setDenominatorSelection(value);
   }
 
   selectedDenominators() {
-    return this.settingsService.settings().selectedDenominators;
+    return this.stateService.practice().selectedDenominators;
   }
 
   isDenominatorSelected(denominator: string) {
@@ -195,6 +195,6 @@ export class ExerciseSettingsComponent {
 
     selected.sort((a, b) => Number(a.at(-1)) - Number(b.at(-1)));
 
-    this.settingsService.setSelectedDenominators(selected);
+    this.stateService.setSelectedDenominators(selected);
   }
 }

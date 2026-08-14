@@ -5,7 +5,7 @@ import { exercises } from '../../core/data/exercises';
 import { topics } from '../../core/data/topics';
 
 import { BookmarkService } from '../../core/services/bookmark.service';
-import { SettingsService } from '../../core/services/settings.service';
+import { StateService } from '../../core/services/state.service';
 
 import { Exercise } from '../../core/models/exercise.model';
 import { PracticeMode } from '../../core/enums/practice-mode.enum';
@@ -24,7 +24,7 @@ import { Subject } from '../../core/models/subject.model';
 export class BookmarksComponent {
   private bookmarkService = inject(BookmarkService);
 
-  private settingsService = inject(SettingsService);
+  private stateService = inject(StateService);
 
   private router = inject(Router);
 
@@ -70,15 +70,15 @@ export class BookmarksComponent {
   }
 
   openBookmarks(exercise: Exercise): void {
-    this.settingsService.setExercise(exercise);
+    this.stateService.setExercise(exercise);
 
     const topic = topics.find((t) => t.route === exercise.topic)!;
-    this.settingsService.setTopic(topic);
+    this.stateService.setTopic(topic);
 
     const subject = subjects.find((s) => s.route === topic.subject)!;
-    this.settingsService.setSubject(subject);
+    this.stateService.setSubject(subject);
 
-    this.settingsService.setReferenceView('bookmark');
+    this.stateService.setReferenceView('bookmark');
 
     this.router.navigate([`${exercise.route}/reference`]);
   }
@@ -104,13 +104,13 @@ export class BookmarksComponent {
       icon: '',
     };
 
-    this.settingsService.setExercise(exercise);
-    this.settingsService.setTopic(topic);
-    this.settingsService.setSubject(subject);
+    this.stateService.setExercise(exercise);
+    this.stateService.setTopic(topic);
+    this.stateService.setSubject(subject);
 
-    this.settingsService.setSessionType(SessionType.QuestionChallenge);
+    this.stateService.setSessionType(SessionType.QuestionChallenge);
 
-    this.settingsService.setQuestionTarget(this.totalBookmarks);
+    this.stateService.setQuestionTarget(this.totalBookmarks);
 
     this.router.navigate([exercise.route, 'practice-settings']);
   }

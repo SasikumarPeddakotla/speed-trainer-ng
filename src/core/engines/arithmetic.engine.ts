@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { SettingsService } from '../services/settings.service';
+import { StateService } from '../services/state.service';
 
 import { Question } from '../models/question.model';
 import { ArithmeticQuestion } from '../models/arithmetic-question.model';
@@ -12,7 +12,7 @@ import { IdService } from '../../utils/id.service';
 })
 export class ArithmeticEngine {
   constructor(
-    private settingsService: SettingsService,
+    private stateService: StateService,
     private randomService: RandomService,
     private idService: IdService,
   ) {}
@@ -102,8 +102,8 @@ export class ArithmeticEngine {
   }
 
   private parseDigitSelection() {
-    const [firstDigits, secondDigits] = this.settingsService
-      .settings()
+    const [firstDigits, secondDigits] = this.stateService
+      .practice()
       .digitSelection.split('x')
       .map(Number);
 

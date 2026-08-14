@@ -1,6 +1,6 @@
 import { Component, computed, inject, signal } from '@angular/core';
 
-import { SettingsService } from '../../core/services/settings.service';
+import { StateService } from '../../core/services/state.service';
 
 import { AlphabetReferenceComponent } from './alphabet-reference/alphabet-reference.component';
 import { VocabularyReferenceComponent } from './vocabulary-reference/vocabulary-reference.component';
@@ -26,28 +26,25 @@ import { SessionType } from '../../core/enums/session-type.enum';
   styleUrl: './reference.component.scss',
 })
 export class ReferenceComponent {
-  private settingsService = inject(SettingsService);
+  private stateService = inject(StateService);
   private router = inject(Router);
 
   protected readonly referenceTab = computed(
-    () => this.settingsService.settings().referenceView,
+    () => this.stateService.navigation().referenceView,
   );
 
-  protected readonly topic = this.settingsService.settings().selectedTopic;
+  protected readonly topic = this.stateService.navigation().selectedTopic;
 
-  protected readonly exercise =
-    this.settingsService.settings().selectedExercise;
+  protected readonly exercise = this.stateService.navigation().selectedExercise;
 
   protected readonly searchText = signal('');
 
   showQuestions(referenceView: 'all' | 'weak' | 'bookmark'): void {
-    this.settingsService.setReferenceView(referenceView);
+    this.stateService.setReferenceView(referenceView);
   }
 
   practice() {
-    this.settingsService.setSessionType(SessionType.Practice);
-    this.settingsService.setQuestionTarget(10);
-    this.settingsService.setWordsLimit('10');
+    this.stateService.resetPractice();
     this.router.navigate([this.exercise?.route, 'practice-settings']);
   }
 }

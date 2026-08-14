@@ -1,6 +1,6 @@
 import { Component, computed } from '@angular/core';
 
-import { SettingsService } from '../../../../core/services/settings.service';
+import { StateService } from '../../../../core/services/state.service';
 import { SessionType } from '../../../../core/enums/session-type.enum';
 import { SessionTypeSelectorComponent } from '../session-type-selector/session-type-selector.component';
 
@@ -37,12 +37,12 @@ export class SessionTypeSettingComponent {
   };
 
   readonly selectedSessionInfo = computed(
-    () => this.sessionInfo[this.settingsService.settings().sessionType],
+    () => this.sessionInfo[this.stateService.practice().sessionType],
   );
 
-  constructor(public settingsService: SettingsService) {}
+  constructor(public stateService: StateService) {}
 
   onSessionTypeChange(type: SessionType) {
-    this.settingsService.setSessionType(type);
+    this.stateService.setSessionType(type);
   }
 }

@@ -1,7 +1,7 @@
 import { Component, computed, inject, input, signal } from '@angular/core';
 
 import { ConversionEngine } from '../../../core/engines/conversion.engine';
-import { SettingsService } from '../../../core/services/settings.service';
+import { StateService } from '../../../core/services/state.service';
 import { PracticeMode } from '../../../core/enums/practice-mode.enum';
 import { ReviewService } from '../../../core/services/review.service';
 import { BookmarkService } from '../../../core/services/bookmark.service';
@@ -16,7 +16,7 @@ import { FractionConversion } from '../../../core/models/fraction-conversion.mod
 })
 export class ConversionReferenceComponent {
   private conversionEngine = inject(ConversionEngine);
-  private settingsService = inject(SettingsService);
+  private stateService = inject(StateService);
   private reviewService = inject(ReviewService);
   private bookmarkService = inject(BookmarkService);
   private idService = inject(IdService);
@@ -25,7 +25,7 @@ export class ConversionReferenceComponent {
 
   referenceTab = input<'all' | 'weak' | 'bookmark'>();
 
-  protected readonly mode = this.settingsService.settings().selectedExercise
+  protected readonly mode = this.stateService.navigation().selectedExercise
     ?.mode as PracticeMode;
 
   readonly conversions = computed(() => {

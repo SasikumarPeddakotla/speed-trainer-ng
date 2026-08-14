@@ -2,7 +2,7 @@
   <div class="section-title">Practice Mode</div>
 
   <app-session-type-selector
-    [selected]="settingsService.settings().sessionType"
+    [selected]="stateService.practice().sessionType"
     (selectedChange)="onSessionTypeChange($event)"
   >
   </app-session-type-selector>

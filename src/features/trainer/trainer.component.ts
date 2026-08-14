@@ -13,7 +13,7 @@ import { QuestionService } from '../../core/services/question.service';
 import { ValidationService } from '../../core/services/validation.service';
 import { SessionService } from '../../core/services/session.service';
 import { SessionType } from '../../core/enums/session-type.enum';
-import { SettingsService } from '../../core/services/settings.service';
+import { StateService } from '../../core/services/state.service';
 import { KeyboardComponent } from '../keyboard/keyboard.component';
 import { TimerService } from '../../core/services/timer.service';
 import { Router } from '@angular/router';
@@ -41,7 +41,7 @@ export class TrainerComponent implements OnInit, OnDestroy {
 
   countdownValue: number | null = null;
 
-  public settingsService = inject(SettingsService);
+  public stateService = inject(StateService);
 
   get mode() {
     const bookmark = this.bookmarkService.getCurrentBookmark();
@@ -49,12 +49,12 @@ export class TrainerComponent implements OnInit, OnDestroy {
     if (bookmark) {
       return bookmark.mode;
     } else {
-      return this.settingsService.settings().selectedExercise!.mode;
+      return this.stateService.navigation().selectedExercise!.mode;
     }
   }
 
   get referenceView() {
-    const referenceView = this.settingsService.settings().referenceView;
+    const referenceView = this.stateService.navigation().referenceView;
     switch (referenceView) {
       case 'all':
         return 'All';
@@ -65,10 +65,9 @@ export class TrainerComponent implements OnInit, OnDestroy {
     }
   }
 
-  protected readonly topic = this.settingsService.settings().selectedTopic;
+  protected readonly topic = this.stateService.navigation().selectedTopic;
 
-  protected readonly exercise =
-    this.settingsService.settings().selectedExercise;
+  protected readonly exercise = this.stateService.navigation().selectedExercise;
 
   @ViewChild('textInput')
   textInput?: ElementRef<HTMLInputElement>;
@@ -83,9 +82,7 @@ export class TrainerComponent implements OnInit, OnDestroy {
     private bookmarkService: BookmarkService,
   ) {
     effect(() => {
-      if (
-        this.settingsService.settings().sessionType !== SessionType.Countdown
-      ) {
+      if (this.stateService.practice().sessionType !== SessionType.Countdown) {
         return;
       }
 
@@ -96,7 +93,7 @@ export class TrainerComponent implements OnInit, OnDestroy {
 
     effect(() => {
       if (
-        this.settingsService.settings().sessionType !==
+        this.stateService.practice().sessionType !==
         SessionType.QuestionChallenge
       ) {
         return;
@@ -104,7 +101,7 @@ export class TrainerComponent implements OnInit, OnDestroy {
 
       if (
         this.sessionService.totalQuestions() >=
-        this.settingsService.settings().questionTarget
+        this.stateService.practice().questionTarget
       ) {
         this.sessionService.finish();
       }
@@ -122,7 +119,7 @@ export class TrainerComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.questionService.resetAllEngines();
     this.questionService.nextQuestion();
-    if (this.settingsService.settings().sessionType === SessionType.Countdown) {
+    if (this.stateService.practice().sessionType === SessionType.Countdown) {
       this.startCountdown();
     } else {
       this.startPractice();
@@ -130,10 +127,8 @@ export class TrainerComponent implements OnInit, OnDestroy {
   }
 
   private startPractice(): void {
-    if (this.settingsService.settings().sessionType === SessionType.Countdown) {
-      this.timerService.start(
-        this.settingsService.settings().countdownDuration,
-      );
+    if (this.stateService.practice().sessionType === SessionType.Countdown) {
+      this.timerService.start(this.stateService.practice().countdownDuration);
     }
 
     // this.questionService.nextQuestion();
@@ -208,9 +203,7 @@ export class TrainerComponent implements OnInit, OnDestroy {
         this.inputState = 'normal';
         this.selectedOption = null;
 
-        if (
-          this.settingsService.settings().sessionType !== SessionType.Practice
-        ) {
+        if (this.stateService.practice().sessionType !== SessionType.Practice) {
           this.questionService.nextQuestion();
           this.focusTextInput();
 

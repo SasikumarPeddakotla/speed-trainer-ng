@@ -1,7 +1,7 @@
 import { Component, computed, inject, input, signal } from '@angular/core';
 
 import { TablesEngine } from '../../../core/engines/tables.engine';
-import { SettingsService } from '../../../core/services/settings.service';
+import { StateService } from '../../../core/services/state.service';
 import { TableQuestion } from '../../../core/models/table-question.model';
 import { ReviewService } from '../../../core/services/review.service';
 import { PracticeMode } from '../../../core/enums/practice-mode.enum';
@@ -22,7 +22,7 @@ interface TableReference {
 })
 export class TablesReferenceComponent {
   private tablesEngine = inject(TablesEngine);
-  private settingsService = inject(SettingsService);
+  private stateService = inject(StateService);
   private reviewService = inject(ReviewService);
   private bookmarkService = inject(BookmarkService);
   private idService = inject(IdService);
@@ -31,7 +31,7 @@ export class TablesReferenceComponent {
 
   referenceTab = input<'all' | 'weak' | 'bookmark'>();
 
-  protected readonly mode = this.settingsService.settings().selectedExercise
+  protected readonly mode = this.stateService.navigation().selectedExercise
     ?.mode as PracticeMode;
 
   // get tables(): number[] {
@@ -45,7 +45,7 @@ export class TablesReferenceComponent {
   // }
 
   protected readonly multipliers = Array.from(
-    { length: Number(this.settingsService.settings().multiplierLimit) },
+    { length: Number(this.stateService.practice().multiplierLimit) },
     (_, i) => i + 1,
   );
 

@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { FRACTION_CONVERSIONS } from '../data/fraction-conversions';
 import { FractionConversion } from '../models/fraction-conversion.model';
-import { SettingsService } from '../services/settings.service';
+import { StateService } from '../services/state.service';
 import { RandomService } from '../../utils/random.service';
 import { Question } from '../models/question.model';
 import { PracticeMode } from '../enums/practice-mode.enum';
@@ -16,13 +16,13 @@ export class ConversionEngine {
   private conversions = this.randomService.shuffle([...FRACTION_CONVERSIONS]);
 
   constructor(
-    private settingsService: SettingsService,
+    private stateService: StateService,
     private reviewService: ReviewService,
     private idService: IdService,
   ) {}
 
   generateQuestion() {
-    const mode = this.settingsService.settings().selectedExercise?.mode;
+    const mode = this.stateService.navigation().selectedExercise?.mode;
     const conversion = this.nextConversion();
 
     switch (mode) {
@@ -101,7 +101,7 @@ export class ConversionEngine {
 
   resetConversions(): void {
     const { denominatorSelection, selectedDenominators } =
-      this.settingsService.settings();
+      this.stateService.practice();
 
     if (denominatorSelection === 'all') {
       this.conversions = this.randomService.shuffle([...FRACTION_CONVERSIONS]);
@@ -119,7 +119,7 @@ export class ConversionEngine {
 
   getConversionsReference(): FractionConversion[] {
     const { denominatorSelection, selectedDenominators } =
-      this.settingsService.settings();
+      this.stateService.practice();
 
     if (denominatorSelection === 'all') {
       return FRACTION_CONVERSIONS;

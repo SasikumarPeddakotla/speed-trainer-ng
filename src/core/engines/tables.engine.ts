@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 
-import { SettingsService } from '../services/settings.service';
+import { StateService } from '../services/state.service';
 import { Question } from '../models/question.model';
 import { TableQuestion } from '../models/table-question.model';
 import { RandomService } from '../../utils/random.service';
@@ -16,7 +16,7 @@ export class TablesEngine {
   private questions: TableQuestion[] = [];
 
   constructor(
-    private settingsService: SettingsService,
+    private stateService: StateService,
     private reviewService: ReviewService,
     private idService: IdService,
   ) {}
@@ -61,7 +61,7 @@ export class TablesEngine {
   }
 
   private resetQuestions(): void {
-    const settings = this.settingsService.settings();
+    const settings = this.stateService.practice();
 
     const tables =
       settings.tableSelection === 'random'
@@ -85,7 +85,7 @@ export class TablesEngine {
   }
 
   getTablesReference(): number[] {
-    const settings = this.settingsService.settings();
+    const settings = this.stateService.practice();
 
     return settings.tableSelection === 'random'
       ? Array.from({ length: 19 }, (_, i) => i + 2)

@@ -8,7 +8,7 @@ import { Antonym } from '../models/antonym.model';
 import { OneWord } from '../models/one-word.model';
 import { Idiom } from '../models/idiom.model';
 import { ReviewService } from '../services/review.service';
-import { SettingsService } from '../services/settings.service';
+import { StateService } from '../services/state.service';
 import { PracticeMode } from '../enums/practice-mode.enum';
 import { ExampleFormatterService } from '../../utils/example-formatter.service';
 import { VocabularyDataService } from '../services/vocabulary-data.service';
@@ -27,7 +27,7 @@ export class VocabularyEngine {
 
   constructor(
     private reviewService: ReviewService,
-    private settingsService: SettingsService,
+    private stateService: StateService,
     private formatterService: ExampleFormatterService,
     private vocabularyDataService: VocabularyDataService,
     private idService: IdService,
@@ -320,7 +320,7 @@ export class VocabularyEngine {
   }
 
   private getWordLimit(): number {
-    return Number(this.settingsService.settings().wordsLimit);
+    return Number(this.stateService.practice().wordsLimit);
   }
 
   private getSynonyms(): Synonym[] {
@@ -362,7 +362,7 @@ export class VocabularyEngine {
   }
 
   getVocabularyCount(): number {
-    switch (this.settingsService.settings().selectedExercise?.mode) {
+    switch (this.stateService.navigation().selectedExercise?.mode) {
       case PracticeMode.Synonyms:
         return this.vocabularyDataService.getSynonyms().length;
 

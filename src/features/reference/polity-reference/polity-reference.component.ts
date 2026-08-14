@@ -2,7 +2,7 @@ import { Component, computed, inject, input, signal } from '@angular/core';
 
 import { PolityEngine } from '../../../core/engines/polity.engine';
 import { Article } from '../../../core/models/article.model';
-import { SettingsService } from '../../../core/services/settings.service';
+import { StateService } from '../../../core/services/state.service';
 import { PracticeMode } from '../../../core/enums/practice-mode.enum';
 import { ReviewService } from '../../../core/services/review.service';
 import { BookmarkService } from '../../../core/services/bookmark.service';
@@ -18,7 +18,7 @@ export class PolityReferenceComponent {
   searchText = input<string>();
 
   private polityEngine = inject(PolityEngine);
-  private settingsService = inject(SettingsService);
+  private stateService = inject(StateService);
   private reviewService = inject(ReviewService);
   private bookmarkService = inject(BookmarkService);
   private idService = inject(IdService);
@@ -27,7 +27,7 @@ export class PolityReferenceComponent {
 
   referenceTab = input<'all' | 'weak' | 'bookmark'>();
 
-  protected readonly mode = this.settingsService.settings().selectedExercise
+  protected readonly mode = this.stateService.navigation().selectedExercise
     ?.mode as PracticeMode;
 
   get articles(): Article[] {

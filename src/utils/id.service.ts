@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { SettingsService } from '../core/services/settings.service';
+import { StateService } from '../core/services/state.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class IdService {
-  constructor(private settingsService: SettingsService) {}
+  constructor(private stateService: StateService) {}
 
   /**
    * Returns the currently selected exercise mode.
@@ -17,7 +17,7 @@ export class IdService {
    * - Synonyms
    */
   getExerciseKey(): string {
-    return this.settingsService.settings().selectedExercise!.mode;
+    return this.stateService.navigation().selectedExercise!.mode;
   }
 
   /**

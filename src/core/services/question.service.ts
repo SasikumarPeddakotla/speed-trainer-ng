@@ -4,7 +4,7 @@ import { AlphabetEngine } from '../engines/alphabet.engine';
 
 import { Question } from '../models/question.model';
 
-import { SettingsService } from './settings.service';
+import { StateService } from './state.service';
 
 import { PracticeMode } from '../enums/practice-mode.enum';
 import { TablesEngine } from '../engines/tables.engine';
@@ -24,7 +24,7 @@ export class QuestionService {
   readonly currentQuestion = this._currentQuestion.asReadonly();
 
   constructor(
-    private settingsService: SettingsService,
+    private stateService: StateService,
     private alphabetEngine: AlphabetEngine,
     private arithmeticEngine: ArithmeticEngine,
     private tablesEngine: TablesEngine,
@@ -36,7 +36,7 @@ export class QuestionService {
   ) {}
 
   nextQuestion() {
-    switch (this.settingsService.settings().selectedExercise?.mode) {
+    switch (this.stateService.navigation().selectedExercise?.mode) {
       case PracticeMode.LetterToPosition:
         this._currentQuestion.set(this.alphabetEngine.letterToPosition());
         break;

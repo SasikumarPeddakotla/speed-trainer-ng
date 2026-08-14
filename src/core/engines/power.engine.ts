@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { SettingsService } from '../services/settings.service';
+import { StateService } from '../services/state.service';
 import { Question } from '../models/question.model';
 import { RandomService } from '../../utils/random.service';
 import { ReviewService } from '../services/review.service';
@@ -14,7 +14,7 @@ export class PowerEngine {
   private numbers: number[] = [];
 
   constructor(
-    private settingsService: SettingsService,
+    private stateService: StateService,
     private reviewService: ReviewService,
     private idService: IdService,
   ) {}
@@ -64,7 +64,7 @@ export class PowerEngine {
   }
 
   private resetNumbers(): void {
-    const max = Number(this.settingsService.settings().numberRange);
+    const max = Number(this.stateService.practice().numberRange);
 
     const numbers: number[] = [];
 
@@ -120,7 +120,7 @@ export class PowerEngine {
   }
 
   getNumbersReference(): number[] {
-    const max = Number(this.settingsService.settings().numberRange);
+    const max = Number(this.stateService.practice().numberRange);
 
     return Array.from({ length: max - 1 }, (_, i) => i + 2);
   }
