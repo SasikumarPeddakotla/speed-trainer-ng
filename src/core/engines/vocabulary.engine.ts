@@ -13,6 +13,7 @@ import { PracticeMode } from '../enums/practice-mode.enum';
 import { ExampleFormatterService } from '../../utils/example-formatter.service';
 import { VocabularyDataService } from '../services/vocabulary-data.service';
 import { IdService } from '../../utils/id.service';
+import { BookmarkService } from '../services/bookmark.service';
 
 @Injectable({
   providedIn: 'root',
@@ -31,6 +32,7 @@ export class VocabularyEngine {
     private formatterService: ExampleFormatterService,
     private vocabularyDataService: VocabularyDataService,
     private idService: IdService,
+    private bookmarkService: BookmarkService,
   ) {}
 
   generateSynonymQuestion(): Question<Synonym> {
@@ -88,6 +90,19 @@ export class VocabularyEngine {
   }
 
   private nextSynonym(): Synonym {
+    const referenceView = this.stateService.navigation().referenceView;
+
+    switch (referenceView) {
+      case 'all':
+        return this.nextNormalSynonym();
+      case 'weak':
+        return this.nextWeakSynonym();
+      case 'bookmark':
+        return this.nextBookmarkSynonym();
+    }
+  }
+
+  private nextNormalSynonym(): Synonym {
     let review = this.reviewService.getNextReviewQuestion<Synonym>();
 
     if (review) {
@@ -102,6 +117,27 @@ export class VocabularyEngine {
       }
 
       this.synonyms = this.randomService.shuffle([...this.getSynonyms()]);
+    }
+
+    return this.synonyms.shift()!;
+  }
+
+  private nextWeakSynonym(): Synonym {
+    if (this.synonyms.length === 0) {
+      const mode = this.stateService.navigation().selectedExercise!.mode;
+      const reviewQuestions =
+        this.reviewService.getPendingQuestions<Synonym>(mode);
+      this.synonyms = this.randomService.shuffle(reviewQuestions);
+    }
+
+    return this.synonyms.shift()!;
+  }
+
+  private nextBookmarkSynonym(): Synonym {
+    if (this.synonyms.length === 0) {
+      const bookmarkQuestions =
+        this.bookmarkService.getBookmarkedQuestions<Synonym>();
+      this.synonyms = this.randomService.shuffle(bookmarkQuestions);
     }
 
     return this.synonyms.shift()!;
@@ -162,6 +198,19 @@ export class VocabularyEngine {
   }
 
   private nextAntonym(): Antonym {
+    const referenceView = this.stateService.navigation().referenceView;
+
+    switch (referenceView) {
+      case 'all':
+        return this.nextNormalAntonym();
+      case 'weak':
+        return this.nextWeakAntonym();
+      case 'bookmark':
+        return this.nextBookmarkAntonym();
+    }
+  }
+
+  private nextNormalAntonym(): Antonym {
     let review = this.reviewService.getNextReviewQuestion<Antonym>();
 
     if (review) {
@@ -176,6 +225,27 @@ export class VocabularyEngine {
       }
 
       this.antonyms = this.randomService.shuffle([...this.getAntonyms()]);
+    }
+
+    return this.antonyms.shift()!;
+  }
+
+  private nextWeakAntonym(): Antonym {
+    if (this.antonyms.length === 0) {
+      const mode = this.stateService.navigation().selectedExercise!.mode;
+      const reviewQuestions =
+        this.reviewService.getPendingQuestions<Antonym>(mode);
+      this.antonyms = this.randomService.shuffle(reviewQuestions);
+    }
+
+    return this.antonyms.shift()!;
+  }
+
+  private nextBookmarkAntonym(): Antonym {
+    if (this.antonyms.length === 0) {
+      const bookmarkQuestions =
+        this.bookmarkService.getBookmarkedQuestions<Antonym>();
+      this.antonyms = this.randomService.shuffle(bookmarkQuestions);
     }
 
     return this.antonyms.shift()!;
@@ -229,6 +299,19 @@ export class VocabularyEngine {
   }
 
   private nextOneWord(): OneWord {
+    const referenceView = this.stateService.navigation().referenceView;
+
+    switch (referenceView) {
+      case 'all':
+        return this.nextNormalOneWord();
+      case 'weak':
+        return this.nextWeakOneWord();
+      case 'bookmark':
+        return this.nextBookmarkOneWord();
+    }
+  }
+
+  private nextNormalOneWord(): OneWord {
     let review = this.reviewService.getNextReviewQuestion<OneWord>();
 
     if (review) {
@@ -243,6 +326,27 @@ export class VocabularyEngine {
       }
 
       this.oneWords = this.randomService.shuffle([...this.getOneWords()]);
+    }
+
+    return this.oneWords.shift()!;
+  }
+
+  private nextWeakOneWord(): OneWord {
+    if (this.oneWords.length === 0) {
+      const mode = this.stateService.navigation().selectedExercise!.mode;
+      const reviewQuestions =
+        this.reviewService.getPendingQuestions<OneWord>(mode);
+      this.oneWords = this.randomService.shuffle(reviewQuestions);
+    }
+
+    return this.oneWords.shift()!;
+  }
+
+  private nextBookmarkOneWord(): OneWord {
+    if (this.oneWords.length === 0) {
+      const bookmarkQuestions =
+        this.bookmarkService.getBookmarkedQuestions<OneWord>();
+      this.oneWords = this.randomService.shuffle(bookmarkQuestions);
     }
 
     return this.oneWords.shift()!;
@@ -300,6 +404,19 @@ export class VocabularyEngine {
   }
 
   private nextIdiom(): Idiom {
+    const referenceView = this.stateService.navigation().referenceView;
+
+    switch (referenceView) {
+      case 'all':
+        return this.nextNormalIdiom();
+      case 'weak':
+        return this.nextWeakIdiom();
+      case 'bookmark':
+        return this.nextBookmarkIdiom();
+    }
+  }
+
+  private nextNormalIdiom(): Idiom {
     let review = this.reviewService.getNextReviewQuestion<Idiom>();
 
     if (review) {
@@ -314,6 +431,27 @@ export class VocabularyEngine {
       }
 
       this.idioms = this.randomService.shuffle([...this.getIdioms()]);
+    }
+
+    return this.idioms.shift()!;
+  }
+
+  private nextWeakIdiom(): Idiom {
+    if (this.idioms.length === 0) {
+      const mode = this.stateService.navigation().selectedExercise!.mode;
+      const reviewQuestions =
+        this.reviewService.getPendingQuestions<Idiom>(mode);
+      this.idioms = this.randomService.shuffle(reviewQuestions);
+    }
+
+    return this.idioms.shift()!;
+  }
+
+  private nextBookmarkIdiom(): Idiom {
+    if (this.idioms.length === 0) {
+      const bookmarkQuestions =
+        this.bookmarkService.getBookmarkedQuestions<Idiom>();
+      this.idioms = this.randomService.shuffle(bookmarkQuestions);
     }
 
     return this.idioms.shift()!;
