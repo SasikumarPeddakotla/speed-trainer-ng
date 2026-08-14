@@ -41,6 +41,19 @@ export class SettingsService {
     wordsLimit: '10',
 
     referenceView: 'all',
+
+    denominatorSelection: 'all',
+    selectedDenominators: [
+      '/2',
+      '/3',
+      '/4',
+      '/5',
+      '/6',
+      '/7',
+      '/8',
+      '/9',
+      '/10',
+    ],
   };
 
   private readonly _settings = signal<Settings>(this.DEFAULT_SETTINGS);
@@ -141,6 +154,20 @@ export class SettingsService {
     this.updateSettings((settings) => ({
       ...settings,
       referenceView,
+    }));
+  }
+
+  setDenominatorSelection(denominatorSelection: 'all' | 'custom') {
+    this.updateSettings((settings) => ({
+      ...settings,
+      denominatorSelection: denominatorSelection,
+    }));
+  }
+
+  setSelectedDenominators(selectedDenominators: string[]) {
+    this.updateSettings((settings) => ({
+      ...settings,
+      selectedDenominators,
     }));
   }
 }

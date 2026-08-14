@@ -97,14 +97,44 @@ export class ConversionEngine {
         return review;
       }
 
-      this.conversions = this.randomService.shuffle([...FRACTION_CONVERSIONS]);
+      this.resetConversions();
     }
 
     return this.conversions.shift()!;
   }
 
+  resetConversions(): void {
+    const { denominatorSelection, selectedDenominators } =
+      this.settingsService.settings();
+
+    if (denominatorSelection === 'all') {
+      this.conversions = this.randomService.shuffle([...FRACTION_CONVERSIONS]);
+    }
+
+    const selected = new Set(selectedDenominators);
+
+    const converisons = FRACTION_CONVERSIONS.filter((conversion) => {
+      const denominator = `/${conversion.fraction.split('/')[1]}`;
+      return selected.has(denominator);
+    });
+
+    this.conversions = this.randomService.shuffle([...converisons]);
+  }
+
   getConversionsReference(): FractionConversion[] {
-    return FRACTION_CONVERSIONS;
+    const { denominatorSelection, selectedDenominators } =
+      this.settingsService.settings();
+
+    if (denominatorSelection === 'all') {
+      return FRACTION_CONVERSIONS;
+    }
+
+    const selected = new Set(selectedDenominators);
+
+    return FRACTION_CONVERSIONS.filter((conversion) => {
+      const denominator = `/${conversion.fraction.split('/')[1]}`;
+      return selected.has(denominator);
+    });
   }
 
   reset() {

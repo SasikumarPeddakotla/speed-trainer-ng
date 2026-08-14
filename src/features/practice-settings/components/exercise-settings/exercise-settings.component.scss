@@ -6,7 +6,7 @@
   margin-bottom: 12px;
   font-size: 14px;
   font-weight: 700;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
   color: #6b7280;
 }
@@ -15,7 +15,7 @@
   padding: 16px 18px;
   background: white;
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .setting {
@@ -37,7 +37,7 @@ select {
   border: none;
   border-radius: 16px;
   background: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   font-size: 16px;
 }
 
@@ -59,6 +59,19 @@ select {
   color: white;
 }
 
+.denominator-chip {
+  min-width: 44px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.denominator-chip.selected {
+  background: #2563eb;
+  color: white;
+}
+
 .vocabulary-size {
   display: flex;
   justify-content: space-between;
@@ -69,7 +82,7 @@ select {
   border-radius: 16px;
   padding: 12px 16px;
 
-  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .countDiv {
@@ -113,7 +126,7 @@ select {
   font-size: 24px;
   cursor: pointer;
 
-  transition: .2s;
+  transition: 0.2s;
 }
 
 .step-btn:hover {
@@ -121,5 +134,5 @@ select {
 }
 
 .step-btn:active {
-  transform: scale(.95);
+  transform: scale(0.95);
 }

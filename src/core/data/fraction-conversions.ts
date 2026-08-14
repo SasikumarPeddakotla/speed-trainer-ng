@@ -128,13 +128,27 @@ export const FRACTION_CONVERSIONS: FractionConversion[] = [
   { fraction: '17/20', percentage: '85', decimal: '0.85' },
   { fraction: '19/20', percentage: '95', decimal: '0.95' },
 
-  // Very Important Exam Shortcuts
+  // 25
   { fraction: '1/25', percentage: '4', decimal: '0.04' },
+
+  // 40
   { fraction: '1/40', percentage: '2.5', decimal: '0.025' },
+
+  // 50
   { fraction: '1/50', percentage: '2', decimal: '0.02' },
+
+  // 80
   { fraction: '1/80', percentage: '1.25', decimal: '0.0125' },
+
+  // 100
   { fraction: '1/100', percentage: '1', decimal: '0.01' },
+
+  // 125
   { fraction: '1/125', percentage: '0.8', decimal: '0.008' },
+
+  // 200
   { fraction: '1/200', percentage: '0.5', decimal: '0.005' },
+
+  // 400
   { fraction: '1/400', percentage: '0.25', decimal: '0.0025' },
 ];

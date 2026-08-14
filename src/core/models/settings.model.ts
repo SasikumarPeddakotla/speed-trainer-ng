@@ -26,4 +26,7 @@ export interface Settings {
   wordsLimit: string;
 
   referenceView: 'all' | 'weak' | 'bookmark';
+
+  denominatorSelection: 'all' | 'custom';
+  selectedDenominators: string[];
 }

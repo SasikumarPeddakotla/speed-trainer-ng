@@ -3,7 +3,8 @@
   hasSetting(SettingType.TableSelection) ||
   hasSetting(SettingType.MultiplierLimit) ||
   hasSetting(SettingType.NumberRange) ||
-  hasSetting(SettingType.WordsLimit)
+  hasSetting(SettingType.WordsLimit) ||
+  hasSetting(SettingType.Denominator)
 ) {
   <div class="section">
     <div class="section-title">Exercise Settings</div>
@@ -128,6 +129,38 @@
           </button>
         </div>
       </div>
+    }
+
+    @if (hasSetting(SettingType.Denominator)) {
+      <div class="setting">
+        <label>Denominator</label>
+
+        <select
+          [ngModel]="denominatorSelection()"
+          (ngModelChange)="setDenominatorSelection($event)"
+        >
+          <option value="all">All</option>
+          <option value="custom">Custom</option>
+        </select>
+      </div>
+      @if (denominatorSelection() === "custom") {
+        <div class="setting">
+          <label>Choose Denominators</label>
+
+          <div class="table-grid">
+            @for (denominator of denominators; track denominator) {
+              <button
+                type="button"
+                class="denominator-chip"
+                [class.selected]="isDenominatorSelected(denominator)"
+                (click)="toggleDenominator(denominator)"
+              >
+                {{ denominator }}
+              </button>
+            }
+          </div>
+        </div>
+      }
     }
   </div>
 }

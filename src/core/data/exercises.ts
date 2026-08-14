@@ -144,7 +144,7 @@ export const exercises: Exercise[] = [
     topic: 'conversions',
     implemented: true,
 
-    settings: [SettingType.SessionType],
+    settings: [SettingType.SessionType, SettingType.Denominator],
   },
   {
     title: 'Decimal → Fraction',
@@ -153,7 +153,7 @@ export const exercises: Exercise[] = [
     topic: 'conversions',
     implemented: true,
 
-    settings: [SettingType.SessionType],
+    settings: [SettingType.SessionType, SettingType.Denominator],
   },
   {
     title: 'Fraction → Percentage',
@@ -162,7 +162,7 @@ export const exercises: Exercise[] = [
     topic: 'conversions',
     implemented: true,
 
-    settings: [SettingType.SessionType],
+    settings: [SettingType.SessionType, SettingType.Denominator],
   },
   {
     title: 'Percentage → Fraction',
@@ -171,7 +171,7 @@ export const exercises: Exercise[] = [
     topic: 'conversions',
     implemented: true,
 
-    settings: [SettingType.SessionType],
+    settings: [SettingType.SessionType, SettingType.Denominator],
   },
   {
     title: 'Decimal → Percentage',

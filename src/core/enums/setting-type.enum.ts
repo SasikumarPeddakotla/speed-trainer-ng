@@ -10,4 +10,6 @@ export enum SettingType {
   NumberRange = 'numberRange',
 
   WordsLimit = 'wordsLimit',
+
+  Denominator = 'denominator',
 }

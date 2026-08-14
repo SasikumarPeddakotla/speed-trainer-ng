@@ -1,4 +1,4 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, computed, inject, OnInit } from '@angular/core';
 
 import { SettingsService } from '../../../../core/services/settings.service';
 import { SettingType } from '../../../../core/enums/setting-type.enum';
@@ -16,6 +16,7 @@ import { VocabularyEngine } from '../../../../core/engines/vocabulary.engine';
 export class ExerciseSettingsComponent {
   readonly SettingType = SettingType;
   readonly tables = Array.from({ length: 19 }, (_, i) => i + 2);
+  readonly denominators = Array.from({ length: 15 }, (_, i) => `/${i + 2}`);
 
   readonly settingsService = inject(SettingsService);
 
@@ -158,5 +159,42 @@ export class ExerciseSettingsComponent {
     input.value = value.toString();
 
     this.setWordsLimit(value);
+  }
+
+  denominatorSelection() {
+    return this.settingsService.settings().denominatorSelection;
+  }
+
+  setDenominatorSelection(value: 'all' | 'custom') {
+    this.settingsService.setDenominatorSelection(value);
+  }
+
+  selectedDenominators() {
+    return this.settingsService.settings().selectedDenominators;
+  }
+
+  isDenominatorSelected(denominator: string) {
+    return this.selectedDenominators().includes(denominator);
+  }
+
+  toggleDenominator(denominator: string) {
+    const selected = [...this.selectedDenominators()];
+
+    const index = selected.indexOf(denominator);
+
+    if (index === -1) {
+      selected.push(denominator);
+    } else {
+      // Don't allow removing the last selected table
+      if (selected.length === 1) {
+        return;
+      }
+
+      selected.splice(index, 1);
+    }
+
+    selected.sort((a, b) => Number(a.at(-1)) - Number(b.at(-1)));
+
+    this.settingsService.setSelectedDenominators(selected);
   }
 }
