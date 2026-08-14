@@ -68,8 +68,7 @@ select {
 }
 
 .start-btn {
-  width: 100%;
-  margin-top: 14px;
+  width: 400px;
   padding: 18px;
   border: none;
   border-radius: 18px;
@@ -79,6 +78,11 @@ select {
   font-weight: 600;
   cursor: pointer;
   transition: 0.2s;
+  position: fixed;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
 }
 
 .start-btn:hover {
