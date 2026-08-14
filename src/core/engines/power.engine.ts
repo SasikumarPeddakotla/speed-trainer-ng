@@ -4,6 +4,7 @@ import { Question } from '../models/question.model';
 import { RandomService } from '../../utils/random.service';
 import { ReviewService } from '../services/review.service';
 import { IdService } from '../../utils/id.service';
+import { BookmarkService } from '../services/bookmark.service';
 
 @Injectable({
   providedIn: 'root',
@@ -17,6 +18,7 @@ export class PowerEngine {
     private stateService: StateService,
     private reviewService: ReviewService,
     private idService: IdService,
+    private bookmarkService: BookmarkService,
   ) {}
 
   generateSquare(): Question<number> {
@@ -44,6 +46,19 @@ export class PowerEngine {
   }
 
   private nextNumber(): number {
+    const referenceView = this.stateService.navigation().referenceView;
+
+    switch (referenceView) {
+      case 'all':
+        return this.nextNormalNumber();
+      case 'weak':
+        return this.nextWeakNumber();
+      case 'bookmark':
+        return this.nextBookmarkNumber();
+    }
+  }
+
+  private nextNormalNumber(): number {
     let review = this.reviewService.getNextReviewQuestion<number>();
 
     if (review !== null) {
@@ -58,6 +73,27 @@ export class PowerEngine {
       }
 
       this.resetNumbers();
+    }
+
+    return this.numbers.shift()!;
+  }
+
+  private nextWeakNumber(): number {
+    if (this.numbers.length === 0) {
+      const mode = this.stateService.navigation().selectedExercise!.mode;
+      const reviewQuestions =
+        this.reviewService.getPendingQuestions<number>(mode);
+      this.numbers = this.randomService.shuffle(reviewQuestions);
+    }
+
+    return this.numbers.shift()!;
+  }
+
+  private nextBookmarkNumber(): number {
+    if (this.numbers.length === 0) {
+      const bookmarkQuestions =
+        this.bookmarkService.getBookmarkedQuestions<number>();
+      this.numbers = this.randomService.shuffle(bookmarkQuestions);
     }
 
     return this.numbers.shift()!;
