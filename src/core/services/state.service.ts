@@ -4,6 +4,8 @@ import { SessionType } from '../enums/session-type.enum';
 import { Exercise } from '../models/exercise.model';
 import { Subject } from '../models/subject.model';
 import { Topic } from '../models/topic.model';
+import { StorageService } from './storage.service';
+import { StorageKeys } from '../enums/storage-keys.enum';
 
 type ReferenceView = 'all' | 'weak' | 'bookmark';
 
@@ -37,24 +39,22 @@ interface PracticeState {
   providedIn: 'root',
 })
 export class StateService {
+  constructor(private storageService: StorageService) {
+    this.load();
+  }
+
   // =========================================================
-  // Navigation state
+  // Default values
   // =========================================================
 
-  private readonly _navigation = signal<NavigationState>({
+  private readonly DEFAULT_NAVIGATION: NavigationState = {
     selectedSubject: null,
     selectedTopic: null,
     selectedExercise: null,
     referenceView: 'all',
-  });
+  };
 
-  readonly navigation = this._navigation.asReadonly();
-
-  // =========================================================
-  // Practice state
-  // =========================================================
-
-  private readonly _practice = signal<PracticeState>({
+  private readonly DEFAULT_PRACTICE: PracticeState = {
     digitSelection: '1x1',
 
     tableSelection: 'random',
@@ -82,9 +82,55 @@ export class StateService {
       '/9',
       '/10',
     ],
-  });
+  };
+
+  // =========================================================
+  // Signals
+  // =========================================================
+
+  private readonly _navigation = signal<NavigationState>(
+    this.DEFAULT_NAVIGATION,
+  );
+
+  readonly navigation = this._navigation.asReadonly();
+
+  private readonly _practice = signal<PracticeState>(this.DEFAULT_PRACTICE);
 
   readonly practice = this._practice.asReadonly();
+
+  // =========================================================
+  // Persistence
+  // =========================================================
+
+  private save(): void {
+    this.storageService.set(StorageKeys.NavigationState, this._navigation());
+
+    this.storageService.set(StorageKeys.PracticeState, this._practice());
+  }
+
+  private load(): void {
+    const savedNavigation = this.storageService.get<NavigationState>(
+      StorageKeys.NavigationState,
+    );
+
+    const savedPractice = this.storageService.get<PracticeState>(
+      StorageKeys.PracticeState,
+    );
+
+    if (savedNavigation) {
+      this._navigation.set({
+        ...this.DEFAULT_NAVIGATION,
+        ...savedNavigation,
+      });
+    }
+
+    if (savedPractice) {
+      this._practice.set({
+        ...this.DEFAULT_PRACTICE,
+        ...savedPractice,
+      });
+    }
+  }
 
   // =========================================================
   // Navigation helpers
@@ -94,6 +140,7 @@ export class StateService {
     updater: (state: NavigationState) => NavigationState,
   ): void {
     this._navigation.update(updater);
+    this.save();
   }
 
   setSubject(subject: Subject): void {
@@ -125,12 +172,8 @@ export class StateService {
   }
 
   resetNavigation(): void {
-    this._navigation.set({
-      selectedSubject: null,
-      selectedTopic: null,
-      selectedExercise: null,
-      referenceView: 'all',
-    });
+    this._navigation.set(this.DEFAULT_NAVIGATION);
+    this.save();
   }
 
   // =========================================================
@@ -141,6 +184,7 @@ export class StateService {
     updater: (state: PracticeState) => PracticeState,
   ): void {
     this._practice.update(updater);
+    this.save();
   }
 
   setTableSelection(tableSelection: 'random' | 'custom'): void {
@@ -221,35 +265,8 @@ export class StateService {
   }
 
   resetPractice(): void {
-    this._practice.set({
-      digitSelection: '1x1',
-
-      tableSelection: 'random',
-      selectedTables: [2, 3, 4, 5, 6, 7, 8, 9, 10],
-      multiplierLimit: '10',
-
-      numberRange: '10',
-
-      sessionType: SessionType.Practice,
-
-      countdownDuration: 60,
-      questionTarget: 10,
-
-      wordsLimit: '10',
-
-      denominatorSelection: 'all',
-      selectedDenominators: [
-        '/2',
-        '/3',
-        '/4',
-        '/5',
-        '/6',
-        '/7',
-        '/8',
-        '/9',
-        '/10',
-      ],
-    });
+    this._practice.set(this.DEFAULT_PRACTICE);
+    this.save();
   }
 
   // =========================================================
@@ -257,7 +274,10 @@ export class StateService {
   // =========================================================
 
   resetAll(): void {
-    this.resetNavigation();
-    this.resetPractice();
+    this._navigation.set(this.DEFAULT_NAVIGATION);
+    this._practice.set(this.DEFAULT_PRACTICE);
+
+    this.storageService.remove(StorageKeys.NavigationState);
+    this.storageService.remove(StorageKeys.PracticeState);
   }
 }
