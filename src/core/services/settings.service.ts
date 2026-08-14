@@ -5,20 +5,13 @@ import { SessionType } from '../enums/session-type.enum';
 import { Exercise } from '../models/exercise.model';
 import { Subject } from '../models/subject.model';
 import { Topic } from '../models/topic.model';
-import { StorageService } from './storage.service';
 import { StorageKeys } from '../enums/storage-keys.enum';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SettingsService {
-  constructor(private storageService: StorageService) {
-    const saved = this.storageService.get<Settings>(StorageKeys.Settings);
-
-    if (saved) {
-      this._settings.set(saved);
-    }
-  }
+  constructor() {}
 
   private readonly DEFAULT_SETTINGS: Settings = {
     selectedSubject: null,
@@ -62,8 +55,6 @@ export class SettingsService {
 
   private updateSettings(updater: (settings: Settings) => Settings): void {
     this._settings.update(updater);
-
-    this.storageService.set(StorageKeys.Settings, this._settings());
   }
 
   setSubject(subject: Subject) {
