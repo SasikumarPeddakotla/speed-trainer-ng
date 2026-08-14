@@ -83,35 +83,35 @@ export class BookmarksComponent {
     this.router.navigate([`${exercise.route}/reference`]);
   }
 
-  practiceBookmarks(): void {
-    const exercise: Exercise = {
-      title: 'Bookmarks',
-      mode: PracticeMode.Bookmark,
-      topic: 'bookmarks',
-      route: 'bookmarks',
-      implemented: true,
-      settings: [],
-    };
-    const topic: Topic = {
-      title: 'Bookmarks',
-      route: 'bookmarks',
-      subject: '',
-      implemented: true,
-    };
-    const subject: Subject = {
-      title: 'Bookmarks',
-      route: 'bookmarks',
-      icon: '',
-    };
+  // practiceBookmarks(): void {
+  //   const exercise: Exercise = {
+  //     title: 'Bookmarks',
+  //     mode: PracticeMode.Bookmark,
+  //     topic: 'bookmarks',
+  //     route: 'bookmarks',
+  //     implemented: true,
+  //     settings: [],
+  //   };
+  //   const topic: Topic = {
+  //     title: 'Bookmarks',
+  //     route: 'bookmarks',
+  //     subject: '',
+  //     implemented: true,
+  //   };
+  //   const subject: Subject = {
+  //     title: 'Bookmarks',
+  //     route: 'bookmarks',
+  //     icon: '',
+  //   };
 
-    this.stateService.setExercise(exercise);
-    this.stateService.setTopic(topic);
-    this.stateService.setSubject(subject);
+  //   this.stateService.setExercise(exercise);
+  //   this.stateService.setTopic(topic);
+  //   this.stateService.setSubject(subject);
 
-    this.stateService.setSessionType(SessionType.QuestionChallenge);
+  //   this.stateService.setSessionType(SessionType.QuestionChallenge);
 
-    this.stateService.setQuestionTarget(this.totalBookmarks);
+  //   this.stateService.setQuestionTarget(this.totalBookmarks);
 
-    this.router.navigate([exercise.route, 'practice-settings']);
-  }
+  //   this.router.navigate([exercise.route, 'practice-settings']);
+  // }
 }

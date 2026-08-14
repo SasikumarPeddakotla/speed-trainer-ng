@@ -1,153 +1,155 @@
-@if(filteredSynonyms().length>0 || filteredAntonyms().length>0 || filteredIdioms().length>0 || filteredOneWords().length>0){
-<div class="reference-grid">
-  @if (mode === PracticeMode.Synonyms) {
-    @for (word of filteredSynonyms(); track word.word; let i = $index) {
-      <div class="reference-card">
-        <div class="card-header">
-          <h3>{{ i + 1 }}. {{ word.word }} ({{ word.partsOfSpeech }})</h3>
-          <button
-            type="button"
-            class="bookmark-btn"
-            [class.bookmarked]="isBookmarked(word)"
-            (click)="toggleBookmark(word)"
-          >
-            &#9733;
-          </button>
-        </div>
+@if (
+  filteredSynonyms().length > 0 ||
+  filteredAntonyms().length > 0 ||
+  filteredIdioms().length > 0 ||
+  filteredOneWords().length > 0
+) {
+  <div class="reference-grid">
+    @if (mode === PracticeMode.Synonyms) {
+      @for (word of filteredSynonyms(); track word.word; let i = $index) {
+        <div class="reference-card">
+          <div class="card-header">
+            <h3>{{ i + 1 }}. {{ word.word }} ({{ word.partsOfSpeech }})</h3>
+            <button
+              type="button"
+              class="bookmark-btn"
+              [class.bookmarked]="isBookmarked(word)"
+              (click)="toggleBookmark(word)"
+            >
+              &#9733;
+            </button>
+          </div>
 
-        <p>
-          <strong>Meaning</strong><br />
-          {{ word.meaning }}
-        </p>
-
-        <p>
-          <strong>Synonym{{ word.synonyms.length > 1 ? "s" : "" }}</strong
-          ><br />
-          {{ word.synonyms.join(", ") }}
-        </p>
-
-        <p>
-          <strong>Ex:- </strong>
-          <span
-            [innerHTML]="
-              formatterService.formatExample(word.word, word.example)
-            "
-          ></span>
-        </p>
-      </div>
-    }
-  }
-  @if (mode === PracticeMode.Antonyms) {
-    @for (word of filteredAntonyms(); track word.word; let i = $index) {
-      <div class="reference-card">
-        <div class="card-header">
-          <h3>{{ i + 1 }}. {{ word.word }} ({{ word.partsOfSpeech }})</h3>
-
-          <button
-            type="button"
-            class="bookmark-btn"
-            [class.bookmarked]="isBookmarked(word)"
-            (click)="toggleBookmark(word)"
-          >
-            &#9733;
-          </button>
-        </div>
-
-        <p>
-          <strong>Meaning</strong><br />
-          {{ word.meaning }}
-        </p>
-
-        <p>
-          <strong>Antonym{{ word.antonyms.length > 1 ? "s" : "" }}</strong
-          ><br />
-          {{ word.antonyms.join(", ") }}
-        </p>
-
-        <p>
-          <strong>Ex:- </strong>
-          <span
-            [innerHTML]="
-              formatterService.formatExample(word.word, word.example)
-            "
-          ></span>
-        </p>
-      </div>
-    }
-  }
-  @if (mode === PracticeMode.OneWord) {
-    @for (word of filteredOneWords(); track word.word; let i = $index) {
-      <div class="reference-card">
-        <div class="card-header">
-          <h3>{{ i + 1 }}. {{ word.word }} ({{ word.partsOfSpeech }})</h3>
-
-          <button
-            type="button"
-            class="bookmark-btn"
-            [class.bookmarked]="isBookmarked(word)"
-            (click)="toggleBookmark(word)"
-          >
-            &#9733;
-          </button>
-        </div>
-
-        <p>
-          <strong>Meaning</strong><br />
-          {{ word.meaning }}
-        </p>
-        <p>
-          <strong>Ex:- </strong>
-          <span
-            [innerHTML]="
-              formatterService.formatExample(word.word, word.example)
-            "
-          ></span>
-        </p>
-      </div>
-    }
-  }
-  @if (mode === PracticeMode.Idioms) {
-    @for (word of filteredIdioms(); track word.idiom; let i = $index) {
-      <div class="reference-card">
-        <div class="card-header">
-          <h3>{{ i + 1 }}. {{ word.idiom }}</h3>
-
-          <button
-            type="button"
-            class="bookmark-btn"
-            [class.bookmarked]="isBookmarked(word)"
-            (click)="toggleBookmark(word)"
-          >
-            &#9733;
-          </button>
-        </div>
-
-        <p>
-          <strong>Meaning</strong><br />
-          {{ word.meaning }}
-        </p>
-        <p>
-          <strong>Ex:- </strong>
-          <span
-            [innerHTML]="
-              formatterService.formatExample(word.idiom, word.example)
-            "
-          ></span>
-        </p>
-        <details class="origin-details">
-          <summary><strong>Origin</strong></summary>
-
-          <p class="origin-text">
-            {{ word.origin }}
+          <p>
+            <strong>Meaning</strong><br />
+            {{ word.meaning }}
           </p>
-        </details>
-      </div>
+
+          <p>
+            <strong>Synonym{{ word.synonyms.length > 1 ? "s" : "" }}</strong
+            ><br />
+            {{ word.synonyms.join(", ") }}
+          </p>
+
+          <p>
+            <strong>Ex:- </strong>
+            <span
+              [innerHTML]="
+                formatterService.formatExample(word.word, word.example)
+              "
+            ></span>
+          </p>
+        </div>
+      }
     }
-  }
-</div>
-}
-@else{
-  <p class="no-data">
-    No data available
-  </p>
+    @if (mode === PracticeMode.Antonyms) {
+      @for (word of filteredAntonyms(); track word.word; let i = $index) {
+        <div class="reference-card">
+          <div class="card-header">
+            <h3>{{ i + 1 }}. {{ word.word }} ({{ word.partsOfSpeech }})</h3>
+
+            <button
+              type="button"
+              class="bookmark-btn"
+              [class.bookmarked]="isBookmarked(word)"
+              (click)="toggleBookmark(word)"
+            >
+              &#9733;
+            </button>
+          </div>
+
+          <p>
+            <strong>Meaning</strong><br />
+            {{ word.meaning }}
+          </p>
+
+          <p>
+            <strong>Antonym{{ word.antonyms.length > 1 ? "s" : "" }}</strong
+            ><br />
+            {{ word.antonyms.join(", ") }}
+          </p>
+
+          <p>
+            <strong>Ex:- </strong>
+            <span
+              [innerHTML]="
+                formatterService.formatExample(word.word, word.example)
+              "
+            ></span>
+          </p>
+        </div>
+      }
+    }
+    @if (mode === PracticeMode.OneWord) {
+      @for (word of filteredOneWords(); track word.phrase; let i = $index) {
+        <div class="reference-card">
+          <div class="card-header">
+            <h3>{{ i + 1 }}. {{ word.word }} ({{ word.partsOfSpeech }})</h3>
+
+            <button
+              type="button"
+              class="bookmark-btn"
+              [class.bookmarked]="isBookmarked(word)"
+              (click)="toggleBookmark(word)"
+            >
+              &#9733;
+            </button>
+          </div>
+
+          <p>
+            <strong>Meaning</strong><br />
+            {{ word.meaning }}
+          </p>
+          <p>
+            <strong>Ex:- </strong>
+            <span
+              [innerHTML]="
+                formatterService.formatExample(word.word, word.example)
+              "
+            ></span>
+          </p>
+        </div>
+      }
+    }
+    @if (mode === PracticeMode.Idioms) {
+      @for (word of filteredIdioms(); track word.idiom; let i = $index) {
+        <div class="reference-card">
+          <div class="card-header">
+            <h3>{{ i + 1 }}. {{ word.idiom }}</h3>
+
+            <button
+              type="button"
+              class="bookmark-btn"
+              [class.bookmarked]="isBookmarked(word)"
+              (click)="toggleBookmark(word)"
+            >
+              &#9733;
+            </button>
+          </div>
+
+          <p>
+            <strong>Meaning</strong><br />
+            {{ word.meaning }}
+          </p>
+          <p>
+            <strong>Ex:- </strong>
+            <span
+              [innerHTML]="
+                formatterService.formatExample(word.idiom, word.example)
+              "
+            ></span>
+          </p>
+          <details class="origin-details">
+            <summary><strong>Origin</strong></summary>
+
+            <p class="origin-text">
+              {{ word.origin }}
+            </p>
+          </details>
+        </div>
+      }
+    }
+  </div>
+} @else {
+  <p class="no-data">No data available</p>
 }
