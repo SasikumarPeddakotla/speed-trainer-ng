@@ -7,6 +7,8 @@ import { Alphabet } from '../models/alphabet.model';
 import { RandomService } from '../../utils/random.service';
 import { ReviewService } from '../services/review.service';
 import { IdService } from '../../utils/id.service';
+import { StateService } from '../services/state.service';
+import { BookmarkService } from '../services/bookmark.service';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +20,8 @@ export class AlphabetEngine {
   constructor(
     private reviewService: ReviewService,
     private idService: IdService,
+    private stateService: StateService,
+    private bookmarkService: BookmarkService,
   ) {}
 
   letterToPosition(): Question<Alphabet> {
@@ -106,6 +110,19 @@ export class AlphabetEngine {
   }
 
   private nextAlphabet(): Alphabet {
+    const referenceView = this.stateService.navigation().referenceView;
+
+    switch (referenceView) {
+      case 'all':
+        return this.nextNormalAlphabet();
+      case 'weak':
+        return this.nextWeakAlphabet();
+      case 'bookmark':
+        return this.nextBookmarkAlphabet();
+    }
+  }
+
+  nextNormalAlphabet(): Alphabet {
     let review = this.reviewService.getNextReviewQuestion<Alphabet>();
 
     if (review) {
@@ -120,6 +137,27 @@ export class AlphabetEngine {
       }
 
       this.alphabets = this.randomService.shuffle([...alphabetData]);
+    }
+
+    return this.alphabets.shift()!;
+  }
+
+  nextWeakAlphabet(): Alphabet {
+    if (this.alphabets.length === 0) {
+      const mode = this.stateService.navigation().selectedExercise!.mode;
+      const reviewQuestions =
+        this.reviewService.getPendingQuestions<Alphabet>(mode);
+      this.alphabets = this.randomService.shuffle(reviewQuestions);
+    }
+
+    return this.alphabets.shift()!;
+  }
+
+  nextBookmarkAlphabet(): Alphabet {
+    if (this.alphabets.length === 0) {
+      const bookmarkQuestions =
+        this.bookmarkService.getBookmarkedQuestions<Alphabet>();
+      this.alphabets = this.randomService.shuffle(bookmarkQuestions);
     }
 
     return this.alphabets.shift()!;

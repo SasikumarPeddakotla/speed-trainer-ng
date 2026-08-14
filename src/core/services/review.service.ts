@@ -5,6 +5,7 @@ import { StorageKeys } from '../enums/storage-keys.enum';
 import { StorageService } from './storage.service';
 import { PracticeMode } from '../enums/practice-mode.enum';
 import { SnackbarService } from './snackbar.service';
+import { StateService } from './state.service';
 
 interface ReviewStorage {
   version: number;
@@ -19,6 +20,7 @@ export class ReviewService {
     private idService: IdService,
     private storageService: StorageService,
     private snackbarService: SnackbarService,
+    private stateService: StateService,
   ) {
     this.load();
   }
@@ -82,11 +84,14 @@ export class ReviewService {
   }
 
   recordWrong<T>(questionData: T, questionId: string): boolean {
-    console.log('review serive questionData: ', questionData);
     const exerciseKey = this.idService.getExerciseKey();
 
     if (exerciseKey === PracticeMode.Bookmark) {
       return false;
+    }
+
+    if (this.stateService.navigation().referenceView === 'weak') {
+      return true;
     }
 
     const currentReview = this.currentReviewItem.get(exerciseKey);
@@ -140,6 +145,10 @@ export class ReviewService {
 
     if (exerciseKey === PracticeMode.Bookmark) {
       return false;
+    }
+
+    if (this.stateService.navigation().referenceView === 'weak') {
+      return true;
     }
 
     const review = this.currentReviewItem.get(exerciseKey);
