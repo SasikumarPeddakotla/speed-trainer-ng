@@ -6,25 +6,172 @@
   align-items: center;
   justify-content: center;
 
-  background: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.75);
 
   z-index: 9999;
 }
 
-.loading-spinner {
-  width: 42px;
-  height: 42px;
+.stopwatch-loader {
+  position: relative;
 
-  border: 4px solid #dbeafe;
-  border-top-color: #2563eb;
+  width: 76px;
+  height: 86px;
+
+  display: flex;
+  justify-content: center;
+}
+
+/* --------------------------------
+   Stopwatch top button
+--------------------------------- */
+
+.stopwatch-button {
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: 18px;
+  height: 9px;
+
+  background: #2563eb;
+
+  border-radius: 5px 5px 2px 2px;
+
+  transform: translateX(-50%);
+
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
+
+/* Small connector between button and body */
+
+.stopwatch-button::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 7px;
+
+  width: 7px;
+  height: 7px;
+
+  background: #2563eb;
+
+  transform: translateX(-50%);
+
+  border-radius: 2px;
+}
+
+/* --------------------------------
+   Stopwatch body
+--------------------------------- */
+
+.stopwatch-face {
+  position: absolute;
+
+  top: 13px;
+
+  width: 64px;
+  height: 64px;
+
+  background: white;
+
+  border: 4px solid #2563eb;
 
   border-radius: 50%;
 
-  animation: spin 0.8s linear infinite;
+  box-shadow:
+    0 7px 18px rgba(37, 99, 235, 0.15),
+    0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-@keyframes spin {
+/* --------------------------------
+   Tick marks
+--------------------------------- */
+
+.clock-tick {
+  position: absolute;
+
+  left: 48%;
+  top: 5%;
+
+  width: 2px;
+  height: 5px;
+
+  background: #94a3b8;
+
+  border-radius: 2px;
+
+  transform-origin: 50% 26px;
+}
+
+/* Major ticks at 12, 3, 6 and 9 */
+
+.clock-tick.major {
+  width: 3px;
+  height: 7px;
+
+  background: #64748b;
+}
+
+/* --------------------------------
+   Stopwatch hand
+--------------------------------- */
+
+.stopwatch-hand {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 3px;
+  height: 21px;
+
+  background: #f59e0b;
+
+  border-radius: 3px;
+
+  transform-origin: 50% 100%;
+  transform: translate(-50%, -100%);
+
+  animation: stopwatch-spin 1s linear infinite;
+}
+
+/* --------------------------------
+   Center
+--------------------------------- */
+
+.stopwatch-center {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 8px;
+  height: 8px;
+
+  background: #f59e0b;
+
+  border: 2px solid white;
+
+  border-radius: 50%;
+
+  transform: translate(-50%, -50%);
+
+  z-index: 2;
+}
+
+/* --------------------------------
+   Animation
+--------------------------------- */
+
+@keyframes stopwatch-spin {
+  from {
+    transform: translate(-50%, -100%) rotate(0deg);
+  }
+
   to {
-    transform: rotate(360deg);
+    transform: translate(-50%, -100%) rotate(360deg);
   }
 }

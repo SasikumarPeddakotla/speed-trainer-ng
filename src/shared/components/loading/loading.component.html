@@ -1,5 +1,26 @@
 @if (loadingService.isLoading()) {
   <div class="loading-overlay">
-    <div class="loading-spinner" aria-label="Loading"></div>
+    <div class="stopwatch-loader" aria-label="Loading">
+      <!-- Top button -->
+      <div class="stopwatch-button"></div>
+
+      <!-- Stopwatch body -->
+      <div class="stopwatch-face">
+        <!-- Clock ticks -->
+        @for (tick of clockTicks; track tick) {
+          <span
+            class="clock-tick"
+            [class.major]="tick % 3 === 0"
+            [style.transform]="'rotate(' + tick * 30 + 'deg)'"
+          ></span>
+        }
+
+        <!-- Rotating hand -->
+        <div class="stopwatch-hand"></div>
+
+        <!-- Center -->
+        <div class="stopwatch-center"></div>
+      </div>
+    </div>
   </div>
 }
