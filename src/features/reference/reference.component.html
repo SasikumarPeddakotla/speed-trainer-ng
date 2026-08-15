@@ -96,19 +96,17 @@
 }
 
 @if (referenceTab() === "all" && counts.allCount > 0) {
-  <div class="floating-practice">
-    <button class="practice-btn" (click)="practice()">Practice All</button>
-  </div>
+  <!-- <div class="floating-practice"> -->
+  <button class="practice-btn" (click)="practice()">Practice All</button>
+  <!-- </div> -->
 }
 @if (referenceTab() === "weak" && counts.weakCount > 0) {
-  <div class="floating-practice">
-    <button class="practice-btn" (click)="practice()">Practice Weak</button>
-  </div>
+  <!-- <div class="floating-practice"> -->
+  <button class="practice-btn" (click)="practice()">Practice Weak</button>
+  <!-- </div> -->
 }
 @if (referenceTab() === "bookmark" && counts.bookmarkCount > 0) {
-  <div class="floating-practice">
-    <button class="practice-btn" (click)="practice()">
-      Practice Bookmarks
-    </button>
-  </div>
+  <!-- <div class="floating-practice"> -->
+  <button class="practice-btn" (click)="practice()">Practice Bookmarks</button>
+  <!-- </div> -->
 }

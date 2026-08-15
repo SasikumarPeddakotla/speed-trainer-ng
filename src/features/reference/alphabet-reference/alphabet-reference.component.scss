@@ -52,13 +52,13 @@
   border-bottom: none;
 }
 
-.alphabet-table td:first-child {
+.alphabet-table td:first-child:not(.mirror-pair) {
   font-size: 22px;
   font-weight: 700;
   color: #2563eb;
 }
 
-.alphabet-table td:nth-child(4) {
+.alphabet-table td:nth-child(2):not(.mnemonic-cell) {
   font-size: 22px;
   font-weight: 700;
   color: #0f766e;
@@ -110,9 +110,17 @@
 }
 
 .mirror-pair {
-  font-size: 20px;
   font-weight: 700;
-  color: #0f766e;
+
+  .letter {
+    color: #2563eb;
+    font-size: 22px;
+  }
+
+  .mirror {
+    color: #0f766e;
+    font-size: 22px;
+  }
 }
 
 .alphabet-table {

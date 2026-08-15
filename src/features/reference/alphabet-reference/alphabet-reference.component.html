@@ -1,68 +1,75 @@
 @if (alphabets().length > 0) {
-  <p class="reference-hint">
-    @if (!showMnemonics()) {
-      💡 Tap the <strong>Mirror ⇄</strong> to view mirror pair mnemonics.
-    } @else {
-      💡 Tap the <strong>Mirror Pair ⇄</strong> to return to alphabet positions.
-    }
-  </p>
-
   <div class="alphabet-table-container">
     <table class="alphabet-table">
       <thead>
-        @if (!showMnemonics()) {
-          <tr>
-            <th>Letter</th>
-            <th>Position</th>
-            <th>Reverse</th>
-            <th
-              class="clickable"
-              (click)="toggleReferenceView()"
-              style="background: blue"
-            >
-              Mirror ⇄
-            </th>
-            <th></th>
-          </tr>
-        } @else {
-          <tr>
-            <th
-              class="clickable"
-              (click)="toggleReferenceView()"
-              style="background: blue"
-            >
-              Mirror Pair ⇄
-            </th>
-
-            <th>Mnemonic</th>
-
-            @if (referenceTab() === "bookmark") {
-              <th></th>
+        <tr>
+          @switch (mode) {
+            @case (PracticeMode.LetterToPosition) {
+              <th>Letter</th>
+              <th>Position</th>
             }
-          </tr>
-        }
+
+            @case (PracticeMode.PositionToLetter) {
+              <th>Position</th>
+              <th>Letter</th>
+            }
+
+            @case (PracticeMode.LetterToReversePosition) {
+              <th>Letter</th>
+              <th>Reverse Position</th>
+            }
+
+            @case (PracticeMode.ReversePositionToLetter) {
+              <th>Reverse Position</th>
+              <th>Letter</th>
+            }
+
+            @case (PracticeMode.MirrorLetter) {
+              <th>Mirror Pair</th>
+              <th>Mnemonic</th>
+            }
+          }
+          <!-- for bookmark -->
+          <th></th>
+        </tr>
       </thead>
 
       <tbody>
         @for (alphabet of alphabets(); track alphabet.letter) {
           <tr>
-            @if (!showMnemonics()) {
-              <td>{{ alphabet.letter }}</td>
-              <td>{{ alphabet.position }}</td>
-              <td>{{ alphabet.reversePosition }}</td>
-              <td>{{ alphabet.mirrorLetter }}</td>
-            } @else {
-              <td class="mirror-pair">
-                {{ alphabet.letter }} ↔ {{ alphabet.mirrorLetter }}
-              </td>
+            @switch (mode) {
+              @case (PracticeMode.LetterToPosition) {
+                <td>{{ alphabet.letter }}</td>
+                <td>{{ alphabet.position }}</td>
+              }
 
-              <td class="mnemonic-cell">
-                <span class="mnemonic-badge">
-                  {{ alphabet.mnemonic }}
-                </span>
-              </td>
+              @case (PracticeMode.PositionToLetter) {
+                <td>{{ alphabet.position }}</td>
+                <td>{{ alphabet.letter }}</td>
+              }
+
+              @case (PracticeMode.LetterToReversePosition) {
+                <td>{{ alphabet.letter }}</td>
+                <td>{{ alphabet.reversePosition }}</td>
+              }
+
+              @case (PracticeMode.ReversePositionToLetter) {
+                <td>{{ alphabet.reversePosition }}</td>
+                <td>{{ alphabet.letter }}</td>
+              }
+
+              @case (PracticeMode.MirrorLetter) {
+                <td class="mirror-pair">
+                  <span class="letter">{{ alphabet.letter }}</span> ↔
+                  <span class="mirror">{{ alphabet.mirrorLetter }}</span>
+                </td>
+                <td class="mnemonic-cell">
+                  <span class="mnemonic-badge">
+                    {{ alphabet.mnemonic }}
+                  </span>
+                </td>
+              }
             }
-
             <td>
               <button
                 type="button"

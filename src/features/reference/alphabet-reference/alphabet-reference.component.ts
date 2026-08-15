@@ -24,6 +24,8 @@ import { IdService } from '../../../utils/id.service';
   styleUrl: './alphabet-reference.component.scss',
 })
 export class AlphabetReferenceComponent {
+  readonly PracticeMode = PracticeMode;
+
   referenceTab = input<'all' | 'weak' | 'bookmark'>();
   count = output<{
     allCount: number;
@@ -69,12 +71,6 @@ export class AlphabetReferenceComponent {
         return this.allQuestions;
     }
   });
-
-  protected readonly showMnemonics = signal(false);
-
-  toggleReferenceView(): void {
-    this.showMnemonics.update((value) => !value);
-  }
 
   async toggleBookmark(alphabet: Alphabet): Promise<void> {
     const entry = {
