@@ -3,9 +3,38 @@
     <table class="conversion-table">
       <thead>
         <tr>
-          <th>Fraction</th>
-          <th>Percentage</th>
-          <th>Decimal</th>
+          @switch (mode) {
+            @case (PracticeMode.FractionToDecimal) {
+              <th>Fraction</th>
+              <th>Decimal</th>
+            }
+
+            @case (PracticeMode.DecimalToFraction) {
+              <th>Decimal</th>
+              <th>Fraction</th>
+            }
+
+            @case (PracticeMode.FractionToPercentage) {
+              <th>Fraction</th>
+              <th>Percentage</th>
+            }
+
+            @case (PracticeMode.PercentageToFraction) {
+              <th>Percentage</th>
+              <th>Fraction</th>
+            }
+
+            @case (PracticeMode.DecimalToPercentage) {
+              <th>Decimal</th>
+              <th>Percentage</th>
+            }
+
+            @case (PracticeMode.PercentageToDecimal) {
+              <th>Percentage</th>
+              <th>Decimal</th>
+            }
+          }
+          <!-- for bookmark -->
           <th></th>
         </tr>
       </thead>
@@ -13,9 +42,37 @@
       <tbody>
         @for (conversion of conversions(); track conversion.fraction) {
           <tr>
-            <td>{{ conversion.fraction }}</td>
-            <td>{{ conversion.percentage }}%</td>
-            <td>{{ conversion.decimal }}</td>
+            @switch (mode) {
+              @case (PracticeMode.FractionToDecimal) {
+                <td>{{ conversion.fraction }}</td>
+                <td>{{ conversion.decimal }}</td>
+              }
+
+              @case (PracticeMode.DecimalToFraction) {
+                <td>{{ conversion.decimal }}</td>
+                <td>{{ conversion.fraction }}</td>
+              }
+
+              @case (PracticeMode.FractionToPercentage) {
+                <td>{{ conversion.fraction }}</td>
+                <td>{{ conversion.percentage }} %</td>
+              }
+
+              @case (PracticeMode.PercentageToFraction) {
+                <td>{{ conversion.percentage }} %</td>
+                <td>{{ conversion.fraction }}</td>
+              }
+
+              @case (PracticeMode.DecimalToPercentage) {
+                <td>{{ conversion.decimal }}</td>
+                <td>{{ conversion.percentage }} %</td>
+              }
+
+              @case (PracticeMode.PercentageToDecimal) {
+                <td>{{ conversion.percentage }} %</td>
+                <td>{{ conversion.decimal }}</td>
+              }
+            }
             <td>
               <button
                 type="button"

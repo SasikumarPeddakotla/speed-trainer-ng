@@ -29,6 +29,8 @@ export class ConversionReferenceComponent {
   private bookmarkService = inject(BookmarkService);
   private idService = inject(IdService);
 
+  readonly PracticeMode = PracticeMode;
+
   referenceTab = input<'all' | 'weak' | 'bookmark'>();
   count = output<{
     allCount: number;
