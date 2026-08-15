@@ -12,7 +12,7 @@
       [class.active]="referenceTab() === 'all'"
       (click)="showQuestions('all')"
     >
-      All Questions ({{ counts.allCount }})
+      All ({{ counts.allCount }})
     </button>
 
     <button
@@ -21,7 +21,7 @@
       [class.active]="referenceTab() === 'weak'"
       (click)="showQuestions('weak')"
     >
-      Weak Questions ({{ counts.weakCount }})
+      Weak ({{ counts.weakCount }})
     </button>
 
     <button
@@ -95,17 +95,17 @@
   }
 }
 
-@if (referenceTab() === "all") {
+@if (referenceTab() === "all" && counts.allCount > 0) {
   <div class="floating-practice">
     <button class="practice-btn" (click)="practice()">Practice All</button>
   </div>
 }
-@if (referenceTab() === "weak") {
+@if (referenceTab() === "weak" && counts.weakCount > 0) {
   <div class="floating-practice">
     <button class="practice-btn" (click)="practice()">Practice Weak</button>
   </div>
 }
-@if (referenceTab() === "bookmark") {
+@if (referenceTab() === "bookmark" && counts.bookmarkCount > 0) {
   <div class="floating-practice">
     <button class="practice-btn" (click)="practice()">
       Practice Bookmarks
