@@ -1,86 +1,152 @@
 <div class="summary-container">
   <div class="summary-card">
-    <h1>🎉 Session Complete</h1>
+    <!-- Header -->
+    <div class="summary-header">
+      <div class="completion-icon">✓</div>
 
-    <div class="stat">
-      <span>✔ Correct</span>
-      <strong>{{ sessionService.correctCount() }}</strong>
+      <h1>Session Complete</h1>
+
+      <p>Your practice session is finished</p>
     </div>
 
-    <div class="stat">
-      <span>✖ Wrong</span>
-      <strong>{{ sessionService.wrongCount() }}</strong>
+    <!-- Statistics -->
+    <div class="stats">
+      <div class="stat correct-stat">
+        <span class="stat-icon">✓</span>
+
+        <div class="stat-content">
+          <span class="stat-label">Correct</span>
+          <strong>{{ sessionService.correctCount() }}</strong>
+        </div>
+      </div>
+
+      <div class="stat wrong-stat">
+        <span class="stat-icon">✕</span>
+
+        <div class="stat-content">
+          <span class="stat-label">Wrong</span>
+          <strong>{{ sessionService.wrongCount() }}</strong>
+        </div>
+      </div>
+
+      <div class="stat">
+        <span class="stat-icon">%</span>
+
+        <div class="stat-content">
+          <span class="stat-label">Accuracy</span>
+          <strong>{{ sessionService.accuracy() }}%</strong>
+        </div>
+      </div>
+
+      <div class="stat">
+        <span class="stat-icon">🔥</span>
+
+        <div class="stat-content">
+          <span class="stat-label">Best Streak</span>
+          <strong>{{ sessionService.bestStreak() }}</strong>
+        </div>
+      </div>
     </div>
 
-    <div class="stat">
-      <span>🎯 Accuracy</span>
-      <strong>{{ sessionService.accuracy() }}%</strong>
-    </div>
-
-    <div class="stat">
-      <span>🔥 Best Streak</span>
-      <strong>{{ sessionService.bestStreak() }}</strong>
-    </div>
-
+    <!-- Attempt History -->
     @if (attempts.length > 0) {
       <div class="history">
-        <h2>Attempt History</h2>
+        <div class="history-header">
+          <div>
+            <h2>Attempt History</h2>
 
-        @for (attempt of attempts; track $index) {
-          <div class="attempt">
-            <div class="attempt-result">
-              @if (attempt.correct) {
-                <span class="correct">✓</span>
-              } @else {
-                <span class="wrong">✗</span>
-              }
-            </div>
-
-            <div class="attempt-content">
-              <div class="question">
-                {{ attempt.question.question }}
-              </div>
-
-              <div class="answer">
-                Your answer:
-                <strong>{{ attempt.userAnswer || "—" }}</strong>
-              </div>
-
-              @if (!attempt.correct) {
-                <div class="correct-answer">
-                  Correct answer:
-                  <strong>{{ attempt.question.answer }}</strong>
-                </div>
-              }
-            </div>
-
-            <button
-              type="button"
-              class="bookmark-btn"
-              [class.bookmarked]="isBookmarked(attempt)"
-              (click)="toggleBookmark(attempt)"
-            >
-              ★
-            </button>
+            <span>
+              {{ attempts.length }}
+              {{ attempts.length === 1 ? "question" : "questions" }}
+            </span>
           </div>
-        }
+        </div>
+
+        <div class="attempt-list">
+          @for (attempt of attempts; track $index) {
+            <div
+              class="attempt"
+              [class.attempt-correct]="attempt.correct"
+              [class.attempt-wrong]="!attempt.correct"
+            >
+              <!-- Result -->
+              <div class="attempt-result">
+                @if (attempt.correct) {
+                  <span class="result-icon correct">✓</span>
+                } @else {
+                  <span class="result-icon wrong">✕</span>
+                }
+              </div>
+
+              <!-- Question -->
+              <div class="attempt-content">
+                <div class="question">
+                  {{ attempt.question.question }}
+                </div>
+
+                <div class="answer">
+                  <span>Your answer:</span>
+
+                  <strong>
+                    {{ attempt.userAnswer || "Not answered" }}
+                  </strong>
+                </div>
+
+                @if (!attempt.correct) {
+                  <div class="correct-answer">
+                    <span>Correct answer:</span>
+
+                    <strong>
+                      {{ attempt.question.answer }}
+                    </strong>
+                  </div>
+                }
+              </div>
+
+              <!-- Bookmark -->
+              <button
+                type="button"
+                class="bookmark-btn"
+                [class.bookmarked]="isBookmarked(attempt)"
+                (click)="toggleBookmark(attempt)"
+                aria-label="Toggle bookmark"
+              >
+                ★
+              </button>
+            </div>
+          }
+        </div>
       </div>
     }
 
+    <!-- Practice Mistakes -->
     @if (mistakes.length > 0) {
       <button
         type="button"
         class="practice-mistakes-btn"
         (click)="practiceMistakes()"
       >
-        Practice Mistakes
+        <span>↻</span>
+
+        <span>
+          Practice Mistakes
+          <small>
+            {{ mistakes.length }}
+            {{ mistakes.length === 1 ? "mistake" : "mistakes" }}
+          </small>
+        </span>
       </button>
     }
 
+    <!-- Actions -->
     <div class="actions">
-      <button (click)="practiceAgain()">Practice Again</button>
+      <button type="button" class="primary-btn" (click)="practiceAgain()">
+        Practice Again
+      </button>
 
-      <button (click)="goHome()">Back to Subjects</button>
+      <button type="button" class="secondary-btn" (click)="goHome()">
+        Back to Subjects
+      </button>
     </div>
   </div>
 </div>
