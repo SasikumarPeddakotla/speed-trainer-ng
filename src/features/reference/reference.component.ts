@@ -18,7 +18,6 @@ import { Router } from '@angular/router';
 
 interface ReferenceCounts {
   allCount: number;
-  weakCount: number;
   bookmarkCount: number;
 }
 
@@ -42,7 +41,6 @@ export class ReferenceComponent {
 
   counts: ReferenceCounts = {
     allCount: 0,
-    weakCount: 0,
     bookmarkCount: 0,
   };
 
@@ -72,7 +70,7 @@ export class ReferenceComponent {
     }
   }
 
-  showQuestions(referenceView: 'all' | 'weak' | 'bookmark'): void {
+  showQuestions(referenceView: 'all' | 'bookmark'): void {
     this.stateService.setReferenceView(referenceView);
 
     // Close information when changing tabs.

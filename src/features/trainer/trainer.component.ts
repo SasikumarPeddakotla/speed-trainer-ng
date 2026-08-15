@@ -17,7 +17,6 @@ import { StateService } from '../../core/services/state.service';
 import { KeyboardComponent } from '../keyboard/keyboard.component';
 import { TimerService } from '../../core/services/timer.service';
 import { Router } from '@angular/router';
-import { ReviewService } from '../../core/services/review.service';
 import { BookmarkService } from '../../core/services/bookmark.service';
 
 @Component({
@@ -29,6 +28,7 @@ import { BookmarkService } from '../../core/services/bookmark.service';
 })
 export class TrainerComponent implements OnInit, OnDestroy {
   answer = '';
+
   inputState: 'normal' | 'correct' | 'wrong' = 'normal';
 
   showSettings = false;
@@ -48,18 +48,18 @@ export class TrainerComponent implements OnInit, OnDestroy {
 
     if (bookmark) {
       return bookmark.mode;
-    } else {
-      return this.stateService.navigation().selectedExercise!.mode;
     }
+
+    return this.stateService.navigation().selectedExercise!.mode;
   }
 
   get referenceView() {
     const referenceView = this.stateService.navigation().referenceView;
+
     switch (referenceView) {
       case 'all':
         return 'All';
-      case 'weak':
-        return 'Weak';
+
       case 'bookmark':
         return 'Bookmarks';
     }
@@ -78,9 +78,9 @@ export class TrainerComponent implements OnInit, OnDestroy {
     public sessionService: SessionService,
     public timerService: TimerService,
     private router: Router,
-    private reviewService: ReviewService,
     private bookmarkService: BookmarkService,
   ) {
+    // Countdown session finished
     effect(() => {
       if (this.stateService.practice().sessionType !== SessionType.Countdown) {
         return;
@@ -91,7 +91,12 @@ export class TrainerComponent implements OnInit, OnDestroy {
       }
     });
 
+    // Question challenge finished
     effect(() => {
+      if (this.questionService.temporaryPractice()) {
+        return;
+      }
+
       if (
         this.stateService.practice().sessionType !==
         SessionType.QuestionChallenge
@@ -107,6 +112,7 @@ export class TrainerComponent implements OnInit, OnDestroy {
       }
     });
 
+    // Navigate to summary
     effect(() => {
       if (this.sessionService.finished()) {
         setTimeout(() => {
@@ -118,7 +124,9 @@ export class TrainerComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.questionService.resetAllEngines();
-    this.questionService.nextQuestion();
+
+    this.showNextQuestion();
+
     if (this.stateService.practice().sessionType === SessionType.Countdown) {
       this.startCountdown();
     } else {
@@ -131,7 +139,6 @@ export class TrainerComponent implements OnInit, OnDestroy {
       this.timerService.start(this.stateService.practice().countdownDuration);
     }
 
-    // this.questionService.nextQuestion();
     this.focusTextInput();
   }
 
@@ -146,7 +153,6 @@ export class TrainerComponent implements OnInit, OnDestroy {
 
       clearInterval(interval);
 
-      // Show GO!
       this.countdownValue = 0;
 
       setTimeout(() => {
@@ -160,21 +166,83 @@ export class TrainerComponent implements OnInit, OnDestroy {
     this.timerService.stop();
   }
 
-  submit() {
+  // --------------------------------------------------
+  // Question flow
+  // --------------------------------------------------
+
+  /**
+   * Gets the next question for the trainer.
+   *
+   * If an eligible temporary review question exists,
+   * it is shown first. Otherwise a new question is
+   * generated normally.
+   */
+  private showNextQuestion(): void {
+    // ------------------------------------------
+    // Practice Mistakes
+    // ------------------------------------------
+
+    if (this.questionService.temporaryPractice()) {
+      const question = this.questionService.getNextTemporaryQuestion();
+
+      if (!question) {
+        this.sessionService.finish();
+        return;
+      }
+
+      this.questionService.setQuestion(question);
+      return;
+    }
+
+    // ------------------------------------------
+    // Normal practice
+    // ------------------------------------------
+
+    if (!this.allowsReviewQuestions()) {
+      this.questionService.nextQuestion();
+      return;
+    }
+
+    const reviewQuestion = this.sessionService.getNextReviewQuestion();
+
+    if (reviewQuestion) {
+      this.questionService.setQuestion(reviewQuestion);
+      return;
+    }
+
+    this.questionService.nextQuestion();
+  }
+
+  private allowsReviewQuestions(): boolean {
+    // Complete Set must contain only the questions
+    // from the selected reference set. Review questions
+    // must never interrupt it.
+    return (
+      this.stateService.practice().questionSelection !== 'completeSet' &&
+      this.stateService.navigation().referenceView !== 'bookmark'
+    );
+  }
+
+  // --------------------------------------------------
+  // Answer submission
+  // --------------------------------------------------
+
+  submit(): void {
     const question = this.questionService.currentQuestion();
 
     if (!question) {
       return;
     }
 
-    const correct = this.validationService.validate(question, this.answer);
+    const userAnswer = this.answer;
 
-    let wasReview = false;
+    const correct = this.validationService.validate(question, userAnswer);
+
+    // Record every attempt in the current session.
+    this.sessionService.recordAttempt(question, userAnswer, correct);
 
     if (correct) {
       this.sessionService.correct();
-
-      wasReview = this.reviewService.recordCorrect();
 
       this.inputState = 'correct';
 
@@ -184,50 +252,72 @@ export class TrainerComponent implements OnInit, OnDestroy {
         this.inputState = 'normal';
         this.selectedOption = null;
 
-        this.questionService.nextQuestion();
+        this.showNextQuestion();
         this.focusTextInput();
 
-        if (!wasReview) {
-          this.reviewService.advanceDelays();
+        if (
+          !this.questionService.temporaryPractice() &&
+          this.allowsReviewQuestions()
+        ) {
+          this.sessionService.advanceReviewDelays();
         }
       }, 200);
-    } else {
-      this.sessionService.wrong();
 
-      wasReview = this.reviewService.recordWrong(question.data, question.id);
-
-      this.inputState = 'wrong';
-
-      setTimeout(() => {
-        this.answer = '';
-        this.inputState = 'normal';
-        this.selectedOption = null;
-
-        if (this.stateService.practice().sessionType !== SessionType.Practice) {
-          this.questionService.nextQuestion();
-          this.focusTextInput();
-
-          if (!wasReview) {
-            this.reviewService.advanceDelays();
-          }
-        }
-      }, 200);
+      return;
     }
+
+    // Wrong answer
+    this.sessionService.wrong();
+
+    if (!this.questionService.temporaryPractice()) {
+      this.sessionService.addToReviewQueue(question);
+    }
+
+    this.inputState = 'wrong';
+
+    setTimeout(() => {
+      this.answer = '';
+
+      this.inputState = 'normal';
+      this.selectedOption = null;
+
+      // Practice mode keeps the current question visible
+      // after a wrong answer.
+      if (this.stateService.practice().sessionType !== SessionType.Practice) {
+        this.showNextQuestion();
+        this.focusTextInput();
+
+        if (
+          !this.questionService.temporaryPractice() &&
+          this.allowsReviewQuestions()
+        ) {
+          this.sessionService.advanceReviewDelays();
+        }
+      }
+    }, 200);
   }
 
-  openSettings() {
+  // --------------------------------------------------
+  // Settings
+  // --------------------------------------------------
+
+  openSettings(): void {
     this.showSettings = true;
   }
 
-  closeSettings() {
+  closeSettings(): void {
     this.showSettings = false;
   }
 
-  backspace() {
+  // --------------------------------------------------
+  // Keyboard
+  // --------------------------------------------------
+
+  backspace(): void {
     this.answer = this.answer.slice(0, -1);
   }
 
-  onKeyPressed(key: string) {
+  onKeyPressed(key: string): void {
     const question = this.questionService.currentQuestion();
 
     if (!question) {
@@ -241,7 +331,7 @@ export class TrainerComponent implements OnInit, OnDestroy {
     }
   }
 
-  onTextChanged() {
+  onTextChanged(): void {
     const question = this.questionService.currentQuestion();
 
     if (!question) {
@@ -253,13 +343,17 @@ export class TrainerComponent implements OnInit, OnDestroy {
     }
   }
 
-  private focusTextInput() {
+  private focusTextInput(): void {
     setTimeout(() => {
       this.textInput?.nativeElement.focus();
     });
   }
 
-  revealAnswer() {
+  // --------------------------------------------------
+  // Reveal answer
+  // --------------------------------------------------
+
+  revealAnswer(): void {
     const question = this.questionService.currentQuestion();
 
     if (!question) {
@@ -267,17 +361,27 @@ export class TrainerComponent implements OnInit, OnDestroy {
     }
 
     this.revealedAnswer = question.answer;
-    this.reviewService.recordWrong(question.data, question.id);
+
+    // Treat revealing the answer as a wrong attempt.
+    this.sessionService.recordAttempt(question, '', false);
+
+    this.sessionService.wrong();
+
+    this.sessionService.addToReviewQueue(question);
   }
 
-  understood() {
+  understood(): void {
     this.revealedAnswer = null;
     this.answer = '';
     this.inputState = 'normal';
 
-    this.questionService.nextQuestion();
+    this.showNextQuestion();
     this.focusTextInput();
   }
+
+  // --------------------------------------------------
+  // Multiple choice
+  // --------------------------------------------------
 
   selectOption(option: string): void {
     if (this.selectedOption !== null) {
@@ -286,20 +390,13 @@ export class TrainerComponent implements OnInit, OnDestroy {
 
     this.selectedOption = option;
     this.answer = option;
+
     this.submit();
   }
 
-  // get articleOptions(): string[] {
-  //   const question = this.questionService.currentQuestion();
-  //   if (!question) {
-  //     return [];
-  //   }
-  //   if (question.inputType !== 'multiple-choice') {
-  //     return [];
-  //   }
-
-  //   return question.options as string[];
-  // }
+  // --------------------------------------------------
+  // Display
+  // --------------------------------------------------
 
   get questionFontSize(): string {
     const question = this.questionService.currentQuestion();
@@ -333,12 +430,17 @@ export class TrainerComponent implements OnInit, OnDestroy {
     return `${size}px`;
   }
 
+  // --------------------------------------------------
+  // Bookmarks
+  // --------------------------------------------------
+
   toggleBookmark(): void {
     const question = this.questionService.currentQuestion();
 
     if (!question?.data) {
       return;
     }
+
     const bookmark = this.bookmarkService.getCurrentBookmark();
 
     if (bookmark) {

@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { BookmarkService } from '../../core/services/bookmark.service';
-import { ReviewService } from '../../core/services/review.service';
 import { DialogService } from '../../core/services/dialog.service';
 
 @Component({
@@ -12,7 +11,6 @@ import { DialogService } from '../../core/services/dialog.service';
 })
 export class AppSettingsComponent {
   private bookmarkService = inject(BookmarkService);
-  private reviewService = inject(ReviewService);
   private dialogService = inject(DialogService);
 
   clearAllBookmarks(): void {
@@ -22,16 +20,6 @@ export class AppSettingsComponent {
       confirmText: 'Clear',
       cancelText: 'Cancel',
       onConfirm: () => this.bookmarkService.clearAll(),
-    });
-  }
-
-  clearAllWeakQuestions(): void {
-    this.dialogService.openConfirm({
-      title: 'Clear weak questions',
-      message: 'Remove all weak questions from the review queue?',
-      confirmText: 'Clear',
-      cancelText: 'Cancel',
-      onConfirm: () => this.reviewService.clearAll(),
     });
   }
 }

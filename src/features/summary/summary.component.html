@@ -22,6 +22,61 @@
       <strong>{{ sessionService.bestStreak() }}</strong>
     </div>
 
+    @if (attempts.length > 0) {
+      <div class="history">
+        <h2>Attempt History</h2>
+
+        @for (attempt of attempts; track $index) {
+          <div class="attempt">
+            <div class="attempt-result">
+              @if (attempt.correct) {
+                <span class="correct">✓</span>
+              } @else {
+                <span class="wrong">✗</span>
+              }
+            </div>
+
+            <div class="attempt-content">
+              <div class="question">
+                {{ attempt.question.question }}
+              </div>
+
+              <div class="answer">
+                Your answer:
+                <strong>{{ attempt.userAnswer || "—" }}</strong>
+              </div>
+
+              @if (!attempt.correct) {
+                <div class="correct-answer">
+                  Correct answer:
+                  <strong>{{ attempt.question.answer }}</strong>
+                </div>
+              }
+            </div>
+
+            <button
+              type="button"
+              class="bookmark-btn"
+              [class.bookmarked]="isBookmarked(attempt)"
+              (click)="toggleBookmark(attempt)"
+            >
+              ★
+            </button>
+          </div>
+        }
+      </div>
+    }
+
+    @if (mistakes.length > 0) {
+      <button
+        type="button"
+        class="practice-mistakes-btn"
+        (click)="practiceMistakes()"
+      >
+        Practice Mistakes
+      </button>
+    }
+
     <div class="actions">
       <button (click)="practiceAgain()">Practice Again</button>
 

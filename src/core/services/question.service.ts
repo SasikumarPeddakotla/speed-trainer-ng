@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { computed, Injectable, signal } from '@angular/core';
 
 import { AlphabetEngine } from '../engines/alphabet.engine';
 
@@ -22,6 +22,20 @@ export class QuestionService {
   private readonly _currentQuestion = signal<Question | null>(null);
 
   readonly currentQuestion = this._currentQuestion.asReadonly();
+
+  setQuestion(question: Question): void {
+    this._currentQuestion.set(question);
+  }
+
+  private readonly _temporaryQuestions = signal<Question[]>([]);
+
+  readonly hasTemporaryQuestions = computed(
+    () => this._temporaryQuestions().length > 0,
+  );
+
+  private readonly _temporaryPractice = signal(false);
+
+  readonly temporaryPractice = this._temporaryPractice.asReadonly();
 
   constructor(
     private stateService: StateService,
@@ -143,6 +157,31 @@ export class QuestionService {
         this._currentQuestion.set(this.bookmarkEngine.generateQuestion());
         break;
     }
+  }
+
+  startTemporaryPractice(questions: Question[]): void {
+    this._temporaryQuestions.set([...questions]);
+    this._temporaryPractice.set(true);
+  }
+
+  getNextTemporaryQuestion(): Question | null {
+    const questions = this._temporaryQuestions();
+
+    if (questions.length === 0) {
+      this._temporaryPractice.set(false);
+      return null;
+    }
+
+    const [question, ...remaining] = questions;
+
+    this._temporaryQuestions.set(remaining);
+
+    return question;
+  }
+
+  clearTemporaryPractice(): void {
+    this._temporaryQuestions.set([]);
+    this._temporaryPractice.set(false);
   }
 
   resetAllEngines() {

@@ -1,6 +1,6 @@
-export interface ReviewItem<T> {
-  questionId: string;
-  questionData: T;
+import { Question } from './question.model';
+
+export interface ReviewItem {
+  question: Question;
   delay: number;
-  stage: number;
 }

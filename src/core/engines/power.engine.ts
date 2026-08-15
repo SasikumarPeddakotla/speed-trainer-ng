@@ -2,7 +2,6 @@ import { inject, Injectable } from '@angular/core';
 import { StateService } from '../services/state.service';
 import { Question } from '../models/question.model';
 import { RandomService } from '../../utils/random.service';
-import { ReviewService } from '../services/review.service';
 import { IdService } from '../../utils/id.service';
 import { BookmarkService } from '../services/bookmark.service';
 
@@ -16,7 +15,6 @@ export class PowerEngine {
 
   constructor(
     private stateService: StateService,
-    private reviewService: ReviewService,
     private idService: IdService,
     private bookmarkService: BookmarkService,
   ) {}
@@ -51,39 +49,14 @@ export class PowerEngine {
     switch (referenceView) {
       case 'all':
         return this.nextNormalNumber();
-      case 'weak':
-        return this.nextWeakNumber();
       case 'bookmark':
         return this.nextBookmarkNumber();
     }
   }
 
   private nextNormalNumber(): number {
-    let review = this.reviewService.getNextReviewQuestion<number>();
-
-    if (review !== null) {
-      return review;
-    }
-
     if (this.numbers.length === 0) {
-      review = this.reviewService.getNextReviewQuestion<number>();
-
-      if (review !== null) {
-        return review;
-      }
-
       this.resetNumbers();
-    }
-
-    return this.numbers.shift()!;
-  }
-
-  private nextWeakNumber(): number {
-    if (this.numbers.length === 0) {
-      const mode = this.stateService.navigation().selectedExercise!.mode;
-      const reviewQuestions =
-        this.reviewService.getPendingQuestions<number>(mode);
-      this.numbers = this.randomService.shuffle(reviewQuestions);
     }
 
     return this.numbers.shift()!;

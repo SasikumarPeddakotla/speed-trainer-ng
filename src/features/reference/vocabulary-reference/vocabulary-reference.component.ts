@@ -15,7 +15,6 @@ import { Synonym } from '../../../core/models/synonym.model';
 import { Antonym } from '../../../core/models/antonym.model';
 import { OneWord } from '../../../core/models/one-word.model';
 import { Idiom } from '../../../core/models/idiom.model';
-import { ReviewService } from '../../../core/services/review.service';
 import { BookmarkService } from '../../../core/services/bookmark.service';
 
 import { ExampleFormatterService } from '../../../utils/example-formatter.service';
@@ -33,7 +32,6 @@ export class VocabularyReferenceComponent {
   searchText = input<string>();
 
   private stateService = inject(StateService);
-  private reviewService = inject(ReviewService);
   private vocabularyEngine = inject(VocabularyEngine);
   private bookmarkService = inject(BookmarkService);
   public formatterService = inject(ExampleFormatterService);
@@ -49,10 +47,9 @@ export class VocabularyReferenceComponent {
 
   public PracticeMode = PracticeMode;
 
-  referenceTab = input<'all' | 'weak' | 'bookmark'>();
+  referenceTab = input<'all' | 'bookmark'>();
   count = output<{
     allCount: number;
-    weakCount: number;
     bookmarkCount: number;
   }>();
 
@@ -75,10 +72,6 @@ export class VocabularyReferenceComponent {
     }
   });
 
-  readonly weakCount = computed(() => {
-    return this.reviewService.getPendingQuestions(this.mode).length;
-  });
-
   readonly bookmarkCount = computed(() => {
     return this.bookmarkService.getBookmarkedQuestions().length;
   });
@@ -86,7 +79,6 @@ export class VocabularyReferenceComponent {
   private readonly emitCountsEffect = effect(() => {
     this.count.emit({
       allCount: this.allCount(),
-      weakCount: this.weakCount(),
       bookmarkCount: this.bookmarkCount(),
     });
   });
@@ -177,9 +169,6 @@ export class VocabularyReferenceComponent {
       case 'bookmark':
         return this.bookmarkService.getBookmarkedQuestions<Synonym>();
 
-      case 'weak':
-        return this.reviewService.getPendingQuestions<Synonym>(this.mode);
-
       default:
         return this.vocabularyEngine.getSynonymsReference();
     }
@@ -189,9 +178,6 @@ export class VocabularyReferenceComponent {
     switch (this.referenceTab()) {
       case 'bookmark':
         return this.bookmarkService.getBookmarkedQuestions<Antonym>();
-
-      case 'weak':
-        return this.reviewService.getPendingQuestions<Antonym>(this.mode);
 
       default:
         return this.vocabularyEngine.getAntonymsReference();
@@ -203,9 +189,6 @@ export class VocabularyReferenceComponent {
       case 'bookmark':
         return this.bookmarkService.getBookmarkedQuestions<OneWord>();
 
-      case 'weak':
-        return this.reviewService.getPendingQuestions<OneWord>(this.mode);
-
       default:
         return this.vocabularyEngine.getOneWordsReference();
     }
@@ -215,9 +198,6 @@ export class VocabularyReferenceComponent {
     switch (this.referenceTab()) {
       case 'bookmark':
         return this.bookmarkService.getBookmarkedQuestions<Idiom>();
-
-      case 'weak':
-        return this.reviewService.getPendingQuestions<Idiom>(this.mode);
 
       default:
         return this.vocabularyEngine.getIdiomsReference();

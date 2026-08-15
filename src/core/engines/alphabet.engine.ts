@@ -5,7 +5,6 @@ import { Question } from '../models/question.model';
 import { alphabetData } from '../data/alphabet';
 import { Alphabet } from '../models/alphabet.model';
 import { RandomService } from '../../utils/random.service';
-import { ReviewService } from '../services/review.service';
 import { IdService } from '../../utils/id.service';
 import { StateService } from '../services/state.service';
 import { BookmarkService } from '../services/bookmark.service';
@@ -18,7 +17,6 @@ export class AlphabetEngine {
   private alphabets = this.randomService.shuffle([...alphabetData]);
 
   constructor(
-    private reviewService: ReviewService,
     private idService: IdService,
     private stateService: StateService,
     private bookmarkService: BookmarkService,
@@ -115,39 +113,14 @@ export class AlphabetEngine {
     switch (referenceView) {
       case 'all':
         return this.nextNormalAlphabet();
-      case 'weak':
-        return this.nextWeakAlphabet();
       case 'bookmark':
         return this.nextBookmarkAlphabet();
     }
   }
 
   private nextNormalAlphabet(): Alphabet {
-    let review = this.reviewService.getNextReviewQuestion<Alphabet>();
-
-    if (review) {
-      return review;
-    }
-
     if (this.alphabets.length === 0) {
-      review = this.reviewService.getNextReviewQuestion<Alphabet>();
-
-      if (review) {
-        return review;
-      }
-
       this.alphabets = this.randomService.shuffle([...alphabetData]);
-    }
-
-    return this.alphabets.shift()!;
-  }
-
-  private nextWeakAlphabet(): Alphabet {
-    if (this.alphabets.length === 0) {
-      const mode = this.stateService.navigation().selectedExercise!.mode;
-      const reviewQuestions =
-        this.reviewService.getPendingQuestions<Alphabet>(mode);
-      this.alphabets = this.randomService.shuffle(reviewQuestions);
     }
 
     return this.alphabets.shift()!;

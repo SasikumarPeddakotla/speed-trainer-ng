@@ -3,7 +3,6 @@ import { RandomService } from '../../utils/random.service';
 import { Question } from '../models/question.model';
 import { ARTICLES } from '../data/articles.data';
 import { Article } from '../models/article.model';
-import { ReviewService } from '../services/review.service';
 import { IdService } from '../../utils/id.service';
 import { StateService } from '../services/state.service';
 import { BookmarkService } from '../services/bookmark.service';
@@ -16,7 +15,6 @@ export class PolityEngine {
   private articles = this.randomService.shuffle([...ARTICLES]);
 
   constructor(
-    private reviewService: ReviewService,
     private idService: IdService,
     private stateService: StateService,
     private bookmarkService: BookmarkService,
@@ -74,39 +72,14 @@ export class PolityEngine {
     switch (referenceView) {
       case 'all':
         return this.nextNormalArticle();
-      case 'weak':
-        return this.nextWeakArticle();
       case 'bookmark':
         return this.nextBookmarkArticle();
     }
   }
 
   private nextNormalArticle(): Article {
-    let review = this.reviewService.getNextReviewQuestion<Article>();
-
-    if (review) {
-      return review;
-    }
-
     if (this.articles.length === 0) {
-      let review = this.reviewService.getNextReviewQuestion<Article>();
-
-      if (review) {
-        return review;
-      }
-
       this.articles = this.randomService.shuffle([...ARTICLES]);
-    }
-
-    return this.articles.shift()!;
-  }
-
-  private nextWeakArticle(): Article {
-    if (this.articles.length === 0) {
-      const mode = this.stateService.navigation().selectedExercise!.mode;
-      const reviewQuestions =
-        this.reviewService.getPendingQuestions<Article>(mode);
-      this.articles = this.randomService.shuffle(reviewQuestions);
     }
 
     return this.articles.shift()!;

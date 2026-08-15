@@ -47,8 +47,6 @@ export class PracticeSettingsComponent {
     switch (referenceView) {
       case 'all':
         return 'All';
-      case 'weak':
-        return 'Weak';
       case 'bookmark':
         return 'Bookmarks';
     }
@@ -58,9 +56,6 @@ export class PracticeSettingsComponent {
     const navigation = this.stateService.navigation();
 
     switch (navigation.referenceView) {
-      case 'weak':
-        return navigation.referenceCounts.weakCount;
-
       case 'bookmark':
         return navigation.referenceCounts.bookmarkCount;
 
@@ -100,7 +95,13 @@ export class PracticeSettingsComponent {
     this.stateService.setCountdownDuration(value);
   }
 
-  setQuestionTarget(value: number) {
-    this.stateService.setQuestionTarget(value);
+  setQuestionTarget(value: number | 'completeSet') {
+    if (value === 'completeSet') {
+      this.stateService.setQuestionSelection('completeSet');
+      this.stateService.setQuestionTarget(this.completeSetCount);
+    } else {
+      this.stateService.setQuestionSelection('fixed');
+      this.stateService.setQuestionTarget(value);
+    }
   }
 }

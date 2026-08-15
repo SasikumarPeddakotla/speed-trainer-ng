@@ -4,7 +4,6 @@ import { StateService } from '../services/state.service';
 import { Question } from '../models/question.model';
 import { TableQuestion } from '../models/table-question.model';
 import { RandomService } from '../../utils/random.service';
-import { ReviewService } from '../services/review.service';
 import { IdService } from '../../utils/id.service';
 import { BookmarkService } from '../services/bookmark.service';
 
@@ -18,7 +17,6 @@ export class TablesEngine {
 
   constructor(
     private stateService: StateService,
-    private reviewService: ReviewService,
     private idService: IdService,
     private bookmarkService: BookmarkService,
   ) {}
@@ -48,39 +46,14 @@ export class TablesEngine {
     switch (referenceView) {
       case 'all':
         return this.nextNormalTable();
-      case 'weak':
-        return this.nextWeakTable();
       case 'bookmark':
         return this.nextBookmarkTable();
     }
   }
 
   private nextNormalTable(): TableQuestion {
-    let review = this.reviewService.getNextReviewQuestion<TableQuestion>();
-
-    if (review) {
-      return review;
-    }
-
     if (this.questions.length === 0) {
-      review = this.reviewService.getNextReviewQuestion<TableQuestion>();
-
-      if (review) {
-        return review;
-      }
-
       this.resetQuestions();
-    }
-
-    return this.questions.shift()!;
-  }
-
-  private nextWeakTable(): TableQuestion {
-    if (this.questions.length === 0) {
-      const mode = this.stateService.navigation().selectedExercise!.mode;
-      const reviewQuestions =
-        this.reviewService.getPendingQuestions<TableQuestion>(mode);
-      this.questions = this.randomService.shuffle(reviewQuestions);
     }
 
     return this.questions.shift()!;

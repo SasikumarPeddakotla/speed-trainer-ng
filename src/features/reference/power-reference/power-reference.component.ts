@@ -10,7 +10,6 @@ import {
 import { PowerEngine } from '../../../core/engines/power.engine';
 import { StateService } from '../../../core/services/state.service';
 import { PracticeMode } from '../../../core/enums/practice-mode.enum';
-import { ReviewService } from '../../../core/services/review.service';
 import { BookmarkService } from '../../../core/services/bookmark.service';
 import { IdService } from '../../../utils/id.service';
 
@@ -23,14 +22,12 @@ import { IdService } from '../../../utils/id.service';
 export class PowerReferenceComponent {
   private stateService = inject(StateService);
   private powerEngine = inject(PowerEngine);
-  private reviewService = inject(ReviewService);
   private bookmarkService = inject(BookmarkService);
   private idService = inject(IdService);
 
-  referenceTab = input<'all' | 'weak' | 'bookmark'>();
+  referenceTab = input<'all' | 'bookmark'>();
   count = output<{
     allCount: number;
-    weakCount: number;
     bookmarkCount: number;
   }>();
 
@@ -40,9 +37,6 @@ export class PowerReferenceComponent {
     ?.mode as PracticeMode;
 
   private readonly allQuestions = this.powerEngine.getNumbersReference();
-  private readonly weakQuestions = computed(() =>
-    this.reviewService.getPendingQuestions<number>(this.mode),
-  );
   private readonly bookmarkQuestions = computed(() => {
     return this.bookmarkService.getBookmarkedQuestions<number>();
   });
@@ -51,7 +45,6 @@ export class PowerReferenceComponent {
   private readonly emitCountsEffect = effect(() => {
     this.count.emit({
       allCount: this.allQuestions.length,
-      weakCount: this.weakQuestions().length,
       bookmarkCount: this.bookmarkQuestions().length,
     });
   });
@@ -60,9 +53,6 @@ export class PowerReferenceComponent {
     switch (this.referenceTab()) {
       case 'bookmark':
         return this.bookmarkService.getBookmarkedQuestions<number>();
-
-      case 'weak':
-        return this.reviewService.getPendingQuestions<number>(this.mode);
 
       default:
         return this.powerEngine.getNumbersReference();

@@ -7,10 +7,9 @@ import { Topic } from '../models/topic.model';
 import { StorageService } from './storage.service';
 import { StorageKeys } from '../enums/storage-keys.enum';
 
-type ReferenceView = 'all' | 'weak' | 'bookmark';
+type ReferenceView = 'all' | 'bookmark';
 interface ReferenceCounts {
   allCount: number;
-  weakCount: number;
   bookmarkCount: number;
 }
 
@@ -34,6 +33,7 @@ interface PracticeState {
   sessionType: SessionType;
   countdownDuration: number;
   questionTarget: number;
+  questionSelection: 'fixed' | 'completeSet';
 
   wordsLimit: string;
 
@@ -60,7 +60,6 @@ export class StateService {
     referenceView: 'all',
     referenceCounts: {
       allCount: 0,
-      weakCount: 0,
       bookmarkCount: 0,
     },
   };
@@ -78,6 +77,7 @@ export class StateService {
 
     countdownDuration: 60,
     questionTarget: 10,
+    questionSelection: 'fixed',
 
     wordsLimit: '10',
 
@@ -237,6 +237,13 @@ export class StateService {
     this.updatePractice((state) => ({
       ...state,
       questionTarget,
+    }));
+  }
+
+  setQuestionSelection(questionSelection: 'fixed' | 'completeSet'): void {
+    this.updatePractice((state) => ({
+      ...state,
+      questionSelection,
     }));
   }
 

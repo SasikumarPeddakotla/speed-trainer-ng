@@ -12,7 +12,6 @@ import { PolityEngine } from '../../../core/engines/polity.engine';
 import { Article } from '../../../core/models/article.model';
 import { StateService } from '../../../core/services/state.service';
 import { PracticeMode } from '../../../core/enums/practice-mode.enum';
-import { ReviewService } from '../../../core/services/review.service';
 import { BookmarkService } from '../../../core/services/bookmark.service';
 import { IdService } from '../../../utils/id.service';
 
@@ -27,14 +26,12 @@ export class PolityReferenceComponent {
 
   private polityEngine = inject(PolityEngine);
   private stateService = inject(StateService);
-  private reviewService = inject(ReviewService);
   private bookmarkService = inject(BookmarkService);
   private idService = inject(IdService);
 
-  referenceTab = input<'all' | 'weak' | 'bookmark'>();
+  referenceTab = input<'all' | 'bookmark'>();
   count = output<{
     allCount: number;
-    weakCount: number;
     bookmarkCount: number;
   }>();
 
@@ -42,9 +39,6 @@ export class PolityReferenceComponent {
     ?.mode as PracticeMode;
 
   private readonly allQuestions = this.polityEngine.getArticlesReference();
-  private readonly weakQuestions = computed(() =>
-    this.reviewService.getPendingQuestions<Article>(this.mode),
-  );
   private readonly bookmarkQuestions = computed(() => {
     return this.bookmarkService.getBookmarkedQuestions<Article>();
   });
@@ -53,7 +47,6 @@ export class PolityReferenceComponent {
   private readonly emitCountsEffect = effect(() => {
     this.count.emit({
       allCount: this.allQuestions.length,
-      weakCount: this.weakQuestions().length,
       bookmarkCount: this.bookmarkQuestions().length,
     });
   });
@@ -62,9 +55,6 @@ export class PolityReferenceComponent {
     switch (this.referenceTab()) {
       case 'bookmark':
         return this.bookmarkQuestions();
-
-      case 'weak':
-        return this.weakQuestions();
 
       default:
         return this.allQuestions;

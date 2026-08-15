@@ -11,7 +11,6 @@ import {
 import { ConversionEngine } from '../../../core/engines/conversion.engine';
 import { StateService } from '../../../core/services/state.service';
 import { PracticeMode } from '../../../core/enums/practice-mode.enum';
-import { ReviewService } from '../../../core/services/review.service';
 import { BookmarkService } from '../../../core/services/bookmark.service';
 import { IdService } from '../../../utils/id.service';
 import { FractionConversion } from '../../../core/models/fraction-conversion.model';
@@ -25,16 +24,14 @@ import { FractionConversion } from '../../../core/models/fraction-conversion.mod
 export class ConversionReferenceComponent {
   private conversionEngine = inject(ConversionEngine);
   private stateService = inject(StateService);
-  private reviewService = inject(ReviewService);
   private bookmarkService = inject(BookmarkService);
   private idService = inject(IdService);
 
   readonly PracticeMode = PracticeMode;
 
-  referenceTab = input<'all' | 'weak' | 'bookmark'>();
+  referenceTab = input<'all' | 'bookmark'>();
   count = output<{
     allCount: number;
-    weakCount: number;
     bookmarkCount: number;
   }>();
 
@@ -43,9 +40,6 @@ export class ConversionReferenceComponent {
 
   private readonly allQuestions =
     this.conversionEngine.getConversionsReference();
-  private readonly weakQuestions = computed(() =>
-    this.reviewService.getPendingQuestions<FractionConversion>(this.mode),
-  );
   private readonly bookmarkQuestions = computed(() => {
     return this.bookmarkService.getBookmarkedQuestions<FractionConversion>();
   });
@@ -54,7 +48,6 @@ export class ConversionReferenceComponent {
   private readonly emitCountsEffect = effect(() => {
     this.count.emit({
       allCount: this.allQuestions.length,
-      weakCount: this.weakQuestions().length,
       bookmarkCount: this.bookmarkQuestions().length,
     });
   });
@@ -63,9 +56,6 @@ export class ConversionReferenceComponent {
     switch (this.referenceTab()) {
       case 'bookmark':
         return this.bookmarkQuestions();
-
-      case 'weak':
-        return this.weakQuestions();
 
       default:
         return this.allQuestions;

@@ -7,7 +7,6 @@ import { InputType } from '../enums/input-type.enum';
 import { Antonym } from '../models/antonym.model';
 import { OneWord } from '../models/one-word.model';
 import { Idiom } from '../models/idiom.model';
-import { ReviewService } from '../services/review.service';
 import { StateService } from '../services/state.service';
 import { PracticeMode } from '../enums/practice-mode.enum';
 import { ExampleFormatterService } from '../../utils/example-formatter.service';
@@ -27,7 +26,6 @@ export class VocabularyEngine {
   private idioms: Idiom[] = [];
 
   constructor(
-    private reviewService: ReviewService,
     private stateService: StateService,
     private formatterService: ExampleFormatterService,
     private vocabularyDataService: VocabularyDataService,
@@ -95,39 +93,14 @@ export class VocabularyEngine {
     switch (referenceView) {
       case 'all':
         return this.nextNormalSynonym();
-      case 'weak':
-        return this.nextWeakSynonym();
       case 'bookmark':
         return this.nextBookmarkSynonym();
     }
   }
 
   private nextNormalSynonym(): Synonym {
-    let review = this.reviewService.getNextReviewQuestion<Synonym>();
-
-    if (review) {
-      return review;
-    }
-
     if (this.synonyms.length === 0) {
-      let review = this.reviewService.getNextReviewQuestion<Synonym>();
-
-      if (review) {
-        return review;
-      }
-
       this.synonyms = this.randomService.shuffle([...this.getSynonyms()]);
-    }
-
-    return this.synonyms.shift()!;
-  }
-
-  private nextWeakSynonym(): Synonym {
-    if (this.synonyms.length === 0) {
-      const mode = this.stateService.navigation().selectedExercise!.mode;
-      const reviewQuestions =
-        this.reviewService.getPendingQuestions<Synonym>(mode);
-      this.synonyms = this.randomService.shuffle(reviewQuestions);
     }
 
     return this.synonyms.shift()!;
@@ -203,39 +176,14 @@ export class VocabularyEngine {
     switch (referenceView) {
       case 'all':
         return this.nextNormalAntonym();
-      case 'weak':
-        return this.nextWeakAntonym();
       case 'bookmark':
         return this.nextBookmarkAntonym();
     }
   }
 
   private nextNormalAntonym(): Antonym {
-    let review = this.reviewService.getNextReviewQuestion<Antonym>();
-
-    if (review) {
-      return review;
-    }
-
     if (this.antonyms.length === 0) {
-      let review = this.reviewService.getNextReviewQuestion<Antonym>();
-
-      if (review) {
-        return review;
-      }
-
       this.antonyms = this.randomService.shuffle([...this.getAntonyms()]);
-    }
-
-    return this.antonyms.shift()!;
-  }
-
-  private nextWeakAntonym(): Antonym {
-    if (this.antonyms.length === 0) {
-      const mode = this.stateService.navigation().selectedExercise!.mode;
-      const reviewQuestions =
-        this.reviewService.getPendingQuestions<Antonym>(mode);
-      this.antonyms = this.randomService.shuffle(reviewQuestions);
     }
 
     return this.antonyms.shift()!;
@@ -304,39 +252,14 @@ export class VocabularyEngine {
     switch (referenceView) {
       case 'all':
         return this.nextNormalOneWord();
-      case 'weak':
-        return this.nextWeakOneWord();
       case 'bookmark':
         return this.nextBookmarkOneWord();
     }
   }
 
   private nextNormalOneWord(): OneWord {
-    let review = this.reviewService.getNextReviewQuestion<OneWord>();
-
-    if (review) {
-      return review;
-    }
-
     if (this.oneWords.length === 0) {
-      let review = this.reviewService.getNextReviewQuestion<OneWord>();
-
-      if (review) {
-        return review;
-      }
-
       this.oneWords = this.randomService.shuffle([...this.getOneWords()]);
-    }
-
-    return this.oneWords.shift()!;
-  }
-
-  private nextWeakOneWord(): OneWord {
-    if (this.oneWords.length === 0) {
-      const mode = this.stateService.navigation().selectedExercise!.mode;
-      const reviewQuestions =
-        this.reviewService.getPendingQuestions<OneWord>(mode);
-      this.oneWords = this.randomService.shuffle(reviewQuestions);
     }
 
     return this.oneWords.shift()!;
@@ -409,39 +332,14 @@ export class VocabularyEngine {
     switch (referenceView) {
       case 'all':
         return this.nextNormalIdiom();
-      case 'weak':
-        return this.nextWeakIdiom();
       case 'bookmark':
         return this.nextBookmarkIdiom();
     }
   }
 
   private nextNormalIdiom(): Idiom {
-    let review = this.reviewService.getNextReviewQuestion<Idiom>();
-
-    if (review) {
-      return review;
-    }
-
     if (this.idioms.length === 0) {
-      let review = this.reviewService.getNextReviewQuestion<Idiom>();
-
-      if (review) {
-        return review;
-      }
-
       this.idioms = this.randomService.shuffle([...this.getIdioms()]);
-    }
-
-    return this.idioms.shift()!;
-  }
-
-  private nextWeakIdiom(): Idiom {
-    if (this.idioms.length === 0) {
-      const mode = this.stateService.navigation().selectedExercise!.mode;
-      const reviewQuestions =
-        this.reviewService.getPendingQuestions<Idiom>(mode);
-      this.idioms = this.randomService.shuffle(reviewQuestions);
     }
 
     return this.idioms.shift()!;

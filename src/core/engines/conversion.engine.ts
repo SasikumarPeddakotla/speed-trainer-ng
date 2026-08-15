@@ -5,7 +5,6 @@ import { StateService } from '../services/state.service';
 import { RandomService } from '../../utils/random.service';
 import { Question } from '../models/question.model';
 import { PracticeMode } from '../enums/practice-mode.enum';
-import { ReviewService } from '../services/review.service';
 import { IdService } from '../../utils/id.service';
 import { BookmarkService } from '../services/bookmark.service';
 
@@ -18,7 +17,6 @@ export class ConversionEngine {
 
   constructor(
     private stateService: StateService,
-    private reviewService: ReviewService,
     private idService: IdService,
     private bookmarkService: BookmarkService,
   ) {}
@@ -87,41 +85,15 @@ export class ConversionEngine {
     switch (referenceView) {
       case 'all':
         return this.nextNormalConversion();
-      case 'weak':
-        return this.nextWeakConversion();
       case 'bookmark':
         return this.nextBookmarkConversion();
     }
   }
 
   private nextNormalConversion(): FractionConversion {
-    let review = this.reviewService.getNextReviewQuestion<FractionConversion>();
-
-    if (review) {
-      return review;
-    }
-
     if (this.conversions.length === 0) {
-      let review =
-        this.reviewService.getNextReviewQuestion<FractionConversion>();
-
-      if (review) {
-        return review;
-      }
-
       this.resetConversions();
     }
-    return this.conversions.shift()!;
-  }
-
-  private nextWeakConversion(): FractionConversion {
-    if (this.conversions.length === 0) {
-      const mode = this.stateService.navigation().selectedExercise!.mode;
-      const reviewQuestions =
-        this.reviewService.getPendingQuestions<FractionConversion>(mode);
-      this.conversions = this.randomService.shuffle(reviewQuestions);
-    }
-
     return this.conversions.shift()!;
   }
 

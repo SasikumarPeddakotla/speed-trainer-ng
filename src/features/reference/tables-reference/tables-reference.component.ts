@@ -11,7 +11,6 @@ import {
 import { TablesEngine } from '../../../core/engines/tables.engine';
 import { StateService } from '../../../core/services/state.service';
 import { TableQuestion } from '../../../core/models/table-question.model';
-import { ReviewService } from '../../../core/services/review.service';
 import { PracticeMode } from '../../../core/enums/practice-mode.enum';
 import { BookmarkService } from '../../../core/services/bookmark.service';
 import { IdService } from '../../../utils/id.service';
@@ -31,16 +30,14 @@ interface TableReference {
 export class TablesReferenceComponent {
   private tablesEngine = inject(TablesEngine);
   private stateService = inject(StateService);
-  private reviewService = inject(ReviewService);
   private bookmarkService = inject(BookmarkService);
   private idService = inject(IdService);
 
   private refreshBookmarks = signal(0);
 
-  referenceTab = input<'all' | 'weak' | 'bookmark'>();
+  referenceTab = input<'all' | 'bookmark'>();
   count = output<{
     allCount: number;
-    weakCount: number;
     bookmarkCount: number;
   }>();
 
@@ -48,9 +45,6 @@ export class TablesReferenceComponent {
     ?.mode as PracticeMode;
 
   private readonly allQuestions = this.tablesEngine.getTablesReference();
-  private readonly weakQuestions = computed(() =>
-    this.reviewService.getPendingQuestions<TableQuestion>(this.mode),
-  );
   private readonly bookmarkQuestions = computed(() => {
     return this.bookmarkService.getBookmarkedQuestions<TableQuestion>();
   });
@@ -59,7 +53,6 @@ export class TablesReferenceComponent {
   private readonly emitCountsEffect = effect(() => {
     this.count.emit({
       allCount: this.allQuestions.length,
-      weakCount: this.weakQuestions().length,
       bookmarkCount: this.bookmarkQuestions().length,
     });
   });
@@ -67,9 +60,6 @@ export class TablesReferenceComponent {
   readonly tables = computed<TableReference[]>(() => {
     this.refreshBookmarks();
     switch (this.referenceTab()) {
-      case 'weak':
-        return this.buildTableReference(this.weakQuestions());
-
       case 'bookmark':
         return this.buildTableReference(this.bookmarkQuestions());
 
