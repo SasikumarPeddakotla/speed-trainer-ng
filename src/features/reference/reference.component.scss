@@ -104,36 +104,152 @@
 .reference-toggle {
   display: flex;
   justify-content: center;
+  align-items: stretch;
   margin-top: 1rem;
 }
 
-.toggle-button {
-  padding: 0.6rem 1.4rem;
+.tab-wrapper {
+  display: flex;
+  align-items: stretch;
+
   border: 1px solid #d1d5db;
+  border-radius: 8px;
+
   background: white;
+  overflow: hidden;
+}
+
+.tab-wrapper.active {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+.toggle-button {
+  padding: 0.6rem 1rem;
+
+  border: none;
+  background: transparent;
+
   color: #4b5563;
+
   cursor: pointer;
   font-weight: 500;
-  transition: all 0.2s;
 }
 
-.toggle-button:first-child {
+.tab-wrapper:first-child {
   border-radius: 8px 0 0 8px;
+  border-right: none;
 }
 
-.toggle-button:last-child {
+.tab-wrapper:last-child {
   border-radius: 0 8px 8px 0;
   border-left: none;
+}
+
+.tab-wrapper:not(:first-child):not(:last-child) {
+  border-radius: 0;
 }
 
 .toggle-button.active {
   background: #2563eb;
   color: white;
   border-color: #2563eb;
+  position: relative;
+  z-index: 2;
+  padding-right: 0.3rem;
 }
 
-.toggle-button:hover:not(.active) {
-  background: #f3f4f6;
+/* Info button */
+
+.info-button {
+  width: 34px;
+
+  border: none;
+
+  background: transparent;
+  color: white;
+
+  cursor: pointer;
+
+  font-size: 16px;
+
+  display: flex;
+  align-items: center;
+
+  transition: background 0.2s ease;
+}
+
+/* Popover */
+
+.info-popover {
+  position: absolute;
+
+  top: calc(100% + 10px);
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 280px;
+
+  padding: 14px 16px;
+
+  background: white;
+
+  border: 1px solid #dbeafe;
+  border-radius: 10px;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+  color: #475569;
+
+  font-size: 0.9rem;
+  line-height: 1.5;
+
+  text-align: left;
+
+  z-index: 100;
+}
+
+.info-popover::before {
+  content: "";
+
+  position: absolute;
+
+  top: -6px;
+  left: 50%;
+
+  width: 11px;
+  height: 11px;
+
+  background: white;
+
+  border-left: 1px solid #dbeafe;
+  border-top: 1px solid #dbeafe;
+
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.info-popover strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #2563eb;
+}
+
+.info-popover p {
+  margin: 0;
+}
+
+.info-popover ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+.info-popover li {
+  margin-bottom: 6px;
+}
+
+.info-popover li:last-child {
+  margin-bottom: 0;
 }
 
 .bookmark-btn {

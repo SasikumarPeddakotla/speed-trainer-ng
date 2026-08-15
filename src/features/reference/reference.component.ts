@@ -1,4 +1,10 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import {
+  Component,
+  computed,
+  HostListener,
+  inject,
+  signal,
+} from '@angular/core';
 
 import { StateService } from '../../core/services/state.service';
 
@@ -45,8 +51,27 @@ export class ReferenceComponent {
 
   protected readonly searchText = signal('');
 
+  protected readonly showInfo = signal(false);
+
+  toggleInfo(event: MouseEvent): void {
+    event.stopPropagation();
+    this.showInfo.update((value) => !value);
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    const target = event.target as HTMLElement;
+
+    if (!target.closest('.info-button') && !target.closest('.info-popover')) {
+      this.showInfo.set(false);
+    }
+  }
+
   showQuestions(referenceView: 'all' | 'weak' | 'bookmark'): void {
     this.stateService.setReferenceView(referenceView);
+
+    // Close information when changing tabs.
+    this.showInfo.set(false);
   }
 
   practice() {

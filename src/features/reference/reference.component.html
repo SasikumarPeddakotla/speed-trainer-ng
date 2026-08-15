@@ -6,32 +6,122 @@
   }
 
   <div class="reference-toggle">
-    <button
-      type="button"
-      class="toggle-button"
-      [class.active]="referenceTab() === 'all'"
-      (click)="showQuestions('all')"
-    >
-      All ({{ counts.allCount }})
-    </button>
+    <!-- All -->
+    <div class="tab-wrapper" [class.active]="referenceTab() === 'all'">
+      <button
+        type="button"
+        class="toggle-button"
+        [class.active]="referenceTab() === 'all'"
+        (click)="showQuestions('all')"
+      >
+        All ({{ counts.allCount }})
+      </button>
 
-    <button
-      type="button"
-      class="toggle-button"
-      [class.active]="referenceTab() === 'weak'"
-      (click)="showQuestions('weak')"
-    >
-      Weak ({{ counts.weakCount }})
-    </button>
+      @if (referenceTab() === "all") {
+        <button
+          type="button"
+          class="info-button"
+          aria-label="Information about All Questions"
+          (click)="toggleInfo($event)"
+        >
+          ⓘ
+        </button>
+      }
 
-    <button
-      type="button"
-      class="toggle-button"
-      [class.active]="referenceTab() === 'bookmark'"
-      (click)="showQuestions('bookmark')"
-    >
-      Bookmarks ({{ counts.bookmarkCount }})
-    </button>
+      @if (referenceTab() === "all" && showInfo()) {
+        <div class="info-popover">
+          <strong>All Questions</strong>
+          <p>Shows all questions available for this exercise.</p>
+        </div>
+      }
+    </div>
+
+    <!-- Weak -->
+    <div class="tab-wrapper" [class.active]="referenceTab() === 'weak'">
+      <button
+        type="button"
+        class="toggle-button"
+        [class.active]="referenceTab() === 'weak'"
+        (click)="showQuestions('weak')"
+      >
+        Weak ({{ counts.weakCount }})
+      </button>
+
+      @if (referenceTab() === "weak") {
+        <button
+          type="button"
+          class="info-button"
+          aria-label="Information about Weak Questions"
+          (click)="toggleInfo($event)"
+        >
+          ⓘ
+        </button>
+      }
+
+      @if (referenceTab() === "weak" && showInfo()) {
+        <div class="info-popover weak-info">
+          <strong>Weak Questions</strong>
+
+          <p>
+            These questions are managed automatically by the review system. You
+            cannot add or remove them manually.
+          </p>
+
+          <ul>
+            <li>
+              <strong>Added:</strong>
+              A question is added when you answer it incorrectly.
+            </li>
+
+            <li>
+              <strong>Reviewed:</strong>
+              Questions you answer correctly in 'Practice All' are scheduled for
+              review again after a delay.
+            </li>
+
+            <li>
+              <strong>Removed:</strong>
+              A question is automatically removed after you successfully
+              complete all review stages.
+            </li>
+          </ul>
+        </div>
+      }
+    </div>
+
+    <!-- Bookmarks -->
+    <div class="tab-wrapper" [class.active]="referenceTab() === 'bookmark'">
+      <button
+        type="button"
+        class="toggle-button"
+        [class.active]="referenceTab() === 'bookmark'"
+        (click)="showQuestions('bookmark')"
+      >
+        Bookmarks ({{ counts.bookmarkCount }})
+      </button>
+
+      @if (referenceTab() === "bookmark") {
+        <button
+          type="button"
+          class="info-button"
+          aria-label="Information about Bookmarks"
+          (click)="toggleInfo($event)"
+        >
+          ⓘ
+        </button>
+      }
+
+      @if (referenceTab() === "bookmark" && showInfo()) {
+        <div class="info-popover">
+          <strong>Bookmarks</strong>
+
+          <p>
+            Questions you manually save for quick revision. You can add or
+            remove bookmarks whenever you want.
+          </p>
+        </div>
+      }
+    </div>
   </div>
 
   @if (topic?.route === "vocabulary" || topic?.route === "polity") {
