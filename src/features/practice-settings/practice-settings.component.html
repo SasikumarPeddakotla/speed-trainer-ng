@@ -68,17 +68,9 @@
       </div>
     }
 
-    <app-exercise-settings />
-
-    <!-- @if (
-      stateService.navigation().selectedExercise?.mode !==
-        PracticeMode.Bookmark &&
-      stateService.navigation().selectedExercise?.topic !== "arithmetic"
-    ) {
-      <button class="reference-btn" (click)="openReference()">
-        📖 Reference
-      </button>
-    } -->
+    @if (referenceView === "All") {
+      <app-exercise-settings />
+    }
 
     <button class="start-btn" (click)="startPractice()">
       ▶ Start Practice
