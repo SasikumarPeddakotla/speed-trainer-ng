@@ -8,12 +8,18 @@ import { StorageService } from './storage.service';
 import { StorageKeys } from '../enums/storage-keys.enum';
 
 type ReferenceView = 'all' | 'weak' | 'bookmark';
+interface ReferenceCounts {
+  allCount: number;
+  weakCount: number;
+  bookmarkCount: number;
+}
 
 interface NavigationState {
   selectedSubject: Subject | null;
   selectedTopic: Topic | null;
   selectedExercise: Exercise | null;
   referenceView: ReferenceView;
+  referenceCounts: ReferenceCounts;
 }
 
 interface PracticeState {
@@ -52,6 +58,11 @@ export class StateService {
     selectedTopic: null,
     selectedExercise: null,
     referenceView: 'all',
+    referenceCounts: {
+      allCount: 0,
+      weakCount: 0,
+      bookmarkCount: 0,
+    },
   };
 
   private readonly DEFAULT_PRACTICE: PracticeState = {
@@ -168,6 +179,13 @@ export class StateService {
     this.updateNavigation((state) => ({
       ...state,
       referenceView,
+    }));
+  }
+
+  setReferenceCounts(counts: ReferenceCounts): void {
+    this.updateNavigation((state) => ({
+      ...state,
+      referenceCounts: counts,
     }));
   }
 

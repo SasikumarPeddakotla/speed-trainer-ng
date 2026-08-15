@@ -326,6 +326,14 @@
   margin: 0 auto;
 }
 
+.practice-btn:hover {
+  background: #1d4ed8;
+}
+
+.practice-btn:active {
+  transform: scale(0.98);
+}
+
 // Add some bottom spacing so content is not hidden behind the floating button
 :host {
   display: block;

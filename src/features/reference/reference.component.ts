@@ -15,7 +15,12 @@ import { PowerReferenceComponent } from './power-reference/power-reference.compo
 import { ConversionReferenceComponent } from './conversion-reference/conversion-reference.component';
 import { PolityReferenceComponent } from './polity-reference/polity-reference.component';
 import { Router } from '@angular/router';
-import { SessionType } from '../../core/enums/session-type.enum';
+
+interface ReferenceCounts {
+  allCount: number;
+  weakCount: number;
+  bookmarkCount: number;
+}
 
 @Component({
   selector: 'app-reference',
@@ -35,7 +40,7 @@ export class ReferenceComponent {
   private stateService = inject(StateService);
   private router = inject(Router);
 
-  counts = {
+  counts: ReferenceCounts = {
     allCount: 0,
     weakCount: 0,
     bookmarkCount: 0,
@@ -75,15 +80,13 @@ export class ReferenceComponent {
   }
 
   practice() {
+    this.stateService.setReferenceCounts(this.counts);
+
     this.stateService.resetPractice();
     this.router.navigate([this.exercise?.route, 'practice-settings']);
   }
 
-  onCountChange(event: {
-    allCount: number;
-    weakCount: number;
-    bookmarkCount: number;
-  }) {
-    this.counts = event;
+  onCountChange(counts: ReferenceCounts) {
+    this.counts = counts;
   }
 }

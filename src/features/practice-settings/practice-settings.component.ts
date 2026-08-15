@@ -54,6 +54,22 @@ export class PracticeSettingsComponent {
     }
   }
 
+  get completeSetCount(): number {
+    const navigation = this.stateService.navigation();
+
+    switch (navigation.referenceView) {
+      case 'weak':
+        return navigation.referenceCounts.weakCount;
+
+      case 'bookmark':
+        return navigation.referenceCounts.bookmarkCount;
+
+      case 'all':
+      default:
+        return navigation.referenceCounts.allCount;
+    }
+  }
+
   get totalBookmarks() {
     return this.bookmarkService.getTotalBookmarks();
   }
