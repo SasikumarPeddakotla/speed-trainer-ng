@@ -1,4 +1,12 @@
-import { Component, computed, inject, input, signal } from '@angular/core';
+import {
+  Component,
+  computed,
+  effect,
+  inject,
+  input,
+  output,
+  signal,
+} from '@angular/core';
 
 import { ConversionEngine } from '../../../core/engines/conversion.engine';
 import { StateService } from '../../../core/services/state.service';
@@ -21,29 +29,44 @@ export class ConversionReferenceComponent {
   private bookmarkService = inject(BookmarkService);
   private idService = inject(IdService);
 
-  private refreshBookmarks = signal(0);
-
   referenceTab = input<'all' | 'weak' | 'bookmark'>();
+  count = output<{
+    allCount: number;
+    weakCount: number;
+    bookmarkCount: number;
+  }>();
 
   protected readonly mode = this.stateService.navigation().selectedExercise
     ?.mode as PracticeMode;
 
+  private readonly allQuestions =
+    this.conversionEngine.getConversionsReference();
+  private readonly weakQuestions = computed(() =>
+    this.reviewService.getPendingQuestions<FractionConversion>(this.mode),
+  );
+  private readonly bookmarkQuestions = computed(() => {
+    return this.bookmarkService.getBookmarkedQuestions<FractionConversion>();
+  });
+
+  // To return the counts to parent
+  private readonly emitCountsEffect = effect(() => {
+    this.count.emit({
+      allCount: this.allQuestions.length,
+      weakCount: this.weakQuestions().length,
+      bookmarkCount: this.bookmarkQuestions().length,
+    });
+  });
+
   readonly conversions = computed(() => {
-    this.refreshBookmarks();
     switch (this.referenceTab()) {
       case 'bookmark':
-        return [
-          ...this.bookmarkService.getBookmarkedQuestions<FractionConversion>(),
-        ];
+        return this.bookmarkQuestions();
 
       case 'weak':
-        return this.reviewService.getPendingQuestions<FractionConversion>(
-          this.mode,
-        );
+        return this.weakQuestions();
 
       default:
-        return this.conversionEngine.getConversionsReference();
-      // .map((conversion) => ({ conversion }));
+        return this.allQuestions;
     }
   });
 
@@ -55,7 +78,6 @@ export class ConversionReferenceComponent {
     };
 
     await this.bookmarkService.toggle(entry);
-    this.refreshBookmarks.update((v) => v + 1);
   }
 
   private getQuestionId(conversion: FractionConversion): string {

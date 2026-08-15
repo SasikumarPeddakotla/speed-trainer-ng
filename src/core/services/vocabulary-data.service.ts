@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { firstValueFrom } from 'rxjs';
@@ -12,13 +12,10 @@ import { Idiom } from '../models/idiom.model';
   providedIn: 'root',
 })
 export class VocabularyDataService {
-  private synonyms: Synonym[] = [];
-
-  private antonyms: Antonym[] = [];
-
-  private oneWords: OneWord[] = [];
-
-  private idioms: Idiom[] = [];
+  private readonly synonyms = signal<Synonym[]>([]);
+  private readonly antonyms = signal<Antonym[]>([]);
+  private readonly oneWords = signal<OneWord[]>([]);
+  private readonly idioms = signal<Idiom[]>([]);
 
   constructor(private http: HttpClient) {}
 
@@ -27,8 +24,8 @@ export class VocabularyDataService {
       return;
     }
 
-    this.synonyms = await firstValueFrom(
-      this.http.get<Synonym[]>('data/synonyms.json'),
+    this.synonyms.set(
+      await firstValueFrom(this.http.get<Synonym[]>('data/synonyms.json')),
     );
   }
 
@@ -37,8 +34,8 @@ export class VocabularyDataService {
       return;
     }
 
-    this.antonyms = await firstValueFrom(
-      this.http.get<Antonym[]>('data/antonyms.json'),
+    this.antonyms.set(
+      await firstValueFrom(this.http.get<Antonym[]>('data/antonyms.json')),
     );
   }
 
@@ -47,8 +44,8 @@ export class VocabularyDataService {
       return;
     }
 
-    this.oneWords = await firstValueFrom(
-      this.http.get<OneWord[]>('data/one-words.json'),
+    this.oneWords.set(
+      await firstValueFrom(this.http.get<OneWord[]>('data/one-words.json')),
     );
   }
 
@@ -57,24 +54,24 @@ export class VocabularyDataService {
       return;
     }
 
-    this.idioms = await firstValueFrom(
-      this.http.get<Idiom[]>('data/idioms.json'),
+    this.idioms.set(
+      await firstValueFrom(this.http.get<Idiom[]>('data/idioms.json')),
     );
   }
 
   getSynonyms(): Synonym[] {
-    return this.synonyms;
+    return this.synonyms();
   }
 
   getAntonyms(): Antonym[] {
-    return this.antonyms;
+    return this.antonyms();
   }
 
   getOneWords(): OneWord[] {
-    return this.oneWords;
+    return this.oneWords();
   }
 
   getIdioms(): Idiom[] {
-    return this.idioms;
+    return this.idioms();
   }
 }

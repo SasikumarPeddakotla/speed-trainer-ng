@@ -120,13 +120,19 @@ export class TablesEngine {
     this.questions = this.randomService.shuffle(questions);
   }
 
-  getTablesReference(): number[] {
-    return Array.from({ length: 19 }, (_, i) => i + 2);
-    // const settings = this.stateService.practice();
+  getTablesReference(): TableQuestion[] {
+    const tables = Array.from({ length: 19 }, (_, i) => i + 2);
+    const multiplierLimit = 20;
 
-    // return settings.tableSelection === 'random'
-    //   ? Array.from({ length: 19 }, (_, i) => i + 2)
-    //   : settings.selectedTables;
+    const questions: TableQuestion[] = [];
+
+    for (const table of tables) {
+      for (let multiplier = 1; multiplier <= multiplierLimit; multiplier++) {
+        questions.push({ table, multiplier });
+      }
+    }
+
+    return questions;
   }
 
   reset() {

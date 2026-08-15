@@ -1,4 +1,12 @@
-import { Component, computed, inject, input, signal } from '@angular/core';
+import {
+  Component,
+  computed,
+  effect,
+  inject,
+  input,
+  output,
+  signal,
+} from '@angular/core';
 
 import { PolityEngine } from '../../../core/engines/polity.engine';
 import { Article } from '../../../core/models/article.model';
@@ -23,24 +31,43 @@ export class PolityReferenceComponent {
   private bookmarkService = inject(BookmarkService);
   private idService = inject(IdService);
 
-  private refreshBookmarks = signal(0);
-
   referenceTab = input<'all' | 'weak' | 'bookmark'>();
+  count = output<{
+    allCount: number;
+    weakCount: number;
+    bookmarkCount: number;
+  }>();
 
   protected readonly mode = this.stateService.navigation().selectedExercise
     ?.mode as PracticeMode;
 
+  private readonly allQuestions = this.polityEngine.getArticlesReference();
+  private readonly weakQuestions = computed(() =>
+    this.reviewService.getPendingQuestions<Article>(this.mode),
+  );
+  private readonly bookmarkQuestions = computed(() => {
+    return this.bookmarkService.getBookmarkedQuestions<Article>();
+  });
+
+  // To return the counts to parent
+  private readonly emitCountsEffect = effect(() => {
+    this.count.emit({
+      allCount: this.allQuestions.length,
+      weakCount: this.weakQuestions().length,
+      bookmarkCount: this.bookmarkQuestions().length,
+    });
+  });
+
   get articles(): Article[] {
-    this.refreshBookmarks();
     switch (this.referenceTab()) {
       case 'bookmark':
-        return this.bookmarkService.getBookmarkedQuestions<Article>();
+        return this.bookmarkQuestions();
 
       case 'weak':
-        return this.reviewService.getPendingQuestions<Article>(this.mode);
+        return this.weakQuestions();
 
       default:
-        return this.polityEngine.getArticlesReference();
+        return this.allQuestions;
     }
   }
 
@@ -70,7 +97,6 @@ export class PolityReferenceComponent {
     };
 
     this.bookmarkService.toggle(entry);
-    this.refreshBookmarks.update((v) => v + 1);
   }
 
   private getQuestionId(article: Article): string {

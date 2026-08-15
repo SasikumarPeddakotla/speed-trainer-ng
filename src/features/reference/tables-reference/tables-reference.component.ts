@@ -1,4 +1,12 @@
-import { Component, computed, inject, input, signal } from '@angular/core';
+import {
+  Component,
+  computed,
+  effect,
+  inject,
+  input,
+  output,
+  signal,
+} from '@angular/core';
 
 import { TablesEngine } from '../../../core/engines/tables.engine';
 import { StateService } from '../../../core/services/state.service';
@@ -30,43 +38,43 @@ export class TablesReferenceComponent {
   private refreshBookmarks = signal(0);
 
   referenceTab = input<'all' | 'weak' | 'bookmark'>();
+  count = output<{
+    allCount: number;
+    weakCount: number;
+    bookmarkCount: number;
+  }>();
 
   protected readonly mode = this.stateService.navigation().selectedExercise
     ?.mode as PracticeMode;
 
-  // get tables(): number[] {
-  //   if (this.referenceTab()) {
-  //     return this.reviewService
-  //       .getPendingQuestions<TableQuestion>(this.mode)
-  //       .map((q) => q.table);
-  //   }
+  private readonly allQuestions = this.tablesEngine.getTablesReference();
+  private readonly weakQuestions = computed(() =>
+    this.reviewService.getPendingQuestions<TableQuestion>(this.mode),
+  );
+  private readonly bookmarkQuestions = computed(() => {
+    return this.bookmarkService.getBookmarkedQuestions<TableQuestion>();
+  });
 
-  //   return this.tablesEngine.getTablesReference();
-  // }
-
-  protected readonly multipliers = Array.from({ length: 20 }, (_, i) => i + 1);
+  // To return the counts to parent
+  private readonly emitCountsEffect = effect(() => {
+    this.count.emit({
+      allCount: this.allQuestions.length,
+      weakCount: this.weakQuestions().length,
+      bookmarkCount: this.bookmarkQuestions().length,
+    });
+  });
 
   readonly tables = computed<TableReference[]>(() => {
     this.refreshBookmarks();
     switch (this.referenceTab()) {
       case 'weak':
-        return this.buildTableReference(
-          this.reviewService.getPendingQuestions<TableQuestion>(this.mode),
-        );
+        return this.buildTableReference(this.weakQuestions());
 
       case 'bookmark':
-        return this.buildTableReference(
-          this.bookmarkService.getBookmarkedQuestions<TableQuestion>(),
-        );
+        return this.buildTableReference(this.bookmarkQuestions());
 
       default:
-        return this.tablesEngine.getTablesReference().map((table) => ({
-          table,
-          questions: this.multipliers.map((multiplier) => ({
-            table,
-            multiplier,
-          })),
-        }));
+        return this.buildTableReference(this.allQuestions);
     }
   });
 

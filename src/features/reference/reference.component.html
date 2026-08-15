@@ -57,25 +57,36 @@
     <app-vocabulary-reference
       [searchText]="searchText()"
       [referenceTab]="referenceTab()"
+      (count)="onCountChange($event)"
     />
   }
 
   @case ("tables") {
-    <app-tables-reference [referenceTab]="referenceTab()" />
+    <app-tables-reference
+      [referenceTab]="referenceTab()"
+      (count)="onCountChange($event)"
+    />
   }
 
   @case ("powers") {
-    <app-power-reference [referenceTab]="referenceTab()" />
+    <app-power-reference
+      [referenceTab]="referenceTab()"
+      (count)="onCountChange($event)"
+    />
   }
 
   @case ("conversions") {
-    <app-conversion-reference [referenceTab]="referenceTab()" />
+    <app-conversion-reference
+      [referenceTab]="referenceTab()"
+      (count)="onCountChange($event)"
+    />
   }
 
   @case ("polity") {
     <app-polity-reference
       [searchText]="searchText()"
       [referenceTab]="referenceTab()"
+      (count)="onCountChange($event)"
     />
   }
 

@@ -1,4 +1,12 @@
-import { Component, computed, inject, input, signal } from '@angular/core';
+import {
+  Component,
+  computed,
+  effect,
+  inject,
+  input,
+  output,
+  signal,
+} from '@angular/core';
 
 import { StateService } from '../../../core/services/state.service';
 import { VocabularyEngine } from '../../../core/engines/vocabulary.engine';
@@ -37,14 +45,51 @@ export class VocabularyReferenceComponent {
     await this.dataPreloadService.preloadForMode(
       this.stateService.navigation().selectedExercise?.mode,
     );
-    this.refreshBookmarks.update((v) => v + 1);
   }
-
-  private refreshBookmarks = signal(0);
 
   public PracticeMode = PracticeMode;
 
   referenceTab = input<'all' | 'weak' | 'bookmark'>();
+  count = output<{
+    allCount: number;
+    weakCount: number;
+    bookmarkCount: number;
+  }>();
+
+  readonly allCount = computed(() => {
+    switch (this.mode) {
+      case PracticeMode.Synonyms:
+        return this.vocabularyEngine.getSynonymsReference().length;
+
+      case PracticeMode.Antonyms:
+        return this.vocabularyEngine.getAntonymsReference().length;
+
+      case PracticeMode.OneWord:
+        return this.vocabularyEngine.getOneWordsReference().length;
+
+      case PracticeMode.Idioms:
+        return this.vocabularyEngine.getIdiomsReference().length;
+
+      default:
+        return 0;
+    }
+  });
+
+  readonly weakCount = computed(() => {
+    return this.reviewService.getPendingQuestions(this.mode).length;
+  });
+
+  readonly bookmarkCount = computed(() => {
+    return this.bookmarkService.getBookmarkedQuestions().length;
+  });
+
+  private readonly emitCountsEffect = effect(() => {
+    this.count.emit({
+      allCount: this.allCount(),
+      weakCount: this.weakCount(),
+      bookmarkCount: this.bookmarkCount(),
+    });
+  });
 
   readonly filteredSynonyms = computed(() => {
     const search = this.searchText()!.trim().toLowerCase();
@@ -128,7 +173,6 @@ export class VocabularyReferenceComponent {
     ?.mode as PracticeMode;
 
   readonly synonyms = computed(() => {
-    this.refreshBookmarks();
     switch (this.referenceTab()) {
       case 'bookmark':
         return this.bookmarkService.getBookmarkedQuestions<Synonym>();
@@ -142,7 +186,6 @@ export class VocabularyReferenceComponent {
   });
 
   readonly antonyms = computed(() => {
-    this.refreshBookmarks();
     switch (this.referenceTab()) {
       case 'bookmark':
         return this.bookmarkService.getBookmarkedQuestions<Antonym>();
@@ -156,7 +199,6 @@ export class VocabularyReferenceComponent {
   });
 
   readonly oneWords = computed(() => {
-    this.refreshBookmarks();
     switch (this.referenceTab()) {
       case 'bookmark':
         return this.bookmarkService.getBookmarkedQuestions<OneWord>();
@@ -170,7 +212,6 @@ export class VocabularyReferenceComponent {
   });
 
   readonly idioms = computed(() => {
-    this.refreshBookmarks();
     switch (this.referenceTab()) {
       case 'bookmark':
         return this.bookmarkService.getBookmarkedQuestions<Idiom>();
@@ -193,7 +234,6 @@ export class VocabularyReferenceComponent {
     };
 
     await this.bookmarkService.toggle(entry);
-    this.refreshBookmarks.update((v) => v + 1);
   }
 
   private getQuestionId(question: Synonym | Antonym | OneWord | Idiom): string {

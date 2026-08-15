@@ -40,18 +40,15 @@ export class AlphabetReferenceComponent {
   protected readonly mode = this.stateService.navigation().selectedExercise
     ?.mode as PracticeMode;
 
-  private refreshBookmarks = signal(0);
-
   private readonly allQuestions = this.alphabetEngine.getAlphabetReference();
   private readonly weakQuestions = computed(() =>
     this.reviewService.getPendingQuestions<Alphabet>(this.mode),
   );
-
   private readonly bookmarkQuestions = computed(() => {
-    this.refreshBookmarks();
     return this.bookmarkService.getBookmarkedQuestions<Alphabet>();
   });
 
+  // To return the counts to parent
   private readonly emitCountsEffect = effect(() => {
     this.count.emit({
       allCount: this.allQuestions.length,
@@ -61,7 +58,6 @@ export class AlphabetReferenceComponent {
   });
 
   readonly alphabets = computed(() => {
-    this.refreshBookmarks();
     switch (this.referenceTab()) {
       case 'bookmark':
         return this.bookmarkQuestions();
@@ -88,7 +84,6 @@ export class AlphabetReferenceComponent {
     };
 
     await this.bookmarkService.toggle(entry);
-    this.refreshBookmarks.update((v) => v + 1);
   }
 
   isBookmarked(alphabet: Alphabet): boolean {

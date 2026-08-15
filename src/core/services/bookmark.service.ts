@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 
 import { StorageKeys } from '../enums/storage-keys.enum';
 import { StorageService } from './storage.service';
@@ -38,6 +38,12 @@ export class BookmarkService {
 
   private currentBookmark?: BookmarkEntry;
 
+  // To make every reference page reflect the bookmark changes immediately
+  private readonly bookmarksVersion = signal(0);
+  private notifyBookmarksChanged(): void {
+    this.bookmarksVersion.update((version) => version + 1);
+  }
+
   getCurrentBookmark(): BookmarkEntry | undefined {
     return this.currentBookmark;
   }
@@ -69,6 +75,7 @@ export class BookmarkService {
       list.push(entry);
 
       this.save();
+      this.notifyBookmarksChanged();
 
       this.snackbarService.show('Added to bookmarks');
     }
@@ -84,6 +91,7 @@ export class BookmarkService {
       list.splice(index, 1);
 
       this.save();
+      this.notifyBookmarksChanged();
 
       this.snackbarService.show('Removed from bookmarks');
     }
@@ -131,6 +139,8 @@ export class BookmarkService {
 
   // Returns only questionData as an array. For reference pages to show in the bookmarks tab.
   getBookmarkedQuestions<T>(): T[] {
+    this.bookmarksVersion();
+
     const exerciseKey = this.getExerciseKey();
 
     return this.getList(exerciseKey).map((b) => b.question as T);
@@ -142,6 +152,7 @@ export class BookmarkService {
     this.bookmarkLists.delete(exerciseKey);
 
     this.save();
+    this.notifyBookmarksChanged();
   }
 
   clearAll(): void {
