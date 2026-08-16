@@ -2,75 +2,250 @@
   display: block;
 }
 
+/* ========================================
+   Page
+   ======================================== */
+
 .page {
   min-height: 100vh;
-  background: #f5f7fb;
-  padding: 20px;
+
+  padding: 32px 16px;
+
+  background: var(--app-background);
+
+  box-sizing: border-box;
 }
 
-.card {
-  max-width: 430px;
+.exercise-card {
+  width: 100%;
+  max-width: 620px;
+
   margin: 0 auto;
 }
 
-h1 {
+/* ========================================
+   Header
+   ======================================== */
+
+.exercise-header {
   text-align: center;
-  color: #2563eb;
-  margin: 10px 0 6px;
+
+  margin-bottom: 32px;
 }
 
-.subtitle {
-  text-align: center;
-  color: #6b7280;
-  margin-bottom: 24px;
+.breadcrumb {
+  margin-bottom: 6px;
+
+  color: var(--app-text-muted);
+
+  font-size: 12px;
+  font-weight: 600;
+
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
-.menu-card {
-  background: white;
+.exercise-header h1 {
+  margin: 0;
 
-  border-radius: 18px;
+  color: var(--app-text-primary);
 
-  padding: 18px;
+  font-size: 28px;
+  font-weight: 700;
+}
 
-  margin-bottom: 16px;
+.exercise-header p {
+  margin: 8px 0 0;
+
+  color: var(--app-text-secondary);
+
+  font-size: 14px;
+}
+
+/* ========================================
+   Exercises
+   ======================================== */
+
+.exercises-section {
+  width: 100%;
+}
+
+.section-title {
+  margin: 0 0 10px 4px;
+
+  color: var(--app-text-secondary);
+
+  font-size: 13px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.exercise-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+/* ========================================
+   Exercise Item
+   ======================================== */
+
+.exercise-item {
+  width: 100%;
+
+  min-height: 68px;
 
   display: flex;
-
+  align-items: center;
   justify-content: space-between;
 
-  align-items: center;
+  padding: 14px 16px;
+
+  border: 1px solid var(--app-border);
+
+  border-radius: var(--app-radius-lg);
+
+  background: var(--app-surface);
+
+  color: var(--app-text-primary);
+
+  text-align: left;
+
+  box-shadow: var(--app-shadow-sm);
 
   cursor: pointer;
 
-  box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease,
+    background 0.15s ease;
 
-  transition: transform .15s;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.menu-card:active {
-  transform: scale(.98);
+.exercise-item:hover {
+  border-color: #d5dbe5;
+
+  box-shadow: var(--app-shadow-md);
 }
 
-.menu-content {
+.exercise-item:active {
+  transform: scale(0.985);
+
+  box-shadow: var(--app-shadow-sm);
+}
+
+/* ========================================
+   Content
+   ======================================== */
+
+.exercise-content {
+  min-width: 0;
+
   display: flex;
-  align-items: center;
+  flex-direction: column;
+
+  gap: 5px;
 }
 
-.icon {
-  font-size: 32px;
-  width: 48px;
+.exercise-title {
+  color: var(--app-text-primary);
+
+  font-size: 16px;
+  font-weight: 650;
+
+  line-height: 1.4;
 }
 
-.title {
-  font-size: 18px;
+/* ========================================
+   Coming Soon
+   ======================================== */
+
+.coming-soon {
+  width: fit-content;
+
+  padding: 2px 7px;
+
+  border-radius: 6px;
+
+  background: var(--app-surface-muted);
+
+  color: var(--app-text-muted);
+
+  font-size: 10px;
   font-weight: 600;
+
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
+
+.exercise-item.not-implemented {
+  cursor: default;
+
+  opacity: 0.65;
+}
+
+.exercise-item.not-implemented:hover {
+  border-color: var(--app-border);
+
+  box-shadow: var(--app-shadow-sm);
+}
+
+.exercise-item.not-implemented:active {
+  transform: none;
+}
+
+/* ========================================
+   Arrow
+   ======================================== */
 
 .arrow {
+  flex-shrink: 0;
+
+  margin-left: 12px;
+
+  color: var(--app-text-muted);
+
   font-size: 28px;
-  color: #9ca3af;
+  font-weight: 300;
+
+  line-height: 1;
 }
 
-.divider {
-  height: 24px;
+.exercise-item.not-implemented .arrow {
+  opacity: 0.5;
+}
+
+/* ========================================
+   Mobile
+   ======================================== */
+
+@media (max-width: 600px) {
+  .page {
+    padding: 24px 12px;
+  }
+
+  .exercise-header {
+    margin-bottom: 28px;
+  }
+
+  .exercise-header h1 {
+    font-size: 25px;
+  }
+
+  .exercise-item {
+    min-height: 62px;
+
+    padding: 13px 14px;
+
+    border-radius: var(--app-radius-md);
+  }
+
+  .exercise-title {
+    font-size: 15px;
+  }
 }

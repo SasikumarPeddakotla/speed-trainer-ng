@@ -34,8 +34,8 @@
               <th>Decimal</th>
             }
           }
-          <!-- for bookmark -->
-          <th></th>
+
+          <th class="bookmark-header" aria-label="Bookmark"></th>
         </tr>
       </thead>
 
@@ -44,43 +44,69 @@
           <tr>
             @switch (mode) {
               @case (PracticeMode.FractionToDecimal) {
-                <td>{{ conversion.fraction }}</td>
-                <td>{{ conversion.decimal }}</td>
+                <td class="source-value">
+                  {{ conversion.fraction }}
+                </td>
+
+                <td class="converted-value">
+                  {{ conversion.decimal }}
+                </td>
               }
 
               @case (PracticeMode.DecimalToFraction) {
-                <td>{{ conversion.decimal }}</td>
-                <td>{{ conversion.fraction }}</td>
+                <td class="source-value">
+                  {{ conversion.decimal }}
+                </td>
+
+                <td class="converted-value">
+                  {{ conversion.fraction }}
+                </td>
               }
 
               @case (PracticeMode.FractionToPercentage) {
-                <td>{{ conversion.fraction }}</td>
-                <td>{{ conversion.percentage }} %</td>
+                <td class="source-value">
+                  {{ conversion.fraction }}
+                </td>
+
+                <td class="converted-value">{{ conversion.percentage }}%</td>
               }
 
               @case (PracticeMode.PercentageToFraction) {
-                <td>{{ conversion.percentage }} %</td>
-                <td>{{ conversion.fraction }}</td>
+                <td class="source-value">{{ conversion.percentage }}%</td>
+
+                <td class="converted-value">
+                  {{ conversion.fraction }}
+                </td>
               }
 
               @case (PracticeMode.DecimalToPercentage) {
-                <td>{{ conversion.decimal }}</td>
-                <td>{{ conversion.percentage }} %</td>
+                <td class="source-value">
+                  {{ conversion.decimal }}
+                </td>
+
+                <td class="converted-value">{{ conversion.percentage }}%</td>
               }
 
               @case (PracticeMode.PercentageToDecimal) {
-                <td>{{ conversion.percentage }} %</td>
-                <td>{{ conversion.decimal }}</td>
+                <td class="source-value">{{ conversion.percentage }}%</td>
+
+                <td class="converted-value">
+                  {{ conversion.decimal }}
+                </td>
               }
             }
-            <td>
+
+            <td class="bookmark-cell">
               <button
                 type="button"
                 class="bookmark-btn"
                 [class.bookmarked]="isBookmarked(conversion)"
+                [attr.aria-label]="
+                  isBookmarked(conversion) ? 'Remove bookmark' : 'Add bookmark'
+                "
                 (click)="toggleBookmark(conversion)"
               >
-                &#9733;
+                ★
               </button>
             </td>
           </tr>
@@ -89,5 +115,9 @@
     </table>
   </div>
 } @else {
-  <p class="no-data">No data available</p>
+  <div class="no-data">
+    <div class="no-data-icon">⇄</div>
+
+    <p>No data available</p>
+  </div>
 }

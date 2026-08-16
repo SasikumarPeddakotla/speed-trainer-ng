@@ -1,82 +1,111 @@
 <div class="page">
   <div class="card">
-    <h1>Practice Settings</h1>
-
-    <div class="section">
-      <div class="section-title">Exercise</div>
-
-      <div class="value-card">
-        {{ selectedExercise?.title }} ({{ referenceView }})
-      </div>
+    <div class="page-header">
+      <h1>Practice Settings</h1>
+      <p>Configure your practice session</p>
     </div>
 
-    @if (hasSetting(SettingType.SessionType)) {
-      <app-session-type-setting />
-    }
-
-    @if (
-      stateService.practice().sessionType === SessionType.Countdown ||
-      stateService.practice().sessionType === SessionType.QuestionChallenge
-    ) {
+    <div class="settings-card">
+      <!-- Exercise -->
       <div class="section">
-        <div class="section-title">Session Settings</div>
+        <div class="section-title">Exercise</div>
 
-        @if (stateService.practice().sessionType === SessionType.Countdown) {
-          <div class="setting">
-            <label>Duration</label>
+        <div class="value-card">
+          <div class="value-icon">⚡</div>
 
-            <select
-              [ngModel]="stateService.practice().countdownDuration"
-              (ngModelChange)="setCountdownDuration($event)"
-            >
-              <option [ngValue]="60">1 Minute</option>
-              <option [ngValue]="120">2 Minutes</option>
-              <option [ngValue]="300">5 Minutes</option>
-              <option [ngValue]="600">10 Minutes</option>
-            </select>
+          <div class="value-content">
+            <strong>{{ selectedExercise?.title }}</strong>
+            <span>{{ referenceView }}</span>
           </div>
-        }
-
-        @if (
-          stateService.practice().sessionType === SessionType.QuestionChallenge
-        ) {
-          <div class="setting">
-            <label>Questions</label>
-
-            @if (
-              stateService.navigation().selectedExercise?.mode !==
-              PracticeMode.Bookmark
-            ) {
-              <select
-                [ngModel]="stateService.practice().questionTarget"
-                (ngModelChange)="setQuestionTarget($event)"
-              >
-                <option [ngValue]="10">10</option>
-                <option [ngValue]="20">20</option>
-                <option [ngValue]="30">30</option>
-                <option [ngValue]="50">50</option>
-                <option value="completeSet">
-                  Complete set ({{ completeSetCount }})
-                </option>
-              </select>
-            } @else {
-              <p>
-                Answer all {{ totalBookmarks }} bookmarked
-                {{ totalBookmarks === 1 ? "question" : "questions" }} to
-                complete the session. Only one attempt per question.
-              </p>
-            }
-          </div>
-        }
+        </div>
       </div>
-    }
 
-    @if (referenceView === "All") {
-      <app-exercise-settings />
-    }
+      <!-- Session Type -->
+      @if (hasSetting(SettingType.SessionType)) {
+        <div class="section">
+          <div class="section-title">Session Type</div>
+
+          <app-session-type-setting />
+        </div>
+      }
+
+      <!-- Session Settings -->
+      @if (
+        stateService.practice().sessionType === SessionType.Countdown ||
+        stateService.practice().sessionType === SessionType.QuestionChallenge
+      ) {
+        <div class="section">
+          <div class="section-title">Session Settings</div>
+
+          @if (stateService.practice().sessionType === SessionType.Countdown) {
+            <div class="setting">
+              <label>Duration</label>
+
+              <select
+                [ngModel]="stateService.practice().countdownDuration"
+                (ngModelChange)="setCountdownDuration($event)"
+              >
+                <option [ngValue]="60">1 Minute</option>
+                <option [ngValue]="120">2 Minutes</option>
+                <option [ngValue]="300">5 Minutes</option>
+                <option [ngValue]="600">10 Minutes</option>
+              </select>
+            </div>
+          }
+
+          @if (
+            stateService.practice().sessionType ===
+            SessionType.QuestionChallenge
+          ) {
+            <div class="setting">
+              <label>Questions</label>
+
+              @if (
+                stateService.navigation().selectedExercise?.mode !==
+                PracticeMode.Bookmark
+              ) {
+                <select
+                  [ngModel]="stateService.practice().questionTarget"
+                  (ngModelChange)="setQuestionTarget($event)"
+                >
+                  <option [ngValue]="10">10</option>
+                  <option [ngValue]="20">20</option>
+                  <option [ngValue]="30">30</option>
+                  <option [ngValue]="50">50</option>
+
+                  <option [ngValue]="'completeSet'">
+                    Complete set ({{ completeSetCount }})
+                  </option>
+                </select>
+              } @else {
+                <div class="info-message">
+                  <span class="info-icon">⭐</span>
+
+                  <span>
+                    Answer all {{ totalBookmarks }} bookmarked
+                    {{ totalBookmarks === 1 ? "question" : "questions" }}
+                    to complete the session.
+                    <br />
+                    <small>Only one attempt per question.</small>
+                  </span>
+                </div>
+              }
+            </div>
+          }
+        </div>
+      }
+
+      <!-- Exercise Settings -->
+      @if (referenceView === "All") {
+        <div class="section exercise-settings-section">
+          <app-exercise-settings />
+        </div>
+      }
+    </div>
 
     <button class="start-btn" (click)="startPractice()">
-      ▶ Start Practice
+      <span>▶</span>
+      Start Practice
     </button>
   </div>
 </div>

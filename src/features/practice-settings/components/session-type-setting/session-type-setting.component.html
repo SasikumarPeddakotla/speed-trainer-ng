@@ -1,6 +1,4 @@
 <div class="section">
-  <div class="section-title">Practice Mode</div>
-
   <app-session-type-selector
     [selected]="stateService.practice().sessionType"
     (selectedChange)="onSessionTypeChange($event)"
@@ -12,8 +10,14 @@
       {{ selectedSessionInfo().icon }}
     </span>
 
-    <p>
-      {{ selectedSessionInfo().description }}
-    </p>
+    <div class="description-content">
+      <strong>
+        {{ selectedSessionInfo().title }}
+      </strong>
+
+      <p>
+        {{ selectedSessionInfo().description }}
+      </p>
+    </div>
   </div>
 </div>

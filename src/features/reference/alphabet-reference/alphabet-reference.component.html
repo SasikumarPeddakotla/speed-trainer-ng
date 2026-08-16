@@ -29,8 +29,8 @@
               <th>Mnemonic</th>
             }
           }
-          <!-- for bookmark -->
-          <th></th>
+
+          <th class="bookmark-header" aria-label="Bookmark"></th>
         </tr>
       </thead>
 
@@ -39,30 +39,58 @@
           <tr>
             @switch (mode) {
               @case (PracticeMode.LetterToPosition) {
-                <td>{{ alphabet.letter }}</td>
-                <td>{{ alphabet.position }}</td>
+                <td class="primary-value">
+                  {{ alphabet.letter }}
+                </td>
+
+                <td class="secondary-value">
+                  {{ alphabet.position }}
+                </td>
               }
 
               @case (PracticeMode.PositionToLetter) {
-                <td>{{ alphabet.position }}</td>
-                <td>{{ alphabet.letter }}</td>
+                <td class="primary-value">
+                  {{ alphabet.position }}
+                </td>
+
+                <td class="secondary-value">
+                  {{ alphabet.letter }}
+                </td>
               }
 
               @case (PracticeMode.LetterToReversePosition) {
-                <td>{{ alphabet.letter }}</td>
-                <td>{{ alphabet.reversePosition }}</td>
+                <td class="primary-value">
+                  {{ alphabet.letter }}
+                </td>
+
+                <td class="secondary-value">
+                  {{ alphabet.reversePosition }}
+                </td>
               }
 
               @case (PracticeMode.ReversePositionToLetter) {
-                <td>{{ alphabet.reversePosition }}</td>
-                <td>{{ alphabet.letter }}</td>
+                <td class="primary-value">
+                  {{ alphabet.reversePosition }}
+                </td>
+
+                <td class="secondary-value">
+                  {{ alphabet.letter }}
+                </td>
               }
 
               @case (PracticeMode.MirrorLetter) {
                 <td class="mirror-pair">
-                  <span class="letter">{{ alphabet.letter }}</span> ↔
-                  <span class="mirror">{{ alphabet.mirrorLetter }}</span>
+                  <span class="letter">
+                    {{ alphabet.letter }}
+                  </span>
+
+                  <span class="mirror-arrow">↔</span>
+
+                  <span class="mirror">
+                    {{ alphabet.mirrorLetter }}
+                  </span>
                 </td>
+
                 <td class="mnemonic-cell">
                   <span class="mnemonic-badge">
                     {{ alphabet.mnemonic }}
@@ -70,14 +98,18 @@
                 </td>
               }
             }
-            <td>
+
+            <td class="bookmark-cell">
               <button
                 type="button"
                 class="bookmark-btn"
                 [class.bookmarked]="isBookmarked(alphabet)"
+                [attr.aria-label]="
+                  isBookmarked(alphabet) ? 'Remove bookmark' : 'Add bookmark'
+                "
                 (click)="toggleBookmark(alphabet)"
               >
-                &#9733;
+                ★
               </button>
             </td>
           </tr>
@@ -86,5 +118,9 @@
     </table>
   </div>
 } @else {
-  <p class="no-data">No data available</p>
+  <div class="no-data">
+    <div class="no-data-icon">📖</div>
+
+    <p>No data available</p>
+  </div>
 }

@@ -1,21 +1,40 @@
 <div class="page">
-  <div class="card">
-    <h1>{{ subjectName | titlecase }}</h1>
+  <main class="topic-card">
+    <!-- Header -->
+    <header class="topic-header">
+      <div class="breadcrumb">Subject</div>
 
-    <p class="subtitle">Choose a Topic</p>
+      <h1>{{ subjectName | titlecase }}</h1>
 
-    @for (topic of topics; track topic.route) {
-      <div class="menu-card" (click)="openTopic(topic)">
-        <div class="menu-content">
-          <div class="text">
-            <div class="title">
-              {{ topic.title }}
+      <p>Choose a topic to continue</p>
+    </header>
+
+    <!-- Topics -->
+    <section class="topics-section">
+      <div class="section-title">Topics</div>
+
+      <div class="topic-list">
+        @for (topic of topics; track topic.route) {
+          <button
+            type="button"
+            class="topic-item"
+            [class.not-implemented]="!topic.implemented"
+            (click)="openTopic(topic)"
+          >
+            <div class="topic-content">
+              <div class="topic-title">
+                {{ topic.title }}
+              </div>
+
+              @if (!topic.implemented) {
+                <span class="coming-soon">Coming Soon</span>
+              }
             </div>
-          </div>
-        </div>
 
-        <div class="arrow">›</div>
+            <span class="arrow">›</span>
+          </button>
+        }
       </div>
-    }
-  </div>
+    </section>
+  </main>
 </div>

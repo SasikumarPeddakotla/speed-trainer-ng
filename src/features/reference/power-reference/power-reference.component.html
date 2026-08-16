@@ -1,81 +1,67 @@
 @if (questions().length > 0) {
   <div class="powers-container">
-    @if (mode === PracticeMode.Squares) {
-      @for (number of questions(); track number) {
-        <div class="power-row">
-          <span>{{ number }}²</span>
-          <span>=</span>
-          <span>{{ number * number }}</span>
+    @for (number of questions(); track number) {
+      <div class="power-row">
+        @switch (mode) {
+          @case (PracticeMode.Squares) {
+            <span class="expression"> {{ number }}² </span>
 
-          <button
-            type="button"
-            class="bookmark-btn"
-            [class.bookmarked]="isBookmarked(number)"
-            (click)="toggleBookmark(number)"
-          >
-            &#9733;
-          </button>
-        </div>
-      }
-    }
+            <span class="equals">=</span>
 
-    @if (mode === PracticeMode.Cubes) {
-      @for (number of questions(); track number) {
-        <div class="power-row">
-          <span>{{ number }}³</span>
-          <span>=</span>
-          <span>{{ number * number * number }}</span>
+            <span class="answer">
+              {{ number * number }}
+            </span>
+          }
 
-          <button
-            type="button"
-            class="bookmark-btn"
-            [class.bookmarked]="isBookmarked(number)"
-            (click)="toggleBookmark(number)"
-          >
-            &#9733;
-          </button>
-        </div>
-      }
-    }
+          @case (PracticeMode.Cubes) {
+            <span class="expression"> {{ number }}³ </span>
 
-    @if (mode === PracticeMode.SquareRoots) {
-      @for (number of questions(); track number) {
-        <div class="power-row">
-          <span>√{{ number * number }}</span>
-          <span>=</span>
-          <span>{{ number }}</span>
+            <span class="equals">=</span>
 
-          <button
-            type="button"
-            class="bookmark-btn"
-            [class.bookmarked]="isBookmarked(number)"
-            (click)="toggleBookmark(number)"
-          >
-            &#9733;
-          </button>
-        </div>
-      }
-    }
+            <span class="answer">
+              {{ number * number * number }}
+            </span>
+          }
 
-    @if (mode === PracticeMode.CubeRoots) {
-      @for (number of questions(); track number) {
-        <div class="power-row">
-          <span>∛{{ number * number * number }}</span>
-          <span>=</span>
-          <span>{{ number }}</span>
+          @case (PracticeMode.SquareRoots) {
+            <span class="expression"> √{{ number * number }} </span>
 
-          <button
-            type="button"
-            class="bookmark-btn"
-            [class.bookmarked]="isBookmarked(number)"
-            (click)="toggleBookmark(number)"
-          >
-            &#9733;
-          </button>
-        </div>
-      }
+            <span class="equals">=</span>
+
+            <span class="answer">
+              {{ number }}
+            </span>
+          }
+
+          @case (PracticeMode.CubeRoots) {
+            <span class="expression"> ∛{{ number * number * number }} </span>
+
+            <span class="equals">=</span>
+
+            <span class="answer">
+              {{ number }}
+            </span>
+          }
+        }
+
+        <button
+          type="button"
+          class="bookmark-btn"
+          [class.bookmarked]="isBookmarked(number)"
+          [attr.aria-label]="
+            isBookmarked(number) ? 'Remove bookmark' : 'Add bookmark'
+          "
+          (click)="toggleBookmark(number)"
+        >
+          ★
+        </button>
+      </div>
     }
   </div>
 } @else {
-  <p class="no-data">No data available</p>
+  <div class="no-data">
+    <div class="no-data-icon">√</div>
+
+    <p>No data available</p>
+  </div>
 }

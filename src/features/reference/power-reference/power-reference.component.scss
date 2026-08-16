@@ -1,67 +1,230 @@
 :host {
   display: block;
-  padding: 24px;
+
+  padding: 8px 0 24px;
 }
+
+/* ========================================
+   Powers Container
+   ======================================== */
 
 .powers-container {
+  width: 100%;
+
   max-width: 700px;
+
   margin: 0 auto;
 
-  background: white;
+  overflow: hidden;
 
-  border-radius: 18px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--app-border);
 
-  padding: 20px;
+  border-radius: var(--app-radius-lg);
 
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  background: var(--app-surface);
+
+  box-shadow: var(--app-shadow-sm);
 }
 
+/* ========================================
+   Power Row
+   ======================================== */
+
 .power-row {
+  min-height: 54px;
+
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr auto;
+
+  grid-template-columns: 1fr 40px 1fr 48px;
 
   align-items: center;
 
-  padding: 12px 0;
+  gap: 8px;
 
-  border-bottom: 1px solid #f1f5f9;
+  padding: 6px 12px;
 
-  font-size: 22px;
+  border-bottom: 1px solid var(--app-border-light);
+
+  background: var(--app-surface);
+
+  transition: background 0.15s ease;
 }
 
 .power-row:last-child {
   border-bottom: none;
 }
 
-.power-row span:first-child {
-  text-align: center;
-  font-weight: 600;
+.power-row:hover {
+  background: var(--app-surface-muted);
 }
 
-.power-row span:nth-child(2) {
+/* ========================================
+   Expression
+   ======================================== */
+
+.expression {
+  color: var(--app-text-primary);
+
+  font-size: 20px;
+  font-weight: 650;
+
+  text-align: right;
+
+  white-space: nowrap;
+}
+
+/* ========================================
+   Equals
+   ======================================== */
+
+.equals {
+  color: var(--app-text-muted);
+
+  font-size: 17px;
+
   text-align: center;
 }
 
-.power-row span:nth-child(3) {
-  text-align: center;
+/* ========================================
+   Answer
+   ======================================== */
+
+.answer {
+  color: var(--app-primary);
+
+  font-size: 21px;
   font-weight: 700;
-  color: #16a34a;
+
+  text-align: left;
+
+  white-space: nowrap;
 }
+
+/* ========================================
+   Bookmark
+   ======================================== */
 
 .bookmark-btn {
+  width: 34px;
+  height: 34px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
   border: none;
+
+  border-radius: 50%;
+
   background: transparent;
+
+  color: var(--app-text-muted);
+
+  font-size: 20px;
+
   cursor: pointer;
-  font-size: 25px;
+
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    color 0.15s ease;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+.bookmark-btn:hover {
+  background: var(--app-surface-muted);
+
+  transform: scale(1.08);
+}
+
+.bookmark-btn:active {
+  transform: scale(0.92);
+}
+
+.bookmark-btn.bookmarked {
   color: #f4b400;
 }
 
-.bookmark-btn:not(.bookmarked) {
-  color: #cbd5e1;
-}
+/* ========================================
+   Empty State
+   ======================================== */
 
 .no-data {
+  min-height: 220px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  margin: 0;
+
+  color: var(--app-text-secondary);
+
   text-align: center;
-  color: grey;
+}
+
+.no-data-icon {
+  margin-bottom: 8px;
+
+  font-size: 34px;
+
+  font-weight: 700;
+
+  opacity: 0.65;
+}
+
+.no-data p {
+  margin: 0;
+
+  font-size: 14px;
+}
+
+/* ========================================
+   Mobile
+   ======================================== */
+
+@media (max-width: 600px) {
+  :host {
+    padding-top: 4px;
+  }
+
+  .powers-container {
+    border-radius: var(--app-radius-md);
+  }
+
+  .power-row {
+    min-height: 50px;
+
+    grid-template-columns: 1fr 30px 1fr 40px;
+
+    gap: 4px;
+
+    padding: 5px 8px;
+  }
+
+  .expression {
+    font-size: 18px;
+  }
+
+  .equals {
+    font-size: 15px;
+  }
+
+  .answer {
+    font-size: 19px;
+  }
+
+  .bookmark-btn {
+    width: 32px;
+    height: 32px;
+
+    font-size: 19px;
+  }
 }

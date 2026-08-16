@@ -2,53 +2,94 @@
   display: block;
 }
 
+/* ========================================
+   Keyboard
+   ======================================== */
+
 .keyboard {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+
+  gap: var(--app-spacing-sm);
 }
+
+/* ========================================
+   Row
+   ======================================== */
 
 .row {
   display: flex;
-  gap: 10px;
+
+  gap: var(--app-spacing-sm);
 }
+
+/* ========================================
+   Keys
+   ======================================== */
 
 button {
   flex: 1;
 
   height: 65px;
 
-  border: 1px solid #e2e8f0;
-  border-radius: 14px;
+  border: 1px solid var(--app-border);
 
-  background: #ffffff;
+  border-radius: var(--app-radius-md);
 
-  color: #1e293b;
+  background: var(--app-surface);
+
+  color: var(--app-text-primary);
 
   font-size: 30px;
   font-weight: 600;
 
   cursor: pointer;
 
-  transition:
-    background-color .15s ease,
-    border-color .15s ease,
-    transform .08s ease,
-    box-shadow .15s ease;
+  box-shadow: var(--app-shadow-sm);
 
-  box-shadow: 0 2px 6px rgba(0,0,0,.05);
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.08s ease,
+    box-shadow 0.15s ease;
 }
 
+/* ========================================
+   Hover
+   ======================================== */
+
 button:hover {
-  background: #f8fafc;
+  background: var(--app-surface-muted);
+
   border-color: #cbd5e1;
 }
 
+/* ========================================
+   Press
+   ======================================== */
+
 button:active {
-  transform: scale(.96);
+  transform: scale(0.96);
+
   box-shadow: none;
 }
 
+/* ========================================
+   Focus
+   ======================================== */
+
 button:focus {
   outline: none;
+}
+
+/* ========================================
+   Mobile
+   ======================================== */
+
+@media (max-width: 500px) {
+  button {
+    height: 60px;
+
+    font-size: 27px;
+  }
 }

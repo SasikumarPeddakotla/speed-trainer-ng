@@ -1,138 +1,288 @@
+/* ========================================
+   Section
+   ======================================== */
+
 .section {
-  margin-bottom: 32px;
+  margin-top: 28px;
 }
 
 .section-title {
-  margin-bottom: 12px;
-  font-size: 14px;
+  margin-bottom: 14px;
+
+  color: var(--app-text-muted);
+
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.5px;
+
   text-transform: uppercase;
-  color: #6b7280;
+  letter-spacing: 0.07em;
 }
 
-.value-card {
-  padding: 16px 18px;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
+/* ========================================
+   Individual Setting
+   ======================================== */
 
 .setting {
   display: flex;
+
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 15px;
+
+  gap: 8px;
+
+  margin-bottom: 18px;
+}
+
+.setting:last-child {
+  margin-bottom: 0;
 }
 
 .setting label {
-  font-size: 15px;
-  font-weight: 500;
-  color: #374151;
+  color: var(--app-text-secondary);
+
+  font-size: 14px;
+  font-weight: 600;
 }
+
+/* ========================================
+   Select
+   ======================================== */
 
 select {
   width: 100%;
-  padding: 16px;
-  border: none;
-  border-radius: 16px;
-  background: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  font-size: 16px;
+
+  min-height: 50px;
+
+  padding: 0 14px;
+
+  border: 1px solid var(--app-border);
+
+  border-radius: var(--app-radius-md);
+
+  background: var(--app-surface);
+
+  color: var(--app-text-primary);
+
+  font-family: inherit;
+
+  font-size: 15px;
+
+  outline: none;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
+select:focus {
+  border-color: var(--app-primary);
+
+  box-shadow: 0 0 0 3px var(--app-primary-soft);
+}
+
+/* ========================================
+   Table / Denominator Selection
+   ======================================== */
+
 .table-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+
+  grid-template-columns: repeat(5, 1fr);
+
   gap: 8px;
 }
 
-.table-chip {
-  min-width: 44px;
-  padding: 8px 12px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.table-chip.selected {
-  background: #2563eb;
-  color: white;
-}
-
+.table-chip,
 .denominator-chip {
-  min-width: 44px;
-  padding: 8px 12px;
-  border-radius: 8px;
+  min-height: 42px;
+
+  padding: 8px 6px;
+
+  border: 1px solid var(--app-border);
+
+  border-radius: var(--app-radius-sm);
+
+  background: var(--app-surface);
+
+  color: var(--app-text-secondary);
+
+  font-family: inherit;
+
+  font-size: 14px;
+  font-weight: 600;
+
   cursor: pointer;
-  font-weight: bold;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease;
+
+  -webkit-tap-highlight-color: transparent;
 }
 
+.table-chip:hover,
+.denominator-chip:hover {
+  border-color: var(--app-primary);
+
+  background: var(--app-primary-soft);
+
+  color: var(--app-primary);
+}
+
+.table-chip:active,
+.denominator-chip:active {
+  transform: scale(0.96);
+}
+
+.table-chip.selected,
 .denominator-chip.selected {
-  background: #2563eb;
+  border-color: var(--app-primary);
+
+  background: var(--app-primary);
+
   color: white;
 }
+
+.table-chip.selected:hover,
+.denominator-chip.selected:hover {
+  background: var(--app-primary-hover);
+
+  color: white;
+}
+
+/* ========================================
+   Vocabulary Size
+   ======================================== */
 
 .vocabulary-size {
   display: flex;
-  justify-content: space-between;
+
   align-items: center;
+  justify-content: space-between;
+
   gap: 12px;
 
-  background: white;
-  border-radius: 16px;
-  padding: 12px 16px;
+  min-height: 58px;
 
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 8px 10px;
+
+  border: 1px solid var(--app-border);
+
+  border-radius: var(--app-radius-md);
+
+  background: var(--app-surface);
 }
 
 .countDiv {
+  flex: 1;
+
   display: flex;
+
   align-items: center;
   justify-content: center;
-  gap: 15px;
+
+  gap: 5px;
 }
 
 .vocabulary-size input {
-  width: 50%;
+  width: 65px;
+
+  padding: 4px;
+
   border: none;
+
   outline: none;
+
+  background: transparent;
+
+  color: var(--app-text-primary);
 
   text-align: right;
 
-  font-size: 20px;
-  font-weight: 700;
+  font-family: inherit;
 
-  background: transparent;
+  font-size: 19px;
+  font-weight: 700;
 }
 
 .vocabulary-size span {
-  width: 50%;
-  text-align: left;
+  color: var(--app-text-muted);
 
-  color: #6b7280;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .step-btn {
   width: 40px;
   height: 40px;
 
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
   border: none;
+
   border-radius: 50%;
 
-  background: #2563eb;
+  background: var(--app-primary);
+
   color: white;
 
-  font-size: 24px;
+  font-family: inherit;
+
+  font-size: 23px;
+  font-weight: 400;
+
   cursor: pointer;
 
-  transition: 0.2s;
+  transition:
+    background 0.15s ease,
+    transform 0.15s ease;
+
+  -webkit-tap-highlight-color: transparent;
 }
 
 .step-btn:hover {
-  background: #1d4ed8;
+  background: var(--app-primary-hover);
 }
 
 .step-btn:active {
-  transform: scale(0.95);
+  transform: scale(0.92);
+}
+
+/* ========================================
+   Mobile
+   ======================================== */
+
+@media (max-width: 600px) {
+  .section {
+    margin-top: 24px;
+  }
+
+  .table-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .table-chip,
+  .denominator-chip {
+    min-height: 40px;
+
+    font-size: 13px;
+  }
+
+  .vocabulary-size {
+    min-height: 54px;
+  }
+
+  .step-btn {
+    width: 38px;
+    height: 38px;
+  }
 }

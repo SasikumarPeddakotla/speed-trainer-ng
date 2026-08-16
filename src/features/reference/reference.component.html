@@ -1,144 +1,173 @@
-<div class="reference-header">
-  <h1>{{ topic?.title }}</h1>
+<div class="page">
+  <main class="reference-page">
+    <!-- Header -->
+    <header class="reference-header">
+      <div class="breadcrumb">Reference</div>
 
-  @if (exercise) {
-    <p>{{ exercise.title }}</p>
-  }
+      <h1>{{ topic?.title }}</h1>
 
-  <div class="reference-toggle">
-    <!-- All -->
-    <div class="tab-wrapper" [class.active]="referenceTab() === 'all'">
-      <button
-        type="button"
-        class="toggle-button"
-        [class.active]="referenceTab() === 'all'"
-        (click)="showQuestions('all')"
-      >
-        All ({{ counts.allCount }})
-      </button>
-
-      @if (referenceTab() === "all") {
-        <button
-          type="button"
-          class="info-button"
-          aria-label="Information about All Questions"
-          (click)="toggleInfo($event)"
-        >
-          ⓘ
-        </button>
+      @if (exercise) {
+        <p>{{ exercise.title }}</p>
       }
 
-      @if (referenceTab() === "all" && showInfo()) {
-        <div class="info-popover">
-          <strong>All Questions</strong>
-          <p>Shows all questions available for this exercise.</p>
+      <!-- Tabs -->
+      <div class="reference-tabs">
+        <!-- All -->
+        <div class="tab-wrapper" [class.active]="referenceTab() === 'all'">
+          <button
+            type="button"
+            class="tab-button"
+            [class.active]="referenceTab() === 'all'"
+            (click)="showQuestions('all')"
+          >
+            <span>All</span>
+            <span class="count">{{ counts.allCount }}</span>
+          </button>
+
+          @if (referenceTab() === "all") {
+            <button
+              type="button"
+              class="info-button"
+              aria-label="Information about All Questions"
+              (click)="toggleInfo($event)"
+            >
+              ⓘ
+            </button>
+          }
+
+          @if (referenceTab() === "all" && showInfo()) {
+            <div class="info-popover">
+              <strong>All Questions</strong>
+
+              <p>Shows all questions available for this exercise.</p>
+            </div>
+          }
+        </div>
+
+        <!-- Bookmarks -->
+        <div class="tab-wrapper" [class.active]="referenceTab() === 'bookmark'">
+          <button
+            type="button"
+            class="tab-button"
+            [class.active]="referenceTab() === 'bookmark'"
+            (click)="showQuestions('bookmark')"
+          >
+            <span>Bookmarks</span>
+            <span class="count">{{ counts.bookmarkCount }}</span>
+          </button>
+
+          @if (referenceTab() === "bookmark") {
+            <button
+              type="button"
+              class="info-button"
+              aria-label="Information about Bookmarks"
+              (click)="toggleInfo($event)"
+            >
+              ⓘ
+            </button>
+          }
+
+          @if (referenceTab() === "bookmark" && showInfo()) {
+            <div class="info-popover">
+              <strong>Bookmarks</strong>
+
+              <p>
+                Questions you manually save for quick revision. You can add or
+                remove bookmarks whenever you want.
+              </p>
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- Search -->
+      @if (topic?.route === "vocabulary" || topic?.route === "polity") {
+        <div class="search-wrapper">
+          <span class="search-icon">⌕</span>
+
+          <input
+            class="search-box"
+            type="text"
+            placeholder="Search questions..."
+            [value]="searchText()"
+            (input)="searchText.set($any($event.target).value)"
+          />
         </div>
       }
-    </div>
+    </header>
 
-    <!-- Bookmarks -->
-    <div class="tab-wrapper" [class.active]="referenceTab() === 'bookmark'">
-      <button
-        type="button"
-        class="toggle-button"
-        [class.active]="referenceTab() === 'bookmark'"
-        (click)="showQuestions('bookmark')"
-      >
-        Bookmarks ({{ counts.bookmarkCount }})
+    <!-- Reference Content -->
+    <section class="reference-content">
+      @switch (topic?.route) {
+        @case ("alphabet") {
+          <app-alphabet-reference
+            [referenceTab]="referenceTab()"
+            (count)="onCountChange($event)"
+          />
+        }
+
+        @case ("vocabulary") {
+          <app-vocabulary-reference
+            [searchText]="searchText()"
+            [referenceTab]="referenceTab()"
+            (count)="onCountChange($event)"
+          />
+        }
+
+        @case ("tables") {
+          <app-tables-reference
+            [referenceTab]="referenceTab()"
+            (count)="onCountChange($event)"
+          />
+        }
+
+        @case ("powers") {
+          <app-power-reference
+            [referenceTab]="referenceTab()"
+            (count)="onCountChange($event)"
+          />
+        }
+
+        @case ("conversions") {
+          <app-conversion-reference
+            [referenceTab]="referenceTab()"
+            (count)="onCountChange($event)"
+          />
+        }
+
+        @case ("polity") {
+          <app-polity-reference
+            [searchText]="searchText()"
+            [referenceTab]="referenceTab()"
+            (count)="onCountChange($event)"
+          />
+        }
+
+        @default {
+          <div class="no-reference">
+            <div class="no-reference-icon">📖</div>
+
+            <p>No reference available.</p>
+          </div>
+        }
+      }
+    </section>
+
+    <!-- Practice -->
+    @if (referenceTab() === "all" && counts.allCount > 0) {
+      <button type="button" class="practice-btn" (click)="practice()">
+        <span class="practice-icon">▶</span>
+
+        <span>Practice All</span>
       </button>
+    }
 
-      @if (referenceTab() === "bookmark") {
-        <button
-          type="button"
-          class="info-button"
-          aria-label="Information about Bookmarks"
-          (click)="toggleInfo($event)"
-        >
-          ⓘ
-        </button>
-      }
+    @if (referenceTab() === "bookmark" && counts.bookmarkCount > 0) {
+      <button type="button" class="practice-btn" (click)="practice()">
+        <span class="practice-icon">▶</span>
 
-      @if (referenceTab() === "bookmark" && showInfo()) {
-        <div class="info-popover">
-          <strong>Bookmarks</strong>
-
-          <p>
-            Questions you manually save for quick revision. You can add or
-            remove bookmarks whenever you want.
-          </p>
-        </div>
-      }
-    </div>
-  </div>
-
-  @if (topic?.route === "vocabulary" || topic?.route === "polity") {
-    <input
-      class="search-box"
-      type="text"
-      placeholder="Search..."
-      [value]="searchText()"
-      (input)="searchText.set($any($event.target).value)"
-    />
-  }
+        <span>Practice Bookmarks</span>
+      </button>
+    }
+  </main>
 </div>
-
-@switch (topic?.route) {
-  @case ("alphabet") {
-    <app-alphabet-reference
-      [referenceTab]="referenceTab()"
-      (count)="onCountChange($event)"
-    />
-  }
-
-  @case ("vocabulary") {
-    <app-vocabulary-reference
-      [searchText]="searchText()"
-      [referenceTab]="referenceTab()"
-      (count)="onCountChange($event)"
-    />
-  }
-
-  @case ("tables") {
-    <app-tables-reference
-      [referenceTab]="referenceTab()"
-      (count)="onCountChange($event)"
-    />
-  }
-
-  @case ("powers") {
-    <app-power-reference
-      [referenceTab]="referenceTab()"
-      (count)="onCountChange($event)"
-    />
-  }
-
-  @case ("conversions") {
-    <app-conversion-reference
-      [referenceTab]="referenceTab()"
-      (count)="onCountChange($event)"
-    />
-  }
-
-  @case ("polity") {
-    <app-polity-reference
-      [searchText]="searchText()"
-      [referenceTab]="referenceTab()"
-      (count)="onCountChange($event)"
-    />
-  }
-
-  @default {
-    <p style="text-align: center">No reference available.</p>
-  }
-}
-
-@if (referenceTab() === "all" && counts.allCount > 0) {
-  <!-- <div class="floating-practice"> -->
-  <button class="practice-btn" (click)="practice()">Practice All</button>
-  <!-- </div> -->
-}
-@if (referenceTab() === "bookmark" && counts.bookmarkCount > 0) {
-  <!-- <div class="floating-practice"> -->
-  <button class="practice-btn" (click)="practice()">Practice Bookmarks</button>
-  <!-- </div> -->
-}

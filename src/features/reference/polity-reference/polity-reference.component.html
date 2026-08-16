@@ -1,32 +1,59 @@
-@if(filteredArticles().length>0){
-<div class="reference-grid">
-  @for (article of filteredArticles(); track article.article) {
-    <div class="reference-card">
-      <div class="card-header">
-        <h3>Article {{ article.article }}</h3>
-        <button
-          type="button"
-          class="bookmark-btn"
-          [class.bookmarked]="isBookmarked(article)"
-          (click)="toggleBookmark(article)"
-        >
-          &#9733;
-        </button>
-      </div>
+@if (filteredArticles().length > 0) {
+  <div class="reference-grid">
+    @for (article of filteredArticles(); track article.article) {
+      <article class="reference-card">
+        <div class="card-header">
+          <div class="title-group">
+            <span class="article-badge">
+              {{ article.article }}
+            </span>
 
-      <div class="divider"></div>
+            <div>
+              <span class="label">Constitutional Article</span>
 
-      <h4>{{ article.title }}</h4>
+              <h3>Article {{ article.article }}</h3>
+            </div>
+          </div>
 
-      @if (article.part) {
-        <p class="part">{{ article.part }}</p>
-      }
-    </div>
-  }
-</div>
-}
-@else{
-  <p class="no-data">
-    No data available
-  </p>
+          <button
+            type="button"
+            class="bookmark-btn"
+            [class.bookmarked]="isBookmarked(article)"
+            [attr.aria-label]="
+              isBookmarked(article) ? 'Remove bookmark' : 'Add bookmark'
+            "
+            (click)="toggleBookmark(article)"
+          >
+            ★
+          </button>
+        </div>
+
+        <div class="content">
+          <div class="title-section">
+            <span class="label">Title</span>
+
+            <p class="article-title">
+              {{ article.title }}
+            </p>
+          </div>
+
+          @if (article.part) {
+            <div class="part-section">
+              <span class="label">Part</span>
+
+              <p class="part">
+                {{ article.part }}
+              </p>
+            </div>
+          }
+        </div>
+      </article>
+    }
+  </div>
+} @else {
+  <div class="no-data">
+    <div class="no-data-icon">📜</div>
+
+    <p>No matching articles found.</p>
+  </div>
 }

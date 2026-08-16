@@ -1,63 +1,94 @@
 <div class="page">
-  <div class="card">
-    <h1>⚡Speed Trainer</h1>
+  <main class="home-card">
+    <!-- Header -->
+    <header class="home-header">
+      <div class="app-icon">⚡</div>
 
-    <p class="subtitle">Choose a Subject</p>
+      <h1>Speed Trainer</h1>
 
-    @for (subject of subjects; track subject.route) {
-      <div class="menu-card" (click)="openSubject(subject)">
-        <div class="menu-content">
-          <div class="icon">
-            {{ subject.icon }}
-          </div>
+      <p>Choose a subject to start practicing</p>
+    </header>
 
-          <div class="text">
-            <div class="title">
-              {{ subject.title }}
+    <!-- Subjects -->
+    <section class="section">
+      <h2 class="section-title">Subjects</h2>
+
+      <div class="menu-list">
+        @for (subject of subjects; track subject.route) {
+          <button
+            type="button"
+            class="menu-card"
+            (click)="openSubject(subject)"
+          >
+            <div class="menu-content">
+              <div class="icon">
+                {{ subject.icon }}
+              </div>
+
+              <div class="text">
+                <div class="title">
+                  {{ subject.title }}
+                </div>
+              </div>
+            </div>
+
+            <span class="arrow">›</span>
+          </button>
+        }
+      </div>
+    </section>
+
+    <!-- Personal -->
+    <section class="section utility-section">
+      <h2 class="section-title">Your Practice</h2>
+
+      <div class="menu-list">
+        <button type="button" class="menu-card" (click)="openBookmarks()">
+          <div class="menu-content">
+            <div class="icon">⭐</div>
+
+            <div class="text">
+              <div class="title">Bookmarks</div>
+              <div class="description">Questions you've saved for later</div>
             </div>
           </div>
-        </div>
 
-        <div class="arrow">›</div>
+          <span class="arrow">›</span>
+        </button>
       </div>
-    }
+    </section>
 
-    <div class="menu-card" (click)="openBookmarks()">
-      <div class="menu-content">
-        <div class="icon">⭐</div>
+    <!-- App -->
+    <section class="section utility-section">
+      <h2 class="section-title">App</h2>
 
-        <div class="text">
-          <div class="title">Bookmarks</div>
-        </div>
+      <div class="menu-list">
+        <button type="button" class="menu-card" (click)="openStatistics()">
+          <div class="menu-content">
+            <div class="icon">📊</div>
+
+            <div class="text">
+              <div class="title">Statistics</div>
+              <div class="description">Track your practice progress</div>
+            </div>
+          </div>
+
+          <span class="arrow">›</span>
+        </button>
+
+        <button type="button" class="menu-card" (click)="openSettings()">
+          <div class="menu-content">
+            <div class="icon">⚙</div>
+
+            <div class="text">
+              <div class="title">App Settings</div>
+              <div class="description">Customize your training experience</div>
+            </div>
+          </div>
+
+          <span class="arrow">›</span>
+        </button>
       </div>
-
-      <div class="arrow">›</div>
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="menu-card" (click)="openStatistics()">
-      <div class="menu-content">
-        <div class="icon">📊</div>
-
-        <div class="text">
-          <div class="title">Statistics</div>
-        </div>
-      </div>
-
-      <div class="arrow">›</div>
-    </div>
-
-    <div class="menu-card" (click)="openSettings()">
-      <div class="menu-content">
-        <div class="icon">⚙</div>
-
-        <div class="text">
-          <div class="title">App Settings</div>
-        </div>
-      </div>
-
-      <div class="arrow">›</div>
-    </div>
-  </div>
+    </section>
+  </main>
 </div>

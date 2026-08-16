@@ -1,122 +1,353 @@
 :host {
   display: block;
-  padding-bottom: 5rem;
+
+  padding-bottom: 50px;
 }
 
 .page {
   min-height: 100vh;
-  background: #f5f7fb;
-  padding: 24px 20px;
+
+  padding: 28px 20px 40px;
+
+  background: var(--app-background);
 }
 
 .card {
-  max-width: 430px;
-  margin: auto;
-}
-
-h1 {
-  text-align: center;
-  color: #2563eb;
-  margin-bottom: 36px;
-}
-
-.section {
-  margin-bottom: 32px;
-}
-
-.section-title {
-  margin-bottom: 12px;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  color: #6b7280;
-}
-
-.value-card {
-  padding: 16px 18px;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.setting {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.setting label {
-  font-size: 15px;
-  font-weight: 500;
-  color: #374151;
-}
-
-.setting p {
-  font-size: 15px;
-  text-align: center;
-  color: #64748b;
-}
-
-select {
   width: 100%;
-  padding: 16px;
-  border: none;
-  border-radius: 16px;
-  background: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  font-size: 16px;
-}
+  max-width: 500px;
 
-.start-btn {
-  width: 400px;
-  padding: 18px;
-  border: none;
-  border-radius: 18px;
-  background: #2563eb;
-  color: white;
-  font-size: 18px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s;
-  position: fixed;
-  bottom: 30px;
-  left: 0;
-  right: 0;
   margin: 0 auto;
 }
 
-.start-btn:hover {
-  background: #1d4ed8;
+/* ========================================
+   Header
+   ======================================== */
+
+.page-header {
+  text-align: center;
+
+  margin-bottom: 24px;
 }
 
-.start-btn:active {
-  transform: scale(0.98);
+.page-header h1 {
+  margin: 0;
+
+  color: var(--app-primary);
+
+  font-size: 28px;
+  font-weight: 700;
 }
 
-.reference-btn {
-  width: 100%;
-  margin-top: 36px;
-  padding: 18px;
+.page-header p {
+  margin: 7px 0 0;
 
-  border: 2px solid #2563eb;
-  border-radius: 18px;
+  color: var(--app-text-muted);
 
-  background: white;
-  color: #2563eb;
+  font-size: 14px;
+}
 
-  font-size: 18px;
+/* ========================================
+   Main Settings Card
+   ======================================== */
+
+.settings-card {
+  padding: 22px;
+
+  background: var(--app-surface);
+
+  border: 1px solid var(--app-border);
+
+  border-radius: var(--app-radius-lg);
+
+  box-shadow: var(--app-shadow-md);
+}
+
+/* ========================================
+   Sections
+   ======================================== */
+
+.section {
+  margin-bottom: 26px;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.section-title {
+  margin-bottom: 10px;
+
+  color: var(--app-text-muted);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.07em;
+}
+
+/* ========================================
+   Exercise
+   ======================================== */
+
+.value-card {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 15px;
+
+  background: var(--app-surface-muted);
+
+  border: 1px solid var(--app-border-light);
+
+  border-radius: var(--app-radius-md);
+}
+
+.value-icon {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 12px;
+
+  background: var(--app-primary);
+
+  color: white;
+
+  font-size: 20px;
+}
+
+.value-content {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+
+  min-width: 0;
+}
+
+.value-content strong {
+  color: var(--app-text-primary);
+
+  font-size: 16px;
+}
+
+.value-content span {
+  color: var(--app-text-muted);
+
+  font-size: 13px;
+}
+
+/* ========================================
+   Settings
+   ======================================== */
+
+.setting {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.setting label {
+  color: var(--app-text-secondary);
+
+  font-size: 14px;
   font-weight: 600;
+}
+
+/* ========================================
+   Select
+   ======================================== */
+
+select {
+  width: 100%;
+
+  min-height: 50px;
+
+  padding: 0 14px;
+
+  border: 1px solid var(--app-border);
+
+  border-radius: var(--app-radius-md);
+
+  background: var(--app-surface);
+
+  color: var(--app-text-primary);
+
+  font-family: inherit;
+
+  font-size: 15px;
+
+  outline: none;
 
   cursor: pointer;
 
-  transition: all 0.2s ease;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
-.reference-btn:hover {
-  background: #eff6ff;
+select:focus {
+  border-color: var(--app-primary);
+
+  box-shadow: 0 0 0 3px var(--app-primary-soft);
 }
 
-.reference-btn:active {
-  transform: scale(0.98);
+/* ========================================
+   Information Message
+   ======================================== */
+
+.info-message {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 10px;
+
+  padding: 13px 14px;
+
+  border: 1px solid var(--app-border-light);
+
+  border-radius: var(--app-radius-md);
+
+  background: var(--app-surface-muted);
+
+  color: var(--app-text-secondary);
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+.info-icon {
+  flex-shrink: 0;
+
+  font-size: 17px;
+}
+
+.info-message small {
+  color: var(--app-text-muted);
+
+  font-size: 12px;
+}
+
+/* ========================================
+   Exercise Settings
+   ======================================== */
+
+.exercise-settings-section {
+  padding-top: 4px;
+}
+
+/* ========================================
+   Start Button
+   ======================================== */
+
+.start-btn {
+  position: fixed;
+
+  left: 50%;
+
+  bottom: 24px;
+
+  transform: translateX(-50%);
+
+  z-index: 20;
+
+  width: min(430px, calc(100% - 40px));
+
+  min-height: 56px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  padding: 15px 20px;
+
+  border: none;
+
+  border-radius: 18px;
+
+  background: var(--app-primary);
+
+  color: white;
+
+  font-family: inherit;
+
+  font-size: 17px;
+
+  font-weight: 700;
+
+  box-shadow: var(--app-shadow-button);
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+.start-btn:hover {
+  background: var(--app-primary-hover);
+
+  box-shadow: var(--app-shadow-button-hover);
+}
+
+.start-btn:active {
+  transform: translateX(-50%) scale(0.98);
+}
+
+/* ========================================
+   Mobile
+   ======================================== */
+
+@media (max-width: 600px) {
+  .page {
+    padding: 22px 14px 35px;
+  }
+
+  .page-header {
+    margin-bottom: 20px;
+  }
+
+  .page-header h1 {
+    font-size: 25px;
+  }
+
+  .settings-card {
+    padding: 18px;
+
+    border-radius: 18px;
+  }
+
+  .section {
+    margin-bottom: 23px;
+  }
+
+  .start-btn {
+    bottom: 18px;
+
+    width: calc(100% - 28px);
+
+    border-radius: 16px;
+  }
 }

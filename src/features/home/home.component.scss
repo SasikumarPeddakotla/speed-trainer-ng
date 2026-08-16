@@ -2,76 +2,261 @@
   display: block;
 }
 
+/* ========================================
+   Page
+   ======================================== */
+
 .page {
   min-height: 100vh;
-  background: #f5f7fb;
-  padding: 20px;
+
+  padding: 32px 16px;
+
+  background: var(--app-background);
+
+  box-sizing: border-box;
 }
 
-.card {
-  max-width: 430px;
+.home-card {
+  width: 100%;
+  max-width: 620px;
+
   margin: 0 auto;
 }
 
-h1 {
+/* ========================================
+   Header
+   ======================================== */
+
+.home-header {
   text-align: center;
-  color: #2563eb;
-  margin: 10px 0 6px;
+
+  margin-bottom: 32px;
 }
 
-.subtitle {
-  text-align: center;
-  color: #6b7280;
-  margin-bottom: 24px;
+.app-icon {
+  width: 58px;
+  height: 58px;
+
+  margin: 0 auto 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--app-primary);
+
+  color: #ffffff;
+
+  font-size: 27px;
+
+  box-shadow: var(--app-shadow-sm);
+}
+
+.home-header h1 {
+  margin: 0;
+
+  color: var(--app-text-primary);
+
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.home-header p {
+  margin: 8px 0 0;
+
+  color: var(--app-text-secondary);
+
+  font-size: 14px;
+}
+
+/* ========================================
+   Sections
+   ======================================== */
+
+.section {
+  margin-bottom: 28px;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.section-title {
+  margin: 0 0 10px 4px;
+
+  color: var(--app-text-secondary);
+
+  font-size: 13px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ========================================
+   Menu
+   ======================================== */
+
+.menu-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
 }
 
 .menu-card {
-  background: white;
-
-  border-radius: 18px;
-
-  padding: 18px;
-
-  margin-bottom: 16px;
+  width: 100%;
 
   display: flex;
-
+  align-items: center;
   justify-content: space-between;
 
-  align-items: center;
+  padding: 15px 16px;
+
+  border: 1px solid var(--app-border);
+
+  border-radius: var(--app-radius-lg);
+
+  background: var(--app-surface);
+
+  color: var(--app-text-primary);
+
+  box-shadow: var(--app-shadow-sm);
+
+  text-align: left;
 
   cursor: pointer;
 
-  box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease,
+    background 0.15s ease;
 
-  transition: transform .15s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.menu-card:hover {
+  border-color: #d5dbe5;
+
+  box-shadow: var(--app-shadow-md);
 }
 
 .menu-card:active {
-  transform: scale(.98);
+  transform: scale(0.985);
+
+  box-shadow: var(--app-shadow-sm);
 }
 
+/* ========================================
+   Menu Content
+   ======================================== */
+
 .menu-content {
+  min-width: 0;
+
   display: flex;
   align-items: center;
+
+  gap: 14px;
 }
 
 .icon {
-  font-size: 32px;
-  width: 48px;
+  width: 46px;
+  height: 46px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: var(--app-radius-md);
+
+  background: var(--app-surface-muted);
+
+  font-size: 26px;
+}
+
+.text {
+  min-width: 0;
 }
 
 .title {
-  font-size: 18px;
-  font-weight: 600;
+  color: var(--app-text-primary);
+
+  font-size: 16px;
+  font-weight: 650;
+}
+
+.description {
+  margin-top: 3px;
+
+  color: var(--app-text-secondary);
+
+  font-size: 12px;
+
+  line-height: 1.4;
 }
 
 .arrow {
+  flex-shrink: 0;
+
+  margin-left: 12px;
+
+  color: var(--app-text-muted);
+
   font-size: 28px;
-  color: #9ca3af;
+  font-weight: 300;
+
+  line-height: 1;
 }
 
-.divider {
-  height: 24px;
-  border-top: 1px solid #c0c0c0;
+/* ========================================
+   Mobile
+   ======================================== */
+
+@media (max-width: 600px) {
+  .page {
+    padding: 24px 12px;
+  }
+
+  .home-header {
+    margin-bottom: 28px;
+  }
+
+  .home-header h1 {
+    font-size: 25px;
+  }
+
+  .section {
+    margin-bottom: 24px;
+  }
+
+  .menu-card {
+    padding: 14px;
+
+    border-radius: var(--app-radius-md);
+  }
+
+  .menu-content {
+    gap: 12px;
+  }
+
+  .icon {
+    width: 44px;
+    height: 44px;
+
+    font-size: 24px;
+  }
+
+  .title {
+    font-size: 15px;
+  }
+
+  .description {
+    font-size: 11px;
+  }
 }

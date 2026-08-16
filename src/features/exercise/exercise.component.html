@@ -1,21 +1,40 @@
 <div class="page">
-  <div class="card">
-    <h1>{{ topicName | titlecase }}</h1>
+  <main class="exercise-card">
+    <!-- Header -->
+    <header class="exercise-header">
+      <div class="breadcrumb">Topic</div>
 
-    <p class="subtitle">Choose an Exercise</p>
+      <h1>{{ topicName | titlecase }}</h1>
 
-    @for (exercise of exercises; track exercise.route) {
-      <div class="menu-card" (click)="openExercise(exercise)">
-        <div class="menu-content">
-          <div class="text">
-            <div class="title">
-              {{ exercise.title }}
+      <p>Choose an exercise to practice</p>
+    </header>
+
+    <!-- Exercises -->
+    <section class="exercises-section">
+      <div class="section-title">Exercises</div>
+
+      <div class="exercise-list">
+        @for (exercise of exercises; track exercise.route) {
+          <button
+            type="button"
+            class="exercise-item"
+            [class.not-implemented]="!exercise.implemented"
+            (click)="openExercise(exercise)"
+          >
+            <div class="exercise-content">
+              <div class="exercise-title">
+                {{ exercise.title }}
+              </div>
+
+              @if (!exercise.implemented) {
+                <span class="coming-soon">Coming Soon</span>
+              }
             </div>
-          </div>
-        </div>
 
-        <div class="arrow">›</div>
+            <span class="arrow">›</span>
+          </button>
+        }
       </div>
-    }
-  </div>
+    </section>
+  </main>
 </div>

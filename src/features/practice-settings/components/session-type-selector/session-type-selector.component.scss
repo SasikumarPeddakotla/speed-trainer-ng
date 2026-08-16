@@ -1,42 +1,99 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
 .selector {
   display: flex;
+
   width: 100%;
-  overflow: hidden;
 
-  background: white;
+  padding: 4px;
 
-  border: 1px solid #d1d5db;
-  border-radius: 16px;
+  border: 1px solid var(--app-border);
 
-  box-shadow: 0 4px 12px rgba(0, 0, 0, .06);
+  border-radius: var(--app-radius-md);
+
+  background: var(--app-surface-muted);
 }
+
+/* ========================================
+   Segment
+   ======================================== */
 
 .segment {
   flex: 1;
 
-  padding: 14px 12px;
+  min-height: 46px;
+
+  padding: 10px 8px;
 
   border: none;
 
+  border-radius: 9px;
+
   background: transparent;
 
-  font-size: 15px;
+  color: var(--app-text-secondary);
+
+  font-family: inherit;
+
+  font-size: 14px;
+  font-weight: 600;
 
   cursor: pointer;
 
-  transition: .2s;
-}
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.15s ease;
 
-.segment:not(:last-child) {
-  border-right: 1px solid #e5e7eb;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .segment:hover:not(.active) {
-  background: #f8fafc;
+  background: var(--app-surface);
+
+  color: var(--app-text-primary);
 }
 
+.segment:active {
+  transform: scale(0.98);
+}
+
+/* ========================================
+   Active
+   ======================================== */
+
 .segment.active {
-  background: #2563eb;
+  background: var(--app-primary);
+
   color: white;
-  font-weight: 600;
+
+  box-shadow: var(--app-shadow-sm);
+}
+
+/* ========================================
+   Focus
+   ======================================== */
+
+.segment:focus-visible {
+  outline: 2px solid var(--app-primary);
+
+  outline-offset: 2px;
+}
+
+/* ========================================
+   Mobile
+   ======================================== */
+
+@media (max-width: 400px) {
+  .segment {
+    min-height: 44px;
+
+    padding: 9px 5px;
+
+    font-size: 13px;
+  }
 }

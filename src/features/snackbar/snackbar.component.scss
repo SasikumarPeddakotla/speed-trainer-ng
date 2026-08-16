@@ -1,51 +1,87 @@
 .snackbar {
   position: fixed;
+
   left: 50%;
   bottom: 1.5rem;
+
   transform: translateX(-50%);
 
   min-width: 220px;
   max-width: calc(100vw - 2rem);
 
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-  color: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: var(--app-spacing-sm);
 
   padding: 0.85rem 1.25rem;
+
+  background: var(--app-text-primary);
+
+  color: var(--app-surface);
+
   border-radius: 999px;
 
   font-size: 0.92rem;
   font-weight: 500;
+
   text-align: center;
 
-  box-shadow:
-    0 10px 24px rgba(15, 23, 42, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  box-shadow: var(--app-shadow-md);
 
   z-index: 1100;
 
   animation: snackbar-slide-up 0.25s ease-out;
 }
 
-.snackbar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.55rem;
-}
+/* ========================================
+   Icon
+   ======================================== */
 
 .icon {
-  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 18px;
+  height: 18px;
+
+  color: var(--app-success);
+
+  font-size: 0.9rem;
   line-height: 1;
 }
+
+/* ========================================
+   Animation
+   ======================================== */
 
 @keyframes snackbar-slide-up {
   from {
     opacity: 0;
+
     transform: translateX(-50%) translateY(14px) scale(0.96);
   }
 
   to {
     opacity: 1;
+
     transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+/* ========================================
+   Mobile
+   ======================================== */
+
+@media (max-width: 500px) {
+  .snackbar {
+    bottom: 1rem;
+
+    min-width: 0;
+    width: calc(100vw - 10rem);
+
+    padding: 0.8rem 1rem;
   }
 }

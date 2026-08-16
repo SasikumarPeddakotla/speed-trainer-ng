@@ -2,31 +2,104 @@
   box-sizing: border-box;
 }
 
+/* ========================================
+   App Theme
+   ======================================== */
+
+:root {
+  /* Backgrounds */
+  --app-background: #eef2ff;
+  --app-surface: #ffffff;
+  --app-surface-muted: #f8fafc;
+
+  /* Text */
+  --app-text-primary: #1f2937;
+  --app-text-secondary: #6b7280;
+  --app-text-muted: #94a3b8;
+
+  /* Borders */
+  --app-border: #e5e7eb;
+  --app-border-light: #edf0f3;
+
+  /* Primary */
+  --app-primary: #2563eb;
+  --app-primary-hover: #1d4ed8;
+  --app-primary-soft: #eff6ff;
+
+  /* Success */
+  --app-success: #198754;
+  --app-success-bg: #e8f7ee;
+
+  /* Danger */
+  --app-danger: #dc3545;
+  --app-danger-bg: #fdecec;
+
+  /* Warning */
+  --app-warning: #9a6700;
+  --app-warning-bg: #fff8e6;
+
+  /* Shadows */
+  --app-shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --app-shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
+
+  --app-shadow-button: 0 8px 20px rgba(37, 99, 235, 0.25);
+
+  --app-shadow-button-hover: 0 10px 24px rgba(37, 99, 235, 0.32);
+
+  /* Border radius */
+  --app-radius-sm: 8px;
+  --app-radius-md: 12px;
+  --app-radius-lg: 18px;
+
+  /* Spacing */
+  --app-spacing-xs: 4px;
+  --app-spacing-sm: 8px;
+  --app-spacing-md: 16px;
+  --app-spacing-lg: 24px;
+  --app-spacing-xl: 32px;
+
+  /* Focus */
+  --app-focus: #2563eb;
+}
+
 body {
   margin: 0;
 
-  background: #eef2ff;
+  background: var(--app-background);
+
+  color: var(--app-text-primary);
 
   font-family: Arial, Helvetica, sans-serif;
 }
 
-// Origin in the trainer explanation in idioms
+/* ========================================
+   Idiom Origin
+   ======================================== */
+
 .origin-details {
   margin-top: 1rem;
 }
 
 .origin-details summary {
   cursor: pointer;
-  color: #475569;
+
+  color: var(--app-text-secondary);
 }
 
 .origin-text {
   margin-top: 0.75rem;
+
   padding: 12px 16px;
-  background: #fffbeb;
+
+  background: var(--app-warning-bg);
+
   border-left: 4px solid #f59e0b;
-  border-radius: 8px;
-  color: #334155;
+
+  border-radius: var(--app-radius-sm);
+
+  color: var(--app-text-secondary);
+
   line-height: 1.6;
+
   font-style: italic;
 }
