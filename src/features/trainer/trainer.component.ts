@@ -18,7 +18,6 @@ import { KeyboardComponent } from '../keyboard/keyboard.component';
 import { TimerService } from '../../core/services/timer.service';
 import { Router } from '@angular/router';
 import { BookmarkService } from '../../core/services/bookmark.service';
-import { BrowserNavigationService } from '../../core/services/browser-navigation.service';
 import { DialogService } from '../../core/services/dialog.service';
 
 @Component({
@@ -82,7 +81,6 @@ export class TrainerComponent implements OnInit, OnDestroy {
     private router: Router,
     private bookmarkService: BookmarkService,
     private dialogService: DialogService,
-    private browserNavigationService: BrowserNavigationService,
   ) {
     // Countdown session finished
     effect(() => {
@@ -119,8 +117,6 @@ export class TrainerComponent implements OnInit, OnDestroy {
     // Navigate to summary
     effect(() => {
       if (this.sessionService.finished()) {
-        this.browserNavigationService.deactivate();
-
         setTimeout(() => {
           this.router.navigate(['/summary']);
         }, 200);
@@ -131,10 +127,6 @@ export class TrainerComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.questionService.resetAllEngines();
 
-    this.browserNavigationService.activate(() => {
-      this.handleBrowserBack();
-    });
-
     this.showNextQuestion();
 
     if (this.stateService.practice().sessionType === SessionType.Countdown) {
@@ -142,29 +134,6 @@ export class TrainerComponent implements OnInit, OnDestroy {
     } else {
       this.startPractice();
     }
-  }
-
-  private handleBrowserBack(): void {
-    this.dialogService.openConfirm({
-      title: 'Leave practice?',
-      message:
-        'Your current practice session will be ended. Are you sure you want to leave?',
-      confirmText: 'Leave',
-      cancelText: 'Stay',
-
-      onConfirm: () => {
-        this.browserNavigationService.deactivate();
-
-        const exercise = this.stateService.navigation().selectedExercise;
-
-        if (!exercise) {
-          this.router.navigate(['/subjects']);
-          return;
-        }
-
-        this.router.navigate([`/${exercise.route}/practice-settings`]);
-      },
-    });
   }
 
   private startPractice(): void {
@@ -196,7 +165,6 @@ export class TrainerComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.browserNavigationService.deactivate();
     this.timerService.stop();
   }
 

@@ -7,7 +7,6 @@ import { BookmarkService } from '../../core/services/bookmark.service';
 
 import { AttemptedQuestion } from '../../core/models/attempted-question.model';
 import { QuestionService } from '../../core/services/question.service';
-import { BrowserNavigationService } from '../../core/services/browser-navigation.service';
 
 @Component({
   selector: 'app-summary',
@@ -16,38 +15,14 @@ import { BrowserNavigationService } from '../../core/services/browser-navigation
   templateUrl: './summary.component.html',
   styleUrl: './summary.component.scss',
 })
-export class SummaryComponent implements OnInit, OnDestroy {
+export class SummaryComponent {
   constructor(
     public sessionService: SessionService,
     private stateService: StateService,
     private bookmarkService: BookmarkService,
     private router: Router,
     private questionService: QuestionService,
-    private browserNavigationService: BrowserNavigationService,
   ) {}
-
-  ngOnInit(): void {
-    this.browserNavigationService.activate(() => {
-      this.handleBrowserBack();
-    });
-  }
-
-  ngOnDestroy(): void {
-    this.browserNavigationService.deactivate();
-  }
-
-  private handleBrowserBack(): void {
-    this.browserNavigationService.deactivate();
-
-    const exercise = this.stateService.navigation().selectedExercise;
-
-    if (!exercise) {
-      this.router.navigate(['/subjects']);
-      return;
-    }
-
-    this.router.navigate([`/${exercise.route}/practice-settings`]);
-  }
 
   get attempts(): AttemptedQuestion[] {
     return this.sessionService.attemptHistory();
@@ -97,12 +72,10 @@ export class SummaryComponent implements OnInit, OnDestroy {
       return;
     }
 
-    this.browserNavigationService.deactivate();
     this.router.navigate([`/${exercise.route}/trainer`]);
   }
 
   practiceAgain(): void {
-    this.browserNavigationService.deactivate();
     // Reset statistics for the new practice session.
     this.sessionService.reset();
 
@@ -117,7 +90,6 @@ export class SummaryComponent implements OnInit, OnDestroy {
   }
 
   goHome(): void {
-    this.browserNavigationService.deactivate();
     this.router.navigate(['/subjects']);
   }
 }

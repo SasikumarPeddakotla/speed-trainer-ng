@@ -11,8 +11,6 @@ import { ExerciseComponent } from '../features/exercise/exercise.component';
 import { ReferenceComponent } from '../features/reference/reference.component';
 import { BookmarksComponent } from '../features/bookmarks/bookmarks.component';
 
-import { navigationStateGuard } from '../core/guards/navigation-state.guard';
-
 export const routes: Routes = [
   {
     path: '',
@@ -36,7 +34,6 @@ export const routes: Routes = [
   {
     path: ':subject/topics',
     component: TopicComponent,
-    canActivate: [navigationStateGuard],
   },
 
   // ---------------------------------------------------------
@@ -46,7 +43,6 @@ export const routes: Routes = [
   {
     path: ':topic/exercises',
     component: ExerciseComponent,
-    canActivate: [navigationStateGuard],
   },
 
   // ---------------------------------------------------------
@@ -56,7 +52,6 @@ export const routes: Routes = [
   {
     path: ':exercise/practice-settings',
     component: PracticeSettingsComponent,
-    canActivate: [navigationStateGuard],
   },
 
   // ---------------------------------------------------------
@@ -66,7 +61,6 @@ export const routes: Routes = [
   {
     path: ':exercise/trainer',
     component: TrainerComponent,
-    canActivate: [navigationStateGuard],
   },
 
   // ---------------------------------------------------------
@@ -76,7 +70,6 @@ export const routes: Routes = [
   {
     path: ':exercise/reference',
     component: ReferenceComponent,
-    canActivate: [navigationStateGuard],
   },
 
   // ---------------------------------------------------------
