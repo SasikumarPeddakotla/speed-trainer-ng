@@ -3,4 +3,6 @@ export enum StorageKeys {
   PracticeState = 'practice-state',
 
   Bookmarks = 'bookmarks',
+
+  AppSettings = 'app-settings',
 }

@@ -55,3 +55,57 @@
 .danger-btn:active {
   transform: scale(0.98);
 }
+
+.setting {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.setting label {
+  color: var(--app-text-secondary);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.theme-selector {
+  display: flex;
+  gap: 10px;
+}
+
+.theme-selector button {
+  flex: 1;
+
+  padding: 13px 12px;
+
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-md);
+
+  background: var(--app-surface-muted);
+  color: var(--app-text-primary);
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.theme-selector button:hover {
+  border-color: var(--app-primary);
+}
+
+.theme-selector button:active {
+  transform: scale(0.98);
+}
+
+.theme-selector button.active {
+  background: var(--app-primary-soft);
+  border-color: var(--app-primary);
+  color: var(--app-primary);
+}

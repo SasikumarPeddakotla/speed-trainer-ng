@@ -1,4 +1,30 @@
 <div class="settings-section">
+  <h3>Appearance</h3>
+
+  <div class="setting">
+    <label>Theme</label>
+
+    <div class="theme-selector">
+      <button
+        type="button"
+        [class.active]="themeService.theme() === Theme.Light"
+        (click)="setTheme(Theme.Light)"
+      >
+        ☀️ Light
+      </button>
+
+      <button
+        type="button"
+        [class.active]="themeService.theme() === Theme.Dark"
+        (click)="setTheme(Theme.Dark)"
+      >
+        🌙 Dark
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="settings-section">
   <h3>Data Management</h3>
 
   <button type="button" class="danger-btn" (click)="clearAllBookmarks()">

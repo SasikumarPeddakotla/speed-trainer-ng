@@ -1,6 +1,9 @@
 import { Component, inject } from '@angular/core';
+
 import { BookmarkService } from '../../core/services/bookmark.service';
 import { DialogService } from '../../core/services/dialog.service';
+import { ThemeService } from '../../core/services/theme.service';
+import { Theme } from '../../core/enums/theme.enum';
 
 @Component({
   selector: 'app-settings',
@@ -12,6 +15,13 @@ import { DialogService } from '../../core/services/dialog.service';
 export class AppSettingsComponent {
   private bookmarkService = inject(BookmarkService);
   private dialogService = inject(DialogService);
+
+  readonly themeService = inject(ThemeService);
+  readonly Theme = Theme;
+
+  setTheme(theme: Theme): void {
+    this.themeService.setTheme(theme);
+  }
 
   clearAllBookmarks(): void {
     this.dialogService.openConfirm({
