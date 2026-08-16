@@ -496,4 +496,17 @@ export class TrainerComponent implements OnInit, OnDestroy {
 
     return this.bookmarkService.isBookmarked(question.id);
   }
+
+  endSession(): void {
+    this.dialogService.openConfirm({
+      title: 'End session',
+      message: 'Are you sure you want to end this session?',
+      confirmText: 'End Session',
+      cancelText: 'Cancel',
+      onConfirm: () => {
+        this.timerService.stop();
+        this.sessionService.finish();
+      },
+    });
+  }
 }

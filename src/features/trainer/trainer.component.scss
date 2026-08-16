@@ -33,32 +33,65 @@
    ======================================== */
 
 .header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
   margin-bottom: 20px;
 }
 
-.header h1 {
-  margin: 0;
+.title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
 
-  color: var(--app-primary);
-
-  font-size: 2rem;
-  font-weight: 700;
-
+.title-content {
   text-align: center;
 }
 
-.header p {
+.title-content h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #2563eb;
+}
+
+.title-content p {
   margin: 8px 0 0;
-
-  color: var(--app-text-secondary);
-
+  color: #64748b;
   font-size: 1rem;
+}
 
-  text-align: center;
+.end-session-btn {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #fef2f2;
+  color: #dc2626;
+
+  font-size: 18px;
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease;
+}
+
+.end-session-btn:hover {
+  background: #fee2e2;
+}
+
+.end-session-btn:active {
+  transform: translateY(-50%) scale(0.94);
 }
 
 /* ========================================

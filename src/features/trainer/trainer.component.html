@@ -1,7 +1,21 @@
 <div class="card">
   <div class="header">
-    <h1>{{ topic?.title }}</h1>
-    <p>{{ mode }} ({{ referenceView }})</p>
+    <div class="title-row">
+      <div class="title-content">
+        <h1>{{ topic?.title }}</h1>
+        <p>{{ mode }} ({{ referenceView }})</p>
+      </div>
+
+      <button
+        type="button"
+        class="end-session-btn"
+        aria-label="End session"
+        title="End session"
+        (click)="endSession()"
+      >
+        ⏹
+      </button>
+    </div>
   </div>
 
   <div class="stats">
