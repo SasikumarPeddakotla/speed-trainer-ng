@@ -217,10 +217,7 @@ export class TrainerComponent implements OnInit, OnDestroy {
     // Complete Set must contain only the questions
     // from the selected reference set. Review questions
     // must never interrupt it.
-    return (
-      this.stateService.practice().questionSelection !== 'completeSet' &&
-      this.stateService.navigation().referenceView !== 'bookmark'
-    );
+    return this.stateService.practice().questionSelection !== 'completeSet';
   }
 
   // --------------------------------------------------
