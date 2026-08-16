@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { SessionService } from '../../core/services/session.service';
@@ -7,6 +7,7 @@ import { BookmarkService } from '../../core/services/bookmark.service';
 
 import { AttemptedQuestion } from '../../core/models/attempted-question.model';
 import { QuestionService } from '../../core/services/question.service';
+import { BrowserNavigationService } from '../../core/services/browser-navigation.service';
 
 @Component({
   selector: 'app-summary',
@@ -15,14 +16,38 @@ import { QuestionService } from '../../core/services/question.service';
   templateUrl: './summary.component.html',
   styleUrl: './summary.component.scss',
 })
-export class SummaryComponent {
+export class SummaryComponent implements OnInit, OnDestroy {
   constructor(
     public sessionService: SessionService,
     private stateService: StateService,
     private bookmarkService: BookmarkService,
     private router: Router,
     private questionService: QuestionService,
+    private browserNavigationService: BrowserNavigationService,
   ) {}
+
+  ngOnInit(): void {
+    this.browserNavigationService.activate(() => {
+      this.handleBrowserBack();
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.browserNavigationService.deactivate();
+  }
+
+  private handleBrowserBack(): void {
+    this.browserNavigationService.deactivate();
+
+    const exercise = this.stateService.navigation().selectedExercise;
+
+    if (!exercise) {
+      this.router.navigate(['/subjects']);
+      return;
+    }
+
+    this.router.navigate([`/${exercise.route}/practice-settings`]);
+  }
 
   get attempts(): AttemptedQuestion[] {
     return this.sessionService.attemptHistory();
@@ -72,10 +97,12 @@ export class SummaryComponent {
       return;
     }
 
+    this.browserNavigationService.deactivate();
     this.router.navigate([`/${exercise.route}/trainer`]);
   }
 
   practiceAgain(): void {
+    this.browserNavigationService.deactivate();
     // Reset statistics for the new practice session.
     this.sessionService.reset();
 
@@ -90,6 +117,7 @@ export class SummaryComponent {
   }
 
   goHome(): void {
+    this.browserNavigationService.deactivate();
     this.router.navigate(['/subjects']);
   }
 }

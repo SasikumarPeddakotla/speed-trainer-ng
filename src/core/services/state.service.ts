@@ -158,6 +158,13 @@ export class StateService {
     this.updateNavigation((state) => ({
       ...state,
       selectedSubject: subject,
+      selectedTopic: null,
+      selectedExercise: null,
+      referenceView: 'all',
+      referenceCounts: {
+        allCount: 0,
+        bookmarkCount: 0,
+      },
     }));
   }
 
@@ -165,6 +172,12 @@ export class StateService {
     this.updateNavigation((state) => ({
       ...state,
       selectedTopic: topic,
+      selectedExercise: null,
+      referenceView: 'all',
+      referenceCounts: {
+        allCount: 0,
+        bookmarkCount: 0,
+      },
     }));
   }
 
@@ -172,6 +185,11 @@ export class StateService {
     this.updateNavigation((state) => ({
       ...state,
       selectedExercise: exercise,
+      referenceView: 'all',
+      referenceCounts: {
+        allCount: 0,
+        bookmarkCount: 0,
+      },
     }));
   }
 

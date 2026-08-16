@@ -18,7 +18,9 @@ export class HomeComponent {
   constructor(
     private router: Router,
     private stateService: StateService,
-  ) {}
+  ) {
+    stateService.resetAll();
+  }
 
   openSubject(subject: Subject) {
     this.stateService.setSubject(subject);

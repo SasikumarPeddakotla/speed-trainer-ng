@@ -22,10 +22,23 @@ export class DialogService {
     cancelText: 'Cancel',
   });
 
+  private pendingResolve?: (confirmed: boolean) => void;
+
   openConfirm(options: Omit<ConfirmDialogState, 'open'>): void {
     this.state.set({
       ...options,
       open: true,
+    });
+  }
+
+  confirmAsync(options: Omit<ConfirmDialogState, 'open'>): Promise<boolean> {
+    return new Promise((resolve) => {
+      this.pendingResolve = resolve;
+
+      this.state.set({
+        ...options,
+        open: true,
+      });
     });
   }
 
@@ -41,6 +54,9 @@ export class DialogService {
       confirmText: 'OK',
       cancelText: 'Cancel',
     });
+
+    this.pendingResolve?.(false);
+    this.pendingResolve = undefined;
   }
 
   confirm(): void {
@@ -55,5 +71,8 @@ export class DialogService {
     });
 
     callback?.();
+
+    this.pendingResolve?.(true);
+    this.pendingResolve = undefined;
   }
 }
