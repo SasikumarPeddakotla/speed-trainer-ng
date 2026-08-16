@@ -76,6 +76,9 @@ export class SummaryComponent {
   }
 
   practiceAgain(): void {
+    // Reset statistics for the new practice session.
+    this.sessionService.reset();
+
     const exercise = this.stateService.navigation().selectedExercise;
 
     if (!exercise) {
@@ -83,7 +86,7 @@ export class SummaryComponent {
       return;
     }
 
-    this.router.navigate([`/${exercise.route}/practice-settings`]);
+    this.router.navigate([`/${exercise.route}/trainer`]);
   }
 
   goHome(): void {
