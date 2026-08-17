@@ -1,6 +1,7 @@
 {
   "$schema": "./node_modules/@angular/service-worker/config/schema.json",
   "index": "/index.html",
+
   "assetGroups": [
     {
       "name": "app",
@@ -16,6 +17,7 @@
         ]
       }
     },
+
     {
       "name": "assets",
       "installMode": "lazy",
@@ -24,6 +26,15 @@
         "files": [
           "/**/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|otf|ttf|woff|woff2)"
         ]
+      }
+    },
+
+    {
+      "name": "data",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": ["/data/**/*.json"]
       }
     }
   ]
