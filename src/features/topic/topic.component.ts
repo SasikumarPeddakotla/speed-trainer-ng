@@ -44,7 +44,7 @@ export class TopicComponent {
       return;
     }
 
-    this.stateService.setTopic(topic);
+    this.stateService.selectTopic(topic);
     this.router.navigate([topic.route, 'exercises']);
   }
 }

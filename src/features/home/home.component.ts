@@ -23,7 +23,7 @@ export class HomeComponent {
   }
 
   openSubject(subject: Subject) {
-    this.stateService.setSubject(subject);
+    this.stateService.selectSubject(subject);
     this.router.navigate([subject.route, 'topics']);
   }
 

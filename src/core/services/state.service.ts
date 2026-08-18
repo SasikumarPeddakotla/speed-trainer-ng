@@ -154,7 +154,7 @@ export class StateService {
     this.save();
   }
 
-  setSubject(subject: Subject): void {
+  selectSubject(subject: Subject): void {
     this.updateNavigation((state) => ({
       ...state,
       selectedSubject: subject,
@@ -168,7 +168,7 @@ export class StateService {
     }));
   }
 
-  setTopic(topic: Topic): void {
+  selectTopic(topic: Topic): void {
     this.updateNavigation((state) => ({
       ...state,
       selectedTopic: topic,
@@ -181,7 +181,7 @@ export class StateService {
     }));
   }
 
-  setExercise(exercise: Exercise): void {
+  selectExercise(exercise: Exercise): void {
     this.updateNavigation((state) => ({
       ...state,
       selectedExercise: exercise,
@@ -190,6 +190,27 @@ export class StateService {
         allCount: 0,
         bookmarkCount: 0,
       },
+    }));
+  }
+
+  setSubject(subject: Subject): void {
+    this.updateNavigation((state) => ({
+      ...state,
+      selectedSubject: subject,
+    }));
+  }
+
+  setTopic(topic: Topic): void {
+    this.updateNavigation((state) => ({
+      ...state,
+      selectedTopic: topic,
+    }));
+  }
+
+  setExercise(exercise: Exercise): void {
+    this.updateNavigation((state) => ({
+      ...state,
+      selectedExercise: exercise,
     }));
   }
 

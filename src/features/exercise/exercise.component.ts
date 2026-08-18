@@ -54,7 +54,7 @@ export class ExerciseComponent {
     // this.stateService.setQuestionTarget(10);
     // this.stateService.setWordsLimit('10');
 
-    this.stateService.setExercise(exercise);
+    this.stateService.selectExercise(exercise);
     this.stateService.setReferenceView('all');
     this.router.navigate([exercise?.route, 'reference']);
   }
