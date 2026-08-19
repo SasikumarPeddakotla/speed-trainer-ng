@@ -165,9 +165,8 @@
       }
       @if (
         countdownValue === null &&
-        question.inputType === "multiple-choice" &&
-        isVocabularyQuestion() &&
-        answerMode === "typing"
+        question.inputType === InputType.TextAndMultipleChoice &&
+        !showOptions
       ) {
         <div class="answerContainer">
           <input
@@ -181,13 +180,16 @@
           />
         </div>
 
-        <button type="button" class="show-options-btn" (click)="showOptions()">
+        <button
+          type="button"
+          class="show-options-btn"
+          (click)="onClickShowOptions()"
+        >
           Show Options
         </button>
       } @else if (
         countdownValue === null &&
-        question.inputType === "multiple-choice" &&
-        answerMode === "options"
+        (question.inputType === "multiple-choice" || showOptions)
       ) {
         <div class="optionsContainer">
           @for (option of question.options; track option) {

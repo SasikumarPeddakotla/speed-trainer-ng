@@ -62,7 +62,7 @@ export class VocabularyEngine {
 
       data: synonym,
 
-      inputType: InputType.MultipleChoice,
+      inputType: InputType.TextAndMultipleChoice,
 
       displayType: 'text',
 
@@ -145,7 +145,7 @@ export class VocabularyEngine {
 
       data: antonym,
 
-      inputType: InputType.MultipleChoice,
+      inputType: InputType.TextAndMultipleChoice,
 
       displayType: 'text',
 
@@ -224,7 +224,7 @@ export class VocabularyEngine {
 
       data: oneWord,
 
-      inputType: InputType.MultipleChoice,
+      inputType: InputType.TextAndMultipleChoice,
 
       displayType: 'text',
 

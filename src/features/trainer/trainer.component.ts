@@ -20,8 +20,7 @@ import { Router } from '@angular/router';
 import { BookmarkService } from '../../core/services/bookmark.service';
 import { DialogService } from '../../core/services/dialog.service';
 import { PracticeMode } from '../../core/enums/practice-mode.enum';
-
-type VocabularyAnswerMode = 'typing' | 'options';
+import { InputType } from '../../core/enums/input-type.enum';
 
 @Component({
   selector: 'app-trainer',
@@ -45,23 +44,14 @@ export class TrainerComponent implements OnInit, OnDestroy {
 
   countdownValue: number | null = null;
 
-  answerMode: VocabularyAnswerMode = 'typing';
+  showOptions: boolean = false;
+
+  readonly InputType = InputType;
 
   public stateService = inject(StateService);
 
-  private readonly vocabularyModes = new Set([
-    PracticeMode.Synonyms,
-    PracticeMode.Antonyms,
-    PracticeMode.OneWord,
-    PracticeMode.Idioms,
-  ]);
-
-  isVocabularyQuestion(): boolean {
-    return this.vocabularyModes.has(this.mode);
-  }
-
-  showOptions(): void {
-    this.answerMode = 'options';
+  onClickShowOptions(): void {
+    this.showOptions = true;
   }
 
   get mode() {
@@ -200,7 +190,7 @@ export class TrainerComponent implements OnInit, OnDestroy {
    * generated normally.
    */
   private showNextQuestion(): void {
-    this.answerMode = 'typing';
+    this.showOptions = false;
     // ------------------------------------------
     // Practice Mistakes
     // ------------------------------------------
@@ -358,10 +348,7 @@ export class TrainerComponent implements OnInit, OnDestroy {
       return;
     }
 
-    if (
-      !this.isVocabularyQuestion() &&
-      this.answer.length === question.answer.length
-    ) {
+    if (this.answer.length === question.answer.length) {
       this.submit();
     }
   }
