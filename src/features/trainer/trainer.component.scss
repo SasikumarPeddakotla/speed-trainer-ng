@@ -345,7 +345,7 @@
 }
 
 .answerContainer input:focus {
-  border-color: var(--app-focus);
+  // border-color: var(--app-focus);
 
   box-shadow: 0 0 0 3px var(--app-primary-soft);
 }
@@ -599,6 +599,57 @@
 }
 
 /* ========================================
+   Vocabulary Typing Actions
+   ======================================== */
+
+.check-btn {
+  background: var(--app-primary);
+
+  color: white;
+
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.2);
+}
+
+.check-btn:hover {
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.28);
+}
+
+.show-options-btn {
+  display: block;
+
+  margin: 14px auto 0;
+
+  padding: 8px 14px;
+
+  border: none;
+
+  background: transparent;
+
+  color: var(--app-text-secondary);
+
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  border-radius: var(--app-radius-sm);
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.show-options-btn:hover {
+  color: var(--app-primary);
+
+  background: var(--app-primary-soft);
+}
+
+.show-options-btn:active {
+  transform: scale(0.97);
+}
+
+/* ========================================
    Animations
    ======================================== */
 
@@ -694,5 +745,17 @@
     padding: 14px 16px;
 
     font-size: 18px;
+  }
+
+  .check-btn {
+    height: 50px;
+
+    font-size: 16px;
+  }
+
+  .show-options-btn {
+    margin-top: 12px;
+
+    font-size: 14px;
   }
 }

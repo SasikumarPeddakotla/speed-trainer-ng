@@ -162,8 +162,32 @@
             (ngModelChange)="onTextChanged()"
           />
         </div>
+      }
+      @if (
+        countdownValue === null &&
+        question.inputType === "multiple-choice" &&
+        isVocabularyQuestion() &&
+        answerMode === "typing"
+      ) {
+        <div class="answerContainer">
+          <input
+            #textInput
+            [(ngModel)]="answer"
+            autocomplete="off"
+            autocapitalize="none"
+            enterkeyhint="done"
+            [class]="inputState"
+            (keydown.enter)="checkAnswer()"
+          />
+        </div>
+
+        <button type="button" class="show-options-btn" (click)="showOptions()">
+          Show Options
+        </button>
       } @else if (
-        countdownValue === null && question.inputType === "multiple-choice"
+        countdownValue === null &&
+        question.inputType === "multiple-choice" &&
+        answerMode === "options"
       ) {
         <div class="optionsContainer">
           @for (option of question.options; track option) {
