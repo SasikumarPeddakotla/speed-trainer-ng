@@ -42,6 +42,10 @@ export class PracticeSettingsComponent {
     return this.stateService.navigation().selectedExercise;
   }
 
+  get selectedTopic() {
+    return this.stateService.navigation().selectedTopic;
+  }
+
   get referenceView() {
     const referenceView = this.stateService.navigation().referenceView;
     switch (referenceView) {

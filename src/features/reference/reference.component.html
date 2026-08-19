@@ -11,74 +11,79 @@
       }
 
       <!-- Tabs -->
-      <div class="reference-tabs">
-        <!-- All -->
-        <div class="tab-wrapper" [class.active]="referenceTab() === 'all'">
-          <button
-            type="button"
-            class="tab-button"
-            [class.active]="referenceTab() === 'all'"
-            (click)="showQuestions('all')"
-          >
-            <span>All</span>
-            <span class="count">{{ counts.allCount }}</span>
-          </button>
-
-          @if (referenceTab() === "all") {
+      @if (topic?.title !== "Arithmetic") {
+        <div class="reference-tabs">
+          <!-- All -->
+          <div class="tab-wrapper" [class.active]="referenceTab() === 'all'">
             <button
               type="button"
-              class="info-button"
-              aria-label="Information about All Questions"
-              (click)="toggleInfo($event)"
+              class="tab-button"
+              [class.active]="referenceTab() === 'all'"
+              (click)="showQuestions('all')"
             >
-              ⓘ
+              <span>All</span>
+              <span class="count">{{ counts.allCount }}</span>
             </button>
-          }
 
-          @if (referenceTab() === "all" && showInfo()) {
-            <div class="info-popover">
-              <strong>All Questions</strong>
+            @if (referenceTab() === "all") {
+              <button
+                type="button"
+                class="info-button"
+                aria-label="Information about All Questions"
+                (click)="toggleInfo($event)"
+              >
+                ⓘ
+              </button>
+            }
 
-              <p>Shows all questions available for this exercise.</p>
-            </div>
-          }
-        </div>
+            @if (referenceTab() === "all" && showInfo()) {
+              <div class="info-popover">
+                <strong>All Questions</strong>
 
-        <!-- Bookmarks -->
-        <div class="tab-wrapper" [class.active]="referenceTab() === 'bookmark'">
-          <button
-            type="button"
-            class="tab-button"
+                <p>Shows all questions available for this exercise.</p>
+              </div>
+            }
+          </div>
+
+          <!-- Bookmarks -->
+          <div
+            class="tab-wrapper"
             [class.active]="referenceTab() === 'bookmark'"
-            (click)="showQuestions('bookmark')"
           >
-            <span>Bookmarks</span>
-            <span class="count">{{ counts.bookmarkCount }}</span>
-          </button>
-
-          @if (referenceTab() === "bookmark") {
             <button
               type="button"
-              class="info-button"
-              aria-label="Information about Bookmarks"
-              (click)="toggleInfo($event)"
+              class="tab-button"
+              [class.active]="referenceTab() === 'bookmark'"
+              (click)="showQuestions('bookmark')"
             >
-              ⓘ
+              <span>Bookmarks</span>
+              <span class="count">{{ counts.bookmarkCount }}</span>
             </button>
-          }
 
-          @if (referenceTab() === "bookmark" && showInfo()) {
-            <div class="info-popover">
-              <strong>Bookmarks</strong>
+            @if (referenceTab() === "bookmark") {
+              <button
+                type="button"
+                class="info-button"
+                aria-label="Information about Bookmarks"
+                (click)="toggleInfo($event)"
+              >
+                ⓘ
+              </button>
+            }
 
-              <p>
-                Questions you manually save for quick revision. You can add or
-                remove bookmarks whenever you want.
-              </p>
-            </div>
-          }
+            @if (referenceTab() === "bookmark" && showInfo()) {
+              <div class="info-popover">
+                <strong>Bookmarks</strong>
+
+                <p>
+                  Questions you manually save for quick revision. You can add or
+                  remove bookmarks whenever you want.
+                </p>
+              </div>
+            }
+          </div>
         </div>
-      </div>
+      }
 
       <!-- Search -->
       @if (topic?.route === "vocabulary" || topic?.route === "polity") {
@@ -154,11 +159,14 @@
     </section>
 
     <!-- Practice -->
-    @if (referenceTab() === "all" && counts.allCount > 0) {
+    @if (
+      (referenceTab() === "all" && counts.allCount > 0) ||
+      topic?.title === "Arithmetic"
+    ) {
       <button type="button" class="practice-btn" (click)="practice()">
         <span class="practice-icon">▶</span>
 
-        <span>Practice All</span>
+        <span>Practice</span>
       </button>
     }
 

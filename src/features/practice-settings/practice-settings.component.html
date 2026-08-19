@@ -73,9 +73,11 @@
                   <option [ngValue]="30">30</option>
                   <option [ngValue]="50">50</option>
 
-                  <option [ngValue]="'completeSet'">
-                    Complete set ({{ completeSetCount }})
-                  </option>
+                  @if (selectedTopic?.title !== "Arithmetic") {
+                    <option [ngValue]="'completeSet'">
+                      Complete set ({{ completeSetCount }})
+                    </option>
+                  }
                 </select>
               } @else {
                 <div class="info-message">
