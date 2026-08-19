@@ -15,7 +15,9 @@
 
           <div class="value-content">
             <strong>{{ selectedExercise?.title }}</strong>
-            <span>{{ referenceView }}</span>
+            @if (selectedTopic?.title !== "Arithmetic") {
+              <span>{{ referenceView }}</span>
+            }
           </div>
         </div>
       </div>
