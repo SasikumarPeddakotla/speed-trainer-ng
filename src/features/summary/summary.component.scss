@@ -183,6 +183,91 @@
   color: var(--app-text-secondary);
 }
 
+/* -------------------------------- */
+/* Attempt Filters                  */
+/* -------------------------------- */
+
+.attempt-filters {
+  display: flex;
+
+  gap: 8px;
+
+  margin-bottom: 12px;
+}
+
+.attempt-filters button {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  padding: 9px 10px;
+
+  border: 1px solid var(--app-border);
+
+  border-radius: 9px;
+
+  background: var(--app-surface);
+
+  color: var(--app-text-secondary);
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.attempt-filters button span {
+  padding: 2px 6px;
+
+  border-radius: 999px;
+
+  background: var(--app-surface-muted);
+
+  font-size: 11px;
+}
+
+.attempt-filters button:hover {
+  background: var(--app-surface-muted);
+}
+
+.attempt-filters button.active {
+  border-color: var(--app-primary);
+
+  background: var(--app-primary-soft);
+
+  color: var(--app-primary);
+}
+
+.attempt-filters .correct-filter.active {
+  border-color: var(--app-success);
+
+  background: var(--app-success-bg);
+
+  color: var(--app-success);
+}
+
+.attempt-filters .wrong-filter.active {
+  border-color: var(--app-danger);
+
+  background: var(--app-danger-bg);
+
+  color: var(--app-danger);
+}
+
+.attempt-filters button:active {
+  transform: scale(0.98);
+}
+
 .attempt-list {
   max-height: 430px;
 
@@ -475,6 +560,16 @@
 
   .stat-content strong {
     font-size: 19px;
+  }
+
+  .attempt-filters {
+    gap: 6px;
+  }
+
+  .attempt-filters button {
+    padding: 8px 6px;
+
+    font-size: 12px;
   }
 
   .attempt-list {

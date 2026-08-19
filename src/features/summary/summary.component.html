@@ -56,14 +56,45 @@
             <h2>Attempt History</h2>
 
             <span>
-              {{ attempts.length }}
-              {{ attempts.length === 1 ? "question" : "questions" }}
+              {{ filteredAttempts.length }}
+              {{ filteredAttempts.length === 1 ? "question" : "questions" }}
             </span>
           </div>
         </div>
 
+        <div class="attempt-filters">
+          <button
+            type="button"
+            [class.active]="attemptFilter() === 'all'"
+            (click)="setAttemptFilter('all')"
+          >
+            All
+            <span>{{ attempts.length }}</span>
+          </button>
+
+          <button
+            type="button"
+            class="correct-filter"
+            [class.active]="attemptFilter() === 'correct'"
+            (click)="setAttemptFilter('correct')"
+          >
+            ✓ Correct
+            <span>{{ correctAttemptCount }}</span>
+          </button>
+
+          <button
+            type="button"
+            class="wrong-filter"
+            [class.active]="attemptFilter() === 'wrong'"
+            (click)="setAttemptFilter('wrong')"
+          >
+            ✕ Wrong
+            <span>{{ wrongAttemptCount }}</span>
+          </button>
+        </div>
+
         <div class="attempt-list">
-          @for (attempt of attempts; track $index) {
+          @for (attempt of filteredAttempts; track $index) {
             <div
               class="attempt"
               [class.attempt-correct]="attempt.correct"

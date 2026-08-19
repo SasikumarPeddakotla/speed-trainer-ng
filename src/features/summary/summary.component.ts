@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { SessionService } from '../../core/services/session.service';
@@ -8,6 +8,8 @@ import { BookmarkService } from '../../core/services/bookmark.service';
 import { AttemptedQuestion } from '../../core/models/attempted-question.model';
 import { QuestionService } from '../../core/services/question.service';
 
+type AttemptFilter = 'all' | 'correct' | 'wrong';
+
 @Component({
   selector: 'app-summary',
   standalone: true,
@@ -16,13 +18,14 @@ import { QuestionService } from '../../core/services/question.service';
   styleUrl: './summary.component.scss',
 })
 export class SummaryComponent {
-  constructor(
-    public sessionService: SessionService,
-    private stateService: StateService,
-    private bookmarkService: BookmarkService,
-    private router: Router,
-    private questionService: QuestionService,
-  ) {}
+  private stateService = inject(StateService);
+  private bookmarkService = inject(BookmarkService);
+  private router = inject(Router);
+  private questionService = inject(QuestionService);
+
+  readonly attemptFilter = signal<AttemptFilter>('all');
+
+  constructor(public sessionService: SessionService) {}
 
   get attempts(): AttemptedQuestion[] {
     return this.sessionService.attemptHistory();
@@ -30,6 +33,31 @@ export class SummaryComponent {
 
   get mistakes(): AttemptedQuestion[] {
     return this.sessionService.mistakes();
+  }
+
+  get filteredAttempts(): AttemptedQuestion[] {
+    switch (this.attemptFilter()) {
+      case 'correct':
+        return this.attempts.filter((attempt) => attempt.correct);
+
+      case 'wrong':
+        return this.attempts.filter((attempt) => !attempt.correct);
+
+      default:
+        return this.attempts;
+    }
+  }
+
+  get correctAttemptCount(): number {
+    return this.attempts.filter((attempt) => attempt.correct).length;
+  }
+
+  get wrongAttemptCount(): number {
+    return this.attempts.filter((attempt) => !attempt.correct).length;
+  }
+
+  setAttemptFilter(filter: AttemptFilter): void {
+    this.attemptFilter.set(filter);
   }
 
   isBookmarked(attempt: AttemptedQuestion): boolean {
@@ -58,12 +86,11 @@ export class SummaryComponent {
     }
 
     const questions = mistakes.map((attempt) => attempt.question);
+
     this.stateService.setQuestionTarget(questions.length);
 
-    // Reset statistics for the new practice session.
     this.sessionService.reset();
 
-    // Give the trainer the temporary mistake list.
     this.questionService.startTemporaryPractice(questions);
 
     const exercise = this.stateService.navigation().selectedExercise;
@@ -76,7 +103,6 @@ export class SummaryComponent {
   }
 
   practiceAgain(): void {
-    // Reset statistics for the new practice session.
     this.sessionService.reset();
 
     const exercise = this.stateService.navigation().selectedExercise;
