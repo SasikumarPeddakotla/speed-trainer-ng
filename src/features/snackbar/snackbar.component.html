@@ -1,5 +1,5 @@
 @if (snackbar.state().visible) {
-  <div class="snackbar">
+  <div class="snackbar" [class.closing]="snackbar.state().closing">
     <span class="icon">✔</span>
     <span>{{ snackbar.state().message }}</span>
   </div>
