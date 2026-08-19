@@ -6,6 +6,16 @@ import { Question } from '../models/question.model';
 })
 export class ValidationService {
   validate(question: Question, answer: string): boolean {
-    return question.answer.toUpperCase() === answer.trim().toUpperCase();
+    const normalizedAnswer = answer.trim().toUpperCase();
+
+    if (question.answer.toUpperCase() === normalizedAnswer) {
+      return true;
+    }
+
+    return (
+      question.acceptedAnswers?.some(
+        (accepted) => accepted.trim().toUpperCase() === normalizedAnswer,
+      ) ?? false
+    );
   }
 }
