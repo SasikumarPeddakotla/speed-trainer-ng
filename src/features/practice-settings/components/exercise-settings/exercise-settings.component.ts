@@ -16,7 +16,21 @@ import { VocabularyEngine } from '../../../../core/engines/vocabulary.engine';
 export class ExerciseSettingsComponent {
   readonly SettingType = SettingType;
   readonly tables = Array.from({ length: 19 }, (_, i) => i + 2);
-  readonly denominators = Array.from({ length: 15 }, (_, i) => `/${i + 2}`);
+  readonly denominators = [
+    ...Array.from({ length: 15 }, (_, i) => `/${i + 2}`),
+    ...[
+      '/18',
+      '/20',
+      '/25',
+      '/40',
+      '/50',
+      '/80',
+      '/100',
+      '/125',
+      '/200',
+      '/400',
+    ],
+  ];
 
   readonly stateService = inject(StateService);
 
