@@ -13,6 +13,7 @@ import { ExampleFormatterService } from '../../utils/example-formatter.service';
 import { VocabularyDataService } from '../services/vocabulary-data.service';
 import { IdService } from '../../utils/id.service';
 import { BookmarkService } from '../services/bookmark.service';
+import { PhrasalVerb } from '../models/phrasal-verb.model';
 
 @Injectable({
   providedIn: 'root',
@@ -24,6 +25,7 @@ export class VocabularyEngine {
   private antonyms: Antonym[] = [];
   private oneWords: OneWord[] = [];
   private idioms: Idiom[] = [];
+  private phrasalVerbs: PhrasalVerb[] = [];
 
   constructor(
     private stateService: StateService,
@@ -355,6 +357,92 @@ export class VocabularyEngine {
     return this.idioms.shift()!;
   }
 
+  generatePhrasalVerbQuestion(): Question<PhrasalVerb> {
+    return this.createPhrasalVerbQuestion(this.nextPhrasalVerb());
+  }
+
+  createPhrasalVerbQuestion(phrasalVerb: PhrasalVerb): Question<PhrasalVerb> {
+    const randomIndex = this.randomService.random(
+      0,
+      phrasalVerb.meaning.length - 1,
+    );
+
+    return {
+      id: this.idService.getQuestionId(phrasalVerb.phrase),
+      question: phrasalVerb.phrase,
+
+      answer: phrasalVerb.meaning[randomIndex],
+
+      acceptedAnswers: phrasalVerb.meaning,
+
+      options: this.randomService.buildOptions(
+        phrasalVerb,
+        this.vocabularyDataService.getPhrasalVerbs(),
+        (s) => [...s.meaning],
+        (s) => s.phrase,
+        phrasalVerb.meaning[randomIndex],
+      ),
+
+      data: phrasalVerb,
+
+      inputType: InputType.MultipleChoice,
+
+      displayType: 'text',
+
+      explanation: this.formatPhrasalVerbExplanation(phrasalVerb),
+    };
+  }
+
+  private formatPhrasalVerbExplanation(phrasalVerb: PhrasalVerb): string {
+    const meaningsAndExamples = phrasalVerb.meaning
+      .map(
+        (meaning, index) => `
+        <strong>Meaning:- </strong>${meaning}<br>
+        <strong>Ex:- </strong>${this.formatterService.formatExample(
+          phrasalVerb.phrase,
+          phrasalVerb.example[index],
+        )}<br>
+      `,
+      )
+      .join('<br>');
+
+    return `
+    <strong>${phrasalVerb.phrase}</strong><br><br>
+    ${meaningsAndExamples}
+  `;
+  }
+
+  private nextPhrasalVerb(): PhrasalVerb {
+    const referenceView = this.stateService.navigation().referenceView;
+
+    switch (referenceView) {
+      case 'all':
+        return this.nextNormalPhrasalVerb();
+      case 'bookmark':
+        return this.nextBookmarkPhrasalVerb();
+    }
+  }
+
+  private nextNormalPhrasalVerb(): PhrasalVerb {
+    if (this.phrasalVerbs.length === 0) {
+      this.phrasalVerbs = this.randomService.shuffle([
+        ...this.getPhrasalVerbs(),
+      ]);
+    }
+
+    return this.phrasalVerbs.shift()!;
+  }
+
+  private nextBookmarkPhrasalVerb(): PhrasalVerb {
+    if (this.phrasalVerbs.length === 0) {
+      const bookmarkQuestions =
+        this.bookmarkService.getBookmarkedQuestions<PhrasalVerb>();
+      this.phrasalVerbs = this.randomService.shuffle(bookmarkQuestions);
+    }
+
+    return this.phrasalVerbs.shift()!;
+  }
+
   private getWordLimit(): number {
     return Number(this.stateService.practice().wordsLimit);
   }
@@ -381,6 +469,12 @@ export class VocabularyEngine {
     return this.vocabularyDataService.getIdioms().slice(0, this.getWordLimit());
   }
 
+  private getPhrasalVerbs(): PhrasalVerb[] {
+    return this.vocabularyDataService
+      .getPhrasalVerbs()
+      .slice(0, this.getWordLimit());
+  }
+
   getSynonymsReference(): Synonym[] {
     return this.vocabularyDataService.getSynonyms();
   }
@@ -397,6 +491,10 @@ export class VocabularyEngine {
     return this.vocabularyDataService.getIdioms();
   }
 
+  getPhrasalVerbsReference(): PhrasalVerb[] {
+    return this.vocabularyDataService.getPhrasalVerbs();
+  }
+
   getVocabularyCount(): number {
     switch (this.stateService.navigation().selectedExercise?.mode) {
       case PracticeMode.Synonyms:
@@ -410,6 +508,9 @@ export class VocabularyEngine {
 
       case PracticeMode.Idioms:
         return this.vocabularyDataService.getIdioms().length;
+
+      case PracticeMode.PhrasalVerbs:
+        return this.vocabularyDataService.getPhrasalVerbs().length;
 
       default:
         return 0;

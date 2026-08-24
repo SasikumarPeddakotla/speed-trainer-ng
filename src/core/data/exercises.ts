@@ -248,15 +248,13 @@ export const exercises: Exercise[] = [
 
     settings: [SettingType.SessionType, SettingType.WordsLimit],
   },
-
-  // Bookmarks
   {
-    title: 'Bookmarks',
-    route: 'bookmarks',
-    mode: PracticeMode.Bookmark,
-    topic: '',
+    title: 'Phrasal Verbs',
+    route: 'phrasal-verbs',
+    mode: PracticeMode.PhrasalVerbs,
+    topic: 'vocabulary',
     implemented: true,
 
-    settings: [],
+    settings: [SettingType.SessionType, SettingType.WordsLimit],
   },
 ];

@@ -31,6 +31,5 @@ export enum PracticeMode {
   Antonyms = 'Antonyms',
   OneWord = 'One Word Substitutions',
   Idioms = 'Idioms',
-
-  Bookmark = 'Bookmarks',
+  PhrasalVerbs = 'Phrasal Verbs',
 }

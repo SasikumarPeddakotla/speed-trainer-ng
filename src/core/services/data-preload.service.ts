@@ -29,6 +29,10 @@ export class DataPreloadService {
         await this.vocabularyDataService.ensureIdiomsLoaded();
         break;
 
+      case PracticeMode.PhrasalVerbs:
+        await this.vocabularyDataService.ensurePhrasalVerbsLoaded();
+        break;
+
       default:
         break;
     }

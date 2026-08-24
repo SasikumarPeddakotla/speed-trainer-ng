@@ -153,8 +153,10 @@ export class QuestionService {
         );
         break;
 
-      case PracticeMode.Bookmark:
-        this._currentQuestion.set(this.bookmarkEngine.generateQuestion());
+      case PracticeMode.PhrasalVerbs:
+        this._currentQuestion.set(
+          this.vocabularyEngine.generatePhrasalVerbQuestion(),
+        );
         break;
     }
   }

@@ -7,6 +7,7 @@ import { Synonym } from '../models/synonym.model';
 import { Antonym } from '../models/antonym.model';
 import { OneWord } from '../models/one-word.model';
 import { Idiom } from '../models/idiom.model';
+import { PhrasalVerb } from '../models/phrasal-verb.model';
 
 @Injectable({
   providedIn: 'root',
@@ -16,6 +17,7 @@ export class VocabularyDataService {
   private readonly antonyms = signal<Antonym[]>([]);
   private readonly oneWords = signal<OneWord[]>([]);
   private readonly idioms = signal<Idiom[]>([]);
+  private readonly phrasalVerbs = signal<PhrasalVerb[]>([]);
 
   constructor(private http: HttpClient) {}
 
@@ -59,6 +61,18 @@ export class VocabularyDataService {
     );
   }
 
+  async ensurePhrasalVerbsLoaded(): Promise<void> {
+    if (this.phrasalVerbs.length > 0) {
+      return;
+    }
+
+    this.phrasalVerbs.set(
+      await firstValueFrom(
+        this.http.get<PhrasalVerb[]>('data/phrasal-verbs.json'),
+      ),
+    );
+  }
+
   getSynonyms(): Synonym[] {
     return this.synonyms();
   }
@@ -73,5 +87,9 @@ export class VocabularyDataService {
 
   getIdioms(): Idiom[] {
     return this.idioms();
+  }
+
+  getPhrasalVerbs(): PhrasalVerb[] {
+    return this.phrasalVerbs();
   }
 }

@@ -20,6 +20,7 @@ import { BookmarkService } from '../../../core/services/bookmark.service';
 import { ExampleFormatterService } from '../../../utils/example-formatter.service';
 import { IdService } from '../../../utils/id.service';
 import { DataPreloadService } from '../../../core/services/data-preload.service';
+import { PhrasalVerb } from '../../../core/models/phrasal-verb.model';
 
 @Component({
   selector: 'app-vocabulary-reference',
@@ -66,6 +67,9 @@ export class VocabularyReferenceComponent {
 
       case PracticeMode.Idioms:
         return this.vocabularyEngine.getIdiomsReference().length;
+
+      case PracticeMode.PhrasalVerbs:
+        return this.vocabularyEngine.getPhrasalVerbsReference().length;
 
       default:
         return 0;
@@ -161,6 +165,26 @@ export class VocabularyReferenceComponent {
     );
   });
 
+  readonly filteredPhrasalVerbs = computed(() => {
+    const search = this.searchText()!.trim().toLowerCase();
+
+    // const words = [...this.synonyms].sort((a, b) =>
+    //   a.word.localeCompare(b.word),
+    // );
+    const words = [...this.phrasalVerbs()];
+
+    if (!search) {
+      return words;
+    }
+
+    return words.filter(
+      (word) =>
+        word.phrase.toLowerCase().includes(search) ||
+        word.meaning.some((s) => s.toLowerCase().includes(search)) ||
+        word.example.some((s) => s.toLowerCase().includes(search)),
+    );
+  });
+
   protected readonly mode = this.stateService.navigation().selectedExercise
     ?.mode as PracticeMode;
 
@@ -204,8 +228,18 @@ export class VocabularyReferenceComponent {
     }
   });
 
+  readonly phrasalVerbs = computed(() => {
+    switch (this.referenceTab()) {
+      case 'bookmark':
+        return this.bookmarkService.getBookmarkedQuestions<PhrasalVerb>();
+
+      default:
+        return this.vocabularyEngine.getPhrasalVerbsReference();
+    }
+  });
+
   async toggleBookmark(
-    question: Synonym | Antonym | OneWord | Idiom,
+    question: Synonym | Antonym | OneWord | Idiom | PhrasalVerb,
   ): Promise<void> {
     const entry = {
       id: this.getQuestionId(question),
@@ -216,7 +250,9 @@ export class VocabularyReferenceComponent {
     await this.bookmarkService.toggle(entry);
   }
 
-  private getQuestionId(question: Synonym | Antonym | OneWord | Idiom): string {
+  private getQuestionId(
+    question: Synonym | Antonym | OneWord | Idiom | PhrasalVerb,
+  ): string {
     switch (this.mode) {
       case PracticeMode.Synonyms:
         return this.idService.getQuestionId((question as Synonym).word);
@@ -230,12 +266,17 @@ export class VocabularyReferenceComponent {
       case PracticeMode.Idioms:
         return this.idService.getQuestionId((question as Idiom).idiom);
 
+      case PracticeMode.PhrasalVerbs:
+        return this.idService.getQuestionId((question as PhrasalVerb).phrase);
+
       default:
         return '';
     }
   }
 
-  isBookmarked(question: Synonym | Antonym | OneWord | Idiom): boolean {
+  isBookmarked(
+    question: Synonym | Antonym | OneWord | Idiom | PhrasalVerb,
+  ): boolean {
     return this.bookmarkService.isBookmarked(this.getQuestionId(question));
   }
 }

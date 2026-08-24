@@ -61,39 +61,21 @@
           ) {
             <div class="setting">
               <label>Questions</label>
+              <select
+                [ngModel]="stateService.practice().questionTarget"
+                (ngModelChange)="setQuestionTarget($event)"
+              >
+                <option [ngValue]="10">10</option>
+                <option [ngValue]="20">20</option>
+                <option [ngValue]="30">30</option>
+                <option [ngValue]="50">50</option>
 
-              @if (
-                stateService.navigation().selectedExercise?.mode !==
-                PracticeMode.Bookmark
-              ) {
-                <select
-                  [ngModel]="stateService.practice().questionTarget"
-                  (ngModelChange)="setQuestionTarget($event)"
-                >
-                  <option [ngValue]="10">10</option>
-                  <option [ngValue]="20">20</option>
-                  <option [ngValue]="30">30</option>
-                  <option [ngValue]="50">50</option>
-
-                  @if (selectedTopic?.title !== "Arithmetic") {
-                    <option [ngValue]="'completeSet'">
-                      Complete set ({{ completeSetCount }})
-                    </option>
-                  }
-                </select>
-              } @else {
-                <div class="info-message">
-                  <span class="info-icon">⭐</span>
-
-                  <span>
-                    Answer all {{ totalBookmarks }} bookmarked
-                    {{ totalBookmarks === 1 ? "question" : "questions" }}
-                    to complete the session.
-                    <br />
-                    <small>Only one attempt per question.</small>
-                  </span>
-                </div>
-              }
+                @if (selectedTopic?.title !== "Arithmetic") {
+                  <option [ngValue]="'completeSet'">
+                    Complete set ({{ completeSetCount }})
+                  </option>
+                }
+              </select>
             </div>
           }
         </div>
