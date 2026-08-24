@@ -298,7 +298,7 @@ export class VocabularyEngine {
 
       data: idiom,
 
-      inputType: InputType.MultipleChoice,
+      inputType: InputType.TextAndMultipleChoice,
 
       displayType: 'text',
 
@@ -385,7 +385,7 @@ export class VocabularyEngine {
 
       data: phrasalVerb,
 
-      inputType: InputType.MultipleChoice,
+      inputType: InputType.TextAndMultipleChoice,
 
       displayType: 'text',
 

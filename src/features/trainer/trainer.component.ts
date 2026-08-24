@@ -50,8 +50,8 @@ export class TrainerComponent implements OnInit, OnDestroy {
 
   public stateService = inject(StateService);
 
-  onClickShowOptions(): void {
-    this.showOptions = true;
+  toggleShowOptions(): void {
+    this.showOptions = !this.showOptions;
   }
 
   get mode() {
@@ -190,7 +190,6 @@ export class TrainerComponent implements OnInit, OnDestroy {
    * generated normally.
    */
   private showNextQuestion(): void {
-    this.showOptions = false;
     // ------------------------------------------
     // Practice Mistakes
     // ------------------------------------------

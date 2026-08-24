@@ -183,13 +183,14 @@
         <button
           type="button"
           class="show-options-btn"
-          (click)="onClickShowOptions()"
+          (click)="toggleShowOptions()"
         >
           Show Options
         </button>
       } @else if (
         countdownValue === null &&
-        (question.inputType === "multiple-choice" || showOptions)
+        question.inputType === InputType.TextAndMultipleChoice &&
+        showOptions
       ) {
         <div class="optionsContainer">
           @for (option of question.options; track option) {
@@ -209,6 +210,14 @@
             </button>
           }
         </div>
+
+        <button
+          type="button"
+          class="show-options-btn"
+          (click)="toggleShowOptions()"
+        >
+          Hide Options
+        </button>
       }
     }
   }
