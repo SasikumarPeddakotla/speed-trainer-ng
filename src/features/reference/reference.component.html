@@ -11,7 +11,7 @@
       }
 
       <!-- Tabs -->
-      @if (topic?.title !== "Arithmetic") {
+      @if (topic?.title !== "Arithmetic" && topic?.title !== "Notes") {
         <div class="reference-tabs">
           <!-- All -->
           <div class="tab-wrapper" [class.active]="referenceTab() === 'all'">
@@ -146,6 +146,10 @@
             [referenceTab]="referenceTab()"
             (count)="onCountChange($event)"
           />
+        }
+
+        @case ("notes") {
+          <app-number-system-reference></app-number-system-reference>
         }
 
         @default {

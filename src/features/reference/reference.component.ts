@@ -15,6 +15,7 @@ import { PowerReferenceComponent } from './power-reference/power-reference.compo
 import { ConversionReferenceComponent } from './conversion-reference/conversion-reference.component';
 import { PolityReferenceComponent } from './polity-reference/polity-reference.component';
 import { Router } from '@angular/router';
+import { NumberSystemReferenceComponent } from './number-system-reference/number-system-reference.component';
 
 interface ReferenceCounts {
   allCount: number;
@@ -31,6 +32,7 @@ interface ReferenceCounts {
     PowerReferenceComponent,
     ConversionReferenceComponent,
     PolityReferenceComponent,
+    NumberSystemReferenceComponent,
   ],
   templateUrl: './reference.component.html',
   styleUrl: './reference.component.scss',

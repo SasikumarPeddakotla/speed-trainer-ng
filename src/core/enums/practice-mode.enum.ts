@@ -24,6 +24,8 @@ export enum PracticeMode {
   DecimalToPercentage = 'Decimal → Percentage',
   PercentageToDecimal = 'Percentage → Decimal',
 
+  NumberSystem = 'Number System',
+
   ArticleToTitle = 'Article → Title',
   TitleToArticle = 'Title → Article',
 

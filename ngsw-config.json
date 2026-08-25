@@ -36,6 +36,15 @@
       "resources": {
         "files": ["/data/**/*.json"]
       }
+    },
+
+    {
+      "name": "notes",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": ["/notes/**/*.pdf"]
+      }
     }
   ]
 }

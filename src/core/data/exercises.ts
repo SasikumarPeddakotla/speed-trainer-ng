@@ -191,6 +191,15 @@ export const exercises: Exercise[] = [
 
     settings: [SettingType.SessionType],
   },
+  {
+    title: 'Number System',
+    route: 'number-system',
+    mode: PracticeMode.NumberSystem,
+    topic: 'notes',
+    implemented: true,
+
+    settings: [],
+  },
 
   {
     title: 'Article → Title',

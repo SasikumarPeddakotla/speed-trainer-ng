@@ -36,6 +36,12 @@ export const topics: Topic[] = [
     subject: 'aptitude',
     implemented: true,
   },
+  {
+    title: 'Notes',
+    route: 'notes',
+    subject: 'aptitude',
+    implemented: true,
+  },
 
   // General Awareness
 
