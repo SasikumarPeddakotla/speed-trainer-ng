@@ -8,6 +8,8 @@ import {
 } from '@angular/core';
 
 import * as pdfjsLib from 'pdfjs-dist';
+import { ThemeService } from '../../../core/services/theme.service';
+import { Theme } from '../../../core/enums/theme.enum';
 
 @Component({
   selector: 'app-pdf-viewer',
@@ -17,7 +19,8 @@ import * as pdfjsLib from 'pdfjs-dist';
   styleUrl: './pdf-viewer.component.scss',
 })
 export class PdfViewerComponent implements AfterViewInit, OnDestroy {
-  readonly src = input.required<string>();
+  readonly lightSrc = input.required<string>();
+  readonly darkSrc = input.required<string>();
 
   @ViewChild('pdfContainer')
   private pdfContainer!: ElementRef<HTMLDivElement>;
@@ -26,17 +29,21 @@ export class PdfViewerComponent implements AfterViewInit, OnDestroy {
 
   private destroyed = false;
 
-  constructor() {
+  constructor(private themeService: ThemeService) {
     pdfjsLib.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.mjs';
   }
 
   async ngAfterViewInit(): Promise<void> {
-    await this.loadPdf();
+    if (this.themeService.theme() === Theme.Light) {
+      await this.loadPdf(this.lightSrc());
+    } else {
+      await this.loadPdf(this.darkSrc());
+    }
   }
 
-  private async loadPdf(): Promise<void> {
+  private async loadPdf(src: string): Promise<void> {
     try {
-      const loadingTask = pdfjsLib.getDocument(this.src());
+      const loadingTask = pdfjsLib.getDocument(src);
 
       this.pdfDocument = await loadingTask.promise;
 
