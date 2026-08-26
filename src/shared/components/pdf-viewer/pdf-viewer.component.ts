@@ -95,11 +95,25 @@ export class PdfViewerComponent implements AfterViewInit, OnDestroy {
       scale: 1,
     });
 
+    // Fit the PDF page to the available container width.
     const scale = containerWidth / unscaledViewport.width;
 
     const viewport = page.getViewport({
       scale,
     });
+
+    /*
+     * Render at the device's actual pixel density.
+     *
+     * Example:
+     * CSS size = 400px
+     * devicePixelRatio = 2
+     * canvas resolution = 800px
+     *
+     * This keeps text and handwriting sharp on
+     * high-DPI mobile and desktop screens.
+     */
+    const outputScale = window.devicePixelRatio || 1;
 
     const canvas = document.createElement('canvas');
 
@@ -109,9 +123,11 @@ export class PdfViewerComponent implements AfterViewInit, OnDestroy {
       return;
     }
 
-    canvas.width = viewport.width;
-    canvas.height = viewport.height;
+    // Actual canvas resolution
+    canvas.width = Math.floor(viewport.width * outputScale);
+    canvas.height = Math.floor(viewport.height * outputScale);
 
+    // Visual/CSS size
     canvas.style.width = `${viewport.width}px`;
     canvas.style.height = `${viewport.height}px`;
 
@@ -126,6 +142,9 @@ export class PdfViewerComponent implements AfterViewInit, OnDestroy {
     await page.render({
       canvasContext: context,
       viewport,
+
+      transform:
+        outputScale !== 1 ? [outputScale, 0, 0, outputScale, 0, 0] : undefined,
     }).promise;
   }
 
