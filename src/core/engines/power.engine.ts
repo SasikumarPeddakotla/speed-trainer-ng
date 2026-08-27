@@ -1,9 +1,15 @@
 import { inject, Injectable } from '@angular/core';
+
 import { StateService } from '../services/state.service';
 import { Question } from '../models/question.model';
 import { RandomService } from '../../utils/random.service';
-import { IdService } from '../../utils/id.service';
 import { BookmarkService } from '../services/bookmark.service';
+import { DataService } from '../services/data.service';
+
+import { Square } from '../models/square.model';
+import { Cube } from '../models/cube.model';
+import { SquareRoot } from '../models/square-root.model';
+import { CubeRoot } from '../models/cube-root.model';
 
 @Injectable({
   providedIn: 'root',
@@ -11,130 +17,293 @@ import { BookmarkService } from '../services/bookmark.service';
 export class PowerEngine {
   private randomService = inject(RandomService);
 
-  private numbers: number[] = [];
+  private squares: Square[] = [];
+  private cubes: Cube[] = [];
+  private squareRoots: SquareRoot[] = [];
+  private cubeRoots: CubeRoot[] = [];
 
   constructor(
     private stateService: StateService,
-    private idService: IdService,
     private bookmarkService: BookmarkService,
+    private dataService: DataService,
   ) {}
 
-  generateSquare(): Question<number> {
-    const number = this.nextNumber();
+  // ========================================
+  // Squares
+  // ========================================
 
-    return this.createSquare(number);
+  generateSquare(): Question<number> {
+    const square = this.nextSquare();
+
+    return {
+      id: square.id,
+      question: `${square.number}²`,
+      answer: String(square.square),
+      data: square.number,
+      inputType: 'number',
+      displayType: 'symbol',
+    };
   }
+
+  // ========================================
+  // Cubes
+  // ========================================
 
   generateCube(): Question<number> {
-    const number = this.nextNumber();
+    const cube = this.nextCube();
 
-    return this.createCube(number);
+    return {
+      id: cube.id,
+      question: `${cube.number}³`,
+      answer: String(cube.cube),
+      data: cube.number,
+      inputType: 'number',
+      displayType: 'symbol',
+    };
   }
+
+  // ========================================
+  // Square Roots
+  // ========================================
 
   generateSquareRoot(): Question<number> {
-    const number = this.nextNumber();
+    const squareRoot = this.nextSquareRoot();
 
-    return this.createSquareRoot(number);
+    return {
+      id: squareRoot.id,
+      question: `√${squareRoot.number}`,
+      answer: String(squareRoot.squareRoot),
+      data: squareRoot.squareRoot,
+      inputType: 'number',
+      displayType: 'symbol',
+    };
   }
+
+  // ========================================
+  // Cube Roots
+  // ========================================
 
   generateCubeRoot(): Question<number> {
-    const number = this.nextNumber();
+    const cubeRoot = this.nextCubeRoot();
 
-    return this.createCubeRoot(number);
+    return {
+      id: cubeRoot.id,
+      question: `∛${cubeRoot.number}`,
+      answer: String(cubeRoot.cubeRoot),
+      data: cubeRoot.cubeRoot,
+      inputType: 'number',
+      displayType: 'symbol',
+    };
   }
 
-  private nextNumber(): number {
+  // ========================================
+  // Squares
+  // ========================================
+
+  private nextSquare(): Square {
     const referenceView = this.stateService.navigation().referenceView;
 
     switch (referenceView) {
       case 'all':
-        return this.nextNormalNumber();
+        return this.nextNormalSquare();
+
       case 'bookmark':
-        return this.nextBookmarkNumber();
+        return this.nextBookmarkedSquare();
     }
   }
 
-  private nextNormalNumber(): number {
-    if (this.numbers.length === 0) {
-      this.resetNumbers();
+  private nextNormalSquare(): Square {
+    if (this.squares.length === 0) {
+      this.resetSquares();
     }
 
-    return this.numbers.shift()!;
+    return this.squares.shift()!;
   }
 
-  private nextBookmarkNumber(): number {
-    if (this.numbers.length === 0) {
+  private nextBookmarkedSquare(): Square {
+    if (this.squares.length === 0) {
       const bookmarkQuestions =
-        this.bookmarkService.getBookmarkedQuestions<number>();
-      this.numbers = this.randomService.shuffle(bookmarkQuestions);
+        this.bookmarkService.getBookmarkedQuestions<Square>();
+
+      this.squares = this.randomService.shuffle(bookmarkQuestions);
     }
 
-    return this.numbers.shift()!;
+    return this.squares.shift()!;
   }
 
-  private resetNumbers(): void {
+  private resetSquares(): void {
     const max = Number(this.stateService.practice().numberRange);
 
-    const numbers: number[] = [];
+    const questions = this.dataService
+      .getSquares()
+      .filter((square) => square.number <= max);
 
-    for (let i = 2; i <= max; i++) {
-      numbers.push(i);
+    this.squares = this.randomService.shuffle(questions);
+  }
+
+  // ========================================
+  // Cubes
+  // ========================================
+
+  private nextCube(): Cube {
+    const referenceView = this.stateService.navigation().referenceView;
+
+    switch (referenceView) {
+      case 'all':
+        return this.nextNormalCube();
+
+      case 'bookmark':
+        return this.nextBookmarkedCube();
+    }
+  }
+
+  private nextNormalCube(): Cube {
+    if (this.cubes.length === 0) {
+      this.resetCubes();
     }
 
-    this.numbers = this.randomService.shuffle(numbers);
+    return this.cubes.shift()!;
   }
 
-  createSquare(number: number): Question<number> {
-    return {
-      id: this.idService.getQuestionId(number),
-      question: `${number}²`,
-      answer: String(number * number),
-      data: number,
-      inputType: 'number',
-      displayType: 'symbol',
-    };
+  private nextBookmarkedCube(): Cube {
+    if (this.cubes.length === 0) {
+      const bookmarkQuestions =
+        this.bookmarkService.getBookmarkedQuestions<Cube>();
+
+      this.cubes = this.randomService.shuffle(bookmarkQuestions);
+    }
+
+    return this.cubes.shift()!;
   }
 
-  createCube(number: number): Question<number> {
-    return {
-      id: this.idService.getQuestionId(number),
-      question: `${number}³`,
-      answer: String(number ** 3),
-      data: number,
-      inputType: 'number',
-      displayType: 'symbol',
-    };
+  private resetCubes(): void {
+    const max = Number(this.stateService.practice().numberRange);
+
+    const questions = this.dataService
+      .getCubes()
+      .filter((cube) => cube.number <= max);
+
+    this.cubes = this.randomService.shuffle(questions);
   }
 
-  createSquareRoot(number: number): Question<number> {
-    return {
-      id: this.idService.getQuestionId(number * number),
-      question: `√${number * number}`,
-      answer: String(number),
-      data: number,
-      inputType: 'number',
-      displayType: 'symbol',
-    };
+  // ========================================
+  // Square Roots
+  // ========================================
+
+  private nextSquareRoot(): SquareRoot {
+    const referenceView = this.stateService.navigation().referenceView;
+
+    switch (referenceView) {
+      case 'all':
+        return this.nextNormalSquareRoot();
+
+      case 'bookmark':
+        return this.nextBookmarkedSquareRoot();
+    }
   }
 
-  createCubeRoot(number: number): Question<number> {
-    return {
-      id: this.idService.getQuestionId(number ** 3),
-      question: `∛${number ** 3}`,
-      answer: String(number),
-      data: number,
-      inputType: 'number',
-      displayType: 'symbol',
-    };
+  private nextNormalSquareRoot(): SquareRoot {
+    if (this.squareRoots.length === 0) {
+      this.resetSquareRoots();
+    }
+
+    return this.squareRoots.shift()!;
   }
 
-  getNumbersReference(): number[] {
-    // const max = Number(this.stateService.practice().numberRange);
+  private nextBookmarkedSquareRoot(): SquareRoot {
+    if (this.squareRoots.length === 0) {
+      const bookmarkQuestions =
+        this.bookmarkService.getBookmarkedQuestions<SquareRoot>();
 
-    return Array.from({ length: 99 }, (_, i) => i + 2);
+      this.squareRoots = this.randomService.shuffle(bookmarkQuestions);
+    }
+
+    return this.squareRoots.shift()!;
   }
 
-  reset() {
-    this.numbers = [];
+  private resetSquareRoots(): void {
+    const max = Number(this.stateService.practice().numberRange);
+
+    const questions = this.dataService
+      .getSquareRoots()
+      .filter((squareRoot) => squareRoot.squareRoot <= max);
+
+    this.squareRoots = this.randomService.shuffle(questions);
+  }
+
+  // ========================================
+  // Cube Roots
+  // ========================================
+
+  private nextCubeRoot(): CubeRoot {
+    const referenceView = this.stateService.navigation().referenceView;
+
+    switch (referenceView) {
+      case 'all':
+        return this.nextNormalCubeRoot();
+
+      case 'bookmark':
+        return this.nextBookmarkedCubeRoot();
+    }
+  }
+
+  private nextNormalCubeRoot(): CubeRoot {
+    if (this.cubeRoots.length === 0) {
+      this.resetCubeRoots();
+    }
+
+    return this.cubeRoots.shift()!;
+  }
+
+  private nextBookmarkedCubeRoot(): CubeRoot {
+    if (this.cubeRoots.length === 0) {
+      const bookmarkQuestions =
+        this.bookmarkService.getBookmarkedQuestions<CubeRoot>();
+
+      this.cubeRoots = this.randomService.shuffle(bookmarkQuestions);
+    }
+
+    return this.cubeRoots.shift()!;
+  }
+
+  private resetCubeRoots(): void {
+    const max = Number(this.stateService.practice().numberRange);
+
+    const questions = this.dataService
+      .getCubeRoots()
+      .filter((cubeRoot) => cubeRoot.cubeRoot <= max);
+
+    this.cubeRoots = this.randomService.shuffle(questions);
+  }
+
+  // ========================================
+  // Reference
+  // ========================================
+
+  getSquaresReference(): Square[] {
+    return this.dataService.getSquares();
+  }
+
+  getCubesReference(): Cube[] {
+    return this.dataService.getCubes();
+  }
+
+  getSquareRootsReference(): SquareRoot[] {
+    return this.dataService.getSquareRoots();
+  }
+
+  getCubeRootsReference(): CubeRoot[] {
+    return this.dataService.getCubeRoots();
+  }
+
+  // ========================================
+  // Reset
+  // ========================================
+
+  reset(): void {
+    this.squares = [];
+    this.cubes = [];
+    this.squareRoots = [];
+    this.cubeRoots = [];
   }
 }

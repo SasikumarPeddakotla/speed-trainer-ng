@@ -4,8 +4,8 @@ import { StateService } from '../services/state.service';
 import { Question } from '../models/question.model';
 import { TableQuestion } from '../models/table-question.model';
 import { RandomService } from '../../utils/random.service';
-import { IdService } from '../../utils/id.service';
 import { BookmarkService } from '../services/bookmark.service';
+import { DataService } from '../services/data.service';
 
 @Injectable({
   providedIn: 'root',
@@ -17,8 +17,8 @@ export class TablesEngine {
 
   constructor(
     private stateService: StateService,
-    private idService: IdService,
     private bookmarkService: BookmarkService,
+    private dataService: DataService,
   ) {}
 
   generate(): Question<TableQuestion> {
@@ -29,9 +29,7 @@ export class TablesEngine {
 
   createQuestion(question: TableQuestion): Question<TableQuestion> {
     return {
-      id: this.idService.getQuestionId(
-        `${question.table} × ${question.multiplier}`,
-      ),
+      id: question.id,
       question: `${question.table} × ${question.multiplier}`,
       answer: String(question.table * question.multiplier),
       data: question,
@@ -46,6 +44,7 @@ export class TablesEngine {
     switch (referenceView) {
       case 'all':
         return this.nextNormalTable();
+
       case 'bookmark':
         return this.nextBookmarkTable();
     }
@@ -63,6 +62,7 @@ export class TablesEngine {
     if (this.questions.length === 0) {
       const bookmarkQuestions =
         this.bookmarkService.getBookmarkedQuestions<TableQuestion>();
+
       this.questions = this.randomService.shuffle(bookmarkQuestions);
     }
 
@@ -79,36 +79,23 @@ export class TablesEngine {
 
     const multiplierLimit = Number(settings.multiplierLimit);
 
-    const questions: TableQuestion[] = [];
+    const allTables = this.dataService.getTables();
 
-    for (const table of tables) {
-      for (let multiplier = 2; multiplier <= multiplierLimit; multiplier++) {
-        questions.push({
-          table,
-          multiplier,
-        });
-      }
-    }
+    const questions = allTables.filter(
+      (question) =>
+        tables.includes(question.table) &&
+        question.multiplier >= 2 &&
+        question.multiplier <= multiplierLimit,
+    );
 
     this.questions = this.randomService.shuffle(questions);
   }
 
   getTablesReference(): TableQuestion[] {
-    const tables = Array.from({ length: 19 }, (_, i) => i + 2);
-    const multiplierLimit = 20;
-
-    const questions: TableQuestion[] = [];
-
-    for (const table of tables) {
-      for (let multiplier = 1; multiplier <= multiplierLimit; multiplier++) {
-        questions.push({ table, multiplier });
-      }
-    }
-
-    return questions;
+    return this.dataService.getTables();
   }
 
-  reset() {
+  reset(): void {
     this.questions = [];
   }
 }

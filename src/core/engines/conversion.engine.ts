@@ -1,5 +1,4 @@
 import { inject, Injectable } from '@angular/core';
-import { FRACTION_CONVERSIONS } from '../data/fraction-conversions';
 import { FractionConversion } from '../models/fraction-conversion.model';
 import { StateService } from '../services/state.service';
 import { RandomService } from '../../utils/random.service';
@@ -7,18 +6,20 @@ import { Question } from '../models/question.model';
 import { PracticeMode } from '../enums/practice-mode.enum';
 import { IdService } from '../../utils/id.service';
 import { BookmarkService } from '../services/bookmark.service';
+import { DataService } from '../services/data.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ConversionEngine {
   private randomService = inject(RandomService);
-  private conversions = this.randomService.shuffle([...FRACTION_CONVERSIONS]);
+  private conversions: FractionConversion[] = [];
 
   constructor(
     private stateService: StateService,
     private idService: IdService,
     private bookmarkService: BookmarkService,
+    private dataService: DataService,
   ) {}
 
   generateQuestion() {
@@ -111,13 +112,15 @@ export class ConversionEngine {
     const { denominatorSelection, selectedDenominators } =
       this.stateService.practice();
 
+    const fractionConversions = this.dataService.getFractionConversions();
+
     if (denominatorSelection === 'all') {
-      this.conversions = this.randomService.shuffle([...FRACTION_CONVERSIONS]);
+      this.conversions = this.randomService.shuffle([...fractionConversions]);
     }
 
     const selected = new Set(selectedDenominators);
 
-    const converisons = FRACTION_CONVERSIONS.filter((conversion) => {
+    const converisons = fractionConversions.filter((conversion) => {
       const denominator = `/${conversion.fraction.split('/')[1]}`;
       return selected.has(denominator);
     });
@@ -126,20 +129,7 @@ export class ConversionEngine {
   }
 
   getConversionsReference(): FractionConversion[] {
-    return FRACTION_CONVERSIONS;
-    // const { denominatorSelection, selectedDenominators } =
-    //   this.stateService.practice();
-
-    // if (denominatorSelection === 'all') {
-    //   return FRACTION_CONVERSIONS;
-    // }
-
-    // const selected = new Set(selectedDenominators);
-
-    // return FRACTION_CONVERSIONS.filter((conversion) => {
-    //   const denominator = `/${conversion.fraction.split('/')[1]}`;
-    //   return selected.has(denominator);
-    // });
+    return this.dataService.getFractionConversions();
   }
 
   reset() {

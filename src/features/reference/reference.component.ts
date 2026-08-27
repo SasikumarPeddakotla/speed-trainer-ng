@@ -16,6 +16,7 @@ import { ConversionReferenceComponent } from './conversion-reference/conversion-
 import { PolityReferenceComponent } from './polity-reference/polity-reference.component';
 import { Router } from '@angular/router';
 import { NotesReferenceComponent } from './notes-reference/notes-reference.component';
+import { DataService } from '../../core/services/data.service';
 
 interface ReferenceCounts {
   allCount: number;
@@ -40,6 +41,13 @@ interface ReferenceCounts {
 export class ReferenceComponent {
   private stateService = inject(StateService);
   private router = inject(Router);
+  private dataService = inject(DataService);
+
+  async ngOnInit(): Promise<void> {
+    await this.dataService.preloadForMode(
+      this.stateService.navigation().selectedExercise?.mode,
+    );
+  }
 
   counts: ReferenceCounts = {
     allCount: 0,

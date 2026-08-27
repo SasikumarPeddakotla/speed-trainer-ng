@@ -4,6 +4,7 @@ import {
   effect,
   inject,
   input,
+  OnInit,
   output,
   signal,
 } from '@angular/core';
@@ -14,6 +15,7 @@ import { PracticeMode } from '../../../core/enums/practice-mode.enum';
 import { StateService } from '../../../core/services/state.service';
 import { BookmarkService } from '../../../core/services/bookmark.service';
 import { IdService } from '../../../utils/id.service';
+import { DataService } from '../../../core/services/data.service';
 
 @Component({
   selector: 'app-alphabet-reference',

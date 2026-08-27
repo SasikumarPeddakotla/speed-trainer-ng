@@ -1,23 +1,24 @@
 import { inject, Injectable } from '@angular/core';
 import { RandomService } from '../../utils/random.service';
 import { Question } from '../models/question.model';
-import { ARTICLES } from '../data/articles.data';
 import { Article } from '../models/article.model';
 import { IdService } from '../../utils/id.service';
 import { StateService } from '../services/state.service';
 import { BookmarkService } from '../services/bookmark.service';
+import { DataService } from '../services/data.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PolityEngine {
   private randomService = inject(RandomService);
-  private articles = this.randomService.shuffle([...ARTICLES]);
+  private articles: Article[] = [];
 
   constructor(
     private idService: IdService,
     private stateService: StateService,
     private bookmarkService: BookmarkService,
+    private dataService: DataService,
   ) {}
 
   generateArticleToTitle(): Question<Article> {
@@ -32,7 +33,7 @@ export class PolityEngine {
       answer: article.title,
       options: this.randomService.buildOptions(
         article,
-        ARTICLES,
+        this.dataService.getArticles(),
         (a) => [a.title],
         (a) => a.article,
         article.title,
@@ -55,7 +56,7 @@ export class PolityEngine {
       answer: `Article ${article.article}`,
       options: this.randomService.buildOptions(
         article,
-        ARTICLES,
+        this.dataService.getArticles(),
         (a) => [`Article ${a.article}`],
         (a) => a.title,
         `Article ${article.article}`,
@@ -79,7 +80,9 @@ export class PolityEngine {
 
   private nextNormalArticle(): Article {
     if (this.articles.length === 0) {
-      this.articles = this.randomService.shuffle([...ARTICLES]);
+      this.articles = this.randomService.shuffle([
+        ...this.dataService.getArticles(),
+      ]);
     }
 
     return this.articles.shift()!;
@@ -96,7 +99,7 @@ export class PolityEngine {
   }
 
   getArticlesReference(): Article[] {
-    return ARTICLES;
+    return this.dataService.getArticles();
   }
 
   reset() {

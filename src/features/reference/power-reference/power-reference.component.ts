@@ -5,13 +5,17 @@ import {
   inject,
   input,
   output,
-  signal,
 } from '@angular/core';
+
 import { PowerEngine } from '../../../core/engines/power.engine';
 import { StateService } from '../../../core/services/state.service';
 import { PracticeMode } from '../../../core/enums/practice-mode.enum';
 import { BookmarkService } from '../../../core/services/bookmark.service';
-import { IdService } from '../../../utils/id.service';
+
+import { Square } from '../../../core/models/square.model';
+import { Cube } from '../../../core/models/cube.model';
+import { SquareRoot } from '../../../core/models/square-root.model';
+import { CubeRoot } from '../../../core/models/cube-root.model';
 
 @Component({
   selector: 'app-power-reference',
@@ -23,7 +27,6 @@ export class PowerReferenceComponent {
   private stateService = inject(StateService);
   private powerEngine = inject(PowerEngine);
   private bookmarkService = inject(BookmarkService);
-  private idService = inject(IdService);
 
   referenceTab = input<'all' | 'bookmark'>();
   count = output<{
@@ -36,15 +39,48 @@ export class PowerReferenceComponent {
   protected readonly mode = this.stateService.navigation().selectedExercise
     ?.mode as PracticeMode;
 
-  private readonly allQuestions = this.powerEngine.getNumbersReference();
+  private readonly allQuestions = computed(() => {
+    switch (this.mode) {
+      case PracticeMode.Squares:
+        return this.powerEngine.getSquaresReference();
+
+      case PracticeMode.Cubes:
+        return this.powerEngine.getCubesReference();
+
+      case PracticeMode.SquareRoots:
+        return this.powerEngine.getSquareRootsReference();
+
+      case PracticeMode.CubeRoots:
+        return this.powerEngine.getCubeRootsReference();
+
+      default:
+        return [];
+    }
+  });
+
   private readonly bookmarkQuestions = computed(() => {
-    return this.bookmarkService.getBookmarkedQuestions<number>();
+    switch (this.mode) {
+      case PracticeMode.Squares:
+        return this.bookmarkService.getBookmarkedQuestions<Square>();
+
+      case PracticeMode.Cubes:
+        return this.bookmarkService.getBookmarkedQuestions<Cube>();
+
+      case PracticeMode.SquareRoots:
+        return this.bookmarkService.getBookmarkedQuestions<SquareRoot>();
+
+      case PracticeMode.CubeRoots:
+        return this.bookmarkService.getBookmarkedQuestions<CubeRoot>();
+
+      default:
+        return [];
+    }
   });
 
   // To return the counts to parent
   private readonly emitCountsEffect = effect(() => {
     this.count.emit({
-      allCount: this.allQuestions.length,
+      allCount: this.allQuestions().length,
       bookmarkCount: this.bookmarkQuestions().length,
     });
   });
@@ -52,43 +88,42 @@ export class PowerReferenceComponent {
   readonly questions = computed(() => {
     switch (this.referenceTab()) {
       case 'bookmark':
-        return this.bookmarkService.getBookmarkedQuestions<number>();
+        return this.bookmarkQuestions();
 
       default:
-        return this.powerEngine.getNumbersReference();
+        return this.allQuestions();
     }
   });
 
-  async toggleBookmark(number: number): Promise<void> {
+  readonly squares = computed(() => {
+    return this.questions() as Square[];
+  });
+
+  readonly cubes = computed(() => {
+    return this.questions() as Cube[];
+  });
+
+  readonly squareRoots = computed(() => {
+    return this.questions() as SquareRoot[];
+  });
+
+  readonly cubeRoots = computed(() => {
+    return this.questions() as CubeRoot[];
+  });
+
+  async toggleBookmark(
+    question: Square | Cube | SquareRoot | CubeRoot,
+  ): Promise<void> {
     const entry = {
-      id: this.getQuestionId(number),
+      id: question.id,
       mode: this.mode,
-      question: number,
+      question,
     };
 
     await this.bookmarkService.toggle(entry);
   }
 
-  private getQuestionId(number: number): string {
-    switch (this.mode) {
-      case PracticeMode.Squares:
-        return this.idService.getQuestionId(number);
-
-      case PracticeMode.Cubes:
-        return this.idService.getQuestionId(number);
-
-      case PracticeMode.SquareRoots:
-        return this.idService.getQuestionId(number * number);
-
-      case PracticeMode.CubeRoots:
-        return this.idService.getQuestionId(number ** 3);
-
-      default:
-        return '';
-    }
-  }
-
-  isBookmarked(number: number): boolean {
-    return this.bookmarkService.isBookmarked(this.getQuestionId(number));
+  isBookmarked(question: Square | Cube | SquareRoot | CubeRoot): boolean {
+    return this.bookmarkService.isBookmarked(question.id);
   }
 }

@@ -2,24 +2,25 @@ import { inject, Injectable } from '@angular/core';
 
 import { Question } from '../models/question.model';
 
-import { alphabetData } from '../data/alphabet';
 import { Alphabet } from '../models/alphabet.model';
 import { RandomService } from '../../utils/random.service';
 import { IdService } from '../../utils/id.service';
 import { StateService } from '../services/state.service';
 import { BookmarkService } from '../services/bookmark.service';
+import { DataService } from '../services/data.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AlphabetEngine {
   private randomService = inject(RandomService);
-  private alphabets = this.randomService.shuffle([...alphabetData]);
+  private alphabets: Alphabet[] = [];
 
   constructor(
     private idService: IdService,
     private stateService: StateService,
     private bookmarkService: BookmarkService,
+    private dataService: DataService,
   ) {}
 
   letterToPosition(): Question<Alphabet> {
@@ -120,7 +121,9 @@ export class AlphabetEngine {
 
   private nextNormalAlphabet(): Alphabet {
     if (this.alphabets.length === 0) {
-      this.alphabets = this.randomService.shuffle([...alphabetData]);
+      this.alphabets = this.randomService.shuffle([
+        ...this.dataService.getAlphabets(),
+      ]);
     }
 
     return this.alphabets.shift()!;
@@ -137,7 +140,7 @@ export class AlphabetEngine {
   }
 
   getAlphabetReference(): Alphabet[] {
-    return alphabetData;
+    return this.dataService.getAlphabets();
   }
 
   reset() {

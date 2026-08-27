@@ -1,61 +1,109 @@
 @if (questions().length > 0) {
   <div class="powers-container">
-    @for (number of questions(); track number) {
-      <div class="power-row">
-        @switch (mode) {
-          @case (PracticeMode.Squares) {
-            <span class="expression"> {{ number }}² </span>
+    @switch (mode) {
+      @case (PracticeMode.Squares) {
+        @for (square of squares(); track square.id) {
+          <div class="power-row">
+            <span class="expression"> {{ square.number }}² </span>
 
             <span class="equals">=</span>
 
             <span class="answer">
-              {{ number * number }}
+              {{ square.square }}
             </span>
-          }
 
-          @case (PracticeMode.Cubes) {
-            <span class="expression"> {{ number }}³ </span>
-
-            <span class="equals">=</span>
-
-            <span class="answer">
-              {{ number * number * number }}
-            </span>
-          }
-
-          @case (PracticeMode.SquareRoots) {
-            <span class="expression"> √{{ number * number }} </span>
-
-            <span class="equals">=</span>
-
-            <span class="answer">
-              {{ number }}
-            </span>
-          }
-
-          @case (PracticeMode.CubeRoots) {
-            <span class="expression"> ∛{{ number * number * number }} </span>
-
-            <span class="equals">=</span>
-
-            <span class="answer">
-              {{ number }}
-            </span>
-          }
+            <button
+              type="button"
+              class="bookmark-btn"
+              [class.bookmarked]="isBookmarked(square)"
+              [attr.aria-label]="
+                isBookmarked(square) ? 'Remove bookmark' : 'Add bookmark'
+              "
+              (click)="toggleBookmark(square)"
+            >
+              ★
+            </button>
+          </div>
         }
+      }
 
-        <button
-          type="button"
-          class="bookmark-btn"
-          [class.bookmarked]="isBookmarked(number)"
-          [attr.aria-label]="
-            isBookmarked(number) ? 'Remove bookmark' : 'Add bookmark'
-          "
-          (click)="toggleBookmark(number)"
-        >
-          ★
-        </button>
-      </div>
+      @case (PracticeMode.Cubes) {
+        @for (cube of cubes(); track cube.id) {
+          <div class="power-row">
+            <span class="expression"> {{ cube.number }}³ </span>
+
+            <span class="equals">=</span>
+
+            <span class="answer">
+              {{ cube.cube }}
+            </span>
+
+            <button
+              type="button"
+              class="bookmark-btn"
+              [class.bookmarked]="isBookmarked(cube)"
+              [attr.aria-label]="
+                isBookmarked(cube) ? 'Remove bookmark' : 'Add bookmark'
+              "
+              (click)="toggleBookmark(cube)"
+            >
+              ★
+            </button>
+          </div>
+        }
+      }
+
+      @case (PracticeMode.SquareRoots) {
+        @for (squareRoot of squareRoots(); track squareRoot.id) {
+          <div class="power-row">
+            <span class="expression"> √{{ squareRoot.number }} </span>
+
+            <span class="equals">=</span>
+
+            <span class="answer">
+              {{ squareRoot.squareRoot }}
+            </span>
+
+            <button
+              type="button"
+              class="bookmark-btn"
+              [class.bookmarked]="isBookmarked(squareRoot)"
+              [attr.aria-label]="
+                isBookmarked(squareRoot) ? 'Remove bookmark' : 'Add bookmark'
+              "
+              (click)="toggleBookmark(squareRoot)"
+            >
+              ★
+            </button>
+          </div>
+        }
+      }
+
+      @case (PracticeMode.CubeRoots) {
+        @for (cubeRoot of cubeRoots(); track cubeRoot.id) {
+          <div class="power-row">
+            <span class="expression"> ∛{{ cubeRoot.number }} </span>
+
+            <span class="equals">=</span>
+
+            <span class="answer">
+              {{ cubeRoot.cubeRoot }}
+            </span>
+
+            <button
+              type="button"
+              class="bookmark-btn"
+              [class.bookmarked]="isBookmarked(cubeRoot)"
+              [attr.aria-label]="
+                isBookmarked(cubeRoot) ? 'Remove bookmark' : 'Add bookmark'
+              "
+              (click)="toggleBookmark(cubeRoot)"
+            >
+              ★
+            </button>
+          </div>
+        }
+      }
     }
   </div>
 } @else {

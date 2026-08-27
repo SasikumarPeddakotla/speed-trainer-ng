@@ -19,7 +19,6 @@ import { BookmarkService } from '../../../core/services/bookmark.service';
 
 import { ExampleFormatterService } from '../../../utils/example-formatter.service';
 import { IdService } from '../../../utils/id.service';
-import { DataService } from '../../../core/services/data.service';
 import { PhrasalVerb } from '../../../core/models/phrasal-verb.model';
 
 @Component({
@@ -37,14 +36,6 @@ export class VocabularyReferenceComponent {
   private bookmarkService = inject(BookmarkService);
   public formatterService = inject(ExampleFormatterService);
   private idService = inject(IdService);
-
-  constructor(private dataService: DataService) {}
-
-  async ngOnInit(): Promise<void> {
-    await this.dataService.preloadForMode(
-      this.stateService.navigation().selectedExercise?.mode,
-    );
-  }
 
   public PracticeMode = PracticeMode;
 
