@@ -1,4 +1,5 @@
 export interface Synonym {
+  id: string;
   word: string;
   meaning: string;
   partsOfSpeech: string;

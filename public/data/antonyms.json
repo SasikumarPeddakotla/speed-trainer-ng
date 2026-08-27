@@ -1,5 +1,6 @@
 [
   {
+    "id": "ant-0001",
     "word": "Invincible",
     "meaning": "Too strong to be defeated or changed; unconquerable.",
     "partsOfSpeech": "",
@@ -7,6 +8,7 @@
     "example": ""
   },
   {
+    "id": "ant-0002",
     "word": "Inoffensive",
     "meaning": "Not likely to offend or upset anyone.",
     "partsOfSpeech": "",
@@ -14,6 +16,7 @@
     "example": ""
   },
   {
+    "id": "ant-0003",
     "word": "Divulge",
     "meaning": "To reveal or give somebody information that is supposed to be secret.",
     "partsOfSpeech": "",
@@ -21,6 +24,7 @@
     "example": ""
   },
   {
+    "id": "ant-0004",
     "word": "Discord",
     "meaning": "Disagreement; arguing.",
     "partsOfSpeech": "",
@@ -28,6 +32,7 @@
     "example": ""
   },
   {
+    "id": "ant-0005",
     "word": "Mammoth",
     "meaning": "Extremely large; huge.",
     "partsOfSpeech": "",

@@ -1,0 +1,2002 @@
+[
+  {
+    "id": "tbl-0001",
+    "table": 1,
+    "multiplier": 1
+  },
+  {
+    "id": "tbl-0002",
+    "table": 1,
+    "multiplier": 2
+  },
+  {
+    "id": "tbl-0003",
+    "table": 1,
+    "multiplier": 3
+  },
+  {
+    "id": "tbl-0004",
+    "table": 1,
+    "multiplier": 4
+  },
+  {
+    "id": "tbl-0005",
+    "table": 1,
+    "multiplier": 5
+  },
+  {
+    "id": "tbl-0006",
+    "table": 1,
+    "multiplier": 6
+  },
+  {
+    "id": "tbl-0007",
+    "table": 1,
+    "multiplier": 7
+  },
+  {
+    "id": "tbl-0008",
+    "table": 1,
+    "multiplier": 8
+  },
+  {
+    "id": "tbl-0009",
+    "table": 1,
+    "multiplier": 9
+  },
+  {
+    "id": "tbl-0010",
+    "table": 1,
+    "multiplier": 10
+  },
+  {
+    "id": "tbl-0011",
+    "table": 1,
+    "multiplier": 11
+  },
+  {
+    "id": "tbl-0012",
+    "table": 1,
+    "multiplier": 12
+  },
+  {
+    "id": "tbl-0013",
+    "table": 1,
+    "multiplier": 13
+  },
+  {
+    "id": "tbl-0014",
+    "table": 1,
+    "multiplier": 14
+  },
+  {
+    "id": "tbl-0015",
+    "table": 1,
+    "multiplier": 15
+  },
+  {
+    "id": "tbl-0016",
+    "table": 1,
+    "multiplier": 16
+  },
+  {
+    "id": "tbl-0017",
+    "table": 1,
+    "multiplier": 17
+  },
+  {
+    "id": "tbl-0018",
+    "table": 1,
+    "multiplier": 18
+  },
+  {
+    "id": "tbl-0019",
+    "table": 1,
+    "multiplier": 19
+  },
+  {
+    "id": "tbl-0020",
+    "table": 1,
+    "multiplier": 20
+  },
+  {
+    "id": "tbl-0021",
+    "table": 2,
+    "multiplier": 1
+  },
+  {
+    "id": "tbl-0022",
+    "table": 2,
+    "multiplier": 2
+  },
+  {
+    "id": "tbl-0023",
+    "table": 2,
+    "multiplier": 3
+  },
+  {
+    "id": "tbl-0024",
+    "table": 2,
+    "multiplier": 4
+  },
+  {
+    "id": "tbl-0025",
+    "table": 2,
+    "multiplier": 5
+  },
+  {
+    "id": "tbl-0026",
+    "table": 2,
+    "multiplier": 6
+  },
+  {
+    "id": "tbl-0027",
+    "table": 2,
+    "multiplier": 7
+  },
+  {
+    "id": "tbl-0028",
+    "table": 2,
+    "multiplier": 8
+  },
+  {
+    "id": "tbl-0029",
+    "table": 2,
+    "multiplier": 9
+  },
+  {
+    "id": "tbl-0030",
+    "table": 2,
+    "multiplier": 10
+  },
+  {
+    "id": "tbl-0031",
+    "table": 2,
+    "multiplier": 11
+  },
+  {
+    "id": "tbl-0032",
+    "table": 2,
+    "multiplier": 12
+  },
+  {
+    "id": "tbl-0033",
+    "table": 2,
+    "multiplier": 13
+  },
+  {
+    "id": "tbl-0034",
+    "table": 2,
+    "multiplier": 14
+  },
+  {
+    "id": "tbl-0035",
+    "table": 2,
+    "multiplier": 15
+  },
+  {
+    "id": "tbl-0036",
+    "table": 2,
+    "multiplier": 16
+  },
+  {
+    "id": "tbl-0037",
+    "table": 2,
+    "multiplier": 17
+  },
+  {
+    "id": "tbl-0038",
+    "table": 2,
+    "multiplier": 18
+  },
+  {
+    "id": "tbl-0039",
+    "table": 2,
+    "multiplier": 19
+  },
+  {
+    "id": "tbl-0040",
+    "table": 2,
+    "multiplier": 20
+  },
+  {
+    "id": "tbl-0041",
+    "table": 3,
+    "multiplier": 1
+  },
+  {
+    "id": "tbl-0042",
+    "table": 3,
+    "multiplier": 2
+  },
+  {
+    "id": "tbl-0043",
+    "table": 3,
+    "multiplier": 3
+  },
+  {
+    "id": "tbl-0044",
+    "table": 3,
+    "multiplier": 4
+  },
+  {
+    "id": "tbl-0045",
+    "table": 3,
+    "multiplier": 5
+  },
+  {
+    "id": "tbl-0046",
+    "table": 3,
+    "multiplier": 6
+  },
+  {
+    "id": "tbl-0047",
+    "table": 3,
+    "multiplier": 7
+  },
+  {
+    "id": "tbl-0048",
+    "table": 3,
+    "multiplier": 8
+  },
+  {
+    "id": "tbl-0049",
+    "table": 3,
+    "multiplier": 9
+  },
+  {
+    "id": "tbl-0050",
+    "table": 3,
+    "multiplier": 10
+  },
+  {
+    "id": "tbl-0051",
+    "table": 3,
+    "multiplier": 11
+  },
+  {
+    "id": "tbl-0052",
+    "table": 3,
+    "multiplier": 12
+  },
+  {
+    "id": "tbl-0053",
+    "table": 3,
+    "multiplier": 13
+  },
+  {
+    "id": "tbl-0054",
+    "table": 3,
+    "multiplier": 14
+  },
+  {
+    "id": "tbl-0055",
+    "table": 3,
+    "multiplier": 15
+  },
+  {
+    "id": "tbl-0056",
+    "table": 3,
+    "multiplier": 16
+  },
+  {
+    "id": "tbl-0057",
+    "table": 3,
+    "multiplier": 17
+  },
+  {
+    "id": "tbl-0058",
+    "table": 3,
+    "multiplier": 18
+  },
+  {
+    "id": "tbl-0059",
+    "table": 3,
+    "multiplier": 19
+  },
+  {
+    "id": "tbl-0060",
+    "table": 3,
+    "multiplier": 20
+  },
+  {
+    "id": "tbl-0061",
+    "table": 4,
+    "multiplier": 1
+  },
+  {
+    "id": "tbl-0062",
+    "table": 4,
+    "multiplier": 2
+  },
+  {
+    "id": "tbl-0063",
+    "table": 4,
+    "multiplier": 3
+  },
+  {
+    "id": "tbl-0064",
+    "table": 4,
+    "multiplier": 4
+  },
+  {
+    "id": "tbl-0065",
+    "table": 4,
+    "multiplier": 5
+  },
+  {
+    "id": "tbl-0066",
+    "table": 4,
+    "multiplier": 6
+  },
+  {
+    "id": "tbl-0067",
+    "table": 4,
+    "multiplier": 7
+  },
+  {
+    "id": "tbl-0068",
+    "table": 4,
+    "multiplier": 8
+  },
+  {
+    "id": "tbl-0069",
+    "table": 4,
+    "multiplier": 9
+  },
+  {
+    "id": "tbl-0070",
+    "table": 4,
+    "multiplier": 10
+  },
+  {
+    "id": "tbl-0071",
+    "table": 4,
+    "multiplier": 11
+  },
+  {
+    "id": "tbl-0072",
+    "table": 4,
+    "multiplier": 12
+  },
+  {
+    "id": "tbl-0073",
+    "table": 4,
+    "multiplier": 13
+  },
+  {
+    "id": "tbl-0074",
+    "table": 4,
+    "multiplier": 14
+  },
+  {
+    "id": "tbl-0075",
+    "table": 4,
+    "multiplier": 15
+  },
+  {
+    "id": "tbl-0076",
+    "table": 4,
+    "multiplier": 16
+  },
+  {
+    "id": "tbl-0077",
+    "table": 4,
+    "multiplier": 17
+  },
+  {
+    "id": "tbl-0078",
+    "table": 4,
+    "multiplier": 18
+  },
+  {
+    "id": "tbl-0079",
+    "table": 4,
+    "multiplier": 19
+  },
+  {
+    "id": "tbl-0080",
+    "table": 4,
+    "multiplier": 20
+  },
+  {
+    "id": "tbl-0081",
+    "table": 5,
+    "multiplier": 1
+  },
+  {
+    "id": "tbl-0082",
+    "table": 5,
+    "multiplier": 2
+  },
+  {
+    "id": "tbl-0083",
+    "table": 5,
+    "multiplier": 3
+  },
+  {
+    "id": "tbl-0084",
+    "table": 5,
+    "multiplier": 4
+  },
+  {
+    "id": "tbl-0085",
+    "table": 5,
+    "multiplier": 5
+  },
+  {
+    "id": "tbl-0086",
+    "table": 5,
+    "multiplier": 6
+  },
+  {
+    "id": "tbl-0087",
+    "table": 5,
+    "multiplier": 7
+  },
+  {
+    "id": "tbl-0088",
+    "table": 5,
+    "multiplier": 8
+  },
+  {
+    "id": "tbl-0089",
+    "table": 5,
+    "multiplier": 9
+  },
+  {
+    "id": "tbl-0090",
+    "table": 5,
+    "multiplier": 10
+  },
+  {
+    "id": "tbl-0091",
+    "table": 5,
+    "multiplier": 11
+  },
+  {
+    "id": "tbl-0092",
+    "table": 5,
+    "multiplier": 12
+  },
+  {
+    "id": "tbl-0093",
+    "table": 5,
+    "multiplier": 13
+  },
+  {
+    "id": "tbl-0094",
+    "table": 5,
+    "multiplier": 14
+  },
+  {
+    "id": "tbl-0095",
+    "table": 5,
+    "multiplier": 15
+  },
+  {
+    "id": "tbl-0096",
+    "table": 5,
+    "multiplier": 16
+  },
+  {
+    "id": "tbl-0097",
+    "table": 5,
+    "multiplier": 17
+  },
+  {
+    "id": "tbl-0098",
+    "table": 5,
+    "multiplier": 18
+  },
+  {
+    "id": "tbl-0099",
+    "table": 5,
+    "multiplier": 19
+  },
+  {
+    "id": "tbl-0100",
+    "table": 5,
+    "multiplier": 20
+  },
+  {
+    "id": "tbl-0101",
+    "table": 6,
+    "multiplier": 1
+  },
+  {
+    "id": "tbl-0102",
+    "table": 6,
+    "multiplier": 2
+  },
+  {
+    "id": "tbl-0103",
+    "table": 6,
+    "multiplier": 3
+  },
+  {
+    "id": "tbl-0104",
+    "table": 6,
+    "multiplier": 4
+  },
+  {
+    "id": "tbl-0105",
+    "table": 6,
+    "multiplier": 5
+  },
+  {
+    "id": "tbl-0106",
+    "table": 6,
+    "multiplier": 6
+  },
+  {
+    "id": "tbl-0107",
+    "table": 6,
+    "multiplier": 7
+  },
+  {
+    "id": "tbl-0108",
+    "table": 6,
+    "multiplier": 8
+  },
+  {
+    "id": "tbl-0109",
+    "table": 6,
+    "multiplier": 9
+  },
+  {
+    "id": "tbl-0110",
+    "table": 6,
+    "multiplier": 10
+  },
+  {
+    "id": "tbl-0111",
+    "table": 6,
+    "multiplier": 11
+  },
+  {
+    "id": "tbl-0112",
+    "table": 6,
+    "multiplier": 12
+  },
+  {
+    "id": "tbl-0113",
+    "table": 6,
+    "multiplier": 13
+  },
+  {
+    "id": "tbl-0114",
+    "table": 6,
+    "multiplier": 14
+  },
+  {
+    "id": "tbl-0115",
+    "table": 6,
+    "multiplier": 15
+  },
+  {
+    "id": "tbl-0116",
+    "table": 6,
+    "multiplier": 16
+  },
+  {
+    "id": "tbl-0117",
+    "table": 6,
+    "multiplier": 17
+  },
+  {
+    "id": "tbl-0118",
+    "table": 6,
+    "multiplier": 18
+  },
+  {
+    "id": "tbl-0119",
+    "table": 6,
+    "multiplier": 19
+  },
+  {
+    "id": "tbl-0120",
+    "table": 6,
+    "multiplier": 20
+  },
+  {
+    "id": "tbl-0121",
+    "table": 7,
+    "multiplier": 1
+  },
+  {
+    "id": "tbl-0122",
+    "table": 7,
+    "multiplier": 2
+  },
+  {
+    "id": "tbl-0123",
+    "table": 7,
+    "multiplier": 3
+  },
+  {
+    "id": "tbl-0124",
+    "table": 7,
+    "multiplier": 4
+  },
+  {
+    "id": "tbl-0125",
+    "table": 7,
+    "multiplier": 5
+  },
+  {
+    "id": "tbl-0126",
+    "table": 7,
+    "multiplier": 6
+  },
+  {
+    "id": "tbl-0127",
+    "table": 7,
+    "multiplier": 7
+  },
+  {
+    "id": "tbl-0128",
+    "table": 7,
+    "multiplier": 8
+  },
+  {
+    "id": "tbl-0129",
+    "table": 7,
+    "multiplier": 9
+  },
+  {
+    "id": "tbl-0130",
+    "table": 7,
+    "multiplier": 10
+  },
+  {
+    "id": "tbl-0131",
+    "table": 7,
+    "multiplier": 11
+  },
+  {
+    "id": "tbl-0132",
+    "table": 7,
+    "multiplier": 12
+  },
+  {
+    "id": "tbl-0133",
+    "table": 7,
+    "multiplier": 13
+  },
+  {
+    "id": "tbl-0134",
+    "table": 7,
+    "multiplier": 14
+  },
+  {
+    "id": "tbl-0135",
+    "table": 7,
+    "multiplier": 15
+  },
+  {
+    "id": "tbl-0136",
+    "table": 7,
+    "multiplier": 16
+  },
+  {
+    "id": "tbl-0137",
+    "table": 7,
+    "multiplier": 17
+  },
+  {
+    "id": "tbl-0138",
+    "table": 7,
+    "multiplier": 18
+  },
+  {
+    "id": "tbl-0139",
+    "table": 7,
+    "multiplier": 19
+  },
+  {
+    "id": "tbl-0140",
+    "table": 7,
+    "multiplier": 20
+  },
+  {
+    "id": "tbl-0141",
+    "table": 8,
+    "multiplier": 1
+  },
+  {
+    "id": "tbl-0142",
+    "table": 8,
+    "multiplier": 2
+  },
+  {
+    "id": "tbl-0143",
+    "table": 8,
+    "multiplier": 3
+  },
+  {
+    "id": "tbl-0144",
+    "table": 8,
+    "multiplier": 4
+  },
+  {
+    "id": "tbl-0145",
+    "table": 8,
+    "multiplier": 5
+  },
+  {
+    "id": "tbl-0146",
+    "table": 8,
+    "multiplier": 6
+  },
+  {
+    "id": "tbl-0147",
+    "table": 8,
+    "multiplier": 7
+  },
+  {
+    "id": "tbl-0148",
+    "table": 8,
+    "multiplier": 8
+  },
+  {
+    "id": "tbl-0149",
+    "table": 8,
+    "multiplier": 9
+  },
+  {
+    "id": "tbl-0150",
+    "table": 8,
+    "multiplier": 10
+  },
+  {
+    "id": "tbl-0151",
+    "table": 8,
+    "multiplier": 11
+  },
+  {
+    "id": "tbl-0152",
+    "table": 8,
+    "multiplier": 12
+  },
+  {
+    "id": "tbl-0153",
+    "table": 8,
+    "multiplier": 13
+  },
+  {
+    "id": "tbl-0154",
+    "table": 8,
+    "multiplier": 14
+  },
+  {
+    "id": "tbl-0155",
+    "table": 8,
+    "multiplier": 15
+  },
+  {
+    "id": "tbl-0156",
+    "table": 8,
+    "multiplier": 16
+  },
+  {
+    "id": "tbl-0157",
+    "table": 8,
+    "multiplier": 17
+  },
+  {
+    "id": "tbl-0158",
+    "table": 8,
+    "multiplier": 18
+  },
+  {
+    "id": "tbl-0159",
+    "table": 8,
+    "multiplier": 19
+  },
+  {
+    "id": "tbl-0160",
+    "table": 8,
+    "multiplier": 20
+  },
+  {
+    "id": "tbl-0161",
+    "table": 9,
+    "multiplier": 1
+  },
+  {
+    "id": "tbl-0162",
+    "table": 9,
+    "multiplier": 2
+  },
+  {
+    "id": "tbl-0163",
+    "table": 9,
+    "multiplier": 3
+  },
+  {
+    "id": "tbl-0164",
+    "table": 9,
+    "multiplier": 4
+  },
+  {
+    "id": "tbl-0165",
+    "table": 9,
+    "multiplier": 5
+  },
+  {
+    "id": "tbl-0166",
+    "table": 9,
+    "multiplier": 6
+  },
+  {
+    "id": "tbl-0167",
+    "table": 9,
+    "multiplier": 7
+  },
+  {
+    "id": "tbl-0168",
+    "table": 9,
+    "multiplier": 8
+  },
+  {
+    "id": "tbl-0169",
+    "table": 9,
+    "multiplier": 9
+  },
+  {
+    "id": "tbl-0170",
+    "table": 9,
+    "multiplier": 10
+  },
+  {
+    "id": "tbl-0171",
+    "table": 9,
+    "multiplier": 11
+  },
+  {
+    "id": "tbl-0172",
+    "table": 9,
+    "multiplier": 12
+  },
+  {
+    "id": "tbl-0173",
+    "table": 9,
+    "multiplier": 13
+  },
+  {
+    "id": "tbl-0174",
+    "table": 9,
+    "multiplier": 14
+  },
+  {
+    "id": "tbl-0175",
+    "table": 9,
+    "multiplier": 15
+  },
+  {
+    "id": "tbl-0176",
+    "table": 9,
+    "multiplier": 16
+  },
+  {
+    "id": "tbl-0177",
+    "table": 9,
+    "multiplier": 17
+  },
+  {
+    "id": "tbl-0178",
+    "table": 9,
+    "multiplier": 18
+  },
+  {
+    "id": "tbl-0179",
+    "table": 9,
+    "multiplier": 19
+  },
+  {
+    "id": "tbl-0180",
+    "table": 9,
+    "multiplier": 20
+  },
+  {
+    "id": "tbl-0181",
+    "table": 10,
+    "multiplier": 1
+  },
+  {
+    "id": "tbl-0182",
+    "table": 10,
+    "multiplier": 2
+  },
+  {
+    "id": "tbl-0183",
+    "table": 10,
+    "multiplier": 3
+  },
+  {
+    "id": "tbl-0184",
+    "table": 10,
+    "multiplier": 4
+  },
+  {
+    "id": "tbl-0185",
+    "table": 10,
+    "multiplier": 5
+  },
+  {
+    "id": "tbl-0186",
+    "table": 10,
+    "multiplier": 6
+  },
+  {
+    "id": "tbl-0187",
+    "table": 10,
+    "multiplier": 7
+  },
+  {
+    "id": "tbl-0188",
+    "table": 10,
+    "multiplier": 8
+  },
+  {
+    "id": "tbl-0189",
+    "table": 10,
+    "multiplier": 9
+  },
+  {
+    "id": "tbl-0190",
+    "table": 10,
+    "multiplier": 10
+  },
+  {
+    "id": "tbl-0191",
+    "table": 10,
+    "multiplier": 11
+  },
+  {
+    "id": "tbl-0192",
+    "table": 10,
+    "multiplier": 12
+  },
+  {
+    "id": "tbl-0193",
+    "table": 10,
+    "multiplier": 13
+  },
+  {
+    "id": "tbl-0194",
+    "table": 10,
+    "multiplier": 14
+  },
+  {
+    "id": "tbl-0195",
+    "table": 10,
+    "multiplier": 15
+  },
+  {
+    "id": "tbl-0196",
+    "table": 10,
+    "multiplier": 16
+  },
+  {
+    "id": "tbl-0197",
+    "table": 10,
+    "multiplier": 17
+  },
+  {
+    "id": "tbl-0198",
+    "table": 10,
+    "multiplier": 18
+  },
+  {
+    "id": "tbl-0199",
+    "table": 10,
+    "multiplier": 19
+  },
+  {
+    "id": "tbl-0200",
+    "table": 10,
+    "multiplier": 20
+  },
+  {
+    "id": "tbl-0201",
+    "table": 11,
+    "multiplier": 1
+  },
+  {
+    "id": "tbl-0202",
+    "table": 11,
+    "multiplier": 2
+  },
+  {
+    "id": "tbl-0203",
+    "table": 11,
+    "multiplier": 3
+  },
+  {
+    "id": "tbl-0204",
+    "table": 11,
+    "multiplier": 4
+  },
+  {
+    "id": "tbl-0205",
+    "table": 11,
+    "multiplier": 5
+  },
+  {
+    "id": "tbl-0206",
+    "table": 11,
+    "multiplier": 6
+  },
+  {
+    "id": "tbl-0207",
+    "table": 11,
+    "multiplier": 7
+  },
+  {
+    "id": "tbl-0208",
+    "table": 11,
+    "multiplier": 8
+  },
+  {
+    "id": "tbl-0209",
+    "table": 11,
+    "multiplier": 9
+  },
+  {
+    "id": "tbl-0210",
+    "table": 11,
+    "multiplier": 10
+  },
+  {
+    "id": "tbl-0211",
+    "table": 11,
+    "multiplier": 11
+  },
+  {
+    "id": "tbl-0212",
+    "table": 11,
+    "multiplier": 12
+  },
+  {
+    "id": "tbl-0213",
+    "table": 11,
+    "multiplier": 13
+  },
+  {
+    "id": "tbl-0214",
+    "table": 11,
+    "multiplier": 14
+  },
+  {
+    "id": "tbl-0215",
+    "table": 11,
+    "multiplier": 15
+  },
+  {
+    "id": "tbl-0216",
+    "table": 11,
+    "multiplier": 16
+  },
+  {
+    "id": "tbl-0217",
+    "table": 11,
+    "multiplier": 17
+  },
+  {
+    "id": "tbl-0218",
+    "table": 11,
+    "multiplier": 18
+  },
+  {
+    "id": "tbl-0219",
+    "table": 11,
+    "multiplier": 19
+  },
+  {
+    "id": "tbl-0220",
+    "table": 11,
+    "multiplier": 20
+  },
+  {
+    "id": "tbl-0221",
+    "table": 12,
+    "multiplier": 1
+  },
+  {
+    "id": "tbl-0222",
+    "table": 12,
+    "multiplier": 2
+  },
+  {
+    "id": "tbl-0223",
+    "table": 12,
+    "multiplier": 3
+  },
+  {
+    "id": "tbl-0224",
+    "table": 12,
+    "multiplier": 4
+  },
+  {
+    "id": "tbl-0225",
+    "table": 12,
+    "multiplier": 5
+  },
+  {
+    "id": "tbl-0226",
+    "table": 12,
+    "multiplier": 6
+  },
+  {
+    "id": "tbl-0227",
+    "table": 12,
+    "multiplier": 7
+  },
+  {
+    "id": "tbl-0228",
+    "table": 12,
+    "multiplier": 8
+  },
+  {
+    "id": "tbl-0229",
+    "table": 12,
+    "multiplier": 9
+  },
+  {
+    "id": "tbl-0230",
+    "table": 12,
+    "multiplier": 10
+  },
+  {
+    "id": "tbl-0231",
+    "table": 12,
+    "multiplier": 11
+  },
+  {
+    "id": "tbl-0232",
+    "table": 12,
+    "multiplier": 12
+  },
+  {
+    "id": "tbl-0233",
+    "table": 12,
+    "multiplier": 13
+  },
+  {
+    "id": "tbl-0234",
+    "table": 12,
+    "multiplier": 14
+  },
+  {
+    "id": "tbl-0235",
+    "table": 12,
+    "multiplier": 15
+  },
+  {
+    "id": "tbl-0236",
+    "table": 12,
+    "multiplier": 16
+  },
+  {
+    "id": "tbl-0237",
+    "table": 12,
+    "multiplier": 17
+  },
+  {
+    "id": "tbl-0238",
+    "table": 12,
+    "multiplier": 18
+  },
+  {
+    "id": "tbl-0239",
+    "table": 12,
+    "multiplier": 19
+  },
+  {
+    "id": "tbl-0240",
+    "table": 12,
+    "multiplier": 20
+  },
+  {
+    "id": "tbl-0241",
+    "table": 13,
+    "multiplier": 1
+  },
+  {
+    "id": "tbl-0242",
+    "table": 13,
+    "multiplier": 2
+  },
+  {
+    "id": "tbl-0243",
+    "table": 13,
+    "multiplier": 3
+  },
+  {
+    "id": "tbl-0244",
+    "table": 13,
+    "multiplier": 4
+  },
+  {
+    "id": "tbl-0245",
+    "table": 13,
+    "multiplier": 5
+  },
+  {
+    "id": "tbl-0246",
+    "table": 13,
+    "multiplier": 6
+  },
+  {
+    "id": "tbl-0247",
+    "table": 13,
+    "multiplier": 7
+  },
+  {
+    "id": "tbl-0248",
+    "table": 13,
+    "multiplier": 8
+  },
+  {
+    "id": "tbl-0249",
+    "table": 13,
+    "multiplier": 9
+  },
+  {
+    "id": "tbl-0250",
+    "table": 13,
+    "multiplier": 10
+  },
+  {
+    "id": "tbl-0251",
+    "table": 13,
+    "multiplier": 11
+  },
+  {
+    "id": "tbl-0252",
+    "table": 13,
+    "multiplier": 12
+  },
+  {
+    "id": "tbl-0253",
+    "table": 13,
+    "multiplier": 13
+  },
+  {
+    "id": "tbl-0254",
+    "table": 13,
+    "multiplier": 14
+  },
+  {
+    "id": "tbl-0255",
+    "table": 13,
+    "multiplier": 15
+  },
+  {
+    "id": "tbl-0256",
+    "table": 13,
+    "multiplier": 16
+  },
+  {
+    "id": "tbl-0257",
+    "table": 13,
+    "multiplier": 17
+  },
+  {
+    "id": "tbl-0258",
+    "table": 13,
+    "multiplier": 18
+  },
+  {
+    "id": "tbl-0259",
+    "table": 13,
+    "multiplier": 19
+  },
+  {
+    "id": "tbl-0260",
+    "table": 13,
+    "multiplier": 20
+  },
+  {
+    "id": "tbl-0261",
+    "table": 14,
+    "multiplier": 1
+  },
+  {
+    "id": "tbl-0262",
+    "table": 14,
+    "multiplier": 2
+  },
+  {
+    "id": "tbl-0263",
+    "table": 14,
+    "multiplier": 3
+  },
+  {
+    "id": "tbl-0264",
+    "table": 14,
+    "multiplier": 4
+  },
+  {
+    "id": "tbl-0265",
+    "table": 14,
+    "multiplier": 5
+  },
+  {
+    "id": "tbl-0266",
+    "table": 14,
+    "multiplier": 6
+  },
+  {
+    "id": "tbl-0267",
+    "table": 14,
+    "multiplier": 7
+  },
+  {
+    "id": "tbl-0268",
+    "table": 14,
+    "multiplier": 8
+  },
+  {
+    "id": "tbl-0269",
+    "table": 14,
+    "multiplier": 9
+  },
+  {
+    "id": "tbl-0270",
+    "table": 14,
+    "multiplier": 10
+  },
+  {
+    "id": "tbl-0271",
+    "table": 14,
+    "multiplier": 11
+  },
+  {
+    "id": "tbl-0272",
+    "table": 14,
+    "multiplier": 12
+  },
+  {
+    "id": "tbl-0273",
+    "table": 14,
+    "multiplier": 13
+  },
+  {
+    "id": "tbl-0274",
+    "table": 14,
+    "multiplier": 14
+  },
+  {
+    "id": "tbl-0275",
+    "table": 14,
+    "multiplier": 15
+  },
+  {
+    "id": "tbl-0276",
+    "table": 14,
+    "multiplier": 16
+  },
+  {
+    "id": "tbl-0277",
+    "table": 14,
+    "multiplier": 17
+  },
+  {
+    "id": "tbl-0278",
+    "table": 14,
+    "multiplier": 18
+  },
+  {
+    "id": "tbl-0279",
+    "table": 14,
+    "multiplier": 19
+  },
+  {
+    "id": "tbl-0280",
+    "table": 14,
+    "multiplier": 20
+  },
+  {
+    "id": "tbl-0281",
+    "table": 15,
+    "multiplier": 1
+  },
+  {
+    "id": "tbl-0282",
+    "table": 15,
+    "multiplier": 2
+  },
+  {
+    "id": "tbl-0283",
+    "table": 15,
+    "multiplier": 3
+  },
+  {
+    "id": "tbl-0284",
+    "table": 15,
+    "multiplier": 4
+  },
+  {
+    "id": "tbl-0285",
+    "table": 15,
+    "multiplier": 5
+  },
+  {
+    "id": "tbl-0286",
+    "table": 15,
+    "multiplier": 6
+  },
+  {
+    "id": "tbl-0287",
+    "table": 15,
+    "multiplier": 7
+  },
+  {
+    "id": "tbl-0288",
+    "table": 15,
+    "multiplier": 8
+  },
+  {
+    "id": "tbl-0289",
+    "table": 15,
+    "multiplier": 9
+  },
+  {
+    "id": "tbl-0290",
+    "table": 15,
+    "multiplier": 10
+  },
+  {
+    "id": "tbl-0291",
+    "table": 15,
+    "multiplier": 11
+  },
+  {
+    "id": "tbl-0292",
+    "table": 15,
+    "multiplier": 12
+  },
+  {
+    "id": "tbl-0293",
+    "table": 15,
+    "multiplier": 13
+  },
+  {
+    "id": "tbl-0294",
+    "table": 15,
+    "multiplier": 14
+  },
+  {
+    "id": "tbl-0295",
+    "table": 15,
+    "multiplier": 15
+  },
+  {
+    "id": "tbl-0296",
+    "table": 15,
+    "multiplier": 16
+  },
+  {
+    "id": "tbl-0297",
+    "table": 15,
+    "multiplier": 17
+  },
+  {
+    "id": "tbl-0298",
+    "table": 15,
+    "multiplier": 18
+  },
+  {
+    "id": "tbl-0299",
+    "table": 15,
+    "multiplier": 19
+  },
+  {
+    "id": "tbl-0300",
+    "table": 15,
+    "multiplier": 20
+  },
+  {
+    "id": "tbl-0301",
+    "table": 16,
+    "multiplier": 1
+  },
+  {
+    "id": "tbl-0302",
+    "table": 16,
+    "multiplier": 2
+  },
+  {
+    "id": "tbl-0303",
+    "table": 16,
+    "multiplier": 3
+  },
+  {
+    "id": "tbl-0304",
+    "table": 16,
+    "multiplier": 4
+  },
+  {
+    "id": "tbl-0305",
+    "table": 16,
+    "multiplier": 5
+  },
+  {
+    "id": "tbl-0306",
+    "table": 16,
+    "multiplier": 6
+  },
+  {
+    "id": "tbl-0307",
+    "table": 16,
+    "multiplier": 7
+  },
+  {
+    "id": "tbl-0308",
+    "table": 16,
+    "multiplier": 8
+  },
+  {
+    "id": "tbl-0309",
+    "table": 16,
+    "multiplier": 9
+  },
+  {
+    "id": "tbl-0310",
+    "table": 16,
+    "multiplier": 10
+  },
+  {
+    "id": "tbl-0311",
+    "table": 16,
+    "multiplier": 11
+  },
+  {
+    "id": "tbl-0312",
+    "table": 16,
+    "multiplier": 12
+  },
+  {
+    "id": "tbl-0313",
+    "table": 16,
+    "multiplier": 13
+  },
+  {
+    "id": "tbl-0314",
+    "table": 16,
+    "multiplier": 14
+  },
+  {
+    "id": "tbl-0315",
+    "table": 16,
+    "multiplier": 15
+  },
+  {
+    "id": "tbl-0316",
+    "table": 16,
+    "multiplier": 16
+  },
+  {
+    "id": "tbl-0317",
+    "table": 16,
+    "multiplier": 17
+  },
+  {
+    "id": "tbl-0318",
+    "table": 16,
+    "multiplier": 18
+  },
+  {
+    "id": "tbl-0319",
+    "table": 16,
+    "multiplier": 19
+  },
+  {
+    "id": "tbl-0320",
+    "table": 16,
+    "multiplier": 20
+  },
+  {
+    "id": "tbl-0321",
+    "table": 17,
+    "multiplier": 1
+  },
+  {
+    "id": "tbl-0322",
+    "table": 17,
+    "multiplier": 2
+  },
+  {
+    "id": "tbl-0323",
+    "table": 17,
+    "multiplier": 3
+  },
+  {
+    "id": "tbl-0324",
+    "table": 17,
+    "multiplier": 4
+  },
+  {
+    "id": "tbl-0325",
+    "table": 17,
+    "multiplier": 5
+  },
+  {
+    "id": "tbl-0326",
+    "table": 17,
+    "multiplier": 6
+  },
+  {
+    "id": "tbl-0327",
+    "table": 17,
+    "multiplier": 7
+  },
+  {
+    "id": "tbl-0328",
+    "table": 17,
+    "multiplier": 8
+  },
+  {
+    "id": "tbl-0329",
+    "table": 17,
+    "multiplier": 9
+  },
+  {
+    "id": "tbl-0330",
+    "table": 17,
+    "multiplier": 10
+  },
+  {
+    "id": "tbl-0331",
+    "table": 17,
+    "multiplier": 11
+  },
+  {
+    "id": "tbl-0332",
+    "table": 17,
+    "multiplier": 12
+  },
+  {
+    "id": "tbl-0333",
+    "table": 17,
+    "multiplier": 13
+  },
+  {
+    "id": "tbl-0334",
+    "table": 17,
+    "multiplier": 14
+  },
+  {
+    "id": "tbl-0335",
+    "table": 17,
+    "multiplier": 15
+  },
+  {
+    "id": "tbl-0336",
+    "table": 17,
+    "multiplier": 16
+  },
+  {
+    "id": "tbl-0337",
+    "table": 17,
+    "multiplier": 17
+  },
+  {
+    "id": "tbl-0338",
+    "table": 17,
+    "multiplier": 18
+  },
+  {
+    "id": "tbl-0339",
+    "table": 17,
+    "multiplier": 19
+  },
+  {
+    "id": "tbl-0340",
+    "table": 17,
+    "multiplier": 20
+  },
+  {
+    "id": "tbl-0341",
+    "table": 18,
+    "multiplier": 1
+  },
+  {
+    "id": "tbl-0342",
+    "table": 18,
+    "multiplier": 2
+  },
+  {
+    "id": "tbl-0343",
+    "table": 18,
+    "multiplier": 3
+  },
+  {
+    "id": "tbl-0344",
+    "table": 18,
+    "multiplier": 4
+  },
+  {
+    "id": "tbl-0345",
+    "table": 18,
+    "multiplier": 5
+  },
+  {
+    "id": "tbl-0346",
+    "table": 18,
+    "multiplier": 6
+  },
+  {
+    "id": "tbl-0347",
+    "table": 18,
+    "multiplier": 7
+  },
+  {
+    "id": "tbl-0348",
+    "table": 18,
+    "multiplier": 8
+  },
+  {
+    "id": "tbl-0349",
+    "table": 18,
+    "multiplier": 9
+  },
+  {
+    "id": "tbl-0350",
+    "table": 18,
+    "multiplier": 10
+  },
+  {
+    "id": "tbl-0351",
+    "table": 18,
+    "multiplier": 11
+  },
+  {
+    "id": "tbl-0352",
+    "table": 18,
+    "multiplier": 12
+  },
+  {
+    "id": "tbl-0353",
+    "table": 18,
+    "multiplier": 13
+  },
+  {
+    "id": "tbl-0354",
+    "table": 18,
+    "multiplier": 14
+  },
+  {
+    "id": "tbl-0355",
+    "table": 18,
+    "multiplier": 15
+  },
+  {
+    "id": "tbl-0356",
+    "table": 18,
+    "multiplier": 16
+  },
+  {
+    "id": "tbl-0357",
+    "table": 18,
+    "multiplier": 17
+  },
+  {
+    "id": "tbl-0358",
+    "table": 18,
+    "multiplier": 18
+  },
+  {
+    "id": "tbl-0359",
+    "table": 18,
+    "multiplier": 19
+  },
+  {
+    "id": "tbl-0360",
+    "table": 18,
+    "multiplier": 20
+  },
+  {
+    "id": "tbl-0361",
+    "table": 19,
+    "multiplier": 1
+  },
+  {
+    "id": "tbl-0362",
+    "table": 19,
+    "multiplier": 2
+  },
+  {
+    "id": "tbl-0363",
+    "table": 19,
+    "multiplier": 3
+  },
+  {
+    "id": "tbl-0364",
+    "table": 19,
+    "multiplier": 4
+  },
+  {
+    "id": "tbl-0365",
+    "table": 19,
+    "multiplier": 5
+  },
+  {
+    "id": "tbl-0366",
+    "table": 19,
+    "multiplier": 6
+  },
+  {
+    "id": "tbl-0367",
+    "table": 19,
+    "multiplier": 7
+  },
+  {
+    "id": "tbl-0368",
+    "table": 19,
+    "multiplier": 8
+  },
+  {
+    "id": "tbl-0369",
+    "table": 19,
+    "multiplier": 9
+  },
+  {
+    "id": "tbl-0370",
+    "table": 19,
+    "multiplier": 10
+  },
+  {
+    "id": "tbl-0371",
+    "table": 19,
+    "multiplier": 11
+  },
+  {
+    "id": "tbl-0372",
+    "table": 19,
+    "multiplier": 12
+  },
+  {
+    "id": "tbl-0373",
+    "table": 19,
+    "multiplier": 13
+  },
+  {
+    "id": "tbl-0374",
+    "table": 19,
+    "multiplier": 14
+  },
+  {
+    "id": "tbl-0375",
+    "table": 19,
+    "multiplier": 15
+  },
+  {
+    "id": "tbl-0376",
+    "table": 19,
+    "multiplier": 16
+  },
+  {
+    "id": "tbl-0377",
+    "table": 19,
+    "multiplier": 17
+  },
+  {
+    "id": "tbl-0378",
+    "table": 19,
+    "multiplier": 18
+  },
+  {
+    "id": "tbl-0379",
+    "table": 19,
+    "multiplier": 19
+  },
+  {
+    "id": "tbl-0380",
+    "table": 19,
+    "multiplier": 20
+  },
+  {
+    "id": "tbl-0381",
+    "table": 20,
+    "multiplier": 1
+  },
+  {
+    "id": "tbl-0382",
+    "table": 20,
+    "multiplier": 2
+  },
+  {
+    "id": "tbl-0383",
+    "table": 20,
+    "multiplier": 3
+  },
+  {
+    "id": "tbl-0384",
+    "table": 20,
+    "multiplier": 4
+  },
+  {
+    "id": "tbl-0385",
+    "table": 20,
+    "multiplier": 5
+  },
+  {
+    "id": "tbl-0386",
+    "table": 20,
+    "multiplier": 6
+  },
+  {
+    "id": "tbl-0387",
+    "table": 20,
+    "multiplier": 7
+  },
+  {
+    "id": "tbl-0388",
+    "table": 20,
+    "multiplier": 8
+  },
+  {
+    "id": "tbl-0389",
+    "table": 20,
+    "multiplier": 9
+  },
+  {
+    "id": "tbl-0390",
+    "table": 20,
+    "multiplier": 10
+  },
+  {
+    "id": "tbl-0391",
+    "table": 20,
+    "multiplier": 11
+  },
+  {
+    "id": "tbl-0392",
+    "table": 20,
+    "multiplier": 12
+  },
+  {
+    "id": "tbl-0393",
+    "table": 20,
+    "multiplier": 13
+  },
+  {
+    "id": "tbl-0394",
+    "table": 20,
+    "multiplier": 14
+  },
+  {
+    "id": "tbl-0395",
+    "table": 20,
+    "multiplier": 15
+  },
+  {
+    "id": "tbl-0396",
+    "table": 20,
+    "multiplier": 16
+  },
+  {
+    "id": "tbl-0397",
+    "table": 20,
+    "multiplier": 17
+  },
+  {
+    "id": "tbl-0398",
+    "table": 20,
+    "multiplier": 18
+  },
+  {
+    "id": "tbl-0399",
+    "table": 20,
+    "multiplier": 19
+  },
+  {
+    "id": "tbl-0400",
+    "table": 20,
+    "multiplier": 20
+  }
+]

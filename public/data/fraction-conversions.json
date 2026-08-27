@@ -1,0 +1,608 @@
+[
+  {
+    "id": "frac-0001",
+    "fraction": "1/2",
+    "percentage": "50",
+    "decimal": "0.5"
+  },
+  {
+    "id": "frac-0002",
+    "fraction": "1/3",
+    "percentage": "33.33",
+    "decimal": "0.3333"
+  },
+  {
+    "id": "frac-0003",
+    "fraction": "2/3",
+    "percentage": "66.67",
+    "decimal": "0.6667"
+  },
+  {
+    "id": "frac-0004",
+    "fraction": "1/4",
+    "percentage": "25",
+    "decimal": "0.25"
+  },
+  {
+    "id": "frac-0005",
+    "fraction": "3/4",
+    "percentage": "75",
+    "decimal": "0.75"
+  },
+  {
+    "id": "frac-0006",
+    "fraction": "1/5",
+    "percentage": "20",
+    "decimal": "0.2"
+  },
+  {
+    "id": "frac-0007",
+    "fraction": "2/5",
+    "percentage": "40",
+    "decimal": "0.4"
+  },
+  {
+    "id": "frac-0008",
+    "fraction": "3/5",
+    "percentage": "60",
+    "decimal": "0.6"
+  },
+  {
+    "id": "frac-0009",
+    "fraction": "4/5",
+    "percentage": "80",
+    "decimal": "0.8"
+  },
+  {
+    "id": "frac-0010",
+    "fraction": "1/6",
+    "percentage": "16.67",
+    "decimal": "0.1667"
+  },
+  {
+    "id": "frac-0011",
+    "fraction": "5/6",
+    "percentage": "83.33",
+    "decimal": "0.8333"
+  },
+  {
+    "id": "frac-0012",
+    "fraction": "1/7",
+    "percentage": "14.29",
+    "decimal": "0.1429"
+  },
+  {
+    "id": "frac-0013",
+    "fraction": "2/7",
+    "percentage": "28.57",
+    "decimal": "0.2857"
+  },
+  {
+    "id": "frac-0014",
+    "fraction": "3/7",
+    "percentage": "42.86",
+    "decimal": "0.4286"
+  },
+  {
+    "id": "frac-0015",
+    "fraction": "4/7",
+    "percentage": "57.14",
+    "decimal": "0.5714"
+  },
+  {
+    "id": "frac-0016",
+    "fraction": "5/7",
+    "percentage": "71.43",
+    "decimal": "0.7143"
+  },
+  {
+    "id": "frac-0017",
+    "fraction": "6/7",
+    "percentage": "85.71",
+    "decimal": "0.8571"
+  },
+  {
+    "id": "frac-0018",
+    "fraction": "1/8",
+    "percentage": "12.5",
+    "decimal": "0.125"
+  },
+  {
+    "id": "frac-0019",
+    "fraction": "3/8",
+    "percentage": "37.5",
+    "decimal": "0.375"
+  },
+  {
+    "id": "frac-0020",
+    "fraction": "5/8",
+    "percentage": "62.5",
+    "decimal": "0.625"
+  },
+  {
+    "id": "frac-0021",
+    "fraction": "7/8",
+    "percentage": "87.5",
+    "decimal": "0.875"
+  },
+  {
+    "id": "frac-0022",
+    "fraction": "1/9",
+    "percentage": "11.11",
+    "decimal": "0.1111"
+  },
+  {
+    "id": "frac-0023",
+    "fraction": "2/9",
+    "percentage": "22.22",
+    "decimal": "0.2222"
+  },
+  {
+    "id": "frac-0024",
+    "fraction": "4/9",
+    "percentage": "44.44",
+    "decimal": "0.4444"
+  },
+  {
+    "id": "frac-0025",
+    "fraction": "5/9",
+    "percentage": "55.56",
+    "decimal": "0.5556"
+  },
+  {
+    "id": "frac-0026",
+    "fraction": "7/9",
+    "percentage": "77.78",
+    "decimal": "0.7778"
+  },
+  {
+    "id": "frac-0027",
+    "fraction": "8/9",
+    "percentage": "88.89",
+    "decimal": "0.8889"
+  },
+  {
+    "id": "frac-0028",
+    "fraction": "1/10",
+    "percentage": "10",
+    "decimal": "0.1"
+  },
+  {
+    "id": "frac-0029",
+    "fraction": "3/10",
+    "percentage": "30",
+    "decimal": "0.3"
+  },
+  {
+    "id": "frac-0030",
+    "fraction": "7/10",
+    "percentage": "70",
+    "decimal": "0.7"
+  },
+  {
+    "id": "frac-0031",
+    "fraction": "9/10",
+    "percentage": "90",
+    "decimal": "0.9"
+  },
+  {
+    "id": "frac-0032",
+    "fraction": "1/11",
+    "percentage": "9.09",
+    "decimal": "0.0909"
+  },
+  {
+    "id": "frac-0033",
+    "fraction": "2/11",
+    "percentage": "18.18",
+    "decimal": "0.1818"
+  },
+  {
+    "id": "frac-0034",
+    "fraction": "3/11",
+    "percentage": "27.27",
+    "decimal": "0.2727"
+  },
+  {
+    "id": "frac-0035",
+    "fraction": "4/11",
+    "percentage": "36.36",
+    "decimal": "0.3636"
+  },
+  {
+    "id": "frac-0036",
+    "fraction": "5/11",
+    "percentage": "45.45",
+    "decimal": "0.4545"
+  },
+  {
+    "id": "frac-0037",
+    "fraction": "6/11",
+    "percentage": "54.55",
+    "decimal": "0.5455"
+  },
+  {
+    "id": "frac-0038",
+    "fraction": "7/11",
+    "percentage": "63.64",
+    "decimal": "0.6364"
+  },
+  {
+    "id": "frac-0039",
+    "fraction": "8/11",
+    "percentage": "72.73",
+    "decimal": "0.7273"
+  },
+  {
+    "id": "frac-0040",
+    "fraction": "9/11",
+    "percentage": "81.82",
+    "decimal": "0.8182"
+  },
+  {
+    "id": "frac-0041",
+    "fraction": "10/11",
+    "percentage": "90.91",
+    "decimal": "0.9091"
+  },
+  {
+    "id": "frac-0042",
+    "fraction": "1/12",
+    "percentage": "8.33",
+    "decimal": "0.0833"
+  },
+  {
+    "id": "frac-0043",
+    "fraction": "5/12",
+    "percentage": "41.67",
+    "decimal": "0.4167"
+  },
+  {
+    "id": "frac-0044",
+    "fraction": "7/12",
+    "percentage": "58.33",
+    "decimal": "0.5833"
+  },
+  {
+    "id": "frac-0045",
+    "fraction": "11/12",
+    "percentage": "91.67",
+    "decimal": "0.9167"
+  },
+  {
+    "id": "frac-0046",
+    "fraction": "1/13",
+    "percentage": "7.69",
+    "decimal": "0.0769"
+  },
+  {
+    "id": "frac-0047",
+    "fraction": "2/13",
+    "percentage": "15.38",
+    "decimal": "0.1538"
+  },
+  {
+    "id": "frac-0048",
+    "fraction": "3/13",
+    "percentage": "23.08",
+    "decimal": "0.2308"
+  },
+  {
+    "id": "frac-0049",
+    "fraction": "4/13",
+    "percentage": "30.77",
+    "decimal": "0.3077"
+  },
+  {
+    "id": "frac-0050",
+    "fraction": "5/13",
+    "percentage": "38.46",
+    "decimal": "0.3846"
+  },
+  {
+    "id": "frac-0051",
+    "fraction": "6/13",
+    "percentage": "46.15",
+    "decimal": "0.4615"
+  },
+  {
+    "id": "frac-0052",
+    "fraction": "7/13",
+    "percentage": "53.85",
+    "decimal": "0.5385"
+  },
+  {
+    "id": "frac-0053",
+    "fraction": "8/13",
+    "percentage": "61.54",
+    "decimal": "0.6154"
+  },
+  {
+    "id": "frac-0054",
+    "fraction": "9/13",
+    "percentage": "69.23",
+    "decimal": "0.6923"
+  },
+  {
+    "id": "frac-0055",
+    "fraction": "10/13",
+    "percentage": "76.92",
+    "decimal": "0.7692"
+  },
+  {
+    "id": "frac-0056",
+    "fraction": "11/13",
+    "percentage": "84.62",
+    "decimal": "0.8462"
+  },
+  {
+    "id": "frac-0057",
+    "fraction": "12/13",
+    "percentage": "92.31",
+    "decimal": "0.9231"
+  },
+  {
+    "id": "frac-0058",
+    "fraction": "1/14",
+    "percentage": "7.14",
+    "decimal": "0.0714"
+  },
+  {
+    "id": "frac-0059",
+    "fraction": "3/14",
+    "percentage": "21.43",
+    "decimal": "0.2143"
+  },
+  {
+    "id": "frac-0060",
+    "fraction": "5/14",
+    "percentage": "35.71",
+    "decimal": "0.3571"
+  },
+  {
+    "id": "frac-0061",
+    "fraction": "9/14",
+    "percentage": "64.29",
+    "decimal": "0.6429"
+  },
+  {
+    "id": "frac-0062",
+    "fraction": "11/14",
+    "percentage": "78.57",
+    "decimal": "0.7857"
+  },
+  {
+    "id": "frac-0063",
+    "fraction": "13/14",
+    "percentage": "92.86",
+    "decimal": "0.9286"
+  },
+  {
+    "id": "frac-0064",
+    "fraction": "1/15",
+    "percentage": "6.67",
+    "decimal": "0.0667"
+  },
+  {
+    "id": "frac-0065",
+    "fraction": "2/15",
+    "percentage": "13.33",
+    "decimal": "0.1333"
+  },
+  {
+    "id": "frac-0066",
+    "fraction": "4/15",
+    "percentage": "26.67",
+    "decimal": "0.2667"
+  },
+  {
+    "id": "frac-0067",
+    "fraction": "7/15",
+    "percentage": "46.67",
+    "decimal": "0.4667"
+  },
+  {
+    "id": "frac-0068",
+    "fraction": "8/15",
+    "percentage": "53.33",
+    "decimal": "0.5333"
+  },
+  {
+    "id": "frac-0069",
+    "fraction": "11/15",
+    "percentage": "73.33",
+    "decimal": "0.7333"
+  },
+  {
+    "id": "frac-0070",
+    "fraction": "13/15",
+    "percentage": "86.67",
+    "decimal": "0.8667"
+  },
+  {
+    "id": "frac-0071",
+    "fraction": "14/15",
+    "percentage": "93.33",
+    "decimal": "0.9333"
+  },
+  {
+    "id": "frac-0072",
+    "fraction": "1/16",
+    "percentage": "6.25",
+    "decimal": "0.0625"
+  },
+  {
+    "id": "frac-0073",
+    "fraction": "3/16",
+    "percentage": "18.75",
+    "decimal": "0.1875"
+  },
+  {
+    "id": "frac-0074",
+    "fraction": "5/16",
+    "percentage": "31.25",
+    "decimal": "0.3125"
+  },
+  {
+    "id": "frac-0075",
+    "fraction": "7/16",
+    "percentage": "43.75",
+    "decimal": "0.4375"
+  },
+  {
+    "id": "frac-0076",
+    "fraction": "9/16",
+    "percentage": "56.25",
+    "decimal": "0.5625"
+  },
+  {
+    "id": "frac-0077",
+    "fraction": "11/16",
+    "percentage": "68.75",
+    "decimal": "0.6875"
+  },
+  {
+    "id": "frac-0078",
+    "fraction": "13/16",
+    "percentage": "81.25",
+    "decimal": "0.8125"
+  },
+  {
+    "id": "frac-0079",
+    "fraction": "15/16",
+    "percentage": "93.75",
+    "decimal": "0.9375"
+  },
+  {
+    "id": "frac-0080",
+    "fraction": "1/18",
+    "percentage": "5.56",
+    "decimal": "0.0556"
+  },
+  {
+    "id": "frac-0081",
+    "fraction": "5/18",
+    "percentage": "27.78",
+    "decimal": "0.2778"
+  },
+  {
+    "id": "frac-0082",
+    "fraction": "7/18",
+    "percentage": "38.89",
+    "decimal": "0.3889"
+  },
+  {
+    "id": "frac-0083",
+    "fraction": "11/18",
+    "percentage": "61.11",
+    "decimal": "0.6111"
+  },
+  {
+    "id": "frac-0084",
+    "fraction": "13/18",
+    "percentage": "72.22",
+    "decimal": "0.7222"
+  },
+  {
+    "id": "frac-0085",
+    "fraction": "17/18",
+    "percentage": "94.44",
+    "decimal": "0.9444"
+  },
+  {
+    "id": "frac-0086",
+    "fraction": "1/20",
+    "percentage": "5",
+    "decimal": "0.05"
+  },
+  {
+    "id": "frac-0087",
+    "fraction": "3/20",
+    "percentage": "15",
+    "decimal": "0.15"
+  },
+  {
+    "id": "frac-0088",
+    "fraction": "7/20",
+    "percentage": "35",
+    "decimal": "0.35"
+  },
+  {
+    "id": "frac-0089",
+    "fraction": "9/20",
+    "percentage": "45",
+    "decimal": "0.45"
+  },
+  {
+    "id": "frac-0090",
+    "fraction": "11/20",
+    "percentage": "55",
+    "decimal": "0.55"
+  },
+  {
+    "id": "frac-0091",
+    "fraction": "13/20",
+    "percentage": "65",
+    "decimal": "0.65"
+  },
+  {
+    "id": "frac-0092",
+    "fraction": "17/20",
+    "percentage": "85",
+    "decimal": "0.85"
+  },
+  {
+    "id": "frac-0093",
+    "fraction": "19/20",
+    "percentage": "95",
+    "decimal": "0.95"
+  },
+  {
+    "id": "frac-0094",
+    "fraction": "1/25",
+    "percentage": "4",
+    "decimal": "0.04"
+  },
+  {
+    "id": "frac-0095",
+    "fraction": "1/40",
+    "percentage": "2.5",
+    "decimal": "0.025"
+  },
+  {
+    "id": "frac-0096",
+    "fraction": "1/50",
+    "percentage": "2",
+    "decimal": "0.02"
+  },
+  {
+    "id": "frac-0097",
+    "fraction": "1/80",
+    "percentage": "1.25",
+    "decimal": "0.0125"
+  },
+  {
+    "id": "frac-0098",
+    "fraction": "1/100",
+    "percentage": "1",
+    "decimal": "0.01"
+  },
+  {
+    "id": "frac-0099",
+    "fraction": "1/125",
+    "percentage": "0.8",
+    "decimal": "0.008"
+  },
+  {
+    "id": "frac-0100",
+    "fraction": "1/200",
+    "percentage": "0.5",
+    "decimal": "0.005"
+  },
+  {
+    "id": "frac-0101",
+    "fraction": "1/400",
+    "percentage": "0.25",
+    "decimal": "0.0025"
+  }
+]

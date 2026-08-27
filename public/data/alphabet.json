@@ -1,0 +1,210 @@
+[
+  {
+    "id": "alp-0001",
+    "letter": "A",
+    "position": 1,
+    "reversePosition": 26,
+    "mirrorLetter": "Z",
+    "mnemonic": "Active Zone"
+  },
+  {
+    "id": "alp-0002",
+    "letter": "B",
+    "position": 2,
+    "reversePosition": 25,
+    "mirrorLetter": "Y",
+    "mnemonic": "Bala Yogi"
+  },
+  {
+    "id": "alp-0003",
+    "letter": "C",
+    "position": 3,
+    "reversePosition": 24,
+    "mirrorLetter": "X",
+    "mnemonic": "Color Xerox"
+  },
+  {
+    "id": "alp-0004",
+    "letter": "D",
+    "position": 4,
+    "reversePosition": 23,
+    "mirrorLetter": "W",
+    "mnemonic": "Digital World"
+  },
+  {
+    "id": "alp-0005",
+    "letter": "E",
+    "position": 5,
+    "reversePosition": 22,
+    "mirrorLetter": "V",
+    "mnemonic": "English Vocabulary"
+  },
+  {
+    "id": "alp-0006",
+    "letter": "F",
+    "position": 6,
+    "reversePosition": 21,
+    "mirrorLetter": "U",
+    "mnemonic": "Follow Up"
+  },
+  {
+    "id": "alp-0007",
+    "letter": "G",
+    "position": 7,
+    "reversePosition": 20,
+    "mirrorLetter": "T",
+    "mnemonic": "Golden Temple"
+  },
+  {
+    "id": "alp-0008",
+    "letter": "H",
+    "position": 8,
+    "reversePosition": 19,
+    "mirrorLetter": "S",
+    "mnemonic": "High School"
+  },
+  {
+    "id": "alp-0009",
+    "letter": "I",
+    "position": 9,
+    "reversePosition": 18,
+    "mirrorLetter": "R",
+    "mnemonic": "InfraRed"
+  },
+  {
+    "id": "alp-0010",
+    "letter": "J",
+    "position": 10,
+    "reversePosition": 17,
+    "mirrorLetter": "Q",
+    "mnemonic": "Jack and Queen "
+  },
+  {
+    "id": "alp-0011",
+    "letter": "K",
+    "position": 11,
+    "reversePosition": 16,
+    "mirrorLetter": "P",
+    "mnemonic": "Kungfu Panda"
+  },
+  {
+    "id": "alp-0012",
+    "letter": "L",
+    "position": 12,
+    "reversePosition": 15,
+    "mirrorLetter": "O",
+    "mnemonic": "Law & Order"
+  },
+  {
+    "id": "alp-0013",
+    "letter": "M",
+    "position": 13,
+    "reversePosition": 14,
+    "mirrorLetter": "N",
+    "mnemonic": "Mobile Network"
+  },
+  {
+    "id": "alp-0014",
+    "letter": "N",
+    "position": 14,
+    "reversePosition": 13,
+    "mirrorLetter": "M",
+    "mnemonic": "NightMare"
+  },
+  {
+    "id": "alp-0015",
+    "letter": "O",
+    "position": 15,
+    "reversePosition": 12,
+    "mirrorLetter": "L",
+    "mnemonic": "Online Learning"
+  },
+  {
+    "id": "alp-0016",
+    "letter": "P",
+    "position": 16,
+    "reversePosition": 11,
+    "mirrorLetter": "K",
+    "mnemonic": "Pawan Kalyan"
+  },
+  {
+    "id": "alp-0017",
+    "letter": "Q",
+    "position": 17,
+    "reversePosition": 10,
+    "mirrorLetter": "J",
+    "mnemonic": "Queen Jet"
+  },
+  {
+    "id": "alp-0018",
+    "letter": "R",
+    "position": 18,
+    "reversePosition": 9,
+    "mirrorLetter": "I",
+    "mnemonic": "Rural India"
+  },
+  {
+    "id": "alp-0019",
+    "letter": "S",
+    "position": 19,
+    "reversePosition": 8,
+    "mirrorLetter": "H",
+    "mnemonic": "Study Hours"
+  },
+  {
+    "id": "alp-0020",
+    "letter": "T",
+    "position": 20,
+    "reversePosition": 7,
+    "mirrorLetter": "G",
+    "mnemonic": "Thank God"
+  },
+  {
+    "id": "alp-0021",
+    "letter": "U",
+    "position": 21,
+    "reversePosition": 6,
+    "mirrorLetter": "F",
+    "mnemonic": "User Friendly"
+  },
+  {
+    "id": "alp-0022",
+    "letter": "V",
+    "position": 22,
+    "reversePosition": 5,
+    "mirrorLetter": "E",
+    "mnemonic": "Visual Effects"
+  },
+  {
+    "id": "alp-0023",
+    "letter": "W",
+    "position": 23,
+    "reversePosition": 4,
+    "mirrorLetter": "D",
+    "mnemonic": "Weekend Drive"
+  },
+  {
+    "id": "alp-0024",
+    "letter": "X",
+    "position": 24,
+    "reversePosition": 3,
+    "mirrorLetter": "C",
+    "mnemonic": "Xerox Center"
+  },
+  {
+    "id": "alp-0025",
+    "letter": "Y",
+    "position": 25,
+    "reversePosition": 2,
+    "mirrorLetter": "B",
+    "mnemonic": "Yummy Breakfast"
+  },
+  {
+    "id": "alp-0026",
+    "letter": "Z",
+    "position": 26,
+    "reversePosition": 1,
+    "mirrorLetter": "A",
+    "mnemonic": "Zero Attendance"
+  }
+]

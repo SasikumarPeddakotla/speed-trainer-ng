@@ -1,5 +1,6 @@
 [
   {
+    "id": "syn-0001",
     "word": "Lucidity",
     "meaning": "The quality of being clearly expressed and understood. - స్పష్టత",
     "partsOfSpeech": "noun",
@@ -7,6 +8,7 @@
     "example": "The lucidity of the recipe should ensure a minimum of confusion."
   },
   {
+    "id": "syn-0002",
     "word": "Indict",
     "meaning": "To officially charge somebody with a crime. - నేరం ఆరోపించు",
     "partsOfSpeech": "verb",
@@ -14,6 +16,7 @@
     "example": "The grand jury could indict the mayor for fraud and embezzlement."
   },
   {
+    "id": "syn-0003",
     "word": "Appraise",
     "meaning": "To make a formal judgement about the value of a person's work. - విలువ కట్టు",
     "partsOfSpeech": "verb",
@@ -21,6 +24,7 @@
     "example": "We had an expert appraise the house before we bought it."
   },
   {
+    "id": "syn-0004",
     "word": "Deluge",
     "meaning": "A severe flood; spate; inundate; overflow. - భారీ వర్షపాతం",
     "partsOfSpeech": "noun",
@@ -28,6 +32,7 @@
     "example": "A deluge of thanks and appreciation for the returning troops."
   },
   {
+    "id": "syn-0005",
     "word": "Preponderance",
     "meaning": "Being larger in number or more important. - ఆధిపత్యం",
     "partsOfSpeech": "noun",
@@ -35,6 +40,7 @@
     "example": "Highway vehicles carry increasing traffic, preponderance of short-haul cargo and passengers."
   },
   {
+    "id": "syn-0006",
     "word": "Absurd",
     "meaning": "Completely ridiculous; not logical and sensible. - అర్ధంలేని",
     "partsOfSpeech": "adj",
@@ -42,6 +48,7 @@
     "example": "However, it is absurd to place primary blame on the players for this situation."
   },
   {
+    "id": "syn-0007",
     "word": "Solitary",
     "meaning": "Done alone; single; enjoying being alone, without other people. - ఏకాంత",
     "partsOfSpeech": "adj",
@@ -49,6 +56,7 @@
     "example": "I still find this extremely disconcerting so I went in search of a solitary place to relax."
   },
   {
+    "id": "syn-0008",
     "word": "Pacific",
     "meaning": "Peaceful or loving peace. - ప్రశాంతమైన",
     "partsOfSpeech": "adj",
@@ -56,6 +64,7 @@
     "example": "His spirit was calmed when I played a soothing and pacific melody from my flute his spirit was calmed."
   },
   {
+    "id": "syn-0009",
     "word": "Wander",
     "meaning": "To walk slowly around often without purpose. - తిరుగుట",
     "partsOfSpeech": "verb",
@@ -63,6 +72,7 @@
     "example": "I went for a wander around the Castle yesterday."
   },
   {
+    "id": "syn-0010",
     "word": "Taciturn",
     "meaning": "Tending not to say very much; untalkative; quiet; reserved; reticent. - అల్పభాషి",
     "partsOfSpeech": "adj",
@@ -70,6 +80,7 @@
     "example": "He was seen as an effective leader, despite being taciturn and uncongenial."
   },
   {
+    "id": "syn-0011",
     "word": "Fury",
     "meaning": "Extreme anger that often includes violent behaviour; rage. - తీవ్ర ఆగ్రహం",
     "partsOfSpeech": "noun",
@@ -77,6 +88,7 @@
     "example": "The gods unleashed their fury on the offending mortal."
   },
   {
+    "id": "syn-0012",
     "word": "Tirade",
     "meaning": "A long angry speech criticizing somebody/ something or accusing somebody. - తీవ్రమైన విమర్శల వర్షం",
     "partsOfSpeech": "noun",
@@ -84,6 +96,7 @@
     "example": "I entered the living room, purposely sitting at a distance to avoid father's tirade."
   },
   {
+    "id": "syn-0013",
     "word": "Proficient",
     "meaning": "Able to do something well; skilled. - నైపుణ్యం కలిగిన",
     "partsOfSpeech": "adj",
@@ -91,6 +104,7 @@
     "example": "To meet those challenges, scholars must be proficient in more than one area of study."
   },
   {
+    "id": "syn-0014",
     "word": "Admonish",
     "meaning": "Reprove; to tell somebody firmly that you do not approve of something that they have done; scold. - మందలించు",
     "partsOfSpeech": "verb",
@@ -98,6 +112,7 @@
     "example": "I really admonish the government because it did not do something sooner about this."
   },
   {
+    "id": "syn-0015",
     "word": "Revel",
     "meaning": "To spend time enjoying yourself in a noisy, enthusiastic way. - అత్యధికంగా ఆనందించు",
     "partsOfSpeech": "verb",
@@ -105,6 +120,7 @@
     "example": "If you revel in a situation or experience, you enjoy it very much."
   },
   {
+    "id": "syn-0016",
     "word": "Brutal",
     "meaning": "Violent and cruel. - క్రూరమైన",
     "partsOfSpeech": "adj",
@@ -112,6 +128,7 @@
     "example": "He was the victim of a very brutal murder."
   },
   {
+    "id": "syn-0017",
     "word": "Stroll",
     "meaning": "To walk somewhere in a slow relaxed way. - హాయిగా నడవడం",
     "partsOfSpeech": "verb",
@@ -119,6 +136,7 @@
     "example": "Warm-hearted local people welcome visitors, inviting them to stroll around their buildings."
   },
   {
+    "id": "syn-0018",
     "word": "Eternal",
     "meaning": "Without an end; existing or continuing. - శాశ్వతమైన",
     "partsOfSpeech": "adj",
@@ -126,6 +144,7 @@
     "example": "They promised eternal love to each other on their wedding day."
   },
   {
+    "id": "syn-0019",
     "word": "Turbulence",
     "meaning": "Violent or unsteady movement of air etc; turmoil; upheaval; agitation; chaos; a state of confusion without any order. - అల్లకల్లోలం",
     "partsOfSpeech": "noun",
@@ -133,6 +152,7 @@
     "example": "After World War I increasing poverty of the masses led to political turbulence."
   },
   {
+    "id": "syn-0020",
     "word": "Quiescent",
     "meaning": "Inactive; inert; passive; idle. - నిశ్చలమైన",
     "partsOfSpeech": "adj",
@@ -140,6 +160,7 @@
     "example": "The doctor said the disease is currently quiescent and causing no new symptoms."
   },
   {
+    "id": "syn-0021",
     "word": "Judicious",
     "meaning": "Having, showing, or done with good judgment, wisdom, or sense; Sensible; prudent. - వివేకవంతమైన",
     "partsOfSpeech": "adj",
@@ -147,6 +168,7 @@
     "example": "She made a judicious choice by staying calm during the argument."
   },
   {
+    "id": "syn-0022",
     "word": "Behoove",
     "meaning": "Be sensible for; suit; be obligatory for; it is a duty for someone to do something. - అవసరమై ఉండుట",
     "partsOfSpeech": "verb",
@@ -154,6 +176,7 @@
     "example": "\"It would behoove the team to practice more often."
   },
   {
+    "id": "syn-0023",
     "word": "Sustenance",
     "meaning": "Support, maintenance; aid. - జీవనాధారం",
     "partsOfSpeech": "noun",
@@ -161,6 +184,7 @@
     "example": "Without proper sustenance, the rescued animals would not have survived the harsh winter."
   },
   {
+    "id": "syn-0024",
     "word": "Conscientious",
     "meaning": "Diligent; industrious; honest; meticulous. - బాధ్యతాయుతమైన",
     "partsOfSpeech": "adj",
@@ -168,6 +192,7 @@
     "example": "The conscientious student double-checked all her math answers before turning in the test."
   },
   {
+    "id": "syn-0025",
     "word": "Unruly",
     "meaning": "Hard to control, manage, or obey; Disorderly; rowdy; wild; disobedient; rebellious. - అదుపులేని",
     "partsOfSpeech": "adj",
@@ -175,6 +200,7 @@
     "example": "The police tried to stop the unruly crowd."
   },
   {
+    "id": "syn-0026",
     "word": "Ennui",
     "meaning": "Boredom; lassitude; weariness; sluggishness. - విసుగు",
     "partsOfSpeech": "noun",
@@ -182,6 +208,7 @@
     "example": "A deep sense of ennui crept over him during the long, boring lecture."
   },
   {
+    "id": "syn-0027",
     "word": "Eminent",
     "meaning": "Famous and respected within a particular sphere;  renowned; notable; significant; important. - ప్రముఖ",
     "partsOfSpeech": "adj",
@@ -189,6 +216,7 @@
     "example": "The university invited an eminent professor to lead the new science class."
   },
   {
+    "id": "syn-0028",
     "word": "Conceited",
     "meaning": "Excessively proud of oneself; egotistic; self admiring; egocentric. - అహంకారపూరితమైన",
     "partsOfSpeech": "adj",
@@ -196,6 +224,7 @@
     "example": "He is so conceited that he spends hours looking in the mirror."
   },
   {
+    "id": "syn-0029",
     "word": "Debonair",
     "meaning": "Confident, stylish and charming; self-assured; genteel, elegent; attractive and carefully dressed. - ఆకర్షణీయమైన",
     "partsOfSpeech": "adj",
@@ -203,6 +232,7 @@
     "example": "The debonair actor walked down the red carpet in a sharp, tailored suit."
   },
   {
+    "id": "syn-0030",
     "word": "Rivet",
     "meaning": "To fasten; to attract and keep someone's attention; engage. -దృష్టి సారించుట",
     "partsOfSpeech": "verb",
@@ -210,6 +240,7 @@
     "example": "All eyes were riveted on the singer as she walked onto the stage."
   },
   {
+    "id": "syn-0031",
     "word": "Heretic",
     "meaning": "A person who holds opinions against official or accepted beliefs; dissident; apostate; iconoclast; cynic; religious outcast; unorthodox. - మతభేధం గలవాడు",
     "partsOfSpeech": "noun",
@@ -217,6 +248,7 @@
     "example": "He was considered a heretic in the scientific community for doubting the new theory."
   },
   {
+    "id": "syn-0032",
     "word": "Covenant",
     "meaning": "Contract; an agreement; pact; accord; pledge; bond. - ఒప్పందం",
     "partsOfSpeech": "noun",
@@ -224,6 +256,7 @@
     "example": "The business partners signed a covenant to share all profits and debts equally."
   },
   {
+    "id": "syn-0033",
     "word": "Obstreperous",
     "meaning": "Noisy and difficult to control; disorderly; rowdy; wild. - నియంత్రణ లేని గోల",
     "partsOfSpeech": "adj",
@@ -231,6 +264,7 @@
     "example": "The judge removed the obstreperous defendant from the courtroom after he kept shouting."
   },
   {
+    "id": "syn-0034",
     "word": "Hackneyed",
     "meaning": "Overused; wornout; tired; common; ordinary; unoriginal and trite. - అతిగా వాడటం; తాజాదనాన్ని కోల్పోయిన",
     "partsOfSpeech": "adj",
@@ -238,6 +272,7 @@
     "example": "The book had a hackneyed storyline that offered no new surprises."
   },
   {
+    "id": "syn-0035",
     "word": "Accede",
     "meaning": "Agree to a demand, request or treaty; consent to; accept; assent to. - అంగీకరించు",
     "partsOfSpeech": "verb",
@@ -245,6 +280,7 @@
     "example": "The country refused to accede to the unfair demands made by the rival nation."
   },
   {
+    "id": "syn-0036",
     "word": "Insuperable",
     "meaning": "Impossible to solve; especially of a problem, so great or severe that it cannot be defeated or dealt with successfully; insurmountable. - జయించరాని",
     "partsOfSpeech": "adj",
@@ -252,6 +288,7 @@
     "example": "My father was convinced that my deafness would be an insuperable obstacle."
   },
   {
+    "id": "syn-0037",
     "word": "Volition",
     "meaning": "The power to make your own decisions; choices. - స్వేచ్ఛా సంకల్పం",
     "partsOfSpeech": "noun",
@@ -259,6 +296,7 @@
     "example": "No one forced her to go; she went of her own volition."
   },
   {
+    "id": "syn-0038",
     "word": "Barbarous",
     "meaning": "Extremely cruel or unpleasant; unkind; crude; primitive and uncivilized. - క్రూరమైన",
     "partsOfSpeech": "adj",
@@ -266,6 +304,7 @@
     "example": "The old laws were very barbarous and harsh."
   },
   {
+    "id": "syn-0039",
     "word": "Pejorative",
     "meaning": "Intended to make a person or thing seem of little importance or value -  అవమానకరమైన",
     "partsOfSpeech": "adj",
@@ -273,6 +312,7 @@
     "example": "While the detective was supposed to be neutral, he described the suspect in a pejorative manner."
   },
   {
+    "id": "syn-0040",
     "word": "Meticulous",
     "meaning": "Careful, diligent, refusing to accept any standard short of perfection: a meticulous performance. - శ్రద్ధగా పరీశీలించే",
     "partsOfSpeech": "adj",
@@ -280,6 +320,7 @@
     "example": "She was meticulous in her work, ensuring every single detail was correct."
   },
   {
+    "id": "syn-0041",
     "word": "Impetus",
     "meaning": "An impelling force; motive force. - ప్రేరణ",
     "partsOfSpeech": "noun",
@@ -287,6 +328,7 @@
     "example": "His new idea gave a fresh impetus to the project."
   },
   {
+    "id": "syn-0042",
     "word": "Beguile",
     "meaning": "To persuade, attract or interest someone, sometimes in order to deceive them; charm or enchant someone, often in a deceptive way. - మోసపూర్వకంగా ఆకర్షించు",
     "partsOfSpeech": "verb",
@@ -294,6 +336,7 @@
     "example": "She was beguiled into thinking the car was brand new."
   },
   {
+    "id": "syn-0043",
     "word": "Farcical",
     "meaning": "Absurd; ridiculous; disapproving. - హాస్యాస్పదమైన",
     "partsOfSpeech": "adj",
@@ -301,6 +344,7 @@
     "example": "His farcical excuse for being late—claiming a raccoon stole his shoes—made everyone laugh"
   },
   {
+    "id": "syn-0044",
     "word": "Carouse",
     "meaning": "Drink alcohol and enjoy oneself with others in a noisy, lively way; drink and make merry; go on a drinking bout; quaff; swallow. - అతి తాగుడు",
     "partsOfSpeech": "verb",
@@ -308,6 +352,7 @@
     "example": "He used to carouse with his friends, but he has settled down now that he has a family."
   },
   {
+    "id": "syn-0045",
     "word": "Clement",
     "meaning": "Of weather, mild; of a person, merciful; not severe. - దయగల, మృదువైన",
     "partsOfSpeech": "adj",
@@ -315,6 +360,7 @@
     "example": "The weather for the crossing is forecast to be relatively clement."
   },
   {
+    "id": "syn-0046",
     "word": "Mollify",
     "meaning": "Appease the anger or anxiety of someone; pacify. - శాంతింపజేయు",
     "partsOfSpeech": "verb",
@@ -322,6 +368,7 @@
     "example": "The manager tried to mollify the angry customer by offering a full refund."
   },
   {
+    "id": "syn-0047",
     "word": "Importune",
     "meaning": "To make repeated forceful requests; appeal to; plead with. - వేడుకొను",
     "partsOfSpeech": "verb",
@@ -329,6 +376,7 @@
     "example": "The tired mother listened to her young child importune her for a toy."
   },
   {
+    "id": "syn-0048",
     "word": "Divisive",
     "meaning": "Isolating; alternating. - విభజన కలిగించే",
     "partsOfSpeech": "adj",
@@ -336,6 +384,7 @@
     "example": "Abortion has always been a divisive issue for the country."
   },
   {
+    "id": "syn-0049",
     "word": "Gaffe",
     "meaning": "A blunder; mistake; slip; goof. - పొరపాటు",
     "partsOfSpeech": "noun",
@@ -343,6 +392,7 @@
     "example": "I made a real gaffe by calling his new wife by his ex-wife's name."
   },
   {
+    "id": "syn-0050",
     "word": "Supercilious",
     "meaning": "Arrogant; haughty; conceited; disdainful. - అహంకారపూరితమైన",
     "partsOfSpeech": "adj",
@@ -350,6 +400,7 @@
     "example": "The rich man gave a supercilious look at my worn-out shoes."
   },
   {
+    "id": "syn-0051",
     "word": "Insolent",
     "meaning": "Rude and not showing respect; boldly disrespectful in speech or behaviour; impudent. - అవమానకరమైన",
     "partsOfSpeech": "adj",
@@ -357,6 +408,7 @@
     "example": "The boss fired the worker because of his insolent behavior."
   },
   {
+    "id": "syn-0052",
     "word": "Reprove",
     "meaning": "To criticize somebody; diapprove of bad or silly behaviour; scold; reprimand; admonish. - మందలించు",
     "partsOfSpeech": "verb",
@@ -364,6 +416,7 @@
     "example": "Mom reproved him for not washing his hands before dinner."
   },
   {
+    "id": "syn-0053",
     "word": "Jubilant",
     "meaning": "Happy; feeling or showing great happiness because of success; cheerful; elated. - అత్యంత ఆనందభరితమైన",
     "partsOfSpeech": "adj",
@@ -371,6 +424,7 @@
     "example": "The children were jubilant after opening their birthday presents."
   },
   {
+    "id": "syn-0054",
     "word": "Banal",
     "meaning": "Commonplace; ordinary; boring; not original. - సాధారణమైన",
     "partsOfSpeech": "adj",
@@ -378,6 +432,7 @@
     "example": "Because the movie's plot was entirely banal, we knew how it would end right away."
   },
   {
+    "id": "syn-0055",
     "word": "Contrite",
     "meaning": "Feeling or expressing remorse at the recognition that one has done wrong; remorseful; regretful; repentant. - పశ్చాత్తాపపడే",
     "partsOfSpeech": "adj",
@@ -385,6 +440,7 @@
     "example": "She was contrite the morning after her angry outburst."
   },
   {
+    "id": "syn-0056",
     "word": "Blabber",
     "meaning": "Foolish or excessive talk; nonsense. - అర్థంలేని మాటలు",
     "partsOfSpeech": "noun",
@@ -392,6 +448,7 @@
     "example": "His endless blabber annoyed everyone in the room."
   },
   {
+    "id": "syn-0057",
     "word": "Equanimity",
     "meaning": "Calmness; composure. - ప్రశాంతత",
     "partsOfSpeech": "noun",
@@ -399,6 +456,7 @@
     "example": "During the horrible storm, it was hard for us to focus and maintain our equanimity."
   },
   {
+    "id": "syn-0058",
     "word": "Despicable",
     "meaning": "Loathful; very unpleasant; evil. - అసహ్యకరమైన",
     "partsOfSpeech": "adj",
@@ -406,6 +464,7 @@
     "example": "Stealing money from the charity box was a despicable act."
   },
   {
+    "id": "syn-0059",
     "word": "Pert",
     "meaning": "Attractively lively or cheeky. - ఉల్లాసమైన",
     "partsOfSpeech": "adj",
@@ -413,6 +472,7 @@
     "example": "She gave a pert answer that made everyone in the room laugh."
   },
   {
+    "id": "syn-0060",
     "word": "Copious",
     "meaning": "Abundant; plentiful; profuse. - అపారమైన",
     "partsOfSpeech": "adj",
@@ -420,6 +480,7 @@
     "example": "\"He drank copious cups of coffee to stay awake all night."
   },
   {
+    "id": "syn-0061",
     "word": "Ebullient",
     "meaning": "Full of confidence and energy. - ఉత్సాహభరితమైన",
     "partsOfSpeech": "adj",
@@ -427,6 +488,7 @@
     "example": "Her ebullient personality lit up every room she walked into."
   },
   {
+    "id": "syn-0062",
     "word": "Superfluous",
     "meaning": "Not needed; unnecessary. - అవసరం లేని",
     "partsOfSpeech": "adj",
@@ -434,6 +496,7 @@
     "example": "Clear out the superfluous items from your bag to make it lighter."
   },
   {
+    "id": "syn-0063",
     "word": "Noxious",
     "meaning": "Poisonous; harmful; injurious. - హానికరమైన",
     "partsOfSpeech": "adj",
@@ -441,6 +504,7 @@
     "example": "Workers wore thick masks to stay safe from the noxious fumes coming out of the factory."
   },
   {
+    "id": "syn-0064",
     "word": "Herald",
     "meaning": "A messenger; a person who carries important messages. - దూత",
     "partsOfSpeech": "noun",
@@ -448,6 +512,7 @@
     "example": "Dark clouds can be a herald of a heavy storm."
   },
   {
+    "id": "syn-0065",
     "word": "Expandable",
     "meaning": "Able to increase in size. - విస్తరించగల",
     "partsOfSpeech": "adj",
@@ -455,6 +520,7 @@
     "example": "This travel bag has an expandable zip that creates more space for clothes."
   },
   {
+    "id": "syn-0066",
     "word": "Leisurely",
     "meaning": "Done at leisure; unhurried; relaxed. - తీరికగా",
     "partsOfSpeech": "adv",
@@ -462,6 +528,7 @@
     "example": "We took a leisurely walk through the park on Sunday morning."
   },
   {
+    "id": "syn-0067",
     "word": "Commence",
     "meaning": "Begin; start. - ప్రారంభించు",
     "partsOfSpeech": "verb",
@@ -469,6 +536,7 @@
     "example": "The final examination will commence promptly at 9:00 AM tomorrow."
   },
   {
+    "id": "syn-0068",
     "word": "Assert",
     "meaning": "To state something clearly and strongly, to claim your rights, or to show your power. - నొక్కి చెప్పు",
     "partsOfSpeech": "verb",
@@ -476,6 +544,7 @@
     "example": "The lawyer stood up to assert his client's innocence in front of the judge."
   },
   {
+    "id": "syn-0069",
     "word": "Prohibition",
     "meaning": "The act of forbidding; exclusion. - నిషేధం",
     "partsOfSpeech": "noun",
@@ -483,6 +552,7 @@
     "example": "There is a strict prohibition against smoking inside the office building."
   },
   {
+    "id": "syn-0070",
     "word": "Complicated",
     "meaning": "Complicated; not simple. - సంక్లిష్టమైన",
     "partsOfSpeech": "adj",
@@ -490,6 +560,7 @@
     "example": "The math problem was so complicated that nobody could solve it quickly."
   },
   {
+    "id": "syn-0071",
     "word": "Alteration",
     "meaning": "A change or alteration. - మార్పు",
     "partsOfSpeech": "noun",
@@ -497,6 +568,7 @@
     "example": "The tailor made a small alteration to the dress so it fits perfectly."
   },
   {
+    "id": "syn-0072",
     "word": "Overwhelming",
     "meaning": "Very large; astonishing; amazing. - అత్యంత గొప్ప",
     "partsOfSpeech": "adj",
@@ -504,6 +576,7 @@
     "example": "The charity received an overwhelming amount of support from the public."
   },
   {
+    "id": "syn-0073",
     "word": "Distaste",
     "meaning": "Dislike; loathing. - అసహ్యం",
     "partsOfSpeech": "noun",
@@ -511,6 +584,7 @@
     "example": "She looked at the plate of bitter vegetables with clear distaste."
   },
   {
+    "id": "syn-0074",
     "word": "Garrulous",
     "meaning": "Very talkative. - ఎక్కువగా మాట్లాడే",
     "partsOfSpeech": "adj",
@@ -518,6 +592,7 @@
     "example": "The garrulous passenger next to me talked non-stop during the entire flight."
   },
   {
+    "id": "syn-0075",
     "word": "Tilt",
     "meaning": "A sloping position or movement; slant. - వంగిపోవు",
     "partsOfSpeech": "noun",
@@ -525,6 +600,7 @@
     "example": "Please adjust the tilt of the computer screen to avoid the sun glare."
   },
   {
+    "id": "syn-0076",
     "word": "Inept",
     "meaning": "Not skilled or effective; incompetent; clumsy; inefficient. - అసమర్థమైన",
     "partsOfSpeech": "adj",
@@ -532,6 +608,7 @@
     "example": "His inept handling of the delicate situation made the problem much worse."
   },
   {
+    "id": "syn-0077",
     "word": "Inarticulate",
     "meaning": "Unable to express ideas clearly or fluently. - స్పష్టంగా చెప్పలేని",
     "partsOfSpeech": "adj",
@@ -539,6 +616,7 @@
     "example": "When he got angry, he became completely inarticulate with rage."
   },
   {
+    "id": "syn-0078",
     "word": "Entice",
     "meaning": "Attract or tempt by offering pleasure or advantage. - ఆకర్షించు",
     "partsOfSpeech": "verb",
@@ -546,6 +624,7 @@
     "example": "The shopkeeper tried to entice customers into the store by offering huge discounts."
   },
   {
+    "id": "syn-0079",
     "word": "Dubious",
     "meaning": "Suspicious; doubtful; fishy. - అనుమానాస్పదమైన",
     "partsOfSpeech": "adj",
@@ -553,6 +632,7 @@
     "example": "The businessman made a dubious claim about making thousands of dollars in one day."
   },
   {
+    "id": "syn-0080",
     "word": "Drag",
     "meaning": "Draw something toward yourself. - లాగు",
     "partsOfSpeech": "verb",
@@ -560,6 +640,7 @@
     "example": "The box was too heavy to lift, so I had to drag it across the floor."
   },
   {
+    "id": "syn-0081",
     "word": "Engulf",
     "meaning": "Envelop completely; overtake; submerge. - పూర్తిగా కప్పివేయు",
     "partsOfSpeech": "verb",
@@ -567,6 +648,7 @@
     "example": "The massive waves threatened to engulf the tiny fishing boat."
   },
   {
+    "id": "syn-0082",
     "word": "Lethal",
     "meaning": "That can cause death or great damage; fatal; extremely dangerous; deadly. - ప్రాణాంతకమైన",
     "partsOfSpeech": "adj",
@@ -574,6 +656,7 @@
     "example": "Certain types of wild mushrooms contain a lethal poison if eaten."
   },
   {
+    "id": "syn-0083",
     "word": "Prevalent",
     "meaning": "Most common in a particular place at a particular time; widespread; happening often. - అమలులో ఉన్న",
     "partsOfSpeech": "adj",
@@ -581,6 +664,7 @@
     "example": "Flu infections are usually more prevalent during the cold winter months."
   },
   {
+    "id": "syn-0084",
     "word": "Exempt",
     "meaning": "Free from; exclude. - మినహాయింపు",
     "partsOfSpeech": "verb",
@@ -588,6 +672,7 @@
     "example": "The school decided to exempt final-year students from the sports fee."
   },
   {
+    "id": "syn-0085",
     "word": "Rampant",
     "meaning": "Unchecked; out of control. - అదుపు లేని",
     "partsOfSpeech": "adj",
@@ -595,6 +680,7 @@
     "example": "Unemployment was rampant in the country before the new factories opened."
   },
   {
+    "id": "syn-0086",
     "word": "Reticent",
     "meaning": "Quiet; silent; reserved. - తక్కువ మాట్లాడే స్వభావం గల",
     "partsOfSpeech": "adj",
@@ -602,6 +688,7 @@
     "example": "She is very reticent about her personal life and rarely shares anything."
   },
   {
+    "id": "syn-0087",
     "word": "Precarious",
     "meaning": "Not safe or certain; dangerous; treacherous; grievous. - ప్రమాదకరమైన",
     "partsOfSpeech": "adj",
@@ -609,6 +696,7 @@
     "example": "The old ladder was balanced in a precarious position against the wall."
   },
   {
+    "id": "syn-0088",
     "word": "Sterile",
     "meaning": "Not able to produce young animals or babies; unable to produce plants or crops; barren. - నిస్సారమైన",
     "partsOfSpeech": "adj",
@@ -616,6 +704,7 @@
     "example": "Nothing could grow in the sterile, dry soil of the desert."
   },
   {
+    "id": "syn-0089",
     "word": "Pensive",
     "meaning": "Thoughtful; reflective. - ఆలోచనలో మునిగిన",
     "partsOfSpeech": "adj",
@@ -623,6 +712,7 @@
     "example": "He sat by the window in a pensive mood, staring out at the rain."
   },
   {
+    "id": "syn-0090",
     "word": "Vindictive",
     "meaning": "Revengeful; unforgiving. - ప్రతీకార భావం గల",
     "partsOfSpeech": "adj",
@@ -630,6 +720,7 @@
     "example": "A vindictive person always tries to hurt someone who has wronged them."
   },
   {
+    "id": "syn-0091",
     "word": "Affinity",
     "meaning": "A natural liking or attraction towards someone or something. - ఇష్టం",
     "partsOfSpeech": "noun",
@@ -637,6 +728,7 @@
     "example": "From a young age, the boy showed a natural affinity for classical music."
   },
   {
+    "id": "syn-0092",
     "word": "Repudiate",
     "meaning": "Reject; renounce. - తిరస్కరించు",
     "partsOfSpeech": "verb",
@@ -644,6 +736,7 @@
     "example": "The leader issued a public statement to repudiate the false accusations."
   },
   {
+    "id": "syn-0093",
     "word": "Lament",
     "meaning": "Wail; moan; grieve; mourn. - విలపించు",
     "partsOfSpeech": "verb",
@@ -651,6 +744,7 @@
     "example": "Many people gathered at the monument to lament the loss of the brave soldiers."
   },
   {
+    "id": "syn-0094",
     "word": "Perplex",
     "meaning": "Make someone feel completely baffled; puzzle; bewilder; worry. - గందరగోళానికి గురిచేయు",
     "partsOfSpeech": "verb",
@@ -658,6 +752,7 @@
     "example": "The sudden change in the rules will definitely perplex the players."
   },
   {
+    "id": "syn-0095",
     "word": "Defer",
     "meaning": "To leave something until a later time; postpone; delay. - వాయిదా వేయు",
     "partsOfSpeech": "verb",
@@ -665,6 +760,7 @@
     "example": "We decided to defer our vacation plans until the weather improves."
   },
   {
+    "id": "syn-0096",
     "word": "Mammoth",
     "meaning": "Gigantic; huge. - అతి పెద్ద",
     "partsOfSpeech": "adj",
@@ -672,6 +768,7 @@
     "example": "Building the new stadium was a mammoth project that took five years."
   },
   {
+    "id": "syn-0097",
     "word": "Exalt",
     "meaning": "Praise; glorify; rejoice greatly. - పొగడు",
     "partsOfSpeech": "verb",
@@ -679,6 +776,7 @@
     "example": "The citizens sang traditional songs to exalt the victories of their king."
   },
   {
+    "id": "syn-0098",
     "word": "Concise",
     "meaning": "Short; brief. - క్లుప్తంగా అన్ని అంశాలతో కూడిన",
     "partsOfSpeech": "adj",
@@ -686,6 +784,7 @@
     "example": "Please write a concise summary of the book in under two paragraphs."
   },
   {
+    "id": "syn-0099",
     "word": "Devout",
     "meaning": "Believing strongly in a religion and obeying all its rules or principles; pious; devoted to religion. - భక్తిగల",
     "partsOfSpeech": "adj",
@@ -693,6 +792,7 @@
     "example": "The devout old man visits the temple every single morning to offer prayers."
   },
   {
+    "id": "syn-0100",
     "word": "Renown",
     "meaning": "The state of being famous; fame; celebrity. - కీర్తి ప్రతిష్ట",
     "partsOfSpeech": "noun",
@@ -700,6 +800,7 @@
     "example": "The painter achieved international renown after winning the prestigious award."
   },
   {
+    "id": "syn-0101",
     "word": "Intricate",
     "meaning": "Very complicated; detailed; complex. - చిక్కుపడిన,సంక్లిష్టమైన",
     "partsOfSpeech": "adj",
@@ -707,6 +808,7 @@
     "example": "The wooden box was covered in intricate patterns that took months to carve."
   },
   {
+    "id": "syn-0102",
     "word": "Assist",
     "meaning": "To help; aid; or support someone; - సహాయం చేయు",
     "partsOfSpeech": "verb",
@@ -714,6 +816,7 @@
     "example": "The nurse will assist the doctor during the routine health checkup."
   },
   {
+    "id": "syn-0103",
     "word": "Adept",
     "meaning": "Proficient; skilled - నైపుణ్యం కలిగిన",
     "partsOfSpeech": "adj",
@@ -721,6 +824,7 @@
     "example": "She is an adept computer programmer who can solve software bugs quickly."
   },
   {
+    "id": "syn-0104",
     "word": "Initiate",
     "meaning": "To start something; begin; or set a plan in motion; commence; introduce. - ప్రారంభించు",
     "partsOfSpeech": "verb",
@@ -728,6 +832,7 @@
     "example": "The management decided to initiate a new training program for all employees."
   },
   {
+    "id": "syn-0105",
     "word": "Obstacle",
     "meaning": "Something that blocks movement or progress; barrier; hurdle. - అడ్డంకి",
     "partsOfSpeech": "noun",
@@ -735,6 +840,7 @@
     "example": "A fallen tree across the main road became a major obstacle for traffic."
   },
   {
+    "id": "syn-0106",
     "word": "Endeavour",
     "meaning": "Try to do something; attempt; strive. - ప్రయత్నించు",
     "partsOfSpeech": "verb",
@@ -742,6 +848,7 @@
     "example": "We must always endeavour to do our best work, regardless of the challenges."
   },
   {
+    "id": "syn-0107",
     "word": "Insult",
     "meaning": "Offend; speak or treat with disrespect or scornful abuse. - अवమానించు",
     "partsOfSpeech": "verb",
@@ -749,6 +856,7 @@
     "example": "It is very rude to insult someone just because you disagree with them."
   },
   {
+    "id": "syn-0108",
     "word": "Hostility",
     "meaning": "Unfriendliness; hostile behaviour; opposition; enmity. -శత్రుభావం",
     "partsOfSpeech": "noun",
@@ -756,6 +864,7 @@
     "example": "There was visible hostility between the two rival teams before the match started."
   },
   {
+    "id": "syn-0109",
     "word": "Attribute",
     "meaning": "A quality; feature; characteristic. - లక్షణం",
     "partsOfSpeech": "noun",
@@ -763,6 +872,7 @@
     "example": "Patience is a highly valuable attribute for a school teacher to have."
   },
   {
+    "id": "syn-0110",
     "word": "Fuse",
     "meaning": "Combine; blend; merge. - కలపడం",
     "partsOfSpeech": "verb",
@@ -770,6 +880,7 @@
     "example": "The chef loves to fuse traditional Indian spices with modern Western recipes."
   },
   {
+    "id": "syn-0111",
     "word": "Converse",
     "meaning": "To talk with someone; to have a conversation or exchange thoughts with another person. - అభిప్రాయాలు తెలుసుకునేలా చర్చించడం",
     "partsOfSpeech": "verb",
@@ -777,6 +888,7 @@
     "example": "It is polite to look at someone while you converse with them."
   },
   {
+    "id": "syn-0112",
     "word": "Austere",
     "meaning": "Severe; stern; strict. - కఠినమైన",
     "partsOfSpeech": "adj",
@@ -784,6 +896,7 @@
     "example": "The monks lived an austere life in the mountains with very few belongings."
   },
   {
+    "id": "syn-0113",
     "word": "Philanthropist",
     "meaning": "A lover of humanity; a person who helps the poor and those in need. - దాత",
     "partsOfSpeech": "noun",
@@ -791,6 +904,7 @@
     "example": "The wealthy philanthropist donated millions of dollars to build a public hospital."
   },
   {
+    "id": "syn-0114",
     "word": "Impoverished",
     "meaning": "Very poor; destitute; penniless. - పేదవాడు",
     "partsOfSpeech": "adj",
@@ -798,6 +912,7 @@
     "example": "The local charity provides free clothing and warm food to impoverished families."
   },
   {
+    "id": "syn-0115",
     "word": "Stoical",
     "meaning": "Patient; long-suffering; uncomplaining; unemotional; apathetic; forbearing. - సహనశీలి,ఓపిక గలవాడు",
     "partsOfSpeech": "adj",
@@ -805,6 +920,7 @@
     "example": "He showed a stoical attitude and kept working despite suffering from a bad headache."
   },
   {
+    "id": "syn-0116",
     "word": "Evidence",
     "meaning": "Anything that helps prove whether something is true or not; proof; indication; deposition. - సాక్ష్యం",
     "partsOfSpeech": "noun",
