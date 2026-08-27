@@ -44,7 +44,9 @@ export class TablesReferenceComponent {
   protected readonly mode = this.stateService.navigation().selectedExercise
     ?.mode as PracticeMode;
 
-  private readonly allQuestions = this.tablesEngine.getTablesReference();
+  private readonly allQuestions = computed(() => {
+    return this.tablesEngine.getTablesReference();
+  });
   private readonly bookmarkQuestions = computed(() => {
     return this.bookmarkService.getBookmarkedQuestions<TableQuestion>();
   });
@@ -52,7 +54,7 @@ export class TablesReferenceComponent {
   // To return the counts to parent
   private readonly emitCountsEffect = effect(() => {
     this.count.emit({
-      allCount: this.allQuestions.length,
+      allCount: this.allQuestions().length,
       bookmarkCount: this.bookmarkQuestions().length,
     });
   });
@@ -64,7 +66,7 @@ export class TablesReferenceComponent {
         return this.buildTableReference(this.bookmarkQuestions());
 
       default:
-        return this.buildTableReference(this.allQuestions);
+        return this.buildTableReference(this.allQuestions());
     }
   });
 

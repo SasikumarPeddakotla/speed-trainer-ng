@@ -38,8 +38,9 @@ export class ConversionReferenceComponent {
   protected readonly mode = this.stateService.navigation().selectedExercise
     ?.mode as PracticeMode;
 
-  private readonly allQuestions =
-    this.conversionEngine.getConversionsReference();
+  private readonly allQuestions = computed(() => {
+    return this.conversionEngine.getConversionsReference();
+  });
   private readonly bookmarkQuestions = computed(() => {
     return this.bookmarkService.getBookmarkedQuestions<FractionConversion>();
   });
@@ -47,7 +48,7 @@ export class ConversionReferenceComponent {
   // To return the counts to parent
   private readonly emitCountsEffect = effect(() => {
     this.count.emit({
-      allCount: this.allQuestions.length,
+      allCount: this.allQuestions().length,
       bookmarkCount: this.bookmarkQuestions().length,
     });
   });
@@ -58,7 +59,7 @@ export class ConversionReferenceComponent {
         return this.bookmarkQuestions();
 
       default:
-        return this.allQuestions;
+        return this.allQuestions();
     }
   });
 

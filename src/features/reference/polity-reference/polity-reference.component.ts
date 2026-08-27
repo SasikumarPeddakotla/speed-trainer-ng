@@ -38,7 +38,9 @@ export class PolityReferenceComponent {
   protected readonly mode = this.stateService.navigation().selectedExercise
     ?.mode as PracticeMode;
 
-  private readonly allQuestions = this.polityEngine.getArticlesReference();
+  private readonly allQuestions = computed(() => {
+    return this.polityEngine.getArticlesReference();
+  });
   private readonly bookmarkQuestions = computed(() => {
     return this.bookmarkService.getBookmarkedQuestions<Article>();
   });
@@ -46,7 +48,7 @@ export class PolityReferenceComponent {
   // To return the counts to parent
   private readonly emitCountsEffect = effect(() => {
     this.count.emit({
-      allCount: this.allQuestions.length,
+      allCount: this.allQuestions().length,
       bookmarkCount: this.bookmarkQuestions().length,
     });
   });
@@ -57,7 +59,7 @@ export class PolityReferenceComponent {
         return this.bookmarkQuestions();
 
       default:
-        return this.allQuestions;
+        return this.allQuestions();
     }
   }
 
