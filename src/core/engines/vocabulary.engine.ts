@@ -10,7 +10,7 @@ import { Idiom } from '../models/idiom.model';
 import { StateService } from '../services/state.service';
 import { PracticeMode } from '../enums/practice-mode.enum';
 import { ExampleFormatterService } from '../../utils/example-formatter.service';
-import { VocabularyDataService } from '../services/vocabulary-data.service';
+import { DataService } from '../services/data.service';
 import { IdService } from '../../utils/id.service';
 import { BookmarkService } from '../services/bookmark.service';
 import { PhrasalVerb } from '../models/phrasal-verb.model';
@@ -30,7 +30,7 @@ export class VocabularyEngine {
   constructor(
     private stateService: StateService,
     private formatterService: ExampleFormatterService,
-    private vocabularyDataService: VocabularyDataService,
+    private dataService: DataService,
     private idService: IdService,
     private bookmarkService: BookmarkService,
   ) {}
@@ -42,7 +42,7 @@ export class VocabularyEngine {
   createSynonymQuestion(synonym: Synonym): Question<Synonym> {
     const pair = this.getRandomWordPair(synonym.word, synonym.synonyms);
 
-    const filteredSynonyms = this.vocabularyDataService
+    const filteredSynonyms = this.dataService
       .getSynonyms()
       .filter((s) => s.partsOfSpeech === synonym.partsOfSpeech);
 
@@ -125,7 +125,7 @@ export class VocabularyEngine {
   createAntonymQuestion(antonym: Antonym): Question<Antonym> {
     const pair = this.getRandomWordPair(antonym.word, antonym.antonyms);
 
-    const filteredAntonyms = this.vocabularyDataService
+    const filteredAntonyms = this.dataService
       .getAntonyms()
       .filter((a) => a.partsOfSpeech === antonym.partsOfSpeech);
 
@@ -206,7 +206,7 @@ export class VocabularyEngine {
   }
 
   createOneWordQuestion(oneWord: OneWord): Question<OneWord> {
-    const filteredOneWords = this.vocabularyDataService
+    const filteredOneWords = this.dataService
       .getOneWords()
       .filter((o) => o.partsOfSpeech === oneWord.partsOfSpeech);
 
@@ -290,7 +290,7 @@ export class VocabularyEngine {
 
       options: this.randomService.buildOptions(
         idiom,
-        this.vocabularyDataService.getIdioms(),
+        this.dataService.getIdioms(),
         (i) => [i.option],
         (i) => i.idiom,
         idiom.option,
@@ -377,7 +377,7 @@ export class VocabularyEngine {
 
       options: this.randomService.buildOptions(
         phrasalVerb,
-        this.vocabularyDataService.getPhrasalVerbs(),
+        this.dataService.getPhrasalVerbs(),
         (s) => [...s.meaning],
         (s) => s.phrase,
         phrasalVerb.meaning[randomIndex],
@@ -448,69 +448,61 @@ export class VocabularyEngine {
   }
 
   private getSynonyms(): Synonym[] {
-    return this.vocabularyDataService
-      .getSynonyms()
-      .slice(0, this.getWordLimit());
+    return this.dataService.getSynonyms().slice(0, this.getWordLimit());
   }
 
   private getAntonyms(): Antonym[] {
-    return this.vocabularyDataService
-      .getAntonyms()
-      .slice(0, this.getWordLimit());
+    return this.dataService.getAntonyms().slice(0, this.getWordLimit());
   }
 
   private getOneWords(): OneWord[] {
-    return this.vocabularyDataService
-      .getOneWords()
-      .slice(0, this.getWordLimit());
+    return this.dataService.getOneWords().slice(0, this.getWordLimit());
   }
 
   private getIdioms(): Idiom[] {
-    return this.vocabularyDataService.getIdioms().slice(0, this.getWordLimit());
+    return this.dataService.getIdioms().slice(0, this.getWordLimit());
   }
 
   private getPhrasalVerbs(): PhrasalVerb[] {
-    return this.vocabularyDataService
-      .getPhrasalVerbs()
-      .slice(0, this.getWordLimit());
+    return this.dataService.getPhrasalVerbs().slice(0, this.getWordLimit());
   }
 
   getSynonymsReference(): Synonym[] {
-    return this.vocabularyDataService.getSynonyms();
+    return this.dataService.getSynonyms();
   }
 
   getAntonymsReference(): Antonym[] {
-    return this.vocabularyDataService.getAntonyms();
+    return this.dataService.getAntonyms();
   }
 
   getOneWordsReference(): OneWord[] {
-    return this.vocabularyDataService.getOneWords();
+    return this.dataService.getOneWords();
   }
 
   getIdiomsReference(): Idiom[] {
-    return this.vocabularyDataService.getIdioms();
+    return this.dataService.getIdioms();
   }
 
   getPhrasalVerbsReference(): PhrasalVerb[] {
-    return this.vocabularyDataService.getPhrasalVerbs();
+    return this.dataService.getPhrasalVerbs();
   }
 
   getVocabularyCount(): number {
     switch (this.stateService.navigation().selectedExercise?.mode) {
       case PracticeMode.Synonyms:
-        return this.vocabularyDataService.getSynonyms().length;
+        return this.dataService.getSynonyms().length;
 
       case PracticeMode.Antonyms:
-        return this.vocabularyDataService.getAntonyms().length;
+        return this.dataService.getAntonyms().length;
 
       case PracticeMode.OneWord:
-        return this.vocabularyDataService.getOneWords().length;
+        return this.dataService.getOneWords().length;
 
       case PracticeMode.Idioms:
-        return this.vocabularyDataService.getIdioms().length;
+        return this.dataService.getIdioms().length;
 
       case PracticeMode.PhrasalVerbs:
-        return this.vocabularyDataService.getPhrasalVerbs().length;
+        return this.dataService.getPhrasalVerbs().length;
 
       default:
         return 0;

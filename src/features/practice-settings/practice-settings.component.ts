@@ -11,7 +11,6 @@ import { SessionService } from '../../core/services/session.service';
 import { TimerService } from '../../core/services/timer.service';
 import { PracticeMode } from '../../core/enums/practice-mode.enum';
 import { BookmarkService } from '../../core/services/bookmark.service';
-import { DataPreloadService } from '../../core/services/data-preload.service';
 
 @Component({
   selector: 'app-practice-settings',
