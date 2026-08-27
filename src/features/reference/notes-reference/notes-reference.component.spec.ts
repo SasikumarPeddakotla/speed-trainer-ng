@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NumberSystemReferenceComponent } from './number-system-reference.component';
+import { NumberSystemReferenceComponent } from './notes-reference.component';
 
 describe('NumberSystemReferenceComponent', () => {
   let component: NumberSystemReferenceComponent;
@@ -8,9 +8,8 @@ describe('NumberSystemReferenceComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NumberSystemReferenceComponent]
-    })
-    .compileComponents();
+      imports: [NumberSystemReferenceComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(NumberSystemReferenceComponent);
     component = fixture.componentInstance;
