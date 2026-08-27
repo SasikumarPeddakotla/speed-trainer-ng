@@ -100,6 +100,14 @@ export class DataService {
     );
   }
 
+  async loadPdf(src: string): Promise<Blob> {
+    return firstValueFrom(
+      this.http.get(src, {
+        responseType: 'blob',
+      }),
+    );
+  }
+
   getSynonyms(): Synonym[] {
     return this.synonyms();
   }

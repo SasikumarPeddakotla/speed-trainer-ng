@@ -8,8 +8,10 @@ import {
 } from '@angular/core';
 
 import * as pdfjsLib from 'pdfjs-dist';
+
 import { ThemeService } from '../../../core/services/theme.service';
 import { Theme } from '../../../core/enums/theme.enum';
+import { DataService } from '../../../core/services/data.service';
 
 @Component({
   selector: 'app-pdf-viewer',
@@ -19,8 +21,7 @@ import { Theme } from '../../../core/enums/theme.enum';
   styleUrl: './pdf-viewer.component.scss',
 })
 export class PdfViewerComponent implements AfterViewInit, OnDestroy {
-  readonly lightSrc = input.required<string>();
-  readonly darkSrc = input.required<string>();
+  readonly src = input.required<string>();
 
   @ViewChild('pdfContainer')
   private pdfContainer!: ElementRef<HTMLDivElement>;
@@ -29,21 +30,44 @@ export class PdfViewerComponent implements AfterViewInit, OnDestroy {
 
   private destroyed = false;
 
-  constructor(private themeService: ThemeService) {
+  error = false;
+
+  private pdfObjectUrl: string | null = null;
+
+  constructor(
+    private themeService: ThemeService,
+    private dataService: DataService,
+  ) {
     pdfjsLib.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.mjs';
   }
 
   async ngAfterViewInit(): Promise<void> {
-    if (this.themeService.theme() === Theme.Light) {
-      await this.loadPdf(this.lightSrc());
-    } else {
-      await this.loadPdf(this.darkSrc());
-    }
+    await this.loadPdf(this.src());
   }
 
   private async loadPdf(src: string): Promise<void> {
+    this.error = false;
+
     try {
-      const loadingTask = pdfjsLib.getDocument(src);
+      /*
+       * Load the PDF through NotesService.
+       *
+       * HttpClient request can be handled by the
+       * Angular service worker for offline support.
+       */
+      const blob = await this.dataService.loadPdf(src);
+
+      if (this.destroyed) {
+        return;
+      }
+
+      /*
+       * Convert the Blob into a temporary URL that
+       * PDF.js can consume.
+       */
+      this.pdfObjectUrl = URL.createObjectURL(blob);
+
+      const loadingTask = pdfjsLib.getDocument(this.pdfObjectUrl);
 
       this.pdfDocument = await loadingTask.promise;
 
@@ -54,6 +78,8 @@ export class PdfViewerComponent implements AfterViewInit, OnDestroy {
       await this.renderPages();
     } catch (error) {
       console.error('Failed to load PDF:', error);
+
+      this.error = true;
     }
   }
 
@@ -95,7 +121,6 @@ export class PdfViewerComponent implements AfterViewInit, OnDestroy {
       scale: 1,
     });
 
-    // Fit the PDF page to the available container width.
     const scale = containerWidth / unscaledViewport.width;
 
     const viewport = page.getViewport({
@@ -109,9 +134,6 @@ export class PdfViewerComponent implements AfterViewInit, OnDestroy {
      * CSS size = 400px
      * devicePixelRatio = 2
      * canvas resolution = 800px
-     *
-     * This keeps text and handwriting sharp on
-     * high-DPI mobile and desktop screens.
      */
     const outputScale = window.devicePixelRatio || 1;
 
@@ -154,6 +176,14 @@ export class PdfViewerComponent implements AfterViewInit, OnDestroy {
     if (this.pdfDocument) {
       this.pdfDocument.destroy();
       this.pdfDocument = null;
+    }
+
+    /*
+     * Release the temporary Blob URL.
+     */
+    if (this.pdfObjectUrl) {
+      URL.revokeObjectURL(this.pdfObjectUrl);
+      this.pdfObjectUrl = null;
     }
   }
 }
