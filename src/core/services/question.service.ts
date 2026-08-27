@@ -13,7 +13,6 @@ import { PowerEngine } from '../engines/power.engine';
 import { ConversionEngine } from '../engines/conversion.engine';
 import { PolityEngine } from '../engines/polity.engine';
 import { VocabularyEngine } from '../engines/vocabulary.engine';
-import { BookmarkEngine } from '../engines/bookmark.engine';
 
 @Injectable({
   providedIn: 'root',
@@ -46,7 +45,6 @@ export class QuestionService {
     private conversionEngine: ConversionEngine,
     private polityEngine: PolityEngine,
     private vocabularyEngine: VocabularyEngine,
-    private bookmarkEngine: BookmarkEngine,
   ) {}
 
   nextQuestion() {
@@ -193,6 +191,5 @@ export class QuestionService {
     this.conversionEngine.reset();
     this.polityEngine.reset();
     this.vocabularyEngine.reset();
-    this.bookmarkEngine.reset();
   }
 }
