@@ -13,7 +13,6 @@ import { Article } from '../../../core/models/article.model';
 import { StateService } from '../../../core/services/state.service';
 import { PracticeMode } from '../../../core/enums/practice-mode.enum';
 import { BookmarkService } from '../../../core/services/bookmark.service';
-import { IdService } from '../../../utils/id.service';
 
 @Component({
   selector: 'app-polity-reference',
@@ -27,7 +26,6 @@ export class PolityReferenceComponent {
   private polityEngine = inject(PolityEngine);
   private stateService = inject(StateService);
   private bookmarkService = inject(BookmarkService);
-  private idService = inject(IdService);
 
   referenceTab = input<'all' | 'bookmark'>();
   count = output<{
@@ -83,7 +81,7 @@ export class PolityReferenceComponent {
 
   async toggleBookmark(article: Article): Promise<void> {
     const entry = {
-      id: this.getQuestionId(article),
+      id: article.id,
       mode: this.mode,
       question: article,
     };
@@ -91,13 +89,7 @@ export class PolityReferenceComponent {
     this.bookmarkService.toggle(entry);
   }
 
-  private getQuestionId(article: Article): string {
-    return this.mode === PracticeMode.ArticleToTitle
-      ? this.idService.getQuestionId(article.article)
-      : this.idService.getQuestionId(article.title);
-  }
-
-  isBookmarked(question: Article): boolean {
-    return this.bookmarkService.isBookmarked(this.getQuestionId(question));
+  isBookmarked(article: Article): boolean {
+    return this.bookmarkService.isBookmarked(article.id);
   }
 }

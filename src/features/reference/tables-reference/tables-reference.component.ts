@@ -13,7 +13,6 @@ import { StateService } from '../../../core/services/state.service';
 import { TableQuestion } from '../../../core/models/table-question.model';
 import { PracticeMode } from '../../../core/enums/practice-mode.enum';
 import { BookmarkService } from '../../../core/services/bookmark.service';
-import { IdService } from '../../../utils/id.service';
 
 interface TableReference {
   table: number;
@@ -31,7 +30,6 @@ export class TablesReferenceComponent {
   private tablesEngine = inject(TablesEngine);
   private stateService = inject(StateService);
   private bookmarkService = inject(BookmarkService);
-  private idService = inject(IdService);
 
   private refreshBookmarks = signal(0);
 
@@ -89,24 +87,18 @@ export class TablesReferenceComponent {
       }));
   }
 
-  async toggleBookmark(question: TableQuestion): Promise<void> {
+  async toggleBookmark(table: TableQuestion): Promise<void> {
     const entry = {
-      id: this.idService.getQuestionId(
-        `${question.table} × ${question.multiplier}`,
-      ),
+      id: table.id,
       mode: this.mode,
-      question,
+      question: table,
     };
 
     await this.bookmarkService.toggle(entry);
     this.refreshBookmarks.update((v) => v + 1);
   }
 
-  isBookmarked(question: TableQuestion): boolean {
-    return this.bookmarkService.isBookmarked(
-      this.idService.getQuestionId(
-        `${question.table} × ${question.multiplier}`,
-      ),
-    );
+  isBookmarked(table: TableQuestion): boolean {
+    return this.bookmarkService.isBookmarked(table.id);
   }
 }

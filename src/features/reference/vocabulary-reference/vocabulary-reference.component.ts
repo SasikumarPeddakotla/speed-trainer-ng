@@ -18,7 +18,6 @@ import { Idiom } from '../../../core/models/idiom.model';
 import { BookmarkService } from '../../../core/services/bookmark.service';
 
 import { ExampleFormatterService } from '../../../utils/example-formatter.service';
-import { IdService } from '../../../utils/id.service';
 import { PhrasalVerb } from '../../../core/models/phrasal-verb.model';
 
 @Component({
@@ -35,7 +34,6 @@ export class VocabularyReferenceComponent {
   private vocabularyEngine = inject(VocabularyEngine);
   private bookmarkService = inject(BookmarkService);
   public formatterService = inject(ExampleFormatterService);
-  private idService = inject(IdService);
 
   public PracticeMode = PracticeMode;
 
@@ -233,7 +231,7 @@ export class VocabularyReferenceComponent {
     question: Synonym | Antonym | OneWord | Idiom | PhrasalVerb,
   ): Promise<void> {
     const entry = {
-      id: this.getQuestionId(question),
+      id: question.id,
       mode: this.mode,
       question,
     };
@@ -241,33 +239,9 @@ export class VocabularyReferenceComponent {
     await this.bookmarkService.toggle(entry);
   }
 
-  private getQuestionId(
-    question: Synonym | Antonym | OneWord | Idiom | PhrasalVerb,
-  ): string {
-    switch (this.mode) {
-      case PracticeMode.Synonyms:
-        return this.idService.getQuestionId((question as Synonym).word);
-
-      case PracticeMode.Antonyms:
-        return this.idService.getQuestionId((question as Antonym).word);
-
-      case PracticeMode.OneWord:
-        return this.idService.getQuestionId((question as OneWord).phrase);
-
-      case PracticeMode.Idioms:
-        return this.idService.getQuestionId((question as Idiom).idiom);
-
-      case PracticeMode.PhrasalVerbs:
-        return this.idService.getQuestionId((question as PhrasalVerb).phrase);
-
-      default:
-        return '';
-    }
-  }
-
   isBookmarked(
     question: Synonym | Antonym | OneWord | Idiom | PhrasalVerb,
   ): boolean {
-    return this.bookmarkService.isBookmarked(this.getQuestionId(question));
+    return this.bookmarkService.isBookmarked(question.id);
   }
 }

@@ -11,7 +11,6 @@ import { StateService } from '../services/state.service';
 import { PracticeMode } from '../enums/practice-mode.enum';
 import { ExampleFormatterService } from '../../utils/example-formatter.service';
 import { DataService } from '../services/data.service';
-import { IdService } from '../../utils/id.service';
 import { BookmarkService } from '../services/bookmark.service';
 import { PhrasalVerb } from '../models/phrasal-verb.model';
 
@@ -31,7 +30,6 @@ export class VocabularyEngine {
     private stateService: StateService,
     private formatterService: ExampleFormatterService,
     private dataService: DataService,
-    private idService: IdService,
     private bookmarkService: BookmarkService,
   ) {}
 
@@ -47,7 +45,7 @@ export class VocabularyEngine {
       .filter((s) => s.partsOfSpeech === synonym.partsOfSpeech);
 
     return {
-      id: this.idService.getQuestionId(synonym.word),
+      id: synonym.id,
       question: pair.question,
 
       answer: pair.answer,
@@ -130,7 +128,7 @@ export class VocabularyEngine {
       .filter((a) => a.partsOfSpeech === antonym.partsOfSpeech);
 
     return {
-      id: this.idService.getQuestionId(antonym.word),
+      id: antonym.id,
       question: pair.question,
 
       answer: pair.answer,
@@ -211,7 +209,7 @@ export class VocabularyEngine {
       .filter((o) => o.partsOfSpeech === oneWord.partsOfSpeech);
 
     return {
-      id: this.idService.getQuestionId(oneWord.phrase),
+      id: oneWord.id,
       question: oneWord.phrase,
 
       answer: oneWord.word,
@@ -283,7 +281,7 @@ export class VocabularyEngine {
 
   createIdiomQuestion(idiom: Idiom): Question<Idiom> {
     return {
-      id: this.idService.getQuestionId(idiom.idiom),
+      id: idiom.id,
       question: idiom.idiom,
 
       answer: idiom.option,
@@ -368,7 +366,7 @@ export class VocabularyEngine {
     );
 
     return {
-      id: this.idService.getQuestionId(phrasalVerb.phrase),
+      id: phrasalVerb.id,
       question: phrasalVerb.phrase,
 
       answer: phrasalVerb.meaning[randomIndex],

@@ -5,7 +5,7 @@ import { StorageService } from './storage.service';
 import { BookmarkEntry } from '../models/bookmark-entry.model';
 import { DialogService } from './dialog.service';
 import { SnackbarService } from './snackbar.service';
-import { IdService } from '../../utils/id.service';
+import { StateService } from './state.service';
 
 interface BookmarkStorage {
   version: number;
@@ -20,7 +20,7 @@ export class BookmarkService {
     private storageService: StorageService,
     private dialogService: DialogService,
     private snackbarService: SnackbarService,
-    private idService: IdService,
+    private stateService: StateService,
   ) {
     this.load();
   }
@@ -53,7 +53,7 @@ export class BookmarkService {
   }
 
   private getExerciseKey(): string {
-    return this.idService.getExerciseKey();
+    return this.stateService.navigation().selectedExercise!.mode;
   }
 
   private getList(exerciseKey: string): BookmarkEntry[] {

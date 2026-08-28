@@ -2,7 +2,6 @@ import { inject, Injectable } from '@angular/core';
 import { RandomService } from '../../utils/random.service';
 import { Question } from '../models/question.model';
 import { Article } from '../models/article.model';
-import { IdService } from '../../utils/id.service';
 import { StateService } from '../services/state.service';
 import { BookmarkService } from '../services/bookmark.service';
 import { DataService } from '../services/data.service';
@@ -15,7 +14,6 @@ export class PolityEngine {
   private articles: Article[] = [];
 
   constructor(
-    private idService: IdService,
     private stateService: StateService,
     private bookmarkService: BookmarkService,
     private dataService: DataService,
@@ -28,7 +26,7 @@ export class PolityEngine {
 
   createArticleToTitleQuestion(article: Article): Question<Article> {
     return {
-      id: this.idService.getQuestionId(article.article),
+      id: article.id,
       question: `Article ${article.article}`,
       answer: article.title,
       options: this.randomService.buildOptions(
@@ -51,7 +49,7 @@ export class PolityEngine {
 
   createTitleToArticleQuestion(article: Article): Question<Article> {
     return {
-      id: this.idService.getQuestionId(article.title),
+      id: article.id,
       question: article.title,
       answer: `Article ${article.article}`,
       options: this.randomService.buildOptions(

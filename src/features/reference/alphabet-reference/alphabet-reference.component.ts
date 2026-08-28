@@ -14,8 +14,6 @@ import { Alphabet } from '../../../core/models/alphabet.model';
 import { PracticeMode } from '../../../core/enums/practice-mode.enum';
 import { StateService } from '../../../core/services/state.service';
 import { BookmarkService } from '../../../core/services/bookmark.service';
-import { IdService } from '../../../utils/id.service';
-import { DataService } from '../../../core/services/data.service';
 
 @Component({
   selector: 'app-alphabet-reference',
@@ -36,7 +34,6 @@ export class AlphabetReferenceComponent {
   private alphabetEngine = inject(AlphabetEngine);
   private stateService = inject(StateService);
   private bookmarkService = inject(BookmarkService);
-  private idService = inject(IdService);
 
   protected readonly mode = this.stateService.navigation().selectedExercise
     ?.mode as PracticeMode;
@@ -68,7 +65,7 @@ export class AlphabetReferenceComponent {
 
   async toggleBookmark(alphabet: Alphabet): Promise<void> {
     const entry = {
-      id: this.getQuestionId(alphabet),
+      id: alphabet.id,
       mode: this.mode,
       question: alphabet,
     };
@@ -77,26 +74,6 @@ export class AlphabetReferenceComponent {
   }
 
   isBookmarked(alphabet: Alphabet): boolean {
-    return this.bookmarkService.isBookmarked(this.getQuestionId(alphabet));
-  }
-
-  private getQuestionId(alphabet: Alphabet): string {
-    switch (this.mode) {
-      case PracticeMode.LetterToPosition:
-        return this.idService.getQuestionId(alphabet.letter);
-      case PracticeMode.PositionToLetter:
-        return this.idService.getQuestionId(alphabet.position);
-
-      case PracticeMode.LetterToReversePosition:
-        return this.idService.getQuestionId(alphabet.letter);
-      case PracticeMode.ReversePositionToLetter:
-        return this.idService.getQuestionId(alphabet.reversePosition);
-
-      case PracticeMode.MirrorLetter:
-        return this.idService.getQuestionId(alphabet.letter);
-
-      default:
-        return '';
-    }
+    return this.bookmarkService.isBookmarked(alphabet.id);
   }
 }

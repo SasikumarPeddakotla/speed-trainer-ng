@@ -4,7 +4,6 @@ import { StateService } from '../services/state.service';
 import { RandomService } from '../../utils/random.service';
 import { Question } from '../models/question.model';
 import { PracticeMode } from '../enums/practice-mode.enum';
-import { IdService } from '../../utils/id.service';
 import { BookmarkService } from '../services/bookmark.service';
 import { DataService } from '../services/data.service';
 
@@ -17,7 +16,6 @@ export class ConversionEngine {
 
   constructor(
     private stateService: StateService,
-    private idService: IdService,
     private bookmarkService: BookmarkService,
     private dataService: DataService,
   ) {}
@@ -70,7 +68,7 @@ export class ConversionEngine {
     answerKey: keyof FractionConversion,
   ): Question<FractionConversion> {
     return {
-      id: this.idService.getQuestionId(conversion[questionKey]),
+      id: conversion.id,
       question:
         conversion[questionKey] + (questionKey === 'percentage' ? '%' : ''),
       answer: conversion[answerKey],
