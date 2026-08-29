@@ -50,21 +50,23 @@
    ======================================== */
 
 .reference-table th {
-  padding: 13px 12px;
+  padding: 12px 14px;
 
   background: var(--app-surface-muted);
 
-  color: var(--app-text-secondary);
+  color: var(--app-text-muted);
 
   border-bottom: 1px solid var(--app-border);
 
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
 
   text-align: center;
 
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
+
+  white-space: nowrap;
 }
 
 .reference-table th:first-child {
@@ -84,7 +86,7 @@
    ======================================== */
 
 .reference-table td {
-  padding: 14px 12px;
+  padding: 15px 14px;
 
   border-bottom: 1px solid var(--app-border-light);
 
@@ -92,19 +94,66 @@
 
   color: var(--app-text-primary);
 
-  font-size: 16px;
+  font-size: 15px;
+  font-weight: 500;
+
+  line-height: 1.45;
 
   text-align: center;
 
-  transition: background 0.15s ease;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+/* First and second reference columns */
+.reference-table tbody tr:not(.expanded-row) td:nth-child(1) {
+  color: var(--app-primary);
+  font-weight: 650;
+}
+
+.reference-table tbody tr:not(.expanded-row) td:nth-child(2) {
+  color: var(--app-success);
+  font-weight: 650;
 }
 
 .reference-table tbody tr:last-child td {
   border-bottom: none;
 }
 
-.reference-table tbody tr:hover td {
+/* ========================================
+   Regular Rows
+   ======================================== */
+
+.reference-table tbody tr:not(.expanded-row):hover td {
   background: var(--app-surface-muted);
+}
+
+/* ========================================
+   Expandable Rows
+   ======================================== */
+
+.expandable-row {
+  cursor: pointer;
+}
+
+.expandable-row td {
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.expandable-row:hover td {
+  background: var(--app-surface-muted);
+}
+
+.expandable-row.expanded td {
+  background: var(--app-surface-muted);
+}
+
+/* Slightly stronger text for the first/main column */
+.expandable-row td:first-child {
+  font-weight: 650;
 }
 
 /* ========================================
@@ -135,7 +184,7 @@
 
   color: var(--app-text-muted);
 
-  font-size: 21px;
+  font-size: 20px;
 
   line-height: 1;
 
@@ -150,7 +199,7 @@
 }
 
 .bookmark-btn:hover {
-  background: var(--app-surface-muted);
+  background: var(--app-surface);
 
   transform: scale(1.08);
 }
@@ -197,18 +246,6 @@
 }
 
 /* ========================================
-   Expandable Rows
-   ======================================== */
-
-.expandable-row {
-  cursor: pointer;
-}
-
-.expandable-row:hover td {
-  background: var(--app-surface-muted);
-}
-
-/* ========================================
    Expanded Content
    ======================================== */
 
@@ -231,8 +268,6 @@
   margin: 0 16px;
 
   padding: 16px 4px 18px;
-
-  border-top: 1px solid var(--app-border-light);
 }
 
 /* ========================================
@@ -424,37 +459,53 @@
 @media (max-width: 600px) {
   :host {
     padding-top: 4px;
+    padding-bottom: 20px;
   }
 
   .reference-table-container {
-    padding-left: 0;
-    padding-right: 0;
+    padding: 0 0 6px;
   }
 
   .reference-table {
+    min-width: 360px;
+
     border-radius: var(--app-radius-md);
   }
 
   .reference-table th {
     padding: 11px 9px;
 
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .reference-table td {
-    padding: 12px 8px;
+    padding: 13px 9px;
+
+    font-size: 14px;
+  }
+
+  .reference-table tbody tr:not(.expanded-row) td:nth-child(1),
+  .reference-table tbody tr:not(.expanded-row) td:nth-child(2) {
+    font-size: 14px;
+    font-weight: 650;
   }
 
   .bookmark-cell {
     width: 48px;
+
+    padding: 6px !important;
   }
 
   .bookmark-btn {
     width: 32px;
     height: 32px;
 
-    font-size: 20px;
+    font-size: 19px;
   }
+
+  /* ========================================
+     Expanded Content
+     ======================================== */
 
   .expanded-details {
     gap: 14px;
@@ -462,6 +513,14 @@
     margin: 0 9px;
 
     padding: 14px 3px 16px;
+  }
+
+  .expanded-section {
+    gap: 4px;
+  }
+
+  .expanded-label {
+    font-size: 10px;
   }
 
   .expanded-value,
@@ -477,11 +536,23 @@
   .example-content,
   .origin-content {
     font-size: 12px;
+
+    line-height: 1.55;
+  }
+
+  .word-list {
+    gap: 5px;
   }
 
   .word-badge {
     padding: 4px 8px;
 
     font-size: 11px;
+  }
+
+  .part-of-speech {
+    padding: 3px 7px;
+
+    font-size: 10px;
   }
 }
