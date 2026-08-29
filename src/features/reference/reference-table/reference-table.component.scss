@@ -302,6 +302,12 @@
   overflow-wrap: anywhere;
 }
 
+.extra-row td {
+  padding: 5px 0px;
+  background: var(--app-background);
+  border: none;
+}
+
 /* ========================================
    Meaning
    ======================================== */
@@ -554,5 +560,11 @@
     padding: 3px 7px;
 
     font-size: 10px;
+  }
+
+  .extra-row td {
+    padding: 5px 0px;
+    background: var(--app-background);
+    border: none;
   }
 }
