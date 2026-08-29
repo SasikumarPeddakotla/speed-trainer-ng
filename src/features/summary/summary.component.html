@@ -34,7 +34,7 @@
 
         <div class="stat-content">
           <span class="stat-label">Accuracy</span>
-          <strong>{{ sessionService.accuracy() }}%</strong>
+          <strong>{{ sessionService.accuracy() }}</strong>
         </div>
       </div>
 
@@ -133,17 +133,18 @@
                   </div>
                 }
               </div>
-
-              <!-- Bookmark -->
-              <button
-                type="button"
-                class="bookmark-btn"
-                [class.bookmarked]="isBookmarked(attempt)"
-                (click)="toggleBookmark(attempt)"
-                aria-label="Toggle bookmark"
-              >
-                ★
-              </button>
+              @if (topic?.title !== 'Arithmetic'){
+                <!-- Bookmark -->
+                <button
+                  type="button"
+                  class="bookmark-btn"
+                  [class.bookmarked]="isBookmarked(attempt)"
+                  (click)="toggleBookmark(attempt)"
+                  aria-label="Toggle bookmark"
+                >
+                  ★
+                </button>
+              }
             </div>
           }
         </div>
