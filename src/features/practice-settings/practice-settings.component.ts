@@ -98,8 +98,8 @@ export class PracticeSettingsComponent {
     this.stateService.setCountdownDuration(value);
   }
 
-  setQuestionTarget(value: number | 'completeSet') {
-    if (value === 'completeSet') {
+  setQuestionTarget(value: number) {
+    if (value === 0) {
       this.stateService.setQuestionSelection('completeSet');
       this.stateService.setQuestionTarget(this.completeSetCount);
     } else {

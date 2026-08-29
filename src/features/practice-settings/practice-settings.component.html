@@ -62,7 +62,11 @@
             <div class="setting">
               <label>Questions</label>
               <select
-                [ngModel]="stateService.practice().questionTarget"
+                [ngModel]="
+                  stateService.practice().questionSelection === 'completeSet'
+                    ? 0
+                    : stateService.practice().questionTarget
+                "
                 (ngModelChange)="setQuestionTarget($event)"
               >
                 <option [ngValue]="10">10</option>
@@ -71,7 +75,7 @@
                 <option [ngValue]="50">50</option>
 
                 @if (selectedTopic?.title !== "Arithmetic") {
-                  <option [ngValue]="'completeSet'">
+                  <option [ngValue]="0">
                     Complete set ({{ completeSetCount }})
                   </option>
                 }
@@ -82,7 +86,10 @@
       }
 
       <!-- Exercise Settings -->
-      @if (referenceView === "All") {
+      @if (
+        referenceView === "All" &&
+        stateService.practice().questionSelection !== "completeSet"
+      ) {
         <div class="section exercise-settings-section">
           <app-exercise-settings />
         </div>
