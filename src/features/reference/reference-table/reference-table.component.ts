@@ -28,6 +28,10 @@ export class ReferenceTableComponent {
 
   private readonly expandedRows = signal<Set<string>>(new Set());
 
+  private readonly revealedRows = signal<Set<string>>(new Set());
+
+  private readonly allRevealed = signal(false);
+
   isExpanded(row: ReferenceData): boolean {
     return this.expandedRows().has(row.id);
   }
@@ -64,5 +68,38 @@ export class ReferenceTableComponent {
     const value = this.getValue(row, key);
 
     return Array.isArray(value) ? value.map(String) : [];
+  }
+
+  isSecondColumnRevealed(row: ReferenceData): boolean {
+    return this.allRevealed() || this.revealedRows().has(row.id);
+  }
+
+  toggleSecondColumn(row: ReferenceData, event?: MouseEvent): void {
+    event?.stopPropagation();
+
+    this.revealedRows.update((revealed) => {
+      const next = new Set(revealed);
+
+      if (next.has(row.id)) {
+        next.delete(row.id);
+      } else {
+        next.add(row.id);
+      }
+
+      return next;
+    });
+  }
+
+  toggleAllSecondColumn(event: MouseEvent): void {
+    event.stopPropagation();
+
+    this.allRevealed.update((revealed) => !revealed);
+
+    // Clear individual states when using the header toggle.
+    this.revealedRows.set(new Set());
+  }
+
+  isAllSecondColumnRevealed(): boolean {
+    return this.allRevealed();
   }
 }

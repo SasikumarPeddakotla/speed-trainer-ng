@@ -3,8 +3,34 @@
     <table class="reference-table">
       <thead>
         <tr>
-          @for (column of columns(); track column.key) {
-            <th>{{ column.header }}</th>
+          @for (column of columns(); track column.key; let i = $index) {
+            <th>
+              @if (i === 1) {
+                <div class="second-column-header">
+                  <span>{{ column.header }}</span>
+
+                  <button
+                    type="button"
+                    class="visibility-btn"
+                    [class.revealed]="isAllSecondColumnRevealed()"
+                    [attr.aria-label]="
+                      isAllSecondColumnRevealed()
+                        ? 'Hide all answers'
+                        : 'Show all answers'
+                    "
+                    (click)="toggleAllSecondColumn($event)"
+                  >
+                    @if (isAllSecondColumnRevealed()) {
+                      👁
+                    } @else {
+                      🙈
+                    }
+                  </button>
+                </div>
+              } @else {
+                {{ column.header }}
+              }
+            </th>
           }
 
           <th class="bookmark-header" aria-label="Bookmark"></th>
@@ -19,9 +45,25 @@
             [class.expanded]="isExpanded(row)"
             (click)="toggleExpanded(row)"
           >
-            @for (column of columns(); track column.key) {
+            @for (column of columns(); track column.key; let i = $index) {
               <td>
-                {{ getValue(row, column.key) }}
+                @if (i === 1) {
+                  <button
+                    type="button"
+                    class="answer-value"
+                    [class.blurred]="!isSecondColumnRevealed(row)"
+                    [attr.aria-label]="
+                      isSecondColumnRevealed(row)
+                        ? 'Hide answer'
+                        : 'Reveal answer'
+                    "
+                    (click)="toggleSecondColumn(row, $event)"
+                  >
+                    {{ getValue(row, column.key) }}
+                  </button>
+                } @else {
+                  {{ getValue(row, column.key) }}
+                }
               </td>
             }
 
@@ -152,6 +194,7 @@
                 </div>
               </td>
             </tr>
+
             <tr class="extra-row">
               <td [attr.colspan]="columns().length + 1"></td>
             </tr>
