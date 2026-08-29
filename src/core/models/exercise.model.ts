@@ -11,4 +11,16 @@ export interface Exercise {
 
   implemented: boolean;
   settings: SettingType[];
+
+  referenceColumns?: {
+    header: string;
+    key: string;
+  }[];
+
+  referenceExpandable?: boolean;
+
+  referenceExpandedColumns?: {
+    header: string;
+    key: string;
+  }[];
 }

@@ -5,7 +5,7 @@ import { Theme } from '../../../core/enums/theme.enum';
 import { StateService } from '../../../core/services/state.service';
 
 @Component({
-  selector: 'app-number-system-reference',
+  selector: 'app-notes-reference',
   imports: [PdfViewerComponent],
   templateUrl: './notes-reference.component.html',
   styleUrl: './notes-reference.component.scss',

@@ -1,0 +1,487 @@
+:host {
+  display: block;
+
+  padding: 8px 0 24px;
+}
+
+/* ========================================
+   Table Container
+   ======================================== */
+
+.reference-table-container {
+  width: 100%;
+
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  overflow-x: auto;
+
+  padding: 0 2px 8px;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ========================================
+   Table
+   ======================================== */
+
+.reference-table {
+  width: 100%;
+
+  min-width: 390px;
+
+  border-collapse: separate;
+  border-spacing: 0;
+
+  overflow: hidden;
+
+  border: 1px solid var(--app-border);
+
+  border-radius: var(--app-radius-lg);
+
+  background: var(--app-surface);
+
+  box-shadow: var(--app-shadow-sm);
+}
+
+/* ========================================
+   Header
+   ======================================== */
+
+.reference-table th {
+  padding: 13px 12px;
+
+  background: var(--app-surface-muted);
+
+  color: var(--app-text-secondary);
+
+  border-bottom: 1px solid var(--app-border);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  text-align: center;
+
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.reference-table th:first-child {
+  border-top-left-radius: var(--app-radius-lg);
+}
+
+.reference-table th:last-child {
+  border-top-right-radius: var(--app-radius-lg);
+}
+
+.bookmark-header {
+  width: 54px;
+}
+
+/* ========================================
+   Cells
+   ======================================== */
+
+.reference-table td {
+  padding: 14px 12px;
+
+  border-bottom: 1px solid var(--app-border-light);
+
+  background: var(--app-surface);
+
+  color: var(--app-text-primary);
+
+  font-size: 16px;
+
+  text-align: center;
+
+  transition: background 0.15s ease;
+}
+
+.reference-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.reference-table tbody tr:hover td {
+  background: var(--app-surface-muted);
+}
+
+/* ========================================
+   Bookmark
+   ======================================== */
+
+.bookmark-cell {
+  width: 54px;
+
+  padding: 8px !important;
+}
+
+.bookmark-btn {
+  width: 34px;
+  height: 34px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: transparent;
+
+  color: var(--app-text-muted);
+
+  font-size: 21px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    color 0.15s ease;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+.bookmark-btn:hover {
+  background: var(--app-surface-muted);
+
+  transform: scale(1.08);
+}
+
+.bookmark-btn:active {
+  transform: scale(0.92);
+}
+
+.bookmark-btn.bookmarked {
+  color: #f4b400;
+}
+
+/* ========================================
+   Empty State
+   ======================================== */
+
+.no-data {
+  min-height: 220px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0;
+
+  color: var(--app-text-secondary);
+
+  text-align: center;
+}
+
+.no-data-icon {
+  margin-bottom: 8px;
+
+  font-size: 34px;
+
+  opacity: 0.65;
+}
+
+.no-data p {
+  margin: 0;
+
+  font-size: 14px;
+}
+
+/* ========================================
+   Expandable Rows
+   ======================================== */
+
+.expandable-row {
+  cursor: pointer;
+}
+
+.expandable-row:hover td {
+  background: var(--app-surface-muted);
+}
+
+/* ========================================
+   Expanded Content
+   ======================================== */
+
+.expanded-row td {
+  padding: 0 !important;
+
+  background: var(--app-surface);
+}
+
+.expanded-content {
+  text-align: left !important;
+}
+
+.expanded-details {
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+
+  margin: 0 16px;
+
+  padding: 16px 4px 18px;
+
+  border-top: 1px solid var(--app-border-light);
+}
+
+/* ========================================
+   Generic Section
+   ======================================== */
+
+.expanded-section {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.expanded-label {
+  color: var(--app-text-muted);
+
+  font-size: 11px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.expanded-value {
+  color: var(--app-text-primary);
+
+  font-size: 14px;
+
+  line-height: 1.55;
+
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* ========================================
+   Meaning
+   ======================================== */
+
+.expanded-section:has(.expanded-value) {
+  // Keep generic fields clean and readable.
+}
+
+/* ========================================
+   Synonyms / Antonyms
+   ======================================== */
+
+.word-list {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 6px;
+}
+
+.word-badge {
+  padding: 5px 9px;
+
+  border: 1px solid var(--app-border);
+
+  border-radius: 999px;
+
+  background: var(--app-surface-muted);
+
+  color: var(--app-text-primary);
+
+  font-size: 12px;
+  font-weight: 600;
+
+  line-height: 1.3;
+}
+
+/* ========================================
+   Example
+   ======================================== */
+
+.example-section {
+  padding: 11px 14px;
+
+  border-left: 3px solid var(--app-primary);
+
+  border-radius: 0 var(--app-radius-sm) var(--app-radius-sm) 0;
+
+  background: var(--app-surface-muted);
+}
+
+.example-section .expanded-label {
+  color: var(--app-primary);
+}
+
+.example-content {
+  color: var(--app-text-secondary);
+
+  font-size: 13px;
+
+  line-height: 1.6;
+
+  font-style: italic;
+
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* ========================================
+   Origin
+   ======================================== */
+
+.origin-section {
+  padding: 11px 14px;
+
+  border-left: 3px solid #f59e0b;
+
+  border-radius: 0 var(--app-radius-sm) var(--app-radius-sm) 0;
+
+  background: var(--app-warning-bg);
+}
+
+.origin-section .expanded-label {
+  color: #b45309;
+}
+
+.origin-content {
+  color: var(--app-text-secondary);
+
+  font-size: 13px;
+
+  line-height: 1.6;
+
+  font-style: italic;
+
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* ========================================
+   Part of Speech
+   ======================================== */
+
+.compact-section {
+  flex-direction: row;
+  align-items: center;
+
+  gap: 9px;
+}
+
+.compact-section .expanded-label {
+  flex-shrink: 0;
+}
+
+.part-of-speech {
+  width: fit-content;
+
+  padding: 3px 8px;
+
+  border-radius: 999px;
+
+  background: #eff6ff;
+
+  color: var(--app-primary);
+
+  font-size: 11px;
+  font-weight: 650;
+
+  line-height: 1.3;
+
+  white-space: nowrap;
+}
+
+/* ========================================
+   Phrase
+   ======================================== */
+
+.phrase-content {
+  color: var(--app-text-secondary);
+
+  font-size: 14px;
+
+  line-height: 1.55;
+
+  font-style: italic;
+
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* ========================================
+   Mobile
+   ======================================== */
+
+@media (max-width: 600px) {
+  :host {
+    padding-top: 4px;
+  }
+
+  .reference-table-container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .reference-table {
+    border-radius: var(--app-radius-md);
+  }
+
+  .reference-table th {
+    padding: 11px 9px;
+
+    font-size: 11px;
+  }
+
+  .reference-table td {
+    padding: 12px 8px;
+  }
+
+  .bookmark-cell {
+    width: 48px;
+  }
+
+  .bookmark-btn {
+    width: 32px;
+    height: 32px;
+
+    font-size: 20px;
+  }
+
+  .expanded-details {
+    gap: 14px;
+
+    margin: 0 9px;
+
+    padding: 14px 3px 16px;
+  }
+
+  .expanded-value,
+  .phrase-content {
+    font-size: 13px;
+  }
+
+  .example-section,
+  .origin-section {
+    padding: 10px 12px;
+  }
+
+  .example-content,
+  .origin-content {
+    font-size: 12px;
+  }
+
+  .word-badge {
+    padding: 4px 8px;
+
+    font-size: 11px;
+  }
+}

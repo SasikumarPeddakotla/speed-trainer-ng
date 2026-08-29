@@ -30,8 +30,8 @@ export class TablesEngine {
   createQuestion(question: TableQuestion): Question<TableQuestion> {
     return {
       id: question.id,
-      question: `${question.table} × ${question.multiplier}`,
-      answer: String(question.table * question.multiplier),
+      question: question.expression,
+      answer: String(question.result),
       data: question,
       inputType: 'number',
       displayType: 'symbol',
@@ -81,12 +81,16 @@ export class TablesEngine {
 
     const allTables = this.dataService.getTables();
 
-    const questions = allTables.filter(
-      (question) =>
-        tables.includes(question.table) &&
-        question.multiplier >= 2 &&
-        question.multiplier <= multiplierLimit,
-    );
+    const questions = allTables.filter((question) => {
+      const [tableString, multiplierString] = question.expression.split('×');
+      const table = Number(tableString);
+      const multiplier = Number(multiplierString);
+      return (
+        tables.includes(table) &&
+        multiplier >= 2 &&
+        multiplier <= multiplierLimit
+      );
+    });
 
     this.questions = this.randomService.shuffle(questions);
   }

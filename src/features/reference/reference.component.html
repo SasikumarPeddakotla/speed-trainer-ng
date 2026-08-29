@@ -22,7 +22,7 @@
               (click)="showQuestions('all')"
             >
               <span>All</span>
-              <span class="count">{{ counts.allCount }}</span>
+              <span class="count">{{ counts().allCount }}</span>
             </button>
 
             @if (referenceTab() === "all") {
@@ -57,7 +57,9 @@
               (click)="showQuestions('bookmark')"
             >
               <span>Bookmarks</span>
-              <span class="count">{{ counts.bookmarkCount }}</span>
+              <span class="count">
+                {{ counts().bookmarkCount }}
+              </span>
             </button>
 
             @if (referenceTab() === "bookmark") {
@@ -86,98 +88,55 @@
       }
 
       <!-- Search -->
-      @if (topic?.route === "vocabulary" || topic?.route === "polity") {
-        <div class="search-wrapper">
-          <span class="search-icon">⌕</span>
+      <div class="search-wrapper">
+        <span class="search-icon">⌕</span>
 
-          <input
-            class="search-box"
-            type="text"
-            placeholder="Search questions..."
-            [value]="searchText()"
-            (input)="searchText.set($any($event.target).value)"
-          />
-        </div>
-      }
+        <input
+          class="search-box"
+          type="text"
+          placeholder="Search..."
+          [value]="searchText()"
+          (input)="searchText.set($any($event.target).value)"
+        />
+      </div>
     </header>
 
     <!-- Reference Content -->
     <section class="reference-content">
-      @switch (topic?.route) {
-        @case ("alphabet") {
-          <app-alphabet-reference
-            [referenceTab]="referenceTab()"
-            (count)="onCountChange($event)"
-          />
-        }
+      @if (topic?.route === "notes") {
+        <app-notes-reference />
+      } @else if (referenceRows().length > 0) {
+        <app-reference-table
+          [columns]="exercise?.referenceColumns ?? []"
+          [rows]="referenceRows()"
+          [expandable]="exercise?.referenceExpandable ?? false"
+          [expandedColumns]="exercise?.referenceExpandedColumns ?? []"
+          [isBookmarked]="isBookmarked"
+          (bookmarkToggle)="toggleBookmark($event)"
+        />
+      } @else {
+        <div class="no-reference">
+          <div class="no-reference-icon">📖</div>
 
-        @case ("vocabulary") {
-          <app-vocabulary-reference
-            [searchText]="searchText()"
-            [referenceTab]="referenceTab()"
-            (count)="onCountChange($event)"
-          />
-        }
-
-        @case ("tables") {
-          <app-tables-reference
-            [referenceTab]="referenceTab()"
-            (count)="onCountChange($event)"
-          />
-        }
-
-        @case ("powers") {
-          <app-power-reference
-            [referenceTab]="referenceTab()"
-            (count)="onCountChange($event)"
-          />
-        }
-
-        @case ("conversions") {
-          <app-conversion-reference
-            [referenceTab]="referenceTab()"
-            (count)="onCountChange($event)"
-          />
-        }
-
-        @case ("polity") {
-          <app-polity-reference
-            [searchText]="searchText()"
-            [referenceTab]="referenceTab()"
-            (count)="onCountChange($event)"
-          />
-        }
-
-        @case ("notes") {
-          <app-number-system-reference></app-number-system-reference>
-        }
-
-        @default {
-          <div class="no-reference">
-            <div class="no-reference-icon">📖</div>
-
-            <p>No reference available.</p>
-          </div>
-        }
+          <p>No reference available.</p>
+        </div>
       }
     </section>
 
     <!-- Practice -->
     @if (
-      (referenceTab() === "all" && counts.allCount > 0) ||
+      (referenceTab() === "all" && counts().allCount > 0) ||
       topic?.title === "Arithmetic"
     ) {
       <button type="button" class="practice-btn" (click)="practice()">
         <span class="practice-icon">▶</span>
-
         <span>Practice</span>
       </button>
     }
 
-    @if (referenceTab() === "bookmark" && counts.bookmarkCount > 0) {
+    @if (referenceTab() === "bookmark" && counts().bookmarkCount > 0) {
       <button type="button" class="practice-btn" (click)="practice()">
         <span class="practice-icon">▶</span>
-
         <span>Practice Bookmarks</span>
       </button>
     }

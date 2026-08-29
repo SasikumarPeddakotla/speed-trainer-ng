@@ -1,0 +1,166 @@
+@if (rows().length > 0) {
+  <div class="reference-table-container">
+    <table class="reference-table">
+      <thead>
+        <tr>
+          @for (column of columns(); track column.key) {
+            <th>{{ column.header }}</th>
+          }
+
+          <th class="bookmark-header" aria-label="Bookmark"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (row of rows(); track row.id) {
+          <!-- Main row -->
+          <tr
+            [class.expandable-row]="expandable()"
+            [class.expanded]="isExpanded(row)"
+            (click)="toggleExpanded(row)"
+          >
+            @for (column of columns(); track column.key) {
+              <td>
+                {{ getValue(row, column.key) }}
+              </td>
+            }
+
+            <td class="bookmark-cell">
+              <button
+                type="button"
+                class="bookmark-btn"
+                [class.bookmarked]="isBookmarked()(row)"
+                [attr.aria-label]="
+                  isBookmarked()(row) ? 'Remove bookmark' : 'Add bookmark'
+                "
+                (click)="onBookmarkToggle(row, $event)"
+              >
+                ★
+              </button>
+            </td>
+          </tr>
+
+          <!-- Expanded row -->
+          @if (expandable() && isExpanded(row)) {
+            <tr class="expanded-row">
+              <td
+                class="expanded-content"
+                [attr.colspan]="columns().length + 1"
+              >
+                <div class="expanded-details">
+                  @for (column of expandedColumns(); track column.key) {
+                    @switch (column.key) {
+                      @case ("example") {
+                        <div class="expanded-section example-section">
+                          <span class="expanded-label">
+                            {{ column.header }}
+                          </span>
+
+                          <div class="example-content">
+                            {{ getValue(row, column.key) }}
+                          </div>
+                        </div>
+                      }
+
+                      @case ("origin") {
+                        <div class="expanded-section origin-section">
+                          <span class="expanded-label">
+                            {{ column.header }}
+                          </span>
+
+                          <div class="origin-content">
+                            {{ getValue(row, column.key) }}
+                          </div>
+                        </div>
+                      }
+
+                      @case ("synonyms") {
+                        <div class="expanded-section">
+                          <span class="expanded-label">
+                            {{ column.header }}
+                          </span>
+
+                          <div class="word-list">
+                            @for (
+                              value of getArrayValue(row, column.key);
+                              track value
+                            ) {
+                              <span class="word-badge">
+                                {{ value }}
+                              </span>
+                            }
+                          </div>
+                        </div>
+                      }
+
+                      @case ("antonyms") {
+                        <div class="expanded-section">
+                          <span class="expanded-label">
+                            {{ column.header }}
+                          </span>
+
+                          <div class="word-list">
+                            @for (
+                              value of getArrayValue(row, column.key);
+                              track value
+                            ) {
+                              <span class="word-badge">
+                                {{ value }}
+                              </span>
+                            }
+                          </div>
+                        </div>
+                      }
+
+                      @case ("partsOfSpeech") {
+                        <div class="expanded-section compact-section">
+                          <span class="expanded-label">
+                            {{ column.header }}
+                          </span>
+
+                          <span class="part-of-speech">
+                            {{ getValue(row, column.key) }}
+                          </span>
+                        </div>
+                      }
+
+                      @case ("phrase") {
+                        <div class="expanded-section">
+                          <span class="expanded-label">
+                            {{ column.header }}
+                          </span>
+
+                          <div class="phrase-content">
+                            {{ getValue(row, column.key) }}
+                          </div>
+                        </div>
+                      }
+
+                      @default {
+                        <div class="expanded-section">
+                          <span class="expanded-label">
+                            {{ column.header }}
+                          </span>
+
+                          <div class="expanded-value">
+                            {{ getValue(row, column.key) }}
+                          </div>
+                        </div>
+                      }
+                    }
+                  }
+                </div>
+              </td>
+            </tr>
+          }
+        }
+      </tbody>
+    </table>
+  </div>
+} @else {
+  <div class="no-data">
+    <div class="no-data-icon">📖</div>
+
+    <p>No data available</p>
+  </div>
+}

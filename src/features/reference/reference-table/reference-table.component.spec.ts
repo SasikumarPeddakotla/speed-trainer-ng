@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TablesReferenceComponent } from './tables-reference.component';
+import { ReferenceTableComponent } from './reference-table.component';
 
-describe('TablesReferenceComponent', () => {
-  let component: TablesReferenceComponent;
-  let fixture: ComponentFixture<TablesReferenceComponent>;
+describe('ReferenceTableComponent', () => {
+  let component: ReferenceTableComponent;
+  let fixture: ComponentFixture<ReferenceTableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TablesReferenceComponent]
+      imports: [ReferenceTableComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TablesReferenceComponent);
+    fixture = TestBed.createComponent(ReferenceTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

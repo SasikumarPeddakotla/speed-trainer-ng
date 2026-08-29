@@ -18,6 +18,8 @@ import { SquareRoot } from '../models/square-root.model';
 import { Synonym } from '../models/synonym.model';
 import { TableQuestion } from '../models/table-question.model';
 
+import { ReferenceData } from '../models/reference-data.model';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -40,42 +42,68 @@ export class DataService {
   private readonly idioms = signal<Idiom[]>([]);
   private readonly phrasalVerbs = signal<PhrasalVerb[]>([]);
 
+  /**
+   * Reference data for the currently selected exercise.
+   *
+   * The actual type of the data can be Alphabet, Square, Synonym,
+   * TableQuestion, etc. All reference data has an id.
+   */
+  private readonly currentReferenceData = signal<ReferenceData[]>([]);
+
   constructor(private http: HttpClient) {}
 
   async preloadForMode(mode?: PracticeMode): Promise<void> {
     switch (mode) {
+      // ========================================
       // Alphabet
+      // ========================================
+
       case PracticeMode.LetterToPosition:
       case PracticeMode.PositionToLetter:
       case PracticeMode.LetterToReversePosition:
       case PracticeMode.ReversePositionToLetter:
       case PracticeMode.MirrorLetter:
         await this.loadAlphabets();
+        this.currentReferenceData.set(this.alphabets());
         break;
 
+      // ========================================
       // Tables
+      // ========================================
+
       case PracticeMode.Tables:
         await this.loadTables();
+        this.currentReferenceData.set(this.tables());
         break;
 
+      // ========================================
       // Powers
+      // ========================================
+
       case PracticeMode.Squares:
         await this.loadSquares();
+        this.currentReferenceData.set(this.squares());
         break;
 
       case PracticeMode.Cubes:
         await this.loadCubes();
+        this.currentReferenceData.set(this.cubes());
         break;
 
       case PracticeMode.SquareRoots:
         await this.loadSquareRoots();
+        this.currentReferenceData.set(this.squareRoots());
         break;
 
       case PracticeMode.CubeRoots:
         await this.loadCubeRoots();
+        this.currentReferenceData.set(this.cubeRoots());
         break;
 
+      // ========================================
       // Conversions
+      // ========================================
+
       case PracticeMode.FractionToDecimal:
       case PracticeMode.DecimalToFraction:
       case PracticeMode.FractionToPercentage:
@@ -83,38 +111,64 @@ export class DataService {
       case PracticeMode.DecimalToPercentage:
       case PracticeMode.PercentageToDecimal:
         await this.loadFractionConversions();
+        this.currentReferenceData.set(this.fractionConversions());
         break;
 
+      // ========================================
       // Polity
+      // ========================================
+
       case PracticeMode.ArticleToTitle:
       case PracticeMode.TitleToArticle:
         await this.loadArticles();
+        this.currentReferenceData.set(this.articles());
         break;
 
+      // ========================================
       // Vocabulary
+      // ========================================
+
       case PracticeMode.Synonyms:
         await this.loadSynonyms();
+        this.currentReferenceData.set(this.synonyms());
         break;
 
       case PracticeMode.Antonyms:
         await this.loadAntonyms();
+        this.currentReferenceData.set(this.antonyms());
         break;
 
       case PracticeMode.OneWord:
         await this.loadOneWords();
+        this.currentReferenceData.set(this.oneWords());
         break;
 
       case PracticeMode.Idioms:
         await this.loadIdioms();
+        this.currentReferenceData.set(this.idioms());
         break;
 
       case PracticeMode.PhrasalVerbs:
         await this.loadPhrasalVerbs();
+        this.currentReferenceData.set(this.phrasalVerbs());
         break;
 
+      // ========================================
+      // No reference data
+      // ========================================
+
       default:
+        this.currentReferenceData.set([]);
         break;
     }
+  }
+
+  // ========================================
+  // Current Reference Data
+  // ========================================
+
+  getCurrentReferenceData(): ReferenceData[] {
+    return this.currentReferenceData();
   }
 
   // ========================================
