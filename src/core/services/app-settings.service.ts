@@ -14,6 +14,7 @@ export class AppSettingsService {
 
   private readonly DEFAULT_SETTINGS: AppSettings = {
     theme: 'system',
+    sound: true,
   };
 
   private readonly _settings = signal<AppSettings>(this.loadSettings());
@@ -43,6 +44,15 @@ export class AppSettingsService {
     this.save();
 
     this.applyTheme(theme);
+  }
+
+  setSound(enabled: boolean): void {
+    this._settings.update((settings) => ({
+      ...settings,
+      sound: enabled,
+    }));
+
+    this.save();
   }
 
   private loadSettings(): AppSettings {

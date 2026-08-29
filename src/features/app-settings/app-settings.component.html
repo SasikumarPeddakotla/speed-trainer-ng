@@ -25,6 +25,32 @@
 </div>
 
 <div class="settings-section">
+  <h3>Practice</h3>
+
+  <div class="setting">
+    <label>Sound</label>
+
+    <div class="sound-selector">
+      <button
+        type="button"
+        [class.active]="appSettingsService.settings().sound"
+        (click)="appSettingsService.setSound(true)"
+      >
+        🔊 On
+      </button>
+
+      <button
+        type="button"
+        [class.active]="!appSettingsService.settings().sound"
+        (click)="appSettingsService.setSound(false)"
+      >
+        🔇 Off
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="settings-section">
   <h3>Data Management</h3>
 
   <button type="button" class="danger-btn" (click)="clearAllBookmarks()">

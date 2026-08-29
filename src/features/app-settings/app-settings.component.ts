@@ -4,6 +4,7 @@ import { BookmarkService } from '../../core/services/bookmark.service';
 import { DialogService } from '../../core/services/dialog.service';
 import { ThemeService } from '../../core/services/theme.service';
 import { Theme } from '../../core/enums/theme.enum';
+import { AppSettingsService } from '../../core/services/app-settings.service';
 
 @Component({
   selector: 'app-settings',
@@ -15,6 +16,7 @@ import { Theme } from '../../core/enums/theme.enum';
 export class AppSettingsComponent {
   private bookmarkService = inject(BookmarkService);
   private dialogService = inject(DialogService);
+  readonly appSettingsService = inject(AppSettingsService);
 
   readonly themeService = inject(ThemeService);
   readonly Theme = Theme;

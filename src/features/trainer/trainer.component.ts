@@ -21,6 +21,7 @@ import { BookmarkService } from '../../core/services/bookmark.service';
 import { DialogService } from '../../core/services/dialog.service';
 import { PracticeMode } from '../../core/enums/practice-mode.enum';
 import { InputType } from '../../core/enums/input-type.enum';
+import { SoundService } from '../../core/services/sound.service';
 
 @Component({
   selector: 'app-trainer',
@@ -91,6 +92,7 @@ export class TrainerComponent implements OnInit, OnDestroy {
     private router: Router,
     private bookmarkService: BookmarkService,
     private dialogService: DialogService,
+    private soundService: SoundService,
   ) {
     // Countdown session finished
     effect(() => {
@@ -252,6 +254,7 @@ export class TrainerComponent implements OnInit, OnDestroy {
 
     if (correct) {
       this.sessionService.correct();
+      this.soundService.playCorrect();
 
       this.inputState = 'correct';
 
@@ -277,6 +280,7 @@ export class TrainerComponent implements OnInit, OnDestroy {
 
     // Wrong answer
     this.sessionService.wrong();
+    this.soundService.playWrong();
 
     if (!this.questionService.temporaryPractice()) {
       this.sessionService.addToReviewQueue(question);
