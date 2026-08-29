@@ -24,6 +24,7 @@ export class SummaryComponent {
   private questionService = inject(QuestionService);
 
   readonly attemptFilter = signal<AttemptFilter>('all');
+  protected readonly topic = this.stateService.navigation().selectedTopic;
 
   constructor(public sessionService: SessionService) {}
 

@@ -92,10 +92,10 @@ export class SessionService {
     const total = session.correctCount + session.wrongCount;
 
     if (total === 0) {
-      return 100;
+      return "NA";
     }
 
-    return Math.round((session.correctCount / total) * 100);
+    return Math.round((session.correctCount / total) * 100)+"%";
   });
 
   readonly totalQuestions = computed(() => {
