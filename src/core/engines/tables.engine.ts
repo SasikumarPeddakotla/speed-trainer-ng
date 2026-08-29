@@ -85,11 +85,7 @@ export class TablesEngine {
       const [tableString, multiplierString] = question.expression.split('×');
       const table = Number(tableString);
       const multiplier = Number(multiplierString);
-      return (
-        tables.includes(table) &&
-        multiplier >= 2 &&
-        multiplier <= multiplierLimit
-      );
+      return tables.includes(table) && multiplier <= multiplierLimit;
     });
 
     this.questions = this.randomService.shuffle(questions);
