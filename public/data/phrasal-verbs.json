@@ -1,2322 +1,2390 @@
 [
   {
     "phrase": "abide by",
-    "meaning": ["to obey or follow a rule, agreement, or decision"],
-    "example": ["Everyone must abide by the rules of the organization."],
+    "meaning": "to obey or follow a rule, agreement, or decision",
+    "example": "Everyone must abide by the rules of the organization.",
     "id": "id-0001"
   },
   {
     "phrase": "account for",
-    "meaning": ["to explain or give a reason for something"],
-    "example": ["Can you account for your absence yesterday?"],
+    "meaning": "to explain or give a reason for something",
+    "example": "Can you account for your absence yesterday?",
     "id": "id-0002"
   },
   {
     "phrase": "act on",
-    "meaning": ["to take action based on information or advice"],
-    "example": ["The police acted on the information they received."],
+    "meaning": "to take action based on information or advice",
+    "example": "The police acted on the information they received.",
     "id": "id-0003"
   },
   {
     "phrase": "add up",
-    "meaning": ["to make sense or seem reasonable"],
-    "example": ["His explanation does not add up."],
+    "meaning": "to make sense or seem reasonable",
+    "example": "His explanation does not add up.",
     "id": "id-0004"
   },
   {
     "phrase": "aim at",
-    "meaning": ["to intend or try to achieve something"],
-    "example": ["The new policy aims at improving public safety."],
+    "meaning": "to intend or try to achieve something",
+    "example": "The new policy aims at improving public safety.",
     "id": "id-0005"
   },
   {
     "phrase": "answer for",
-    "meaning": ["to be responsible for something"],
-    "example": ["You will have to answer for your actions."],
+    "meaning": "to be responsible for something",
+    "example": "You will have to answer for your actions.",
     "id": "id-0006"
   },
   {
     "phrase": "ask for",
-    "meaning": ["to request something"],
-    "example": ["She asked for more time to complete the work."],
+    "meaning": "to request something",
+    "example": "She asked for more time to complete the work.",
     "id": "id-0007"
   },
   {
     "phrase": "back away",
-    "meaning": [
-      "To step backward away from something scary or unsafe",
-      "to stop supporting a plan or promise"
-    ],
-    "example": [
-      "The company refused to back away from its decision.",
-      "He backed away from the angry dog."
-    ],
-    "id": "id-0008"
+    "meaning": "To step backward away from something scary or unsafe",
+    "example": "The company refused to back away from its decision.",
+    "id": "id-0008-1"
+  },
+  {
+    "phrase": "back away",
+    "meaning": "to stop supporting a plan or promise",
+    "example": "He backed away from the angry dog.",
+    "id": "id-0008-2"
   },
   {
     "phrase": "back down",
-    "meaning": ["to withdraw from a position or argument"],
-    "example": ["He refused to back down during the argument."],
+    "meaning": "to withdraw from a position or argument",
+    "example": "He refused to back down during the argument.",
     "id": "id-0009"
   },
   {
     "phrase": "back out",
-    "meaning": ["to withdraw from an agreement or commitment"],
-    "example": ["He backed out of the deal at the last moment."],
+    "meaning": "to withdraw from an agreement or commitment",
+    "example": "He backed out of the deal at the last moment.",
     "id": "id-0010"
   },
   {
     "phrase": "back up",
-    "meaning": ["to support someone or something"],
-    "example": ["Her colleagues backed her up during the investigation."],
+    "meaning": "to support someone or something",
+    "example": "Her colleagues backed her up during the investigation.",
     "id": "id-0011"
   },
   {
     "phrase": "bear out",
-    "meaning": ["to confirm that something is true"],
-    "example": ["The evidence bears out his statement."],
+    "meaning": "to confirm that something is true",
+    "example": "The evidence bears out his statement.",
     "id": "id-0012"
   },
   {
     "phrase": "bear with",
-    "meaning": ["to be patient with someone or something"],
-    "example": ["Please bear with me while I check the details."],
+    "meaning": "to be patient with someone or something",
+    "example": "Please bear with me while I check the details.",
     "id": "id-0013"
   },
   {
     "phrase": "blow away",
-    "meaning": ["to impress someone greatly"],
-    "example": ["Her performance blew the audience away."],
+    "meaning": "to impress someone greatly",
+    "example": "Her performance blew the audience away.",
     "id": "id-0014"
   },
   {
     "phrase": "blow up",
-    "meaning": ["to explode", "to become extremely angry"],
-    "example": [
-      "The soldiers blew up the bridge.",
-      "The manager blew up when he saw the mistake."
-    ],
-    "id": "id-0015"
+    "meaning": "to explode",
+    "example": "The soldiers blew up the bridge.",
+    "id": "id-0015-1"
+  },
+  {
+    "phrase": "blow up",
+    "meaning": "to become extremely angry",
+    "example": "The manager blew up when he saw the mistake.",
+    "id": "id-0015-2"
   },
   {
     "phrase": "break away",
-    "meaning": ["to escape or separate from a group"],
-    "example": ["The runner broke away from the group."],
+    "meaning": "to escape or separate from a group",
+    "example": "The runner broke away from the group.",
     "id": "id-0016"
   },
   {
     "phrase": "break down",
-    "meaning": ["to stop working or functioning"],
-    "example": ["My car broke down on the way to work."],
+    "meaning": "to stop working or functioning",
+    "example": "My car broke down on the way to work.",
     "id": "id-0017"
   },
   {
     "phrase": "break into",
-    "meaning": [
-      "to enter a building by force",
-      "to begin suddenly or enter by force"
-    ],
-    "example": [
-      "Thieves broke into the house during the night.",
-      "The audience broke into applause."
-    ],
-    "id": "id-0018"
+    "meaning": "to enter a building by force",
+    "example": "Thieves broke into the house during the night.",
+    "id": "id-0018-1"
+  },
+  {
+    "phrase": "break into",
+    "meaning": "to begin suddenly or enter by force",
+    "example": "The audience broke into applause.",
+    "id": "id-0018-2"
   },
   {
     "phrase": "break out",
-    "meaning": ["to start suddenly, especially something unpleasant"],
-    "example": ["A fire broke out in the building."],
+    "meaning": "to start suddenly, especially something unpleasant",
+    "example": "A fire broke out in the building.",
     "id": "id-0019"
   },
   {
     "phrase": "break through",
-    "meaning": ["to overcome a barrier or achieve a major advance"],
-    "example": ["The scientists finally broke through the technical barrier."],
+    "meaning": "to overcome a barrier or achieve a major advance",
+    "example": "The scientists finally broke through the technical barrier.",
     "id": "id-0020"
   },
   {
     "phrase": "break up",
-    "meaning": ["to end a relationship or separate into parts"],
-    "example": ["The couple decided to break up."],
+    "meaning": "to end a relationship or separate into parts",
+    "example": "The couple decided to break up.",
     "id": "id-0021"
   },
   {
     "phrase": "bring about",
-    "meaning": ["to cause something to happen"],
-    "example": ["The new policy brought about significant changes."],
+    "meaning": "to cause something to happen",
+    "example": "The new policy brought about significant changes.",
     "id": "id-0022"
   },
   {
     "phrase": "bring back",
-    "meaning": [
-      "to return something",
-      "to cause someone to remember something"
-    ],
-    "example": [
-      "Please bring back the book tomorrow.",
-      "This song brings back many childhood memories."
-    ],
-    "id": "id-0023"
+    "meaning": "to return something",
+    "example": "Please bring back the book tomorrow.",
+    "id": "id-0023-1"
+  },
+  {
+    "phrase": "bring back",
+    "meaning": "to cause someone to remember something",
+    "example": "This song brings back many childhood memories.",
+    "id": "id-0023-2"
   },
   {
     "phrase": "bring down",
-    "meaning": ["to reduce something", "to cause something to fall"],
-    "example": [
-      "The government wants to bring down inflation.",
-      "The protesters brought down the statue."
-    ],
-    "id": "id-0024"
+    "meaning": "to reduce something",
+    "example": "The government wants to bring down inflation.",
+    "id": "id-0024-1"
+  },
+  {
+    "phrase": "bring down",
+    "meaning": "to cause something to fall",
+    "example": "The protesters brought down the statue.",
+    "id": "id-0024-2"
   },
   {
     "phrase": "bring forward",
-    "meaning": [
-      "to present something for consideration",
-      "to move something to an earlier time"
-    ],
-    "example": [
-      "The committee brought forward several suggestions.",
-      "The meeting was brought forward to Monday."
-    ],
-    "id": "id-0025"
+    "meaning": "to present something for consideration",
+    "example": "The committee brought forward several suggestions.",
+    "id": "id-0025-1"
+  },
+  {
+    "phrase": "bring forward",
+    "meaning": "to move something to an earlier time",
+    "example": "The meeting was brought forward to Monday.",
+    "id": "id-0025-2"
   },
   {
     "phrase": "bring in",
-    "meaning": ["to introduce or produce something"],
-    "example": ["The government brought in new regulations."],
+    "meaning": "to introduce or produce something",
+    "example": "The government brought in new regulations.",
     "id": "id-0026"
   },
   {
     "phrase": "bring out",
-    "meaning": ["to produce or publish something"],
-    "example": ["The company brought out a new product."],
+    "meaning": "to produce or publish something",
+    "example": "The company brought out a new product.",
     "id": "id-0027"
   },
   {
     "phrase": "bring up",
-    "meaning": ["to mention a subject", "to raise a child"],
-    "example": [
-      "She brought up an important issue during the meeting.",
-      "She was brought up by her grandparents."
-    ],
-    "id": "id-0028"
+    "meaning": "to mention a subject",
+    "example": "She brought up an important issue during the meeting.",
+    "id": "id-0028-1"
+  },
+  {
+    "phrase": "bring up",
+    "meaning": "to raise a child",
+    "example": "She was brought up by her grandparents.",
+    "id": "id-0028-2"
   },
   {
     "phrase": "brush aside",
-    "meaning": ["to dismiss or ignore something"],
-    "example": ["He brushed aside all criticism of his decision."],
+    "meaning": "to dismiss or ignore something",
+    "example": "He brushed aside all criticism of his decision.",
     "id": "id-0029"
   },
   {
     "phrase": "brush up",
-    "meaning": ["to improve or refresh one's knowledge or skill"],
-    "example": ["I need to brush up on my English before the exam."],
+    "meaning": "to improve or refresh one's knowledge or skill",
+    "example": "I need to brush up on my English before the exam.",
     "id": "id-0030"
   },
   {
     "phrase": "build up",
-    "meaning": ["to increase or develop gradually"],
-    "example": ["Regular exercise helps build up your strength."],
+    "meaning": "to increase or develop gradually",
+    "example": "Regular exercise helps build up your strength.",
     "id": "id-0031"
   },
   {
     "phrase": "burst into",
-    "meaning": ["to suddenly begin doing something"],
-    "example": ["The child burst into tears."],
+    "meaning": "to suddenly begin doing something",
+    "example": "The child burst into tears.",
     "id": "id-0032"
   },
   {
     "phrase": "call for",
-    "meaning": ["to demand or require something"],
-    "example": ["The situation calls for immediate action."],
+    "meaning": "to demand or require something",
+    "example": "The situation calls for immediate action.",
     "id": "id-0033"
   },
   {
     "phrase": "call off",
-    "meaning": ["to cancel something"],
-    "example": ["The meeting was called off because of the rain."],
+    "meaning": "to cancel something",
+    "example": "The meeting was called off because of the rain.",
     "id": "id-0034"
   },
   {
     "phrase": "call on",
-    "meaning": ["to ask someone to do something", "to visit someone"],
-    "example": [
-      "The teacher called on Rahul to answer the question.",
-      "I called on my old friend yesterday."
-    ],
-    "id": "id-0035"
+    "meaning": "to ask someone to do something",
+    "example": "The teacher called on Rahul to answer the question.",
+    "id": "id-0035-1"
+  },
+  {
+    "phrase": "call on",
+    "meaning": "to visit someone",
+    "example": "I called on my old friend yesterday.",
+    "id": "id-0035-2"
   },
   {
     "phrase": "call upon",
-    "meaning": ["to formally ask someone to do something"],
-    "example": ["The leader called upon citizens to remain calm."],
+    "meaning": "to formally ask someone to do something",
+    "example": "The leader called upon citizens to remain calm.",
     "id": "id-0036"
   },
   {
     "phrase": "carry on",
-    "meaning": [
-      "to continue doing something",
-      "to behave in an excited or noisy way"
-    ],
-    "example": [
-      "Despite the difficulties, they carried on with their work.",
-      "The children were carrying on in the classroom."
-    ],
-    "id": "id-0037"
+    "meaning": "to continue doing something",
+    "example": "Despite the difficulties, they carried on with their work.",
+    "id": "id-0037-1"
+  },
+  {
+    "phrase": "carry on",
+    "meaning": "to behave in an excited or noisy way",
+    "example": "The children were carrying on in the classroom.",
+    "id": "id-0037-2"
   },
   {
     "phrase": "carry out",
-    "meaning": ["to perform or complete a task or plan"],
-    "example": ["The scientists carried out several experiments."],
+    "meaning": "to perform or complete a task or plan",
+    "example": "The scientists carried out several experiments.",
     "id": "id-0038"
   },
   {
     "phrase": "carry over",
-    "meaning": ["to transfer something to another time or situation"],
-    "example": ["The remaining work will be carried over to next week."],
+    "meaning": "to transfer something to another time or situation",
+    "example": "The remaining work will be carried over to next week.",
     "id": "id-0039"
   },
   {
     "phrase": "catch on",
-    "meaning": ["to understand something", "to become popular"],
-    "example": [
-      "It took me some time to catch on to the new system.",
-      "The new fashion quickly caught on among young people."
-    ],
-    "id": "id-0040"
+    "meaning": "to understand something",
+    "example": "It took me some time to catch on to the new system.",
+    "id": "id-0040-1"
+  },
+  {
+    "phrase": "catch on",
+    "meaning": "to become popular",
+    "example": "The new fashion quickly caught on among young people.",
+    "id": "id-0040-2"
   },
   {
     "phrase": "catch up",
-    "meaning": ["to reach the same level or position as someone"],
-    "example": ["She worked hard to catch up with her classmates."],
+    "meaning": "to reach the same level or position as someone",
+    "example": "She worked hard to catch up with her classmates.",
     "id": "id-0041"
   },
   {
     "phrase": "catch up with",
-    "meaning": ["to reach someone who is ahead of you"],
-    "example": ["I ran faster to catch up with my friends."],
+    "meaning": "to reach someone who is ahead of you",
+    "example": "I ran faster to catch up with my friends.",
     "id": "id-0042"
   },
   {
     "phrase": "check in",
-    "meaning": ["to register at a hotel or airport"],
-    "example": ["We checked in at the hotel at noon."],
+    "meaning": "to register at a hotel or airport",
+    "example": "We checked in at the hotel at noon.",
     "id": "id-0043"
   },
   {
     "phrase": "check out",
-    "meaning": ["to leave a hotel", "to examine or investigate something"],
-    "example": [
-      "We checked out of the hotel early in the morning.",
-      "Check out this new website."
-    ],
-    "id": "id-0044"
+    "meaning": "to leave a hotel",
+    "example": "We checked out of the hotel early in the morning.",
+    "id": "id-0044-1"
+  },
+  {
+    "phrase": "check out",
+    "meaning": "to examine or investigate something",
+    "example": "Check out this new website.",
+    "id": "id-0044-2"
   },
   {
     "phrase": "cheer up",
-    "meaning": ["to become happier or make someone happier"],
-    "example": ["The good news cheered her up."],
+    "meaning": "to become happier or make someone happier",
+    "example": "The good news cheered her up.",
     "id": "id-0045"
   },
   {
     "phrase": "come across",
-    "meaning": ["to find or meet someone or something by chance"],
-    "example": ["I came across an interesting article while browsing online."],
+    "meaning": "to find or meet someone or something by chance",
+    "example": "I came across an interesting article while browsing online.",
     "id": "id-0046"
   },
   {
     "phrase": "come along",
-    "meaning": ["to make progress", "to accompany someone"],
-    "example": [
-      "Your project is coming along very well.",
-      "You can come along with us if you want."
-    ],
-    "id": "id-0047"
+    "meaning": "to make progress",
+    "example": "Your project is coming along very well.",
+    "id": "id-0047-1"
+  },
+  {
+    "phrase": "come along",
+    "meaning": "to accompany someone",
+    "example": "You can come along with us if you want.",
+    "id": "id-0047-2"
   },
   {
     "phrase": "come by",
-    "meaning": ["to obtain or acquire something", "to visit a place briefly"],
-    "example": [
-      "Good jobs are difficult to come by these days.",
-      "Come by my office when you have time."
-    ],
-    "id": "id-0048"
+    "meaning": "to obtain or acquire something",
+    "example": "Good jobs are difficult to come by these days.",
+    "id": "id-0048-1"
+  },
+  {
+    "phrase": "come by",
+    "meaning": "to visit a place briefly",
+    "example": "Come by my office when you have time.",
+    "id": "id-0048-2"
   },
   {
     "phrase": "come down with",
-    "meaning": ["to become ill with a disease"],
-    "example": ["He came down with a cold last week."],
+    "meaning": "to become ill with a disease",
+    "example": "He came down with a cold last week.",
     "id": "id-0049"
   },
   {
     "phrase": "come forward",
-    "meaning": ["to offer information or help"],
-    "example": ["Several witnesses came forward after the incident."],
+    "meaning": "to offer information or help",
+    "example": "Several witnesses came forward after the incident.",
     "id": "id-0050"
   },
   {
     "phrase": "come into",
-    "meaning": ["to inherit or receive something"],
-    "example": ["She came into a large fortune after her uncle died."],
+    "meaning": "to inherit or receive something",
+    "example": "She came into a large fortune after her uncle died.",
     "id": "id-0051"
   },
   {
     "phrase": "come out",
-    "meaning": ["to become known", "to be published"],
-    "example": [
-      "The truth finally came out.",
-      "The examination results came out yesterday."
-    ],
-    "id": "id-0052"
+    "meaning": "to become known",
+    "example": "The truth finally came out.",
+    "id": "id-0052-1"
+  },
+  {
+    "phrase": "come out",
+    "meaning": "to be published",
+    "example": "The examination results came out yesterday.",
+    "id": "id-0052-2"
   },
   {
     "phrase": "come over",
-    "meaning": ["to visit someone at their home"],
-    "example": ["Why don't you come over this evening?"],
+    "meaning": "to visit someone at their home",
+    "example": "Why don't you come over this evening?",
     "id": "id-0053"
   },
   {
     "phrase": "come through",
-    "meaning": [
-      "to survive a difficult situation",
-      "to successfully complete or deliver something"
-    ],
-    "example": [
-      "She came through the operation successfully.",
-      "The promised payment finally came through."
-    ],
-    "id": "id-0054"
+    "meaning": "to survive a difficult situation",
+    "example": "She came through the operation successfully.",
+    "id": "id-0054-1"
+  },
+  {
+    "phrase": "come through",
+    "meaning": "to successfully complete or deliver something",
+    "example": "The promised payment finally came through.",
+    "id": "id-0054-2"
   },
   {
     "phrase": "come up",
-    "meaning": ["to arise or happen", "to be mentioned or discussed"],
-    "example": [
-      "Something unexpected came up during the meeting.",
-      "The issue came up during the discussion."
-    ],
-    "id": "id-0055"
+    "meaning": "to arise or happen",
+    "example": "Something unexpected came up during the meeting.",
+    "id": "id-0055-1"
+  },
+  {
+    "phrase": "come up",
+    "meaning": "to be mentioned or discussed",
+    "example": "The issue came up during the discussion.",
+    "id": "id-0055-2"
   },
   {
     "phrase": "come up with",
-    "meaning": ["to think of or produce an idea or solution"],
-    "example": ["She came up with an excellent solution to the problem."],
+    "meaning": "to think of or produce an idea or solution",
+    "example": "She came up with an excellent solution to the problem.",
     "id": "id-0056"
   },
   {
     "phrase": "count on",
-    "meaning": ["to depend on or rely on someone"],
-    "example": ["You can count on me for help."],
+    "meaning": "to depend on or rely on someone",
+    "example": "You can count on me for help.",
     "id": "id-0057"
   },
   {
     "phrase": "cut down",
-    "meaning": ["to reduce the amount of something"],
-    "example": ["The doctor advised him to cut down on sugar."],
+    "meaning": "to reduce the amount of something",
+    "example": "The doctor advised him to cut down on sugar.",
     "id": "id-0058"
   },
   {
     "phrase": "cut off",
-    "meaning": ["to stop the supply or connection of something"],
-    "example": ["The storm cut off electricity to the village."],
+    "meaning": "to stop the supply or connection of something",
+    "example": "The storm cut off electricity to the village.",
     "id": "id-0059"
   },
   {
     "phrase": "cut out",
-    "meaning": ["to remove something", "to stop doing something"],
-    "example": [
-      "She cut out the picture from the newspaper.",
-      "You should cut out unnecessary expenses."
-    ],
-    "id": "id-0060"
+    "meaning": "to remove something",
+    "example": "She cut out the picture from the newspaper.",
+    "id": "id-0060-1"
+  },
+  {
+    "phrase": "cut out",
+    "meaning": "to stop doing something",
+    "example": "You should cut out unnecessary expenses.",
+    "id": "id-0060-2"
   },
   {
     "phrase": "deal with",
-    "meaning": ["to handle or take action about something"],
-    "example": ["We must deal with this problem immediately."],
+    "meaning": "to handle or take action about something",
+    "example": "We must deal with this problem immediately.",
     "id": "id-0061"
   },
   {
     "phrase": "die away",
-    "meaning": ["to gradually become weaker or quieter"],
-    "example": ["The sound of the music slowly died away."],
+    "meaning": "to gradually become weaker or quieter",
+    "example": "The sound of the music slowly died away.",
     "id": "id-0062"
   },
   {
     "phrase": "die down",
-    "meaning": ["to become less strong or intense"],
-    "example": ["The storm finally died down."],
+    "meaning": "to become less strong or intense",
+    "example": "The storm finally died down.",
     "id": "id-0063"
   },
   {
     "phrase": "do away with",
-    "meaning": ["to abolish or eliminate something"],
-    "example": ["The government plans to do away with the outdated law."],
+    "meaning": "to abolish or eliminate something",
+    "example": "The government plans to do away with the outdated law.",
     "id": "id-0064"
   },
   {
     "phrase": "do without",
-    "meaning": ["to manage without something"],
-    "example": ["We had to do without electricity for several hours."],
+    "meaning": "to manage without something",
+    "example": "We had to do without electricity for several hours.",
     "id": "id-0065"
   },
   {
     "phrase": "draw up",
-    "meaning": ["to prepare a document or plan"],
-    "example": ["The lawyers drew up a new agreement."],
+    "meaning": "to prepare a document or plan",
+    "example": "The lawyers drew up a new agreement.",
     "id": "id-0066"
   },
   {
     "phrase": "drop in",
-    "meaning": ["to visit someone unexpectedly"],
-    "example": ["He dropped in to see his old friend."],
+    "meaning": "to visit someone unexpectedly",
+    "example": "He dropped in to see his old friend.",
     "id": "id-0067"
   },
   {
     "phrase": "drop out",
-    "meaning": ["to leave a course or activity before completing it"],
-    "example": ["He dropped out of college after his first year."],
+    "meaning": "to leave a course or activity before completing it",
+    "example": "He dropped out of college after his first year.",
     "id": "id-0068"
   },
   {
     "phrase": "end up",
-    "meaning": ["to finally reach a particular situation or place"],
-    "example": ["We took the wrong road and ended up in another town."],
+    "meaning": "to finally reach a particular situation or place",
+    "example": "We took the wrong road and ended up in another town.",
     "id": "id-0069"
   },
   {
     "phrase": "fall apart",
-    "meaning": ["to break into pieces or fail completely"],
-    "example": ["Their plan fell apart at the last minute."],
+    "meaning": "to break into pieces or fail completely",
+    "example": "Their plan fell apart at the last minute.",
     "id": "id-0070"
   },
   {
     "phrase": "fall behind",
-    "meaning": ["to fail to keep up with someone or something"],
-    "example": ["He fell behind in his studies."],
+    "meaning": "to fail to keep up with someone or something",
+    "example": "He fell behind in his studies.",
     "id": "id-0071"
   },
   {
     "phrase": "fall for",
-    "meaning": [
-      "to be deceived by something",
-      "to become attracted to someone"
-    ],
-    "example": [
-      "She fell for the fake story.",
-      "He fell for her at first sight."
-    ],
-    "id": "id-0072"
+    "meaning": "to be deceived by something",
+    "example": "She fell for the fake story.",
+    "id": "id-0072-1"
+  },
+  {
+    "phrase": "fall for",
+    "meaning": "to become attracted to someone",
+    "example": "He fell for her at first sight.",
+    "id": "id-0072-2"
   },
   {
     "phrase": "fall off",
-    "meaning": ["to decrease or become lower"],
-    "example": ["Sales fell off sharply this month."],
+    "meaning": "to decrease or become lower",
+    "example": "Sales fell off sharply this month.",
     "id": "id-0073"
   },
   {
     "phrase": "fall through",
-    "meaning": ["to fail to happen as planned"],
-    "example": ["Our plans for the trip fell through."],
+    "meaning": "to fail to happen as planned",
+    "example": "Our plans for the trip fell through.",
     "id": "id-0074"
   },
   {
     "phrase": "figure out",
-    "meaning": ["to understand or find the answer to something"],
-    "example": ["I finally figured out how to solve the problem."],
+    "meaning": "to understand or find the answer to something",
+    "example": "I finally figured out how to solve the problem.",
     "id": "id-0075"
   },
   {
     "phrase": "fill in",
-    "meaning": [
-      "to complete a form",
-      "to provide missing information or temporarily replace someone"
-    ],
-    "example": [
-      "Please fill in this application form.",
-      "Can you fill in for me while I am away?"
-    ],
-    "id": "id-0076"
+    "meaning": "to complete a form",
+    "example": "Please fill in this application form.",
+    "id": "id-0076-1"
+  },
+  {
+    "phrase": "fill in",
+    "meaning": "to provide missing information or temporarily replace someone",
+    "example": "Can you fill in for me while I am away?",
+    "id": "id-0076-2"
   },
   {
     "phrase": "fill out",
-    "meaning": ["to complete a form or document"],
-    "example": ["You need to fill out the application form."],
+    "meaning": "to complete a form or document",
+    "example": "You need to fill out the application form.",
     "id": "id-0077"
   },
   {
     "phrase": "find out",
-    "meaning": ["to discover or learn something"],
-    "example": ["I need to find out what happened."],
+    "meaning": "to discover or learn something",
+    "example": "I need to find out what happened.",
     "id": "id-0078"
   },
   {
     "phrase": "get across",
-    "meaning": ["to communicate an idea successfully"],
-    "example": [
-      "The teacher tried to get the main idea across to the students."
-    ],
+    "meaning": "to communicate an idea successfully",
+    "example": "The teacher tried to get the main idea across to the students.",
     "id": "id-0079"
   },
   {
     "phrase": "get along",
-    "meaning": ["to have a good relationship with someone"],
-    "example": ["She gets along well with her colleagues."],
+    "meaning": "to have a good relationship with someone",
+    "example": "She gets along well with her colleagues.",
     "id": "id-0080"
   },
   {
     "phrase": "get around",
-    "meaning": ["to move from place to place or avoid a difficulty"],
-    "example": ["He gets around the city by bus."],
+    "meaning": "to move from place to place or avoid a difficulty",
+    "example": "He gets around the city by bus.",
     "id": "id-0081"
   },
   {
     "phrase": "get away",
-    "meaning": ["to escape or leave"],
-    "example": ["The thief managed to get away."],
+    "meaning": "to escape or leave",
+    "example": "The thief managed to get away.",
     "id": "id-0082"
   },
   {
     "phrase": "get away with",
-    "meaning": ["to do something wrong without being punished"],
-    "example": ["He thought he could get away with cheating."],
+    "meaning": "to do something wrong without being punished",
+    "example": "He thought he could get away with cheating.",
     "id": "id-0083"
   },
   {
     "phrase": "get back",
-    "meaning": ["to return", "to recover or retrieve something"],
-    "example": [
-      "What time did you get back home?",
-      "I finally got my money back."
-    ],
-    "id": "id-0084"
+    "meaning": "to return",
+    "example": "What time did you get back home?",
+    "id": "id-0084-1"
+  },
+  {
+    "phrase": "get back",
+    "meaning": "to recover or retrieve something",
+    "example": "I finally got my money back.",
+    "id": "id-0084-2"
   },
   {
     "phrase": "get by",
-    "meaning": ["to manage with difficulty"],
-    "example": ["They do not earn much, but they get by."],
+    "meaning": "to manage with difficulty",
+    "example": "They do not earn much, but they get by.",
     "id": "id-0085"
   },
   {
     "phrase": "get down",
-    "meaning": ["to make someone feel unhappy"],
-    "example": ["The constant criticism really gets him down."],
+    "meaning": "to make someone feel unhappy",
+    "example": "The constant criticism really gets him down.",
     "id": "id-0086"
   },
   {
     "phrase": "get in",
-    "meaning": ["to enter or arrive"],
-    "example": ["What time did you get in last night?"],
+    "meaning": "to enter or arrive",
+    "example": "What time did you get in last night?",
     "id": "id-0087"
   },
   {
     "phrase": "get into",
-    "meaning": ["to become involved in something"],
-    "example": ["He got into trouble at school."],
+    "meaning": "to become involved in something",
+    "example": "He got into trouble at school.",
     "id": "id-0088"
   },
   {
     "phrase": "get off",
-    "meaning": ["to leave a bus, train, or other vehicle"],
-    "example": ["We got off the train at the next station."],
+    "meaning": "to leave a bus, train, or other vehicle",
+    "example": "We got off the train at the next station.",
     "id": "id-0089"
   },
   {
     "phrase": "get on",
-    "meaning": [
-      "to board a vehicle",
-      "to have a good relationship with someone"
-    ],
-    "example": [
-      "We got on the bus at the main station.",
-      "She gets on well with her colleagues."
-    ],
-    "id": "id-0090"
+    "meaning": "to board a vehicle",
+    "example": "We got on the bus at the main station.",
+    "id": "id-0090-1"
+  },
+  {
+    "phrase": "get on",
+    "meaning": "to have a good relationship with someone",
+    "example": "She gets on well with her colleagues.",
+    "id": "id-0090-2"
   },
   {
     "phrase": "get on with",
-    "meaning": ["to have a good relationship with someone"],
-    "example": ["I get on well with my new colleagues."],
+    "meaning": "to have a good relationship with someone",
+    "example": "I get on well with my new colleagues.",
     "id": "id-0091"
   },
   {
     "phrase": "get out",
-    "meaning": ["to leave or escape"],
-    "example": ["We need to get out before it gets dark."],
+    "meaning": "to leave or escape",
+    "example": "We need to get out before it gets dark.",
     "id": "id-0092"
   },
   {
     "phrase": "get over",
-    "meaning": ["to recover from an illness or difficult experience"],
-    "example": ["It took her months to get over the loss."],
+    "meaning": "to recover from an illness or difficult experience",
+    "example": "It took her months to get over the loss.",
     "id": "id-0093"
   },
   {
     "phrase": "get rid of",
-    "meaning": ["to remove or eliminate something unwanted"],
-    "example": ["We need to get rid of these old files."],
+    "meaning": "to remove or eliminate something unwanted",
+    "example": "We need to get rid of these old files.",
     "id": "id-0094"
   },
   {
     "phrase": "get through",
-    "meaning": [
-      "to successfully complete or survive something difficult",
-      "to make contact by telephone"
-    ],
-    "example": [
-      "She managed to get through the difficult examination.",
-      "I could not get through to him on the phone."
-    ],
-    "id": "id-0095"
+    "meaning": "to successfully complete or survive something difficult",
+    "example": "She managed to get through the difficult examination.",
+    "id": "id-0095-1"
+  },
+  {
+    "phrase": "get through",
+    "meaning": "to make contact by telephone",
+    "example": "I could not get through to him on the phone.",
+    "id": "id-0095-2"
   },
   {
     "phrase": "get up",
-    "meaning": ["to rise from bed or a sitting position"],
-    "example": ["I usually get up at six in the morning."],
+    "meaning": "to rise from bed or a sitting position",
+    "example": "I usually get up at six in the morning.",
     "id": "id-0096"
   },
   {
     "phrase": "give away",
-    "meaning": ["to give something for free", "to reveal a secret"],
-    "example": [
-      "They gave away food to the poor.",
-      "His expression gave away his true feelings."
-    ],
-    "id": "id-0097"
+    "meaning": "to give something for free",
+    "example": "They gave away food to the poor.",
+    "id": "id-0097-1"
+  },
+  {
+    "phrase": "give away",
+    "meaning": "to reveal a secret",
+    "example": "His expression gave away his true feelings.",
+    "id": "id-0097-2"
   },
   {
     "phrase": "give back",
-    "meaning": ["to return something to someone"],
-    "example": ["Please give back the book when you finish reading it."],
+    "meaning": "to return something to someone",
+    "example": "Please give back the book when you finish reading it.",
     "id": "id-0098"
   },
   {
     "phrase": "give in",
-    "meaning": [
-      "to stop resisting or surrender",
-      "to yield or accept something unwillingly"
-    ],
-    "example": [
-      "He finally gave in to their demands.",
-      "She gave in to pressure from her colleagues."
-    ],
-    "id": "id-0099"
+    "meaning": "to stop resisting or surrender",
+    "example": "He finally gave in to their demands.",
+    "id": "id-0099-1"
+  },
+  {
+    "phrase": "give in",
+    "meaning": "to yield or accept something unwillingly",
+    "example": "She gave in to pressure from her colleagues.",
+    "id": "id-0099-2"
   },
   {
     "phrase": "give off",
-    "meaning": ["to produce or emit something"],
-    "example": ["The flowers give off a pleasant smell."],
+    "meaning": "to produce or emit something",
+    "example": "The flowers give off a pleasant smell.",
     "id": "id-0100"
   },
   {
     "phrase": "give out",
-    "meaning": ["to distribute something", "to stop functioning"],
-    "example": [
-      "The teacher gave out the examination papers.",
-      "The old machine suddenly gave out."
-    ],
-    "id": "id-0101"
+    "meaning": "to distribute something",
+    "example": "The teacher gave out the examination papers.",
+    "id": "id-0101-1"
+  },
+  {
+    "phrase": "give out",
+    "meaning": "to stop functioning",
+    "example": "The old machine suddenly gave out.",
+    "id": "id-0101-2"
   },
   {
     "phrase": "give rise to",
-    "meaning": ["to cause something to happen"],
-    "example": ["The new policy gave rise to several complaints."],
+    "meaning": "to cause something to happen",
+    "example": "The new policy gave rise to several complaints.",
     "id": "id-0102"
   },
   {
     "phrase": "give up",
-    "meaning": ["to stop trying or abandon something"],
-    "example": ["Never give up when you face difficulties."],
+    "meaning": "to stop trying or abandon something",
+    "example": "Never give up when you face difficulties.",
     "id": "id-0103"
   },
   {
     "phrase": "go about",
-    "meaning": ["to start or continue doing something"],
-    "example": ["She went about her work calmly."],
+    "meaning": "to start or continue doing something",
+    "example": "She went about her work calmly.",
     "id": "id-0104"
   },
   {
     "phrase": "go after",
-    "meaning": ["to try to obtain or pursue someone or something"],
-    "example": ["She decided to go after her dream."],
+    "meaning": "to try to obtain or pursue someone or something",
+    "example": "She decided to go after her dream.",
     "id": "id-0105"
   },
   {
     "phrase": "go against",
-    "meaning": ["to oppose or conflict with something"],
-    "example": ["This decision goes against our principles."],
+    "meaning": "to oppose or conflict with something",
+    "example": "This decision goes against our principles.",
     "id": "id-0106"
   },
   {
     "phrase": "go ahead",
-    "meaning": ["to proceed or start doing something"],
-    "example": ["You can go ahead with the plan."],
+    "meaning": "to proceed or start doing something",
+    "example": "You can go ahead with the plan.",
     "id": "id-0107"
   },
   {
     "phrase": "go along with",
-    "meaning": ["to agree with or accept an idea or plan"],
-    "example": ["I decided to go along with their suggestion."],
+    "meaning": "to agree with or accept an idea or plan",
+    "example": "I decided to go along with their suggestion.",
     "id": "id-0108"
   },
   {
     "phrase": "go around",
-    "meaning": ["to move from one place to another or circulate"],
-    "example": ["There is not enough food to go around."],
+    "meaning": "to move from one place to another or circulate",
+    "example": "There is not enough food to go around.",
     "id": "id-0109"
   },
   {
     "phrase": "go back",
-    "meaning": ["to return to a place or situation"],
-    "example": ["He went back to his hometown after many years."],
+    "meaning": "to return to a place or situation",
+    "example": "He went back to his hometown after many years.",
     "id": "id-0110"
   },
   {
     "phrase": "go by",
-    "meaning": ["to pass", "to use something as a basis for judgment"],
-    "example": [
-      "As the years go by, people change.",
-      "We should not go by appearances alone."
-    ],
-    "id": "id-0111"
+    "meaning": "to pass",
+    "example": "As the years go by, people change.",
+    "id": "id-0111-1"
+  },
+  {
+    "phrase": "go by",
+    "meaning": "to use something as a basis for judgment",
+    "example": "We should not go by appearances alone.",
+    "id": "id-0111-2"
   },
   {
     "phrase": "go down",
-    "meaning": ["to decrease or move to a lower position"],
-    "example": ["The price of petrol has gone down."],
+    "meaning": "to decrease or move to a lower position",
+    "example": "The price of petrol has gone down.",
     "id": "id-0112"
   },
   {
     "phrase": "go for",
-    "meaning": ["to choose, attempt, or try to obtain something"],
-    "example": ["She decided to go for the highest score."],
+    "meaning": "to choose, attempt, or try to obtain something",
+    "example": "She decided to go for the highest score.",
     "id": "id-0113"
   },
   {
     "phrase": "go in for",
-    "meaning": ["to take part in or have an interest in something"],
-    "example": ["He decided to go in for competitive examinations."],
+    "meaning": "to take part in or have an interest in something",
+    "example": "He decided to go in for competitive examinations.",
     "id": "id-0114"
   },
   {
     "phrase": "go into",
-    "meaning": ["to examine or discuss something in detail"],
-    "example": ["The report goes into the causes of the problem."],
+    "meaning": "to examine or discuss something in detail",
+    "example": "The report goes into the causes of the problem.",
     "id": "id-0115"
   },
   {
     "phrase": "go off",
-    "meaning": ["to explode", "to ring or sound", "to become bad"],
-    "example": [
-      "The bomb went off unexpectedly.",
-      "The alarm went off at six in the morning.",
-      "The milk has gone off."
-    ],
-    "id": "id-0116"
+    "meaning": "to explode",
+    "example": "The bomb went off unexpectedly.",
+    "id": "id-0116-1"
+  },
+  {
+    "phrase": "go off",
+    "meaning": "to ring or sound",
+    "example": "The alarm went off at six in the morning.",
+    "id": "id-0116-2"
+  },
+  {
+    "phrase": "go off",
+    "meaning": "to become bad",
+    "example": "The milk has gone off.",
+    "id": "id-0116-3"
   },
   {
     "phrase": "go on",
-    "meaning": ["to continue or happen"],
-    "example": ["Please go on with your explanation."],
+    "meaning": "to continue or happen",
+    "example": "Please go on with your explanation.",
     "id": "id-0117"
   },
   {
     "phrase": "go over",
-    "meaning": [
-      "to examine or review something",
-      "to cross from one side to another"
-    ],
-    "example": [
-      "Let's go over the answers once again.",
-      "We went over the bridge."
-    ],
-    "id": "id-0118"
+    "meaning": "to examine or review something",
+    "example": "Let's go over the answers once again.",
+    "id": "id-0118-1"
+  },
+  {
+    "phrase": "go over",
+    "meaning": "to cross from one side to another",
+    "example": "We went over the bridge.",
+    "id": "id-0118-2"
   },
   {
     "phrase": "go through",
-    "meaning": [
-      "to experience something difficult",
-      "to examine something carefully"
-    ],
-    "example": [
-      "She went through a difficult period last year.",
-      "Please go through the documents before signing."
-    ],
-    "id": "id-0119"
+    "meaning": "to experience something difficult",
+    "example": "She went through a difficult period last year.",
+    "id": "id-0119-1"
+  },
+  {
+    "phrase": "go through",
+    "meaning": "to examine something carefully",
+    "example": "Please go through the documents before signing.",
+    "id": "id-0119-2"
   },
   {
     "phrase": "go under",
-    "meaning": ["to fail financially or be defeated"],
-    "example": ["The company went under because of heavy losses."],
+    "meaning": "to fail financially or be defeated",
+    "example": "The company went under because of heavy losses.",
     "id": "id-0120"
   },
   {
     "phrase": "go with",
-    "meaning": ["to choose or accompany something or someone"],
-    "example": ["I decided to go with the blue shirt."],
+    "meaning": "to choose or accompany something or someone",
+    "example": "I decided to go with the blue shirt.",
     "id": "id-0121"
   },
   {
     "phrase": "go without",
-    "meaning": ["to manage without something"],
-    "example": ["We cannot go without food for long."],
+    "meaning": "to manage without something",
+    "example": "We cannot go without food for long.",
     "id": "id-0122"
   },
   {
     "phrase": "grow out of",
-    "meaning": [
-      "to develop from something or stop doing something as one matures"
-    ],
-    "example": ["He eventually grew out of his childish habits."],
+    "meaning": "to develop from something or stop doing something as one matures",
+    "example": "He eventually grew out of his childish habits.",
     "id": "id-0123"
   },
   {
     "phrase": "hand down",
-    "meaning": ["to pass something from one generation to another"],
-    "example": ["The tradition was handed down from generation to generation."],
+    "meaning": "to pass something from one generation to another",
+    "example": "The tradition was handed down from generation to generation.",
     "id": "id-0124"
   },
   {
     "phrase": "hand in",
-    "meaning": ["to submit something"],
-    "example": ["Please hand in your assignment by Friday."],
+    "meaning": "to submit something",
+    "example": "Please hand in your assignment by Friday.",
     "id": "id-0125"
   },
   {
     "phrase": "hand out",
-    "meaning": ["to distribute something"],
-    "example": ["The teacher handed out the question papers."],
+    "meaning": "to distribute something",
+    "example": "The teacher handed out the question papers.",
     "id": "id-0126"
   },
   {
     "phrase": "hand over",
-    "meaning": ["to give something to someone"],
-    "example": ["He handed over the documents to the officer."],
+    "meaning": "to give something to someone",
+    "example": "He handed over the documents to the officer.",
     "id": "id-0127"
   },
   {
     "phrase": "hang on",
-    "meaning": ["to wait or hold tightly"],
-    "example": ["Hang on for a minute while I finish this work."],
+    "meaning": "to wait or hold tightly",
+    "example": "Hang on for a minute while I finish this work.",
     "id": "id-0128"
   },
   {
     "phrase": "hang up",
-    "meaning": ["to end a telephone conversation"],
-    "example": ["She hung up the phone without saying goodbye."],
+    "meaning": "to end a telephone conversation",
+    "example": "She hung up the phone without saying goodbye.",
     "id": "id-0129"
   },
   {
     "phrase": "hold back",
-    "meaning": ["to restrain or prevent something from progressing"],
-    "example": ["Fear held him back from taking the opportunity."],
+    "meaning": "to restrain or prevent something from progressing",
+    "example": "Fear held him back from taking the opportunity.",
     "id": "id-0130"
   },
   {
     "phrase": "hold off",
-    "meaning": ["to delay or postpone something"],
-    "example": ["The company decided to hold off the decision."],
+    "meaning": "to delay or postpone something",
+    "example": "The company decided to hold off the decision.",
     "id": "id-0131"
   },
   {
     "phrase": "hold on",
-    "meaning": ["to wait or continue despite difficulty"],
-    "example": ["Please hold on while I check the information."],
+    "meaning": "to wait or continue despite difficulty",
+    "example": "Please hold on while I check the information.",
     "id": "id-0132"
   },
   {
     "phrase": "hold out",
-    "meaning": ["to continue resisting or survive for a period"],
-    "example": ["The soldiers held out against the attack."],
+    "meaning": "to continue resisting or survive for a period",
+    "example": "The soldiers held out against the attack.",
     "id": "id-0133"
   },
   {
     "phrase": "hold up",
-    "meaning": ["to delay something", "to support or remain strong"],
-    "example": [
-      "The heavy traffic held us up.",
-      "The bridge held up well during the storm."
-    ],
-    "id": "id-0134"
+    "meaning": "to delay something",
+    "example": "The heavy traffic held us up.",
+    "id": "id-0134-1"
+  },
+  {
+    "phrase": "hold up",
+    "meaning": "to support or remain strong",
+    "example": "The bridge held up well during the storm.",
+    "id": "id-0134-2"
   },
   {
     "phrase": "keep away",
-    "meaning": ["to stay at a distance from someone or something"],
-    "example": ["Keep away from the edge of the cliff."],
+    "meaning": "to stay at a distance from someone or something",
+    "example": "Keep away from the edge of the cliff.",
     "id": "id-0135"
   },
   {
     "phrase": "keep back",
-    "meaning": ["to prevent someone or something from advancing"],
-    "example": ["The police kept the crowd back."],
+    "meaning": "to prevent someone or something from advancing",
+    "example": "The police kept the crowd back.",
     "id": "id-0136"
   },
   {
     "phrase": "keep down",
-    "meaning": ["to prevent something from increasing or becoming noticeable"],
-    "example": ["The government is trying to keep prices down."],
+    "meaning": "to prevent something from increasing or becoming noticeable",
+    "example": "The government is trying to keep prices down.",
     "id": "id-0137"
   },
   {
     "phrase": "keep off",
-    "meaning": ["to avoid or stay away from something"],
-    "example": ["Please keep off the grass."],
+    "meaning": "to avoid or stay away from something",
+    "example": "Please keep off the grass.",
     "id": "id-0138"
   },
   {
     "phrase": "keep on",
-    "meaning": ["to continue doing something"],
-    "example": ["He kept on working despite the difficulties."],
+    "meaning": "to continue doing something",
+    "example": "He kept on working despite the difficulties.",
     "id": "id-0139"
   },
   {
     "phrase": "keep out",
-    "meaning": ["to prevent someone or something from entering"],
-    "example": ["The sign says to keep out of the restricted area."],
+    "meaning": "to prevent someone or something from entering",
+    "example": "The sign says to keep out of the restricted area.",
     "id": "id-0140"
   },
   {
     "phrase": "keep to",
-    "meaning": ["to follow or stay within a rule, limit, or plan"],
-    "example": ["Please keep to the instructions."],
+    "meaning": "to follow or stay within a rule, limit, or plan",
+    "example": "Please keep to the instructions.",
     "id": "id-0141"
   },
   {
     "phrase": "keep up",
-    "meaning": ["to continue at the same level or pace"],
-    "example": ["Keep up the good work."],
+    "meaning": "to continue at the same level or pace",
+    "example": "Keep up the good work.",
     "id": "id-0142"
   },
   {
     "phrase": "keep up with",
-    "meaning": ["to remain at the same level or speed as someone"],
-    "example": ["She struggles to keep up with her classmates."],
+    "meaning": "to remain at the same level or speed as someone",
+    "example": "She struggles to keep up with her classmates.",
     "id": "id-0143"
   },
   {
     "phrase": "kick off",
-    "meaning": ["to begin an event or activity"],
-    "example": ["The meeting will kick off at ten o'clock."],
+    "meaning": "to begin an event or activity",
+    "example": "The meeting will kick off at ten o'clock.",
     "id": "id-0144"
   },
   {
     "phrase": "knock down",
-    "meaning": ["to demolish or cause something to fall"],
-    "example": ["The old building was knocked down."],
+    "meaning": "to demolish or cause something to fall",
+    "example": "The old building was knocked down.",
     "id": "id-0145"
   },
   {
     "phrase": "knock out",
-    "meaning": ["to make someone unconscious or defeat someone"],
-    "example": ["The boxer knocked out his opponent in the second round."],
+    "meaning": "to make someone unconscious or defeat someone",
+    "example": "The boxer knocked out his opponent in the second round.",
     "id": "id-0146"
   },
   {
     "phrase": "lay aside",
-    "meaning": ["to put something aside for future use"],
-    "example": ["She laid aside some money for emergencies."],
+    "meaning": "to put something aside for future use",
+    "example": "She laid aside some money for emergencies.",
     "id": "id-0147"
   },
   {
     "phrase": "lay off",
-    "meaning": ["to stop employing someone"],
-    "example": ["The company had to lay off several workers."],
+    "meaning": "to stop employing someone",
+    "example": "The company had to lay off several workers.",
     "id": "id-0148"
   },
   {
     "phrase": "lead to",
-    "meaning": ["to cause or result in something"],
-    "example": ["Lack of sleep can lead to health problems."],
+    "meaning": "to cause or result in something",
+    "example": "Lack of sleep can lead to health problems.",
     "id": "id-0149"
   },
   {
     "phrase": "leave behind",
-    "meaning": ["to forget to take someone or something with you"],
-    "example": ["He left his umbrella behind at the station."],
+    "meaning": "to forget to take someone or something with you",
+    "example": "He left his umbrella behind at the station.",
     "id": "id-0150"
   },
   {
     "phrase": "leave out",
-    "meaning": ["to omit or exclude something"],
-    "example": ["Do not leave out any important details."],
+    "meaning": "to omit or exclude something",
+    "example": "Do not leave out any important details.",
     "id": "id-0151"
   },
   {
     "phrase": "let down",
-    "meaning": ["to disappoint someone"],
-    "example": ["I promised not to let my parents down."],
+    "meaning": "to disappoint someone",
+    "example": "I promised not to let my parents down.",
     "id": "id-0152"
   },
   {
     "phrase": "let off",
-    "meaning": ["to release someone from punishment"],
-    "example": ["The teacher let him off with a warning."],
+    "meaning": "to release someone from punishment",
+    "example": "The teacher let him off with a warning.",
     "id": "id-0153"
   },
   {
     "phrase": "let out",
-    "meaning": ["to release or allow someone to leave"],
-    "example": ["The guard let the visitors out of the building."],
+    "meaning": "to release or allow someone to leave",
+    "example": "The guard let the visitors out of the building.",
     "id": "id-0154"
   },
   {
     "phrase": "live on",
-    "meaning": ["to survive by using a particular source of income or food"],
-    "example": ["Many families live on a small income."],
+    "meaning": "to survive by using a particular source of income or food",
+    "example": "Many families live on a small income.",
     "id": "id-0155"
   },
   {
     "phrase": "live up to",
-    "meaning": ["to fulfil expectations or standards"],
-    "example": ["The film did not live up to my expectations."],
+    "meaning": "to fulfil expectations or standards",
+    "example": "The film did not live up to my expectations.",
     "id": "id-0156"
   },
   {
     "phrase": "look after",
-    "meaning": ["to take care of someone or something"],
-    "example": ["She looks after her elderly parents."],
+    "meaning": "to take care of someone or something",
+    "example": "She looks after her elderly parents.",
     "id": "id-0157"
   },
   {
     "phrase": "look back on",
-    "meaning": ["to think about something that happened in the past"],
-    "example": ["She looks back on her school days with happiness."],
+    "meaning": "to think about something that happened in the past",
+    "example": "She looks back on her school days with happiness.",
     "id": "id-0158"
   },
   {
     "phrase": "look down on",
-    "meaning": ["to consider someone inferior"],
-    "example": ["We should never look down on others."],
+    "meaning": "to consider someone inferior",
+    "example": "We should never look down on others.",
     "id": "id-0159"
   },
   {
     "phrase": "look for",
-    "meaning": ["to search for someone or something"],
-    "example": ["I am looking for my missing keys."],
+    "meaning": "to search for someone or something",
+    "example": "I am looking for my missing keys.",
     "id": "id-0160"
   },
   {
     "phrase": "look forward to",
-    "meaning": ["to anticipate something with pleasure"],
-    "example": ["I look forward to meeting you."],
+    "meaning": "to anticipate something with pleasure",
+    "example": "I look forward to meeting you.",
     "id": "id-0161"
   },
   {
     "phrase": "look into",
-    "meaning": ["to investigate something"],
-    "example": ["The police are looking into the matter."],
+    "meaning": "to investigate something",
+    "example": "The police are looking into the matter.",
     "id": "id-0162"
   },
   {
     "phrase": "look out",
-    "meaning": ["to be careful or watch for danger"],
-    "example": ["Look out! There is a car coming."],
+    "meaning": "to be careful or watch for danger",
+    "example": "Look out! There is a car coming.",
     "id": "id-0163"
   },
   {
     "phrase": "look over",
-    "meaning": ["to examine something quickly or carefully"],
-    "example": ["Please look over the report before submitting it."],
+    "meaning": "to examine something quickly or carefully",
+    "example": "Please look over the report before submitting it.",
     "id": "id-0164"
   },
   {
     "phrase": "look through",
-    "meaning": ["to examine or search through something"],
-    "example": ["She looked through the documents carefully."],
+    "meaning": "to examine or search through something",
+    "example": "She looked through the documents carefully.",
     "id": "id-0165"
   },
   {
     "phrase": "look up",
-    "meaning": ["to search for information", "to improve"],
-    "example": [
-      "I looked up the meaning of the word in a dictionary.",
-      "Things are beginning to look up."
-    ],
-    "id": "id-0166"
+    "meaning": "to search for information",
+    "example": "I looked up the meaning of the word in a dictionary.",
+    "id": "id-0166-1"
+  },
+  {
+    "phrase": "look up",
+    "meaning": "to improve",
+    "example": "Things are beginning to look up.",
+    "id": "id-0166-2"
   },
   {
     "phrase": "look up to",
-    "meaning": ["to admire or respect someone"],
-    "example": ["Many young people look up to successful athletes."],
+    "meaning": "to admire or respect someone",
+    "example": "Many young people look up to successful athletes.",
     "id": "id-0167"
   },
   {
     "phrase": "make for",
-    "meaning": ["to move towards a place or contribute to a result"],
-    "example": ["The children made for the exit when the bell rang."],
+    "meaning": "to move towards a place or contribute to a result",
+    "example": "The children made for the exit when the bell rang.",
     "id": "id-0168"
   },
   {
     "phrase": "make out",
-    "meaning": ["to understand or see something with difficulty"],
-    "example": ["I could not make out what he was saying."],
+    "meaning": "to understand or see something with difficulty",
+    "example": "I could not make out what he was saying.",
     "id": "id-0169"
   },
   {
     "phrase": "make over",
-    "meaning": ["to transfer ownership or completely change something"],
-    "example": ["The property was made over to his son."],
+    "meaning": "to transfer ownership or completely change something",
+    "example": "The property was made over to his son.",
     "id": "id-0170"
   },
   {
     "phrase": "make up",
-    "meaning": ["to invent something", "to become friends again"],
-    "example": [
-      "He made up an excuse for being late.",
-      "The two friends made up after their argument."
-    ],
-    "id": "id-0171"
+    "meaning": "to invent something",
+    "example": "He made up an excuse for being late.",
+    "id": "id-0171-1"
+  },
+  {
+    "phrase": "make up",
+    "meaning": "to become friends again",
+    "example": "The two friends made up after their argument.",
+    "id": "id-0171-2"
   },
   {
     "phrase": "make up for",
-    "meaning": ["to compensate for something"],
-    "example": ["Hard work can make up for a lack of experience."],
+    "meaning": "to compensate for something",
+    "example": "Hard work can make up for a lack of experience.",
     "id": "id-0172"
   },
   {
     "phrase": "mark down",
-    "meaning": ["to reduce the price of something"],
-    "example": ["The shop marked down all winter clothes."],
+    "meaning": "to reduce the price of something",
+    "example": "The shop marked down all winter clothes.",
     "id": "id-0173"
   },
   {
     "phrase": "mess up",
-    "meaning": ["to do something badly or make a mistake"],
-    "example": ["I messed up the calculation."],
+    "meaning": "to do something badly or make a mistake",
+    "example": "I messed up the calculation.",
     "id": "id-0174"
   },
   {
     "phrase": "miss out",
-    "meaning": ["to fail to experience or obtain something"],
-    "example": ["You will miss out if you do not apply on time."],
+    "meaning": "to fail to experience or obtain something",
+    "example": "You will miss out if you do not apply on time.",
     "id": "id-0175"
   },
   {
     "phrase": "move on",
-    "meaning": ["to continue to a new situation or activity"],
-    "example": ["After the failure, she decided to move on."],
+    "meaning": "to continue to a new situation or activity",
+    "example": "After the failure, she decided to move on.",
     "id": "id-0176"
   },
   {
     "phrase": "narrow down",
-    "meaning": ["to reduce the number of possibilities"],
-    "example": ["We narrowed down the list to three candidates."],
+    "meaning": "to reduce the number of possibilities",
+    "example": "We narrowed down the list to three candidates.",
     "id": "id-0177"
   },
   {
     "phrase": "open up",
-    "meaning": ["to become more willing to talk or make something accessible"],
-    "example": ["He slowly opened up about his problems."],
+    "meaning": "to become more willing to talk or make something accessible",
+    "example": "He slowly opened up about his problems.",
     "id": "id-0178"
   },
   {
     "phrase": "opt for",
-    "meaning": ["to choose something"],
-    "example": ["She opted for the cheaper alternative."],
+    "meaning": "to choose something",
+    "example": "She opted for the cheaper alternative.",
     "id": "id-0179"
   },
   {
     "phrase": "pass away",
-    "meaning": ["to die"],
-    "example": ["His grandfather passed away peacefully."],
+    "meaning": "to die",
+    "example": "His grandfather passed away peacefully.",
     "id": "id-0180"
   },
   {
     "phrase": "pass on",
-    "meaning": ["to give or transfer something to another person"],
-    "example": ["Please pass on this message to your manager."],
+    "meaning": "to give or transfer something to another person",
+    "example": "Please pass on this message to your manager.",
     "id": "id-0181"
   },
   {
     "phrase": "pass out",
-    "meaning": ["to become unconscious", "to distribute something"],
-    "example": [
-      "He passed out because of the heat.",
-      "The teacher passed out the question papers."
-    ],
-    "id": "id-0182"
+    "meaning": "to become unconscious",
+    "example": "He passed out because of the heat.",
+    "id": "id-0182-1"
+  },
+  {
+    "phrase": "pass out",
+    "meaning": "to distribute something",
+    "example": "The teacher passed out the question papers.",
+    "id": "id-0182-2"
   },
   {
     "phrase": "pass over",
-    "meaning": ["to ignore or reject someone for a position or opportunity"],
-    "example": ["He was passed over for promotion."],
+    "meaning": "to ignore or reject someone for a position or opportunity",
+    "example": "He was passed over for promotion.",
     "id": "id-0183"
   },
   {
     "phrase": "pay back",
-    "meaning": ["to return money that was borrowed"],
-    "example": ["I will pay you back next week."],
+    "meaning": "to return money that was borrowed",
+    "example": "I will pay you back next week.",
     "id": "id-0184"
   },
   {
     "phrase": "pay off",
-    "meaning": [
-      "to succeed or produce a good result",
-      "to repay a debt completely"
-    ],
-    "example": [
-      "All her hard work finally paid off.",
-      "He paid off his loan last year."
-    ],
-    "id": "id-0185"
+    "meaning": "to succeed or produce a good result",
+    "example": "All her hard work finally paid off.",
+    "id": "id-0185-1"
+  },
+  {
+    "phrase": "pay off",
+    "meaning": "to repay a debt completely",
+    "example": "He paid off his loan last year.",
+    "id": "id-0185-2"
   },
   {
     "phrase": "pick out",
-    "meaning": ["to choose or identify something"],
-    "example": ["She picked out a beautiful dress."],
+    "meaning": "to choose or identify something",
+    "example": "She picked out a beautiful dress.",
     "id": "id-0186"
   },
   {
     "phrase": "pick up",
-    "meaning": ["to collect someone or something"],
-    "example": ["I will pick you up from the station."],
+    "meaning": "to collect someone or something",
+    "example": "I will pick you up from the station.",
     "id": "id-0187"
   },
   {
     "phrase": "point out",
-    "meaning": ["to draw attention to something"],
-    "example": ["The teacher pointed out several mistakes."],
+    "meaning": "to draw attention to something",
+    "example": "The teacher pointed out several mistakes.",
     "id": "id-0188"
   },
   {
     "phrase": "put aside",
-    "meaning": ["to save or reserve something for later"],
-    "example": ["She puts aside some money every month."],
+    "meaning": "to save or reserve something for later",
+    "example": "She puts aside some money every month.",
     "id": "id-0189"
   },
   {
     "phrase": "put away",
-    "meaning": ["to place something where it is normally kept"],
-    "example": ["Please put away your books after studying."],
+    "meaning": "to place something where it is normally kept",
+    "example": "Please put away your books after studying.",
     "id": "id-0190"
   },
   {
     "phrase": "put down",
-    "meaning": [
-      "to place something on a surface",
-      "to criticize or belittle someone"
-    ],
-    "example": [
-      "He put down the book and left the room.",
-      "She should not put down her colleagues."
-    ],
-    "id": "id-0191"
+    "meaning": "to place something on a surface",
+    "example": "He put down the book and left the room.",
+    "id": "id-0191-1"
+  },
+  {
+    "phrase": "put down",
+    "meaning": "to criticize or belittle someone",
+    "example": "She should not put down her colleagues.",
+    "id": "id-0191-2"
   },
   {
     "phrase": "put forward",
-    "meaning": ["to suggest or present an idea"],
-    "example": ["She put forward an interesting proposal."],
+    "meaning": "to suggest or present an idea",
+    "example": "She put forward an interesting proposal.",
     "id": "id-0192"
   },
   {
     "phrase": "put off",
-    "meaning": ["to postpone or delay something"],
-    "example": ["They put off the meeting until next week."],
+    "meaning": "to postpone or delay something",
+    "example": "They put off the meeting until next week.",
     "id": "id-0193"
   },
   {
     "phrase": "put on",
-    "meaning": ["to wear something"],
-    "example": ["She put on her coat before going outside."],
+    "meaning": "to wear something",
+    "example": "She put on her coat before going outside.",
     "id": "id-0194"
   },
   {
     "phrase": "put out",
-    "meaning": ["to extinguish something such as a fire"],
-    "example": ["The firefighters quickly put out the fire."],
+    "meaning": "to extinguish something such as a fire",
+    "example": "The firefighters quickly put out the fire.",
     "id": "id-0195"
   },
   {
     "phrase": "put through",
-    "meaning": ["to connect someone to another person on the telephone"],
-    "example": ["Could you put me through to the manager?"],
+    "meaning": "to connect someone to another person on the telephone",
+    "example": "Could you put me through to the manager?",
     "id": "id-0196"
   },
   {
     "phrase": "put up",
-    "meaning": [
-      "to raise or display something",
-      "to provide accommodation for someone"
-    ],
-    "example": [
-      "They put up a notice on the wall.",
-      "My friend put me up for the night."
-    ],
-    "id": "id-0197"
+    "meaning": "to raise or display something",
+    "example": "They put up a notice on the wall.",
+    "id": "id-0197-1"
+  },
+  {
+    "phrase": "put up",
+    "meaning": "to provide accommodation for someone",
+    "example": "My friend put me up for the night.",
+    "id": "id-0197-2"
   },
   {
     "phrase": "put up with",
-    "meaning": ["to tolerate something unpleasant"],
-    "example": ["I cannot put up with this noise anymore."],
+    "meaning": "to tolerate something unpleasant",
+    "example": "I cannot put up with this noise anymore.",
     "id": "id-0198"
   },
   {
     "phrase": "rule out",
-    "meaning": ["to decide that something is impossible or not suitable"],
-    "example": ["The doctor ruled out any serious illness."],
+    "meaning": "to decide that something is impossible or not suitable",
+    "example": "The doctor ruled out any serious illness.",
     "id": "id-0199"
   },
   {
     "phrase": "run across",
-    "meaning": ["to find or meet someone or something unexpectedly"],
-    "example": ["I ran across an old friend at the market."],
+    "meaning": "to find or meet someone or something unexpectedly",
+    "example": "I ran across an old friend at the market.",
     "id": "id-0200"
   },
   {
     "phrase": "run after",
-    "meaning": ["to chase someone or something"],
-    "example": ["The dog ran after the ball."],
+    "meaning": "to chase someone or something",
+    "example": "The dog ran after the ball.",
     "id": "id-0201"
   },
   {
     "phrase": "run away",
-    "meaning": ["to escape or leave suddenly"],
-    "example": ["The prisoner ran away from the guards."],
+    "meaning": "to escape or leave suddenly",
+    "example": "The prisoner ran away from the guards.",
     "id": "id-0202"
   },
   {
     "phrase": "run down",
-    "meaning": ["to criticize or reduce the power of something"],
-    "example": ["The battery has run down."],
+    "meaning": "to criticize or reduce the power of something",
+    "example": "The battery has run down.",
     "id": "id-0203"
   },
   {
     "phrase": "run into",
-    "meaning": ["to meet someone unexpectedly", "to encounter a problem"],
-    "example": [
-      "I ran into an old friend at the market.",
-      "We ran into several problems during the project."
-    ],
-    "id": "id-0204"
+    "meaning": "to meet someone unexpectedly",
+    "example": "I ran into an old friend at the market.",
+    "id": "id-0204-1"
+  },
+  {
+    "phrase": "run into",
+    "meaning": "to encounter a problem",
+    "example": "We ran into several problems during the project.",
+    "id": "id-0204-2"
   },
   {
     "phrase": "run out",
-    "meaning": ["to come to an end", "to leave by running"],
-    "example": [
-      "Our time is running out.",
-      "The children ran out of the classroom."
-    ],
-    "id": "id-0205"
+    "meaning": "to come to an end",
+    "example": "Our time is running out.",
+    "id": "id-0205-1"
+  },
+  {
+    "phrase": "run out",
+    "meaning": "to leave by running",
+    "example": "The children ran out of the classroom.",
+    "id": "id-0205-2"
   },
   {
     "phrase": "run out of",
-    "meaning": ["to have no more of something"],
-    "example": ["We have run out of drinking water."],
+    "meaning": "to have no more of something",
+    "example": "We have run out of drinking water.",
     "id": "id-0206"
   },
   {
     "phrase": "back into",
-    "meaning": ["to enter a situation accidentally or unexpectedly"],
-    "example": ["He backed into a difficult situation."],
+    "meaning": "to enter a situation accidentally or unexpectedly",
+    "example": "He backed into a difficult situation.",
     "id": "id-0207"
   },
   {
     "phrase": "bank on",
-    "meaning": ["to depend on or rely on something"],
-    "example": ["You can bank on her support."],
+    "meaning": "to depend on or rely on something",
+    "example": "You can bank on her support.",
     "id": "id-0208"
   },
   {
     "phrase": "bear down on",
-    "meaning": ["to move towards something with great force or pressure"],
-    "example": ["The storm was bearing down on the coast."],
+    "meaning": "to move towards something with great force or pressure",
+    "example": "The storm was bearing down on the coast.",
     "id": "id-0209"
   },
   {
     "phrase": "bear up",
-    "meaning": ["to remain cheerful or strong during difficulty"],
-    "example": ["She bore up well after the setback."],
+    "meaning": "to remain cheerful or strong during difficulty",
+    "example": "She bore up well after the setback.",
     "id": "id-0210"
   },
   {
     "phrase": "blow over",
-    "meaning": ["to pass without causing lasting harm"],
-    "example": ["The disagreement will soon blow over."],
+    "meaning": "to pass without causing lasting harm",
+    "example": "The disagreement will soon blow over.",
     "id": "id-0211"
   },
   {
     "phrase": "blow out",
-    "meaning": [
-      "to extinguish something by blowing or cause something to fail"
-    ],
-    "example": ["She blew out the candles on her birthday cake."],
+    "meaning": "to extinguish something by blowing or cause something to fail",
+    "example": "She blew out the candles on her birthday cake.",
     "id": "id-0212"
   },
   {
     "phrase": "boil down to",
-    "meaning": ["to have something as the main or essential point"],
-    "example": ["The problem boils down to a lack of money."],
+    "meaning": "to have something as the main or essential point",
+    "example": "The problem boils down to a lack of money.",
     "id": "id-0213"
   },
   {
     "phrase": "break in",
-    "meaning": ["to enter by force or interrupt a conversation"],
-    "example": ["Someone tried to break in during the night."],
+    "meaning": "to enter by force or interrupt a conversation",
+    "example": "Someone tried to break in during the night.",
     "id": "id-0214"
   },
   {
     "phrase": "break off",
-    "meaning": ["to stop suddenly or end a relationship"],
-    "example": ["The two countries broke off negotiations."],
+    "meaning": "to stop suddenly or end a relationship",
+    "example": "The two countries broke off negotiations.",
     "id": "id-0215"
   },
   {
     "phrase": "break with",
-    "meaning": ["to end a relationship or tradition"],
-    "example": ["The new leader decided to break with tradition."],
+    "meaning": "to end a relationship or tradition",
+    "example": "The new leader decided to break with tradition.",
     "id": "id-0216"
   },
   {
     "phrase": "bring round",
-    "meaning": ["to restore consciousness or persuade someone"],
-    "example": ["The doctor managed to bring the patient round."],
+    "meaning": "to restore consciousness or persuade someone",
+    "example": "The doctor managed to bring the patient round.",
     "id": "id-0217"
   },
   {
     "phrase": "brush off",
-    "meaning": ["to dismiss or ignore someone or something"],
-    "example": ["She brushed off his criticism."],
+    "meaning": "to dismiss or ignore someone or something",
+    "example": "She brushed off his criticism.",
     "id": "id-0218"
   },
   {
     "phrase": "burn down",
-    "meaning": ["to destroy completely by fire"],
-    "example": ["The old building burned down last night."],
+    "meaning": "to destroy completely by fire",
+    "example": "The old building burned down last night.",
     "id": "id-0219"
   },
   {
     "phrase": "burn out",
-    "meaning": ["to become exhausted through excessive work"],
-    "example": ["He worked so hard that he eventually burned out."],
+    "meaning": "to become exhausted through excessive work",
+    "example": "He worked so hard that he eventually burned out.",
     "id": "id-0220"
   },
   {
     "phrase": "burst out",
-    "meaning": ["to suddenly begin doing something"],
-    "example": ["She burst out laughing."],
+    "meaning": "to suddenly begin doing something",
+    "example": "She burst out laughing.",
     "id": "id-0221"
   },
   {
     "phrase": "call back",
-    "meaning": ["to return a telephone call"],
-    "example": ["I will call you back after the meeting."],
+    "meaning": "to return a telephone call",
+    "example": "I will call you back after the meeting.",
     "id": "id-0222"
   },
   {
     "phrase": "call in",
-    "meaning": ["to ask someone to come and help"],
-    "example": ["They called in an expert to solve the problem."],
+    "meaning": "to ask someone to come and help",
+    "example": "They called in an expert to solve the problem.",
     "id": "id-0223"
   },
   {
     "phrase": "call up",
-    "meaning": ["to telephone someone"],
-    "example": ["I will call up the office tomorrow."],
+    "meaning": "to telephone someone",
+    "example": "I will call up the office tomorrow.",
     "id": "id-0224"
   },
   {
     "phrase": "care for",
-    "meaning": ["to look after or have feelings for someone"],
-    "example": ["She cares for her elderly mother."],
+    "meaning": "to look after or have feelings for someone",
+    "example": "She cares for her elderly mother.",
     "id": "id-0225"
   },
   {
     "phrase": "carry away",
-    "meaning": ["to cause someone to become overly excited or emotional"],
-    "example": ["He got carried away by his success."],
+    "meaning": "to cause someone to become overly excited or emotional",
+    "example": "He got carried away by his success.",
     "id": "id-0226"
   },
   {
     "phrase": "carry off",
-    "meaning": ["to succeed in doing something difficult"],
-    "example": ["She carried off the performance brilliantly."],
+    "meaning": "to succeed in doing something difficult",
+    "example": "She carried off the performance brilliantly.",
     "id": "id-0227"
   },
   {
     "phrase": "catch out",
-    "meaning": ["to expose someone as being wrong or dishonest"],
-    "example": ["The interviewer caught him out with a difficult question."],
+    "meaning": "to expose someone as being wrong or dishonest",
+    "example": "The interviewer caught him out with a difficult question.",
     "id": "id-0228"
   },
   {
     "phrase": "check up on",
-    "meaning": ["to examine or make sure someone or something is satisfactory"],
-    "example": ["The manager checked up on the progress of the project."],
+    "meaning": "to examine or make sure someone or something is satisfactory",
+    "example": "The manager checked up on the progress of the project.",
     "id": "id-0229"
   },
   {
     "phrase": "chip in",
-    "meaning": ["to contribute something, especially money or help"],
-    "example": ["Everyone chipped in to buy a farewell gift."],
+    "meaning": "to contribute something, especially money or help",
+    "example": "Everyone chipped in to buy a farewell gift.",
     "id": "id-0230"
   },
   {
     "phrase": "clear away",
-    "meaning": ["to remove things from a place"],
-    "example": ["Please clear away the dishes after dinner."],
+    "meaning": "to remove things from a place",
+    "example": "Please clear away the dishes after dinner.",
     "id": "id-0231"
   },
   {
     "phrase": "clear up",
-    "meaning": ["to solve a problem or make something clear"],
-    "example": ["The police cleared up the misunderstanding."],
+    "meaning": "to solve a problem or make something clear",
+    "example": "The police cleared up the misunderstanding.",
     "id": "id-0232"
   },
   {
     "phrase": "close down",
-    "meaning": ["to stop operating permanently"],
-    "example": ["The factory was closed down last year."],
+    "meaning": "to stop operating permanently",
+    "example": "The factory was closed down last year.",
     "id": "id-0233"
   },
   {
     "phrase": "come about",
-    "meaning": ["to happen or occur"],
-    "example": ["How did this change come about?"],
+    "meaning": "to happen or occur",
+    "example": "How did this change come about?",
     "id": "id-0234"
   },
   {
     "phrase": "come apart",
-    "meaning": ["to separate into pieces"],
-    "example": ["The old chair came apart when I sat on it."],
+    "meaning": "to separate into pieces",
+    "example": "The old chair came apart when I sat on it.",
     "id": "id-0235"
   },
   {
     "phrase": "come off",
-    "meaning": ["to succeed or become separated"],
-    "example": ["The plan came off exactly as expected."],
+    "meaning": "to succeed or become separated",
+    "example": "The plan came off exactly as expected.",
     "id": "id-0236"
   },
   {
     "phrase": "come round",
-    "meaning": ["to recover consciousness or change one's opinion"],
-    "example": ["She eventually came round to our way of thinking."],
+    "meaning": "to recover consciousness or change one's opinion",
+    "example": "She eventually came round to our way of thinking.",
     "id": "id-0237"
   },
   {
     "phrase": "come under",
-    "meaning": ["to be subjected to something such as criticism or pressure"],
-    "example": ["The government came under heavy criticism."],
+    "meaning": "to be subjected to something such as criticism or pressure",
+    "example": "The government came under heavy criticism.",
     "id": "id-0238"
   },
   {
     "phrase": "come upon",
-    "meaning": ["to find or meet someone or something unexpectedly"],
-    "example": ["We came upon an old temple in the forest."],
+    "meaning": "to find or meet someone or something unexpectedly",
+    "example": "We came upon an old temple in the forest.",
     "id": "id-0239"
   },
   {
     "phrase": "come between",
-    "meaning": ["to cause separation or disagreement between people"],
-    "example": ["Nothing should come between the two friends."],
+    "meaning": "to cause separation or disagreement between people",
+    "example": "Nothing should come between the two friends.",
     "id": "id-0240"
   },
   {
     "phrase": "conform to",
-    "meaning": ["to follow a rule, standard, or expectation"],
-    "example": ["All products must conform to safety standards."],
+    "meaning": "to follow a rule, standard, or expectation",
+    "example": "All products must conform to safety standards.",
     "id": "id-0241"
   },
   {
     "phrase": "consist of",
-    "meaning": ["to be made up of particular parts"],
-    "example": ["The committee consists of ten members."],
+    "meaning": "to be made up of particular parts",
+    "example": "The committee consists of ten members.",
     "id": "id-0242"
   },
   {
     "phrase": "contribute to",
-    "meaning": [
-      "to help cause something or give something to a common purpose"
-    ],
-    "example": ["Lack of exercise can contribute to poor health."],
+    "meaning": "to help cause something or give something to a common purpose",
+    "example": "Lack of exercise can contribute to poor health.",
     "id": "id-0243"
   },
   {
     "phrase": "cope with",
-    "meaning": ["to deal successfully with a difficult situation"],
-    "example": ["She learned how to cope with stress."],
+    "meaning": "to deal successfully with a difficult situation",
+    "example": "She learned how to cope with stress.",
     "id": "id-0244"
   },
   {
     "phrase": "crack down on",
-    "meaning": ["to take strict action against something"],
-    "example": ["The authorities are cracking down on illegal activities."],
+    "meaning": "to take strict action against something",
+    "example": "The authorities are cracking down on illegal activities.",
     "id": "id-0245"
   },
   {
     "phrase": "cross out",
-    "meaning": ["to draw a line through something to remove it"],
-    "example": ["Please cross out the incorrect answer."],
+    "meaning": "to draw a line through something to remove it",
+    "example": "Please cross out the incorrect answer.",
     "id": "id-0246"
   },
   {
     "phrase": "cry out",
-    "meaning": ["to shout or make a loud expression of pain or emotion"],
-    "example": ["The child cried out for help."],
+    "meaning": "to shout or make a loud expression of pain or emotion",
+    "example": "The child cried out for help.",
     "id": "id-0247"
   },
   {
     "phrase": "cut across",
-    "meaning": ["to take a shorter route across an area"],
-    "example": ["We cut across the field to save time."],
+    "meaning": "to take a shorter route across an area",
+    "example": "We cut across the field to save time.",
     "id": "id-0248"
   },
   {
     "phrase": "cut back",
-    "meaning": ["to reduce something"],
-    "example": ["The company has cut back on unnecessary expenses."],
+    "meaning": "to reduce something",
+    "example": "The company has cut back on unnecessary expenses.",
     "id": "id-0249"
   },
   {
     "phrase": "cut in",
-    "meaning": ["to interrupt someone or move suddenly into a line"],
-    "example": ["He cut in while I was speaking."],
+    "meaning": "to interrupt someone or move suddenly into a line",
+    "example": "He cut in while I was speaking.",
     "id": "id-0250"
   },
   {
     "phrase": "cut into",
-    "meaning": ["to reduce the amount or time available for something"],
-    "example": ["The extra work cut into my study time."],
+    "meaning": "to reduce the amount or time available for something",
+    "example": "The extra work cut into my study time.",
     "id": "id-0251"
   },
   {
     "phrase": "cut short",
-    "meaning": ["to end something earlier than planned"],
-    "example": ["The rain cut short the outdoor event."],
+    "meaning": "to end something earlier than planned",
+    "example": "The rain cut short the outdoor event.",
     "id": "id-0252"
   },
   {
     "phrase": "delve into",
-    "meaning": ["to investigate or examine something deeply"],
-    "example": ["The researcher delved into the history of the subject."],
+    "meaning": "to investigate or examine something deeply",
+    "example": "The researcher delved into the history of the subject.",
     "id": "id-0253"
   },
   {
     "phrase": "depend on",
-    "meaning": ["to rely on someone or something"],
-    "example": ["Success depends on hard work."],
+    "meaning": "to rely on someone or something",
+    "example": "Success depends on hard work.",
     "id": "id-0254"
   },
   {
     "phrase": "dispose of",
-    "meaning": ["to get rid of something"],
-    "example": ["The waste must be disposed of safely."],
+    "meaning": "to get rid of something",
+    "example": "The waste must be disposed of safely.",
     "id": "id-0255"
   },
   {
     "phrase": "dress up",
-    "meaning": ["to wear more formal or attractive clothes"],
-    "example": ["Everyone dressed up for the ceremony."],
+    "meaning": "to wear more formal or attractive clothes",
+    "example": "Everyone dressed up for the ceremony.",
     "id": "id-0256"
   },
   {
     "phrase": "drive away",
-    "meaning": ["to force someone or something to leave"],
-    "example": ["The loud noise drove the birds away."],
+    "meaning": "to force someone or something to leave",
+    "example": "The loud noise drove the birds away.",
     "id": "id-0257"
   },
   {
     "phrase": "drive at",
-    "meaning": ["to intend or suggest something indirectly"],
-    "example": ["What exactly are you driving at?"],
+    "meaning": "to intend or suggest something indirectly",
+    "example": "What exactly are you driving at?",
     "id": "id-0258"
   },
   {
     "phrase": "eat away at",
-    "meaning": ["to gradually destroy or reduce something"],
-    "example": ["The debt was eating away at his savings."],
+    "meaning": "to gradually destroy or reduce something",
+    "example": "The debt was eating away at his savings.",
     "id": "id-0259"
   },
   {
     "phrase": "eat into",
-    "meaning": ["to reduce something gradually"],
-    "example": ["The repairs ate into our savings."],
+    "meaning": "to reduce something gradually",
+    "example": "The repairs ate into our savings.",
     "id": "id-0260"
   },
   {
     "phrase": "face up to",
-    "meaning": ["to accept and deal with a difficult situation"],
-    "example": ["He must face up to his responsibilities."],
+    "meaning": "to accept and deal with a difficult situation",
+    "example": "He must face up to his responsibilities.",
     "id": "id-0261"
   },
   {
     "phrase": "fade away",
-    "meaning": ["to gradually disappear or become weaker"],
-    "example": ["The sound of the music faded away."],
+    "meaning": "to gradually disappear or become weaker",
+    "example": "The sound of the music faded away.",
     "id": "id-0262"
   },
   {
     "phrase": "fall back on",
-    "meaning": ["to use something as a source of help when needed"],
-    "example": ["She has her savings to fall back on."],
+    "meaning": "to use something as a source of help when needed",
+    "example": "She has her savings to fall back on.",
     "id": "id-0263"
   },
   {
     "phrase": "fall in with",
-    "meaning": ["to agree with or become associated with someone"],
-    "example": ["He fell in with a group of dishonest people."],
+    "meaning": "to agree with or become associated with someone",
+    "example": "He fell in with a group of dishonest people.",
     "id": "id-0264"
   },
   {
     "phrase": "fall out",
-    "meaning": ["to have an argument or disagreement"],
-    "example": ["The two friends fell out over a minor issue."],
+    "meaning": "to have an argument or disagreement",
+    "example": "The two friends fell out over a minor issue.",
     "id": "id-0265"
   },
   {
     "phrase": "fall out with",
-    "meaning": ["to quarrel with someone"],
-    "example": ["She fell out with her best friend."],
+    "meaning": "to quarrel with someone",
+    "example": "She fell out with her best friend.",
     "id": "id-0266"
   },
   {
     "phrase": "feed on",
-    "meaning": ["to depend on something as food or support"],
-    "example": ["Some insects feed on plant leaves."],
+    "meaning": "to depend on something as food or support",
+    "example": "Some insects feed on plant leaves.",
     "id": "id-0267"
   },
   {
     "phrase": "fight back",
-    "meaning": ["to resist or defend oneself"],
-    "example": ["The team fought back strongly in the second half."],
+    "meaning": "to resist or defend oneself",
+    "example": "The team fought back strongly in the second half.",
     "id": "id-0268"
   },
   {
     "phrase": "fight off",
-    "meaning": ["to resist or defeat something harmful"],
-    "example": ["The body fought off the infection."],
+    "meaning": "to resist or defeat something harmful",
+    "example": "The body fought off the infection.",
     "id": "id-0269"
   },
   {
     "phrase": "fill up",
-    "meaning": ["to make something completely full"],
-    "example": ["Please fill up the water bottle."],
+    "meaning": "to make something completely full",
+    "example": "Please fill up the water bottle.",
     "id": "id-0270"
   },
   {
     "phrase": "fit in",
-    "meaning": ["to belong or be suitable in a particular situation"],
-    "example": ["She quickly fit in with her new classmates."],
+    "meaning": "to belong or be suitable in a particular situation",
+    "example": "She quickly fit in with her new classmates.",
     "id": "id-0271"
   },
   {
     "phrase": "flare up",
-    "meaning": ["to suddenly become more serious or intense"],
-    "example": ["The argument flared up again."],
+    "meaning": "to suddenly become more serious or intense",
+    "example": "The argument flared up again.",
     "id": "id-0272"
   },
   {
     "phrase": "frown upon",
-    "meaning": ["to disapprove of something"],
-    "example": ["The school frowns upon cheating."],
+    "meaning": "to disapprove of something",
+    "example": "The school frowns upon cheating.",
     "id": "id-0273"
   },
   {
     "phrase": "get ahead",
-    "meaning": ["to make progress or become successful"],
-    "example": ["Hard work is necessary if you want to get ahead."],
+    "meaning": "to make progress or become successful",
+    "example": "Hard work is necessary if you want to get ahead.",
     "id": "id-0274"
   },
   {
     "phrase": "get at",
-    "meaning": ["to mean or try to communicate something"],
-    "example": ["I understand what you are getting at."],
+    "meaning": "to mean or try to communicate something",
+    "example": "I understand what you are getting at.",
     "id": "id-0275"
   },
   {
     "phrase": "get away from",
-    "meaning": ["to escape from or avoid something"],
-    "example": ["I need to get away from the noise."],
+    "meaning": "to escape from or avoid something",
+    "example": "I need to get away from the noise.",
     "id": "id-0276"
   },
   {
     "phrase": "get down to",
-    "meaning": ["to begin dealing seriously with something"],
-    "example": ["Let's get down to work."],
+    "meaning": "to begin dealing seriously with something",
+    "example": "Let's get down to work.",
     "id": "id-0277"
   },
   {
     "phrase": "get in touch with",
-    "meaning": ["to communicate with someone"],
-    "example": ["I will get in touch with you tomorrow."],
+    "meaning": "to communicate with someone",
+    "example": "I will get in touch with you tomorrow.",
     "id": "id-0278"
   },
   {
     "phrase": "get through to",
-    "meaning": ["to successfully communicate with someone"],
-    "example": ["I could not get through to him on the phone."],
+    "meaning": "to successfully communicate with someone",
+    "example": "I could not get through to him on the phone.",
     "id": "id-0279"
   },
   {
     "phrase": "get together",
-    "meaning": ["to meet or gather socially"],
-    "example": ["The old classmates got together after many years."],
+    "meaning": "to meet or gather socially",
+    "example": "The old classmates got together after many years.",
     "id": "id-0280"
   },
   {
     "phrase": "get around to",
-    "meaning": ["to finally find time to do something"],
-    "example": ["I finally got around to cleaning my room."],
+    "meaning": "to finally find time to do something",
+    "example": "I finally got around to cleaning my room.",
     "id": "id-0281"
   },
   {
     "phrase": "get wind of",
-    "meaning": ["to hear or learn about something secretly"],
-    "example": ["The manager got wind of the plan."],
+    "meaning": "to hear or learn about something secretly",
+    "example": "The manager got wind of the plan.",
     "id": "id-0282"
   },
   {
     "phrase": "give way",
-    "meaning": ["to collapse or stop resisting"],
-    "example": ["The old bridge finally gave way."],
+    "meaning": "to collapse or stop resisting",
+    "example": "The old bridge finally gave way.",
     "id": "id-0283"
   },
   {
     "phrase": "go off on",
-    "meaning": ["to become angry with someone"],
-    "example": ["The teacher went off on the students for being late."],
+    "meaning": "to become angry with someone",
+    "example": "The teacher went off on the students for being late.",
     "id": "id-0284"
   },
   {
     "phrase": "go round",
-    "meaning": ["to visit someone or move around"],
-    "example": ["I went round to his house in the evening."],
+    "meaning": "to visit someone or move around",
+    "example": "I went round to his house in the evening.",
     "id": "id-0285"
   },
   {
     "phrase": "go up",
-    "meaning": ["to increase or rise"],
-    "example": ["The price of vegetables has gone up."],
+    "meaning": "to increase or rise",
+    "example": "The price of vegetables has gone up.",
     "id": "id-0286"
   },
   {
     "phrase": "hang back",
-    "meaning": ["to stay behind or hesitate"],
-    "example": ["She hung back while the others entered the room."],
+    "meaning": "to stay behind or hesitate",
+    "example": "She hung back while the others entered the room.",
     "id": "id-0287"
   },
   {
     "phrase": "hang together",
-    "meaning": ["to remain united or make sense"],
-    "example": ["The members need to hang together during the crisis."],
+    "meaning": "to remain united or make sense",
+    "example": "The members need to hang together during the crisis.",
     "id": "id-0288"
   },
   {
     "phrase": "hear from",
-    "meaning": ["to receive communication from someone"],
-    "example": ["I have not heard from him for several weeks."],
+    "meaning": "to receive communication from someone",
+    "example": "I have not heard from him for several weeks.",
     "id": "id-0289"
   },
   {
     "phrase": "hear of",
-    "meaning": ["to know about someone or something"],
-    "example": ["Have you ever heard of this author?"],
+    "meaning": "to know about someone or something",
+    "example": "Have you ever heard of this author?",
     "id": "id-0290"
   },
   {
     "phrase": "hit upon",
-    "meaning": ["to discover or think of something unexpectedly"],
-    "example": ["She hit upon a brilliant solution."],
+    "meaning": "to discover or think of something unexpectedly",
+    "example": "She hit upon a brilliant solution.",
     "id": "id-0291"
   },
   {
     "phrase": "hold against",
-    "meaning": ["to blame someone for something"],
-    "example": ["I will not hold this mistake against you."],
+    "meaning": "to blame someone for something",
+    "example": "I will not hold this mistake against you.",
     "id": "id-0292"
   },
   {
     "phrase": "impose on",
-    "meaning": ["to take unfair advantage of someone's kindness"],
-    "example": ["I do not want to impose on your hospitality."],
+    "meaning": "to take unfair advantage of someone's kindness",
+    "example": "I do not want to impose on your hospitality.",
     "id": "id-0293"
   },
   {
     "phrase": "insist on",
-    "meaning": ["to demand something firmly"],
-    "example": ["She insisted on paying the bill."],
+    "meaning": "to demand something firmly",
+    "example": "She insisted on paying the bill.",
     "id": "id-0294"
   },
   {
     "phrase": "jump at",
-    "meaning": ["to accept an opportunity eagerly"],
-    "example": ["He jumped at the chance to study abroad."],
+    "meaning": "to accept an opportunity eagerly",
+    "example": "He jumped at the chance to study abroad.",
     "id": "id-0295"
   },
   {
     "phrase": "keep abreast of",
-    "meaning": ["to remain informed about recent developments"],
-    "example": ["You should keep abreast of current affairs."],
+    "meaning": "to remain informed about recent developments",
+    "example": "You should keep abreast of current affairs.",
     "id": "id-0296"
   },
   {
     "phrase": "keep in touch",
-    "meaning": ["to continue communicating with someone"],
-    "example": ["We promised to keep in touch after graduation."],
+    "meaning": "to continue communicating with someone",
+    "example": "We promised to keep in touch after graduation.",
     "id": "id-0297"
   },
   {
     "phrase": "leave off",
-    "meaning": ["to stop doing something"],
-    "example": ["The speaker left off after discussing the main issue."],
+    "meaning": "to stop doing something",
+    "example": "The speaker left off after discussing the main issue.",
     "id": "id-0298"
   },
   {
     "phrase": "let in",
-    "meaning": ["to allow someone to enter"],
-    "example": ["Please let me in; it is raining outside."],
+    "meaning": "to allow someone to enter",
+    "example": "Please let me in; it is raining outside.",
     "id": "id-0299"
   },
   {
     "phrase": "live down",
-    "meaning": ["to overcome embarrassment caused by something"],
-    "example": ["He could never live down his embarrassing mistake."],
+    "meaning": "to overcome embarrassment caused by something",
+    "example": "He could never live down his embarrassing mistake.",
     "id": "id-0300"
   },
   {
     "phrase": "look around",
-    "meaning": ["to inspect or examine a place"],
-    "example": ["We looked around the museum for an hour."],
+    "meaning": "to inspect or examine a place",
+    "example": "We looked around the museum for an hour.",
     "id": "id-0301"
   },
   {
     "phrase": "make do with",
-    "meaning": ["to manage with something that is less than ideal"],
-    "example": ["We had to make do with the resources available."],
+    "meaning": "to manage with something that is less than ideal",
+    "example": "We had to make do with the resources available.",
     "id": "id-0302"
   },
   {
     "phrase": "make of",
-    "meaning": ["to understand or have an opinion about something"],
-    "example": ["What do you make of his explanation?"],
+    "meaning": "to understand or have an opinion about something",
+    "example": "What do you make of his explanation?",
     "id": "id-0303"
   },
   {
     "phrase": "make off with",
-    "meaning": ["to steal something and escape with it"],
-    "example": ["The thief made off with the valuable jewellery."],
+    "meaning": "to steal something and escape with it",
+    "example": "The thief made off with the valuable jewellery.",
     "id": "id-0304"
   },
   {
     "phrase": "pay for",
-    "meaning": ["to suffer the consequences of something"],
-    "example": ["He will eventually pay for his mistakes."],
+    "meaning": "to suffer the consequences of something",
+    "example": "He will eventually pay for his mistakes.",
     "id": "id-0305"
   },
   {
     "phrase": "phase out",
-    "meaning": ["to gradually stop using or producing something"],
-    "example": ["The company plans to phase out the old machines."],
+    "meaning": "to gradually stop using or producing something",
+    "example": "The company plans to phase out the old machines.",
     "id": "id-0306"
   },
   {
     "phrase": "play down",
-    "meaning": ["to make something seem less important or serious"],
-    "example": [
-      "The government tried to play down the seriousness of the situation."
-    ],
+    "meaning": "to make something seem less important or serious",
+    "example": "The government tried to play down the seriousness of the situation.",
     "id": "id-0307"
   },
   {
     "phrase": "pull down",
-    "meaning": ["to demolish or reduce something"],
-    "example": ["The old building was pulled down."],
+    "meaning": "to demolish or reduce something",
+    "example": "The old building was pulled down.",
     "id": "id-0308"
   },
   {
     "phrase": "pull through",
-    "meaning": ["to survive a serious illness or difficult situation"],
-    "example": ["The patient pulled through after the operation."],
+    "meaning": "to survive a serious illness or difficult situation",
+    "example": "The patient pulled through after the operation.",
     "id": "id-0309"
   },
   {
     "phrase": "put across",
-    "meaning": ["to communicate an idea successfully"],
-    "example": ["The speaker put across his message clearly."],
+    "meaning": "to communicate an idea successfully",
+    "example": "The speaker put across his message clearly.",
     "id": "id-0310"
   },
   {
     "phrase": "read through",
-    "meaning": ["to read something completely or carefully"],
-    "example": ["Please read through the instructions before starting."],
+    "meaning": "to read something completely or carefully",
+    "example": "Please read through the instructions before starting.",
     "id": "id-0311"
   },
   {
     "phrase": "refer to",
-    "meaning": ["to mention or consult something"],
-    "example": ["Please refer to the instructions for more information."],
+    "meaning": "to mention or consult something",
+    "example": "Please refer to the instructions for more information.",
     "id": "id-0312"
   },
   {
     "phrase": "resort to",
-    "meaning": ["to use something unpleasant as a last option"],
-    "example": ["They had to resort to legal action."],
+    "meaning": "to use something unpleasant as a last option",
+    "example": "They had to resort to legal action.",
     "id": "id-0313"
   },
   {
     "phrase": "see through",
-    "meaning": ["to understand the true nature of something"],
-    "example": ["She quickly saw through his excuse."],
+    "meaning": "to understand the true nature of something",
+    "example": "She quickly saw through his excuse.",
     "id": "id-0314"
   },
   {
     "phrase": "send for",
-    "meaning": ["to ask someone to come"],
-    "example": ["The doctor sent for the nurse."],
+    "meaning": "to ask someone to come",
+    "example": "The doctor sent for the nurse.",
     "id": "id-0315"
   },
   {
     "phrase": "settle down",
-    "meaning": ["to become calm or start living a stable life"],
-    "example": ["The children finally settled down."],
+    "meaning": "to become calm or start living a stable life",
+    "example": "The children finally settled down.",
     "id": "id-0316"
   },
   {
     "phrase": "show off",
-    "meaning": [
-      "to behave in a way intended to attract attention or admiration"
-    ],
-    "example": ["He likes to show off his new car."],
+    "meaning": "to behave in a way intended to attract attention or admiration",
+    "example": "He likes to show off his new car.",
     "id": "id-0317"
   },
   {
     "phrase": "shut down",
-    "meaning": ["to stop operating or close something"],
-    "example": ["The factory was shut down temporarily."],
+    "meaning": "to stop operating or close something",
+    "example": "The factory was shut down temporarily.",
     "id": "id-0318"
   },
   {
     "phrase": "single out",
-    "meaning": ["to choose one person or thing for special attention"],
-    "example": ["The teacher singled him out for praise."],
+    "meaning": "to choose one person or thing for special attention",
+    "example": "The teacher singled him out for praise.",
     "id": "id-0319"
   },
   {
     "phrase": "slip away",
-    "meaning": ["to leave quietly or gradually disappear"],
-    "example": ["The thief slipped away before anyone noticed."],
+    "meaning": "to leave quietly or gradually disappear",
+    "example": "The thief slipped away before anyone noticed.",
     "id": "id-0320"
   },
   {
     "phrase": "sort out",
-    "meaning": ["to organize or solve a problem"],
-    "example": ["We need to sort out this problem immediately."],
+    "meaning": "to organize or solve a problem",
+    "example": "We need to sort out this problem immediately.",
     "id": "id-0321"
   },
   {
     "phrase": "speak out",
-    "meaning": ["to express one's opinion openly"],
-    "example": ["She spoke out against corruption."],
+    "meaning": "to express one's opinion openly",
+    "example": "She spoke out against corruption.",
     "id": "id-0322"
   },
   {
     "phrase": "stand against",
-    "meaning": ["to oppose something"],
-    "example": ["The citizens stood against the unfair decision."],
+    "meaning": "to oppose something",
+    "example": "The citizens stood against the unfair decision.",
     "id": "id-0323"
   },
   {
     "phrase": "stand up for",
-    "meaning": ["to defend or support someone or something"],
-    "example": ["You should stand up for your rights."],
+    "meaning": "to defend or support someone or something",
+    "example": "You should stand up for your rights.",
     "id": "id-0324"
   },
   {
     "phrase": "stick to",
-    "meaning": ["to continue following a plan, rule, or decision"],
-    "example": ["You must stick to the instructions."],
+    "meaning": "to continue following a plan, rule, or decision",
+    "example": "You must stick to the instructions.",
     "id": "id-0325"
   },
   {
     "phrase": "take apart",
-    "meaning": ["to separate something into pieces"],
-    "example": ["He took apart the machine to repair it."],
+    "meaning": "to separate something into pieces",
+    "example": "He took apart the machine to repair it.",
     "id": "id-0326"
   },
   {
     "phrase": "take back",
-    "meaning": ["to return something", "to withdraw a statement"],
-    "example": [
-      "I took the book back to the library.",
-      "I take back what I said earlier."
-    ],
-    "id": "id-0327"
+    "meaning": "to return something",
+    "example": "I took the book back to the library.",
+    "id": "id-0327-1"
+  },
+  {
+    "phrase": "take back",
+    "meaning": "to withdraw a statement",
+    "example": "I take back what I said earlier.",
+    "id": "id-0327-2"
   },
   {
     "phrase": "take down",
-    "meaning": ["to write something or remove something"],
-    "example": ["Please take down these important points."],
+    "meaning": "to write something or remove something",
+    "example": "Please take down these important points.",
     "id": "id-0328"
   },
   {
     "phrase": "take in",
-    "meaning": ["to understand or absorb information", "to deceive someone"],
-    "example": [
-      "It was difficult to take in all the information at once.",
-      "He was completely taken in by the false story."
-    ],
-    "id": "id-0329"
+    "meaning": "to understand or absorb information",
+    "example": "It was difficult to take in all the information at once.",
+    "id": "id-0329-1"
+  },
+  {
+    "phrase": "take in",
+    "meaning": "to deceive someone",
+    "example": "He was completely taken in by the false story.",
+    "id": "id-0329-2"
   },
   {
     "phrase": "take on",
-    "meaning": [
-      "to accept work or responsibility",
-      "to compete against someone"
-    ],
-    "example": [
-      "She took on the responsibility of managing the project.",
-      "Our team will take on the champions next week."
-    ],
-    "id": "id-0330"
+    "meaning": "to accept work or responsibility",
+    "example": "She took on the responsibility of managing the project.",
+    "id": "id-0330-1"
+  },
+  {
+    "phrase": "take on",
+    "meaning": "to compete against someone",
+    "example": "Our team will take on the champions next week.",
+    "id": "id-0330-2"
   },
   {
     "phrase": "take over",
-    "meaning": [
-      "to take control or responsibility",
-      "to take possession of a business"
-    ],
-    "example": [
-      "The new manager took over the department.",
-      "The company was taken over by a larger firm."
-    ],
-    "id": "id-0331"
+    "meaning": "to take control or responsibility",
+    "example": "The new manager took over the department.",
+    "id": "id-0331-1"
+  },
+  {
+    "phrase": "take over",
+    "meaning": "to take possession of a business",
+    "example": "The company was taken over by a larger firm.",
+    "id": "id-0331-2"
   },
   {
     "phrase": "take to",
-    "meaning": ["to begin to like or develop a habit of doing something"],
-    "example": ["She quickly took to her new job."],
+    "meaning": "to begin to like or develop a habit of doing something",
+    "example": "She quickly took to her new job.",
     "id": "id-0332"
   },
   {
     "phrase": "take up",
-    "meaning": ["to begin a new activity", "to occupy space or time"],
-    "example": [
-      "He took up swimming to improve his fitness.",
-      "This table takes up too much space."
-    ],
-    "id": "id-0333"
+    "meaning": "to begin a new activity",
+    "example": "He took up swimming to improve his fitness.",
+    "id": "id-0333-1"
+  },
+  {
+    "phrase": "take up",
+    "meaning": "to occupy space or time",
+    "example": "This table takes up too much space.",
+    "id": "id-0333-2"
   },
   {
     "phrase": "talk over",
-    "meaning": ["to discuss something carefully"],
-    "example": ["We need to talk over the matter before deciding."],
+    "meaning": "to discuss something carefully",
+    "example": "We need to talk over the matter before deciding.",
     "id": "id-0334"
   },
   {
     "phrase": "think over",
-    "meaning": ["to consider something carefully"],
-    "example": ["Take some time to think over the proposal."],
+    "meaning": "to consider something carefully",
+    "example": "Take some time to think over the proposal.",
     "id": "id-0335"
   },
   {
     "phrase": "think through",
-    "meaning": ["to consider all aspects of something carefully"],
-    "example": ["You should think through the consequences before acting."],
+    "meaning": "to consider all aspects of something carefully",
+    "example": "You should think through the consequences before acting.",
     "id": "id-0336"
   },
   {
     "phrase": "throw out",
-    "meaning": ["to discard something"],
-    "example": ["We threw out all the damaged furniture."],
+    "meaning": "to discard something",
+    "example": "We threw out all the damaged furniture.",
     "id": "id-0337"
   },
   {
     "phrase": "touch upon",
-    "meaning": ["to mention or discuss something briefly"],
-    "example": ["The speaker touched upon several important issues."],
+    "meaning": "to mention or discuss something briefly",
+    "example": "The speaker touched upon several important issues.",
     "id": "id-0338"
   },
   {
     "phrase": "track down",
-    "meaning": ["to find someone or something after searching"],
-    "example": ["The police tracked down the suspect."],
+    "meaning": "to find someone or something after searching",
+    "example": "The police tracked down the suspect.",
     "id": "id-0339"
   },
   {
     "phrase": "try on",
-    "meaning": ["to put on clothing to see whether it fits"],
-    "example": ["She tried on several dresses before choosing one."],
+    "meaning": "to put on clothing to see whether it fits",
+    "example": "She tried on several dresses before choosing one.",
     "id": "id-0340"
   },
   {
     "phrase": "turn against",
-    "meaning": ["to become hostile towards someone"],
-    "example": ["His friends turned against him after the incident."],
+    "meaning": "to become hostile towards someone",
+    "example": "His friends turned against him after the incident.",
     "id": "id-0341"
   },
   {
     "phrase": "turn back",
-    "meaning": ["to return in the direction from which one came"],
-    "example": ["We had to turn back because of the storm."],
+    "meaning": "to return in the direction from which one came",
+    "example": "We had to turn back because of the storm.",
     "id": "id-0342"
   },
   {
     "phrase": "turn into",
-    "meaning": ["to become something different"],
-    "example": ["The small village turned into a busy town."],
+    "meaning": "to become something different",
+    "example": "The small village turned into a busy town.",
     "id": "id-0343"
   },
   {
     "phrase": "turn to",
-    "meaning": ["to seek help or advice from someone"],
-    "example": ["She turned to her teacher for advice."],
+    "meaning": "to seek help or advice from someone",
+    "example": "She turned to her teacher for advice.",
     "id": "id-0344"
   },
   {
     "phrase": "turn over",
-    "meaning": ["to transfer control or examine something by turning it"],
-    "example": ["The manager turned over the responsibility to his assistant."],
+    "meaning": "to transfer control or examine something by turning it",
+    "example": "The manager turned over the responsibility to his assistant.",
     "id": "id-0345"
   },
   {
     "phrase": "use up",
-    "meaning": ["to consume all of something"],
-    "example": ["We have used up all the available resources."],
+    "meaning": "to consume all of something",
+    "example": "We have used up all the available resources.",
     "id": "id-0346"
   },
   {
     "phrase": "wait on",
-    "meaning": ["to serve or attend to someone"],
-    "example": ["The waiter waited on the customers."],
+    "meaning": "to serve or attend to someone",
+    "example": "The waiter waited on the customers.",
     "id": "id-0347"
   },
   {
     "phrase": "watch out",
-    "meaning": ["to be careful or alert"],
-    "example": ["Watch out for the slippery floor."],
+    "meaning": "to be careful or alert",
+    "example": "Watch out for the slippery floor.",
     "id": "id-0348"
   },
   {
     "phrase": "wear off",
-    "meaning": ["to gradually disappear or become less effective"],
-    "example": ["The effect of the medicine soon wore off."],
+    "meaning": "to gradually disappear or become less effective",
+    "example": "The effect of the medicine soon wore off.",
     "id": "id-0349"
   },
   {
     "phrase": "wind up",
-    "meaning": ["to finish something or arrive in a particular situation"],
-    "example": ["We wound up the meeting at five o'clock."],
+    "meaning": "to finish something or arrive in a particular situation",
+    "example": "We wound up the meeting at five o'clock.",
     "id": "id-0350"
   },
   {
     "phrase": "wipe out",
-    "meaning": ["to destroy or eliminate completely"],
-    "example": ["The disease wiped out the entire crop."],
+    "meaning": "to destroy or eliminate completely",
+    "example": "The disease wiped out the entire crop.",
     "id": "id-0351"
   },
   {
     "phrase": "work on",
-    "meaning": ["to spend time improving or developing something"],
-    "example": ["She is working on a new project."],
+    "meaning": "to spend time improving or developing something",
+    "example": "She is working on a new project.",
     "id": "id-0352"
   },
   {
     "phrase": "work through",
-    "meaning": ["to deal with and overcome a difficult problem"],
-    "example": ["They worked through their differences."],
+    "meaning": "to deal with and overcome a difficult problem",
+    "example": "They worked through their differences.",
     "id": "id-0353"
   },
   {
     "phrase": "wrap up",
-    "meaning": ["to finish or complete something"],
-    "example": ["Let's wrap up the meeting before lunch."],
+    "meaning": "to finish or complete something",
+    "example": "Let's wrap up the meeting before lunch.",
     "id": "id-0354"
   }
 ]

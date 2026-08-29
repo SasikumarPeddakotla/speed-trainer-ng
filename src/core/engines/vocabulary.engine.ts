@@ -371,8 +371,6 @@ export class VocabularyEngine {
 
       answer: phrasalVerb.meaning[randomIndex],
 
-      acceptedAnswers: phrasalVerb.meaning,
-
       options: this.randomService.buildOptions(
         phrasalVerb,
         this.dataService.getPhrasalVerbs(),
@@ -392,21 +390,17 @@ export class VocabularyEngine {
   }
 
   private formatPhrasalVerbExplanation(phrasalVerb: PhrasalVerb): string {
-    const meaningsAndExamples = phrasalVerb.meaning
-      .map(
-        (meaning, index) => `
-        <strong>Meaning:- </strong>${meaning}<br>
-        <strong>Ex:- </strong>${this.formatterService.formatExample(
-          phrasalVerb.phrase,
-          phrasalVerb.example[index],
-        )}<br>
-      `,
-      )
-      .join('<br>');
+    const formattedExample = this.formatterService.formatExample(
+      phrasalVerb.phrase,
+      phrasalVerb.example,
+    );
 
     return `
-    <strong>${phrasalVerb.phrase}</strong><br><br>
-    ${meaningsAndExamples}
+    <strong>${phrasalVerb.phrase}</strong><br>
+    ${phrasalVerb.meaning}<br><br>
+
+    <strong>Ex:- </strong>
+    ${formattedExample}
   `;
   }
 

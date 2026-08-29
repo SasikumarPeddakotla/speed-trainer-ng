@@ -443,10 +443,12 @@ export const exercises: Exercise[] = [
 
     referenceColumns: [
       { header: 'Phrasal Verb', key: 'phrase' },
-      { header: 'Meanings', key: 'meanings' },
+      { header: 'Meaning', key: 'meaning' },
     ],
 
     referenceExpandable: true,
+
+    referenceExpandedColumns: [{ header: 'Example', key: 'example' }],
 
     settings: [SettingType.SessionType, SettingType.WordsLimit],
   },
