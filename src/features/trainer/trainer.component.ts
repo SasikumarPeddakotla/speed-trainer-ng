@@ -53,6 +53,7 @@ export class TrainerComponent implements OnInit, OnDestroy {
 
   toggleShowOptions(): void {
     this.showOptions = !this.showOptions;
+    this.focusTextInput();
   }
 
   get mode() {
