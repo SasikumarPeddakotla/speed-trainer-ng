@@ -1,8 +1,12 @@
-<div class="keyboard">
+<div class="keyboard" aria-label="Number keyboard">
   @for (row of keys; track $index) {
     <div class="row">
       @for (key of row; track key) {
-        <button type="button" (pointerdown)="press(key)">
+        <button
+          type="button"
+          [attr.aria-label]="key === '/' ? 'Divide' : key"
+          (pointerdown)="press(key)"
+        >
           {{ key }}
         </button>
       }

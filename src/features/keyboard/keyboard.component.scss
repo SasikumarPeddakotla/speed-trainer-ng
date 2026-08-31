@@ -10,7 +10,11 @@
   display: flex;
   flex-direction: column;
 
-  gap: var(--app-spacing-sm);
+  gap: 8px;
+
+  width: 100%;
+
+  touch-action: manipulation;
 }
 
 /* ========================================
@@ -20,7 +24,9 @@
 .row {
   display: flex;
 
-  gap: var(--app-spacing-sm);
+  gap: 8px;
+
+  width: 100%;
 }
 
 /* ========================================
@@ -30,7 +36,13 @@
 button {
   flex: 1;
 
-  height: 65px;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
 
   border: 1px solid var(--app-border);
 
@@ -40,39 +52,44 @@ button {
 
   color: var(--app-text-primary);
 
-  font-size: 30px;
+  font-family: inherit;
+
+  font-size: 27px;
   font-weight: 600;
+
+  font-variant-numeric: tabular-nums;
 
   cursor: pointer;
 
   box-shadow: var(--app-shadow-sm);
 
   transition:
-    background 0.15s ease,
-    border-color 0.15s ease,
+    background 0.12s ease,
+    border-color 0.12s ease,
+    color 0.12s ease,
     transform 0.08s ease,
-    box-shadow 0.15s ease;
+    box-shadow 0.12s ease;
+
+  -webkit-tap-highlight-color: transparent;
+
+  touch-action: manipulation;
+
+  user-select: none;
 }
 
 /* ========================================
    Hover
    ======================================== */
 
-button:hover {
-  background: var(--app-surface-muted);
+// button:hover {
+//   border-color: var(--app-primary);
 
-  border-color: #cbd5e1;
-}
+//   background: var(--app-primary-soft);
 
-/* ========================================
-   Press
-   ======================================== */
+//   color: var(--app-primary);
 
-button:active {
-  transform: scale(0.96);
-
-  box-shadow: none;
-}
+//   box-shadow: var(--app-shadow-sm);
+// }
 
 /* ========================================
    Focus
@@ -82,14 +99,86 @@ button:focus {
   outline: none;
 }
 
+button:focus-visible {
+  border-color: var(--app-primary);
+
+  box-shadow:
+    0 0 0 3px var(--app-primary-soft),
+    var(--app-shadow-sm);
+}
+
+/* ========================================
+   Press
+   ======================================== */
+
+button:active {
+  transform: translateY(2px) scale(0.98);
+
+  border-color: var(--app-primary);
+
+  background: var(--app-primary-soft);
+
+  color: var(--app-primary);
+
+  box-shadow: none;
+}
+
+/* ========================================
+   Operator Keys
+   ======================================== */
+
+.row:last-child button:first-child,
+.row:last-child button:last-child {
+  color: var(--app-text-secondary);
+
+  font-weight: 550;
+}
+
+.row:last-child button:first-child:hover,
+.row:last-child button:last-child:hover,
+.row:last-child button:first-child:active,
+.row:last-child button:last-child:active {
+  color: var(--app-primary);
+}
+
 /* ========================================
    Mobile
    ======================================== */
 
 @media (max-width: 500px) {
-  button {
-    height: 60px;
+  .keyboard {
+    gap: 7px;
+  }
 
-    font-size: 27px;
+  .row {
+    gap: 7px;
+  }
+
+  button {
+    height: 56px;
+
+    border-radius: var(--app-radius-md);
+
+    font-size: 25px;
+  }
+}
+
+/* ========================================
+   Very Small Screens
+   ======================================== */
+
+@media (max-width: 380px) {
+  .keyboard {
+    gap: 6px;
+  }
+
+  .row {
+    gap: 6px;
+  }
+
+  button {
+    height: 53px;
+
+    font-size: 23px;
   }
 }

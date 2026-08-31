@@ -1,234 +1,319 @@
-<div class="card">
-  <div class="header">
-    <div class="title-row">
-      <div class="title-content">
-        <h1>{{ topic?.title }}</h1>
-        <p>{{ mode }} ({{ referenceView }})</p>
-      </div>
+<div class="page">
+  <main class="trainer-card">
+    <!-- ========================================
+         Header
+         ======================================== -->
 
-      <button
-        type="button"
-        class="end-session-btn"
-        aria-label="End session"
-        title="End session"
-        (click)="endSession()"
-      >
-        End
-      </button>
-    </div>
-  </div>
+    <header class="trainer-header">
+      <div class="title-row">
+        <div class="title-content">
+          <h1>{{ topic?.title }}</h1>
 
-  <div class="stats">
-    <div class="stat-card">
-      <span><i class="ph-fill ph-check-circle"></i></span>
-      <b>{{ sessionService.session().correctCount }}</b>
-    </div>
+          <p>{{ mode }} <span>·</span> {{ referenceView }}</p>
+        </div>
 
-    <div class="stat-card">
-      <span><i class="ph-fill ph-x-circle"></i></span>
-      <b>{{ sessionService.session().wrongCount }}</b>
-    </div>
-
-    <div class="stat-card">
-      <span><i class="ph-fill ph-flame"></i></span>
-      <b>{{ sessionService.currentStreak() }}</b>
-    </div>
-
-    <div class="stat-card">
-      <span><i class="ph-duotone ph-target"></i></span>
-      <b>{{ sessionService.accuracy() }}</b>
-    </div>
-  </div>
-
-  <div class="statusBar">
-    <div class="statusChip">
-      @switch (stateService.practice().sessionType) {
-        @case (SessionType.Practice) {
-          Practice Mode
-        }
-
-        @case (SessionType.Countdown) {
-          <i class="ph ph-timer"></i>
-          {{ timerService.displayTime() }}
-        }
-
-        @case (SessionType.QuestionChallenge) {
-          <i class="ph-duotone ph-target"></i>
-          {{ sessionService.totalQuestions() }} /
-          {{ stateService.practice().questionTarget }}
-        }
-      }
-    </div>
-  </div>
-
-  @if (questionService.currentQuestion(); as question) {
-    <div class="question-card">
-      @if (topic?.title !== "Arithmetic") {
         <button
           type="button"
-          class="bookmark-btn"
-          [class.bookmarked]="isBookmarked()"
-          (click)="toggleBookmark()"
+          class="end-session-btn"
+          aria-label="End session"
+          title="End session"
+          (click)="endSession()"
         >
-          <i
-            [class]="
-              isBookmarked()
-                ? 'ph-fill ph-bookmark-simple'
-                : 'ph ph-bookmark-simple'
+          <i class="ph ph-x"></i>
+          <span>End</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- ========================================
+         Session Statistics
+         ======================================== -->
+
+    <div class="stats">
+      <div class="stat-card correct-stat">
+        <i class="ph-fill ph-check-circle"></i>
+
+        <div class="stat-content">
+          <span>Correct</span>
+          <strong>{{ sessionService.session().correctCount }}</strong>
+        </div>
+      </div>
+
+      <div class="stat-card wrong-stat">
+        <i class="ph-fill ph-x-circle"></i>
+
+        <div class="stat-content">
+          <span>Wrong</span>
+          <strong>{{ sessionService.session().wrongCount }}</strong>
+        </div>
+      </div>
+
+      <div class="stat-card streak-stat">
+        <i class="ph-fill ph-flame"></i>
+
+        <div class="stat-content">
+          <span>Streak</span>
+          <strong>{{ sessionService.currentStreak() }}</strong>
+        </div>
+      </div>
+
+      <div class="stat-card accuracy-stat">
+        <i class="ph-duotone ph-target"></i>
+
+        <div class="stat-content">
+          <span>Accuracy</span>
+          <strong>{{ sessionService.accuracy() }}</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================
+         Session Status
+         ======================================== -->
+
+    <div class="status-bar">
+      <div class="status-chip">
+        @switch (stateService.practice().sessionType) {
+          @case (SessionType.Practice) {
+            <i class="ph ph-infinity"></i>
+            <span>Practice Mode</span>
+          }
+
+          @case (SessionType.Countdown) {
+            <i class="ph ph-timer"></i>
+            <span>{{ timerService.displayTime() }}</span>
+          }
+
+          @case (SessionType.QuestionChallenge) {
+            <i class="ph-duotone ph-target"></i>
+            <span>
+              {{ sessionService.totalQuestions() }} /
+              {{ stateService.practice().questionTarget }}
+            </span>
+          }
+        }
+      </div>
+    </div>
+
+    @if (questionService.currentQuestion(); as question) {
+      <!-- ========================================
+           Question
+           ======================================== -->
+
+      <section class="question-card">
+        @if (topic?.title !== "Arithmetic") {
+          <button
+            type="button"
+            class="bookmark-btn"
+            [class.bookmarked]="isBookmarked()"
+            [attr.aria-label]="
+              isBookmarked() ? 'Remove bookmark' : 'Add bookmark'
             "
-          ></i>
-        </button>
-      }
-      @if (countdownValue !== null) {
-        @switch (countdownValue) {
-          @case (3) {
-            <div class="countdown">3</div>
-          }
-
-          @case (2) {
-            <div class="countdown">2</div>
-          }
-
-          @case (1) {
-            <div class="countdown">1</div>
-          }
-
-          @case (0) {
-            <div class="countdown">GO!</div>
-          }
-
-          <!-- @default {
-            <div class="countdown">GO!</div>
-          } -->
+            (click)="toggleBookmark()"
+          >
+            <i
+              [class]="
+                isBookmarked()
+                  ? 'ph-fill ph-bookmark-simple'
+                  : 'ph ph-bookmark-simple'
+              "
+            ></i>
+          </button>
         }
-      } @else {
-        <div class="question" [style.fontSize]="questionFontSize">
-          {{ question.question }}
-        </div>
-      }
-    </div>
 
-    <div class="action-area">
-      @if (
-        stateService.practice().sessionType === SessionType.Practice &&
-        !revealedAnswer
-      ) {
-        <button class="reveal-link" (click)="revealAnswer()">
-          <i class="ph ph-eye"></i>
-          <span>Reveal Answer</span>
-        </button>
-      }
-    </div>
+        @if (countdownValue !== null) {
+          @switch (countdownValue) {
+            @case (3) {
+              <div class="countdown">3</div>
+            }
 
-    @if (revealedAnswer) {
-      <div class="revealed-card">
-        <div class="revealed-title">Correct Answer</div>
+            @case (2) {
+              <div class="countdown">2</div>
+            }
 
-        <div class="revealed-answer" [style.fontSize]="revealedAnswerFontSize">
-          {{ revealedAnswer }}
-        </div>
+            @case (1) {
+              <div class="countdown">1</div>
+            }
 
-        @if (question.explanation) {
-          <div class="revealed-divider"></div>
+            @case (0) {
+              <div class="countdown">GO!</div>
+            }
+          }
+        } @else {
+          <div class="question" [style.fontSize]="questionFontSize">
+            {{ question.question }}
+          </div>
+        }
+      </section>
 
-          <details class="revealed-explanation">
-            <summary class="revealed-explanation-title">Explanation</summary>
+      <!-- ========================================
+           Reveal Answer
+           ======================================== -->
 
-            <div class="revealed-explanation-text">
-              <span [innerHTML]="question.explanation"></span>
-            </div>
-          </details>
+      <div class="action-area">
+        @if (
+          stateService.practice().sessionType === SessionType.Practice &&
+          !revealedAnswer
+        ) {
+          <button type="button" class="reveal-btn" (click)="revealAnswer()">
+            <i class="ph ph-eye"></i>
+            <span>Reveal Answer</span>
+          </button>
         }
       </div>
 
-      <button class="action-btn understand-btn" (click)="understood()">
-        <i class="ph-bold ph-check"></i>
-        <span>I Understand</span>
-      </button>
-    } @else {
-      @if (question.inputType === "number") {
-        <div class="answerContainer">
-          <input
-            [(ngModel)]="answer"
-            readonly
-            autocomplete="off"
-            [class]="inputState"
-          />
+      <!-- ========================================
+           Revealed Answer
+           ======================================== -->
 
-          <button class="backspace-btn" type="button" (click)="backspace()">
-            <i class="ph ph-backspace"></i>
-          </button>
-        </div>
+      @if (revealedAnswer) {
+        <section class="revealed-card">
+          <div class="revealed-title">
+            <i class="ph-fill ph-check-circle"></i>
+            <span>Correct Answer</span>
+          </div>
 
-        <app-keyboard (keyPressed)="onKeyPressed($event)"> </app-keyboard>
-      } @else if (question.inputType === "text") {
-        <div class="answerContainer">
-          <input
-            #textInput
-            [(ngModel)]="answer"
-            autocomplete="off"
-            autocapitalize="characters"
-            [class]="inputState"
-            (ngModelChange)="onTextChanged()"
-          />
-        </div>
-      }
-      @if (
-        countdownValue === null &&
-        question.inputType === InputType.TextAndMultipleChoice &&
-        !showOptions
-      ) {
-        <div class="answerContainer">
-          <input
-            #textInput
-            [(ngModel)]="answer"
-            autocomplete="off"
-            autocapitalize="none"
-            enterkeyhint="done"
-            [class]="inputState"
-            (keydown.enter)="checkAnswer()"
-          />
-        </div>
+          <div
+            class="revealed-answer"
+            [style.fontSize]="revealedAnswerFontSize"
+          >
+            {{ revealedAnswer }}
+          </div>
 
-        <button
-          type="button"
-          class="show-options-btn"
-          (click)="toggleShowOptions()"
-        >
-          Show Options
-        </button>
-      } @else if (
-        countdownValue === null &&
-        question.inputType === InputType.TextAndMultipleChoice &&
-        showOptions
-      ) {
-        <div class="optionsContainer">
-          @for (option of question.options; track option) {
-            <button
-              type="button"
-              class="optionButton"
-              [class.correct]="
-                selectedOption === option && inputState === 'correct'
-              "
-              [class.wrong]="
-                selectedOption === option && inputState === 'wrong'
-              "
-              [disabled]="selectedOption !== null"
-              (click)="selectOption(option)"
-            >
-              {{ option }}
-            </button>
+          @if (question.explanation) {
+            <div class="revealed-divider"></div>
+
+            <details class="revealed-explanation">
+              <summary class="revealed-explanation-title">
+                <i class="ph ph-lightbulb"></i>
+                <span>Explanation</span>
+              </summary>
+
+              <div class="revealed-explanation-text">
+                <span [innerHTML]="question.explanation"></span>
+              </div>
+            </details>
           }
-        </div>
+        </section>
 
         <button
           type="button"
-          class="show-options-btn"
-          (click)="toggleShowOptions()"
+          class="action-btn understand-btn"
+          (click)="understood()"
         >
-          Hide Options
+          <i class="ph-bold ph-check"></i>
+          <span>I Understand</span>
         </button>
+      } @else {
+        <!-- ========================================
+             Number Input
+             ======================================== -->
+
+        @if (question.inputType === "number") {
+          <div class="answer-container">
+            <input
+              [(ngModel)]="answer"
+              readonly
+              autocomplete="off"
+              [class]="inputState"
+              aria-label="Answer"
+            />
+
+            <button
+              class="backspace-btn"
+              type="button"
+              aria-label="Delete last digit"
+              (click)="backspace()"
+            >
+              <i class="ph ph-backspace"></i>
+            </button>
+          </div>
+
+          <app-keyboard (keyPressed)="onKeyPressed($event)"></app-keyboard>
+        }
+
+        <!-- ========================================
+             Text Input
+             ======================================== -->
+
+        @else if (question.inputType === "text") {
+          <div class="answer-container">
+            <input
+              #textInput
+              [(ngModel)]="answer"
+              autocomplete="off"
+              autocapitalize="characters"
+              [class]="inputState"
+              aria-label="Answer"
+              (ngModelChange)="onTextChanged()"
+            />
+          </div>
+        }
+
+        <!-- ========================================
+             Text + Multiple Choice
+             ======================================== -->
+
+        @if (
+          countdownValue === null &&
+          question.inputType === InputType.TextAndMultipleChoice &&
+          !showOptions
+        ) {
+          <div class="answer-container">
+            <input
+              #textInput
+              [(ngModel)]="answer"
+              autocomplete="off"
+              autocapitalize="none"
+              enterkeyhint="done"
+              [class]="inputState"
+              aria-label="Answer"
+              (keydown.enter)="checkAnswer()"
+            />
+          </div>
+
+          <button
+            type="button"
+            class="show-options-btn"
+            (click)="toggleShowOptions()"
+          >
+            <i class="ph ph-list"></i>
+            <span>Show Options</span>
+          </button>
+        } @else if (
+          countdownValue === null &&
+          question.inputType === InputType.TextAndMultipleChoice &&
+          showOptions
+        ) {
+          <div class="options-container">
+            @for (option of question.options; track option) {
+              <button
+                type="button"
+                class="option-button"
+                [class.correct]="
+                  selectedOption === option && inputState === 'correct'
+                "
+                [class.wrong]="
+                  selectedOption === option && inputState === 'wrong'
+                "
+                [disabled]="selectedOption !== null"
+                (click)="selectOption(option)"
+              >
+                {{ option }}
+              </button>
+            }
+          </div>
+
+          <button
+            type="button"
+            class="show-options-btn"
+            (click)="toggleShowOptions()"
+          >
+            <i class="ph ph-list-dashes"></i>
+            <span>Hide Options</span>
+          </button>
+        }
       }
     }
-  }
+  </main>
 </div>
