@@ -21,9 +21,9 @@
                     (click)="toggleAllSecondColumn($event)"
                   >
                     @if (isAllSecondColumnRevealed()) {
-                      👁
+                      <i class="ph-fill ph-eye"></i>
                     } @else {
-                      🙈
+                      <i class="ph ph-eye-slash"></i>
                     }
                   </button>
                 </div>
@@ -47,7 +47,18 @@
           >
             @for (column of columns(); track column.key; let i = $index) {
               <td>
-                @if (i === 1) {
+                @if (i === 0 && expandable()) {
+                  <div class="expandable-value">
+                    <span>{{ getValue(row, column.key) }}</span>
+
+                    <i
+                      [class]="
+                        isExpanded(row) ? 'ph ph-caret-up' : 'ph ph-caret-down'
+                      "
+                      aria-hidden="true"
+                    ></i>
+                  </div>
+                } @else if (i === 1) {
                   <button
                     type="button"
                     class="answer-value"
@@ -77,7 +88,11 @@
                 "
                 (click)="onBookmarkToggle(row, $event)"
               >
-                ★
+                @if (isBookmarked()(row)) {
+                  <i class="ph-fill ph-bookmark-simple"></i>
+                } @else {
+                  <i class="ph ph-bookmark-simple"></i>
+                }
               </button>
             </td>
           </tr>
@@ -205,7 +220,7 @@
   </div>
 } @else {
   <div class="no-data">
-    <div class="no-data-icon">📖</div>
+    <i class="ph ph-book-open no-data-icon"></i>
 
     <p>No data available</p>
   </div>

@@ -14,22 +14,26 @@ export class BottomNavComponent {
   readonly items = [
     {
       label: 'Home',
-      icon: '⌂',
+      icon: 'ph-duotone ph-house',
+      activeIcon: 'ph-fill ph-house',
       route: '/subjects',
     },
     {
       label: 'Bookmarks',
-      icon: '★',
+      icon: 'ph-duotone ph-bookmark-simple',
+      activeIcon: 'ph-fill ph-bookmark-simple',
       route: '/bookmarks',
     },
     {
       label: 'Statistics',
-      icon: '▥',
+      icon: 'ph-duotone ph-chart-bar',
+      activeIcon: 'ph-fill ph-chart-bar',
       route: '/statistics',
     },
     {
       label: 'Settings',
-      icon: '⚙',
+      icon: 'ph ph-gear',
+      activeIcon: 'ph-fill ph-gear',
       route: '/settings',
     },
   ];

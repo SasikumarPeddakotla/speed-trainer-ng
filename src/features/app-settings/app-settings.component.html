@@ -11,18 +11,36 @@
     <div class="theme-selector">
       <button
         type="button"
+        class="theme-option light-option"
         [class.active]="themeService.theme() === Theme.Light"
         (click)="setTheme(Theme.Light)"
       >
-        ☀️ Light
+        <i
+          [class]="
+            themeService.theme() === Theme.Light
+              ? 'ph-fill ph-sun'
+              : 'ph ph-sun'
+          "
+        ></i>
+
+        <span>Light</span>
       </button>
 
       <button
         type="button"
+        class="theme-option dark-option"
         [class.active]="themeService.theme() === Theme.Dark"
         (click)="setTheme(Theme.Dark)"
       >
-        🌙 Dark
+        <i
+          [class]="
+            themeService.theme() === Theme.Dark
+              ? 'ph-fill ph-moon'
+              : 'ph ph-moon'
+          "
+        ></i>
+
+        <span>Dark</span>
       </button>
     </div>
   </div>
@@ -37,18 +55,36 @@
     <div class="sound-selector">
       <button
         type="button"
+        class="sound-option sound-on-option"
         [class.active]="appSettingsService.settings().sound"
         (click)="appSettingsService.setSound(true)"
       >
-        🔊 On
+        <i
+          [class]="
+            appSettingsService.settings().sound
+              ? 'ph-fill ph-speaker-high'
+              : 'ph ph-speaker-high'
+          "
+        ></i>
+
+        <span>On</span>
       </button>
 
       <button
         type="button"
+        class="sound-option sound-off-option"
         [class.active]="!appSettingsService.settings().sound"
         (click)="appSettingsService.setSound(false)"
       >
-        🔇 Off
+        <i
+          [class]="
+            !appSettingsService.settings().sound
+              ? 'ph-fill ph-speaker-slash'
+              : 'ph ph-speaker-slash'
+          "
+        ></i>
+
+        <span>Off</span>
       </button>
     </div>
   </div>
@@ -58,6 +94,7 @@
   <h3>Data Management</h3>
 
   <button type="button" class="danger-btn" (click)="clearAllBookmarks()">
+    <i class="ph ph-trash"></i>
     Clear All Bookmarks
   </button>
 </div>

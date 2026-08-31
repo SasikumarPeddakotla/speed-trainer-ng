@@ -16,20 +16,20 @@ export class SessionTypeSettingComponent {
 
   readonly sessionInfo = {
     [SessionType.Practice]: {
-      icon: '📘',
+      icon: 'ph-duotone ph-book',
       title: 'Unlimited',
       description:
         'Learn at your own pace. Retry until every answer is correct.',
     },
 
     [SessionType.Countdown]: {
-      icon: '⏱',
+      icon: 'ph-duotone ph-timer',
       title: 'Countdown',
       description: 'Practice under time pressure. One attempt per question.',
     },
 
     [SessionType.QuestionChallenge]: {
-      icon: '🎯',
+      icon: 'ph-duotone ph-target',
       title: 'Challenge',
       description:
         'Complete a fixed number of questions. One attempt per question.',

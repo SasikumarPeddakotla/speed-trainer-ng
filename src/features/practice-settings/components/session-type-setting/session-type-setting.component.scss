@@ -12,7 +12,6 @@
 
 .session-description {
   display: flex;
-
   align-items: flex-start;
 
   gap: 12px;
@@ -35,19 +34,46 @@
 .icon {
   flex-shrink: 0;
 
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
 
   display: flex;
-
   align-items: center;
   justify-content: center;
 
-  border-radius: 8px;
+  border-radius: 9px;
 
-  background: var(--app-primary-soft);
+  font-size: 19px;
 
-  font-size: 15px;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.icon i {
+  line-height: 1;
+}
+
+/* ========================================
+   Session Type Colors
+   ======================================== */
+
+/* Unlimited / Practice */
+.practice-icon {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+/* Countdown */
+.countdown-icon {
+  background: #ffedd5;
+  color: #ea580c;
+}
+
+/* Challenge */
+.challenge-icon {
+  background: #ede9fe;
+  color: #7c3aed;
 }
 
 .session-description p {

@@ -2,7 +2,9 @@
   <main class="home-card">
     <!-- Header -->
     <header class="home-header">
-      <div class="app-icon">⚡</div>
+      <div class="app-icon">
+        <i class="ph-fill ph-lightning"></i>
+      </div>
 
       <h1>Speed Trainer</h1>
 
@@ -21,8 +23,24 @@
             (click)="openSubject(subject)"
           >
             <div class="menu-content">
-              <div class="icon">
-                {{ subject.icon }}
+              <div class="icon subject-icon">
+                @switch (subject.title) {
+                  @case ("Reasoning") {
+                    <i class="ph-duotone ph-brain reasoning-icon"></i>
+                  }
+
+                  @case ("Quantitative Aptitude") {
+                    <i class="ph-duotone ph-calculator quant-icon"></i>
+                  }
+
+                  @case ("General Awareness") {
+                    <i class="ph-duotone ph-globe awareness-icon"></i>
+                  }
+
+                  @case ("English") {
+                    <i class="ph-duotone ph-book-open english-icon"></i>
+                  }
+                }
               </div>
 
               <div class="text">
@@ -32,7 +50,9 @@
               </div>
             </div>
 
-            <span class="arrow">›</span>
+            <span class="arrow">
+              <i class="ph ph-caret-right"></i>
+            </span>
           </button>
         }
       </div>

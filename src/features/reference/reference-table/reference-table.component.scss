@@ -125,10 +125,6 @@
    Regular Rows
    ======================================== */
 
-.reference-table tbody tr:not(.expanded-row):hover td {
-  background: var(--app-surface-muted);
-}
-
 /* ========================================
    Expandable Rows
    ======================================== */
@@ -143,10 +139,6 @@
     color 0.15s ease;
 }
 
-.expandable-row:hover td {
-  background: var(--app-surface-muted);
-}
-
 .expandable-row.expanded td {
   background: var(--app-surface-muted);
 }
@@ -154,6 +146,45 @@
 /* Slightly stronger text for the first/main column */
 .expandable-row td:first-child {
   font-weight: 650;
+}
+
+/* ========================================
+   Expandable Value
+   ======================================== */
+
+.expandable-value {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  color: var(--app-primary);
+
+  font-weight: 650;
+}
+
+.expandable-value i {
+  flex-shrink: 0;
+
+  color: var(--app-text-muted);
+
+  font-size: 14px;
+
+  line-height: 1;
+
+  transition:
+    color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.expandable-row:hover .expandable-value i {
+  color: var(--app-primary);
+}
+
+.expandable-row.expanded .expandable-value i {
+  color: var(--app-primary);
 }
 
 /* ========================================
@@ -190,16 +221,16 @@
 
   cursor: pointer;
 
+  -webkit-tap-highlight-color: transparent;
+
   transition:
     transform 0.15s ease,
     background 0.15s ease,
     color 0.15s ease;
-
-  -webkit-tap-highlight-color: transparent;
 }
 
 .bookmark-btn:hover {
-  background: var(--app-surface);
+  // background: var(--app-surface);
 
   transform: scale(1.08);
 }
@@ -232,11 +263,17 @@
 }
 
 .no-data-icon {
+  display: block;
+
   margin-bottom: 8px;
 
-  font-size: 34px;
+  color: var(--app-text-muted);
 
-  opacity: 0.65;
+  font-size: 36px;
+
+  line-height: 1;
+
+  opacity: 0.7;
 }
 
 .no-data p {
@@ -490,7 +527,7 @@
 
   color: var(--app-text-muted);
 
-  font-size: 15px;
+  font-size: 16px;
 
   line-height: 1;
 
@@ -503,7 +540,7 @@
 }
 
 .visibility-btn:hover {
-  background: var(--app-surface);
+  // background: var(--app-surface);
 
   color: var(--app-primary);
 
@@ -558,7 +595,7 @@
 }
 
 .answer-value:not(.blurred):hover {
-  text-decoration: underline;
+  // text-decoration: underline;
 
   text-decoration-thickness: 1px;
 

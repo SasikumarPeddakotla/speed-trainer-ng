@@ -3,11 +3,15 @@
     @for (item of items; track item.route) {
       <a
         class="nav-item"
-        [routerLink]="item.route"
         routerLinkActive="active"
+        [routerLink]="item.route"
         [routerLinkActiveOptions]="{ exact: true }"
+        #rla="routerLinkActive"
       >
-        <span class="nav-icon">{{ item.icon }}</span>
+        <span class="nav-icon">
+          <i [class]="rla.isActive ? item.activeIcon : item.icon"></i>
+        </span>
+
         <span class="nav-label">{{ item.label }}</span>
       </a>
     }

@@ -235,11 +235,6 @@ select:focus {
 
   color: white;
 
-  font-family: inherit;
-
-  font-size: 23px;
-  font-weight: 400;
-
   cursor: pointer;
 
   transition:
@@ -247,6 +242,11 @@ select:focus {
     transform 0.15s ease;
 
   -webkit-tap-highlight-color: transparent;
+}
+
+.step-btn i {
+  font-size: 20px;
+  line-height: 1;
 }
 
 .step-btn:hover {

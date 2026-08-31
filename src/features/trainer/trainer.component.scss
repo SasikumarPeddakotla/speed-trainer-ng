@@ -155,6 +155,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 6px;
 
   width: fit-content;
 
@@ -172,6 +173,11 @@
 
   font-size: 15px;
   font-weight: 600;
+}
+
+.statusBar i {
+  font-size: 18px;
+  line-height: 1;
 }
 
 /* ========================================
@@ -242,19 +248,31 @@
   top: 4px;
   right: 6px;
 
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   border: none;
 
   background: transparent;
 
   color: var(--app-text-muted);
 
-  font-size: 1.6rem;
+  font-size: 20px;
 
   cursor: pointer;
 
   transition:
     transform 0.2s ease,
     color 0.2s ease;
+}
+
+.bookmark-btn i {
+  font-size: 21px;
+  line-height: 1;
 }
 
 .bookmark-btn:hover {
@@ -280,7 +298,10 @@
    ======================================== */
 
 .reveal-link {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 
   margin: 12px auto 20px;
 
@@ -298,6 +319,10 @@
   cursor: pointer;
 
   transition: color 0.2s ease;
+}
+
+.reveal-link i {
+  font-size: 18px;
 }
 
 .reveal-link:hover {
@@ -396,6 +421,11 @@
   transition:
     background 0.15s ease,
     transform 0.15s ease;
+}
+
+.backspace-btn i {
+  font-size: 28px;
+  line-height: 1;
 }
 
 .backspace-btn:hover {
@@ -523,6 +553,14 @@
   color: white;
 
   box-shadow: 0 6px 16px rgba(25, 135, 84, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.understand-btn i {
+  font-size: 20px;
 }
 
 .understand-btn:hover {

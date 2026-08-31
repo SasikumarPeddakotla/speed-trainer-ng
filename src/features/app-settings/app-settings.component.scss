@@ -55,6 +55,10 @@
 }
 
 .danger-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   width: 100%;
 
   padding: 14px 16px;
@@ -74,6 +78,13 @@
   transition:
     background 0.2s ease,
     transform 0.15s ease;
+}
+
+.danger-btn i {
+  font-size: 19px;
+  line-height: 1;
+
+  color: var(--app-danger);
 }
 
 .danger-btn:hover {
@@ -183,4 +194,66 @@
   border-color: var(--app-primary);
 
   color: var(--app-primary);
+}
+
+.theme-selector button,
+.sound-selector button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.theme-selector button i,
+.sound-selector button i {
+  font-size: 19px;
+  line-height: 1;
+}
+
+/* ========================================
+   Setting Icons
+   ======================================== */
+
+.theme-selector button i,
+.sound-selector button i {
+  font-size: 19px;
+  line-height: 1;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* ========================================
+   Theme Icons
+   ======================================== */
+
+/* Light */
+.light-option i {
+  color: #f59e0b;
+}
+
+/* Dark */
+.dark-option i {
+  color: #6366f1;
+}
+
+/* ========================================
+   Sound Icons
+   ======================================== */
+
+/* Sound On */
+.sound-on-option i {
+  color: #16a34a;
+}
+
+/* Sound Off */
+.sound-off-option i {
+  color: #ef4444;
+}
+
+/* Small interaction */
+.theme-selector button:hover i,
+.sound-selector button:hover i {
+  transform: scale(1.08);
 }

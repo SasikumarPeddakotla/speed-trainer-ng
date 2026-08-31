@@ -6,8 +6,19 @@
   </app-session-type-selector>
 
   <div class="session-description">
-    <span class="icon">
-      {{ selectedSessionInfo().icon }}
+    <span
+      class="icon"
+      [class.practice-icon]="
+        stateService.practice().sessionType === SessionType.Practice
+      "
+      [class.countdown-icon]="
+        stateService.practice().sessionType === SessionType.Countdown
+      "
+      [class.challenge-icon]="
+        stateService.practice().sessionType === SessionType.QuestionChallenge
+      "
+    >
+      <i [class]="selectedSessionInfo().icon"></i>
     </span>
 
     <div class="description-content">

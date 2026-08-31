@@ -47,11 +47,21 @@
 
   background: var(--app-primary);
 
-  color: #ffffff;
+  color: var(--app-warning);
 
   font-size: 27px;
 
   box-shadow: var(--app-shadow-sm);
+}
+
+.app-icon i {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.icon i {
+  font-size: 27px;
+  line-height: 1;
 }
 
 .home-header h1 {
@@ -139,8 +149,7 @@
 }
 
 .menu-card:hover {
-  border-color: #d5dbe5;
-
+  border-color: var(--app-border);
   box-shadow: var(--app-shadow-md);
 }
 
@@ -148,6 +157,74 @@
   transform: scale(0.985);
 
   box-shadow: var(--app-shadow-sm);
+}
+
+/* ========================================
+   Subject Icons
+   ======================================== */
+
+.subject-icon {
+  border: 1px solid transparent;
+}
+
+/* Reasoning */
+.subject-icon:has(.reasoning-icon) {
+  background: #f3e8ff;
+  color: #8b5cf6;
+}
+
+.reasoning-icon {
+  color: #8b5cf6;
+}
+
+/* Quantitative Aptitude */
+.subject-icon:has(.quant-icon) {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.quant-icon {
+  color: #2563eb;
+}
+
+/* General Awareness */
+.subject-icon:has(.awareness-icon) {
+  background: #ecfdf5;
+  color: #16a34a;
+}
+
+.awareness-icon {
+  color: #16a34a;
+}
+
+/* English */
+.subject-icon:has(.english-icon) {
+  background: #fff7ed;
+  color: #ea580c;
+}
+
+.english-icon {
+  color: #ea580c;
+}
+
+/* ========================================
+   Subject Icon Colors
+   ======================================== */
+
+.reasoning-icon {
+  color: #8b5cf6;
+}
+
+.quant-icon {
+  color: #2563eb;
+}
+
+.awareness-icon {
+  color: #16a34a;
+}
+
+.english-icon {
+  color: #ea580c;
 }
 
 /* ========================================
@@ -175,8 +252,6 @@
 
   border-radius: var(--app-radius-md);
 
-  background: var(--app-surface-muted);
-
   font-size: 26px;
 }
 
@@ -202,15 +277,17 @@
 }
 
 .arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
   flex-shrink: 0;
 
-  margin-left: 12px;
-
   color: var(--app-text-muted);
+}
 
-  font-size: 28px;
-  font-weight: 300;
-
+.arrow i {
+  font-size: 20px;
   line-height: 1;
 }
 

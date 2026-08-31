@@ -32,7 +32,7 @@
                 aria-label="Information about All Questions"
                 (click)="toggleInfo($event)"
               >
-                ⓘ
+                <i class="ph ph-info"></i>
               </button>
             }
 
@@ -69,7 +69,7 @@
                 aria-label="Information about Bookmarks"
                 (click)="toggleInfo($event)"
               >
-                ⓘ
+                <i class="ph ph-info"></i>
               </button>
             }
 
@@ -89,7 +89,7 @@
 
       <!-- Search -->
       <div class="search-wrapper">
-        <span class="search-icon">⌕</span>
+        <i class="ph ph-magnifying-glass search-icon"></i>
 
         <input
           class="search-box"
@@ -116,7 +116,7 @@
         />
       } @else {
         <div class="no-reference">
-          <div class="no-reference-icon">📖</div>
+          <i class="ph ph-book-open no-reference-icon"></i>
 
           <p>No reference available.</p>
         </div>
@@ -129,14 +129,14 @@
       topic?.title === "Arithmetic"
     ) {
       <button type="button" class="practice-btn" (click)="practice()">
-        <span class="practice-icon">▶</span>
+        <i class="ph-fill ph-play practice-icon"></i>
         <span>Practice</span>
       </button>
     }
 
     @if (referenceTab() === "bookmark" && counts().bookmarkCount > 0) {
       <button type="button" class="practice-btn" (click)="practice()">
-        <span class="practice-icon">▶</span>
+        <i class="ph-fill ph-play practice-icon"></i>
         <span>Practice Bookmarks</span>
       </button>
     }

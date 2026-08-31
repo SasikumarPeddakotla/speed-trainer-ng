@@ -104,8 +104,13 @@
         <label>Vocabulary Size</label>
 
         <div class="vocabulary-size">
-          <button type="button" class="step-btn" (click)="decreaseWordsLimit()">
-            −
+          <button
+            type="button"
+            class="step-btn"
+            (click)="decreaseWordsLimit()"
+            aria-label="Decrease vocabulary size"
+          >
+            <i class="ph ph-minus"></i>
           </button>
 
           <div class="countDiv">
@@ -123,8 +128,13 @@
             <span>/ {{ totalWords }}</span>
           </div>
 
-          <button type="button" class="step-btn" (click)="increaseWordsLimit()">
-            +
+          <button
+            type="button"
+            class="step-btn"
+            (click)="increaseWordsLimit()"
+            aria-label="Increase vocabulary size"
+          >
+            <i class="ph ph-plus"></i>
           </button>
         </div>
       </div>

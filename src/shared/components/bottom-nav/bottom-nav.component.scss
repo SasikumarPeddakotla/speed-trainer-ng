@@ -49,10 +49,19 @@
 }
 
 .nav-icon {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 24px;
+  height: 24px;
+}
+
+.nav-icon i {
   font-size: 22px;
   line-height: 1;
 }
-
 .nav-label {
   line-height: 1;
 }
