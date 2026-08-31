@@ -55,6 +55,11 @@
   font-weight: 700;
 }
 
+.completion-icon i {
+  font-size: 32px;
+  line-height: 1;
+}
+
 .summary-header h1 {
   margin: 0;
 
@@ -129,6 +134,21 @@
 .wrong-stat .stat-icon {
   background: var(--app-danger-bg);
   color: var(--app-danger);
+}
+
+.accuracy-stat .stat-icon {
+  background: var(--app-primary-soft);
+  color: var(--app-primary);
+}
+
+.streak-stat .stat-icon {
+  background: #ffedd5;
+  color: #ea580c;
+}
+
+.stat-icon i {
+  font-size: 18px;
+  line-height: 1;
 }
 
 .stat-content {
@@ -226,6 +246,23 @@
     transform 0.15s ease;
 }
 
+.attempt-filters button i {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.attempt-filters .correct-filter i {
+  color: var(--app-success);
+}
+
+.attempt-filters .wrong-filter i {
+  color: var(--app-danger);
+}
+
+.attempt-filters button.active i {
+  color: inherit;
+}
+
 .attempt-filters button span {
   padding: 2px 6px;
 
@@ -313,6 +350,11 @@
   font-weight: 700;
 }
 
+.result-icon i {
+  font-size: 15px;
+  line-height: 1;
+}
+
 .result-icon.correct {
   background: var(--app-success-bg);
   color: var(--app-success);
@@ -393,6 +435,11 @@
     transform 0.15s ease;
 }
 
+.bookmark-btn i {
+  font-size: 22px;
+  line-height: 1;
+}
+
 .bookmark-btn:hover {
   color: var(--app-warning);
 
@@ -438,8 +485,9 @@
     transform 0.15s ease;
 }
 
-.practice-mistakes-btn > span:first-child {
-  font-size: 20px;
+.practice-mistakes-btn > i {
+  font-size: 21px;
+  line-height: 1;
 }
 
 .practice-mistakes-btn small {
@@ -474,6 +522,11 @@
 }
 
 .actions button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
   width: 100%;
 
   padding: 13px 16px;
@@ -488,6 +541,11 @@
   transition:
     background 0.15s ease,
     transform 0.15s ease;
+}
+
+.actions button i {
+  font-size: 18px;
+  line-height: 1;
 }
 
 .primary-btn {
