@@ -20,6 +20,7 @@ import { TableQuestion } from '../models/table-question.model';
 
 import { ReferenceData } from '../models/reference-data.model';
 import { Meaning } from '../models/meaning.model';
+import { FixedPreposition } from '../models/fixed-preposition.model';
 
 @Injectable({
   providedIn: 'root',
@@ -43,6 +44,7 @@ export class DataService {
   private readonly idioms = signal<Idiom[]>([]);
   private readonly phrasalVerbs = signal<PhrasalVerb[]>([]);
   private readonly meanings = signal<Meaning[]>([]);
+  private readonly fixedPrepositions = signal<FixedPreposition[]>([]);
 
   /**
    * Reference data for the currently selected exercise.
@@ -158,6 +160,11 @@ export class DataService {
       case PracticeMode.Meanings:
         await this.loadMeanings();
         this.currentReferenceData.set(this.meanings());
+        break;
+
+      case PracticeMode.FixedPrepositions:
+        await this.loadFixedPrepositions();
+        this.currentReferenceData.set(this.fixedPrepositions());
         break;
 
       // ========================================
@@ -402,6 +409,22 @@ export class DataService {
 
   getMeanings(): Meaning[] {
     return this.meanings();
+  }
+
+  async loadFixedPrepositions(): Promise<void> {
+    if (this.fixedPrepositions.length > 0) {
+      return;
+    }
+
+    this.fixedPrepositions.set(
+      await firstValueFrom(
+        this.http.get<FixedPreposition[]>('data/fixed-prepositions.json'),
+      ),
+    );
+  }
+
+  getFixedPrepositions(): FixedPreposition[] {
+    return this.fixedPrepositions();
   }
 
   // ========================================

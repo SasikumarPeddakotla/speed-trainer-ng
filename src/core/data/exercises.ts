@@ -473,4 +473,26 @@ export const exercises: Exercise[] = [
 
     settings: [SettingType.SessionType, SettingType.WordsLimit],
   },
+  {
+    title: 'Fixed Prepositions',
+    route: 'fixed-prepositions',
+    mode: PracticeMode.FixedPrepositions,
+    topic: 'vocabulary',
+    implemented: true,
+
+    referenceColumns: [
+      { header: 'Word', key: 'word' },
+      { header: 'Preposition', key: 'preposition' },
+    ],
+
+    referenceExpandable: true,
+
+    referenceExpandedColumns: [
+      { header: 'Expression', key: 'expression' },
+      { header: 'Meaning', key: 'meaning' },
+      { header: 'Example', key: 'example' },
+    ],
+
+    settings: [SettingType.SessionType, SettingType.WordsLimit],
+  },
 ];

@@ -1,0 +1,1450 @@
+[
+  {
+    "id": "fixed-prep-0001",
+    "word": "Abide",
+    "preposition": "by",
+    "expression": "Abide by",
+    "meaning": "To accept or obey a rule, decision, or agreement.",
+    "example": "Everyone must abide by the rules."
+  },
+  {
+    "id": "fixed-prep-0002",
+    "word": "Accuse",
+    "preposition": "of",
+    "expression": "Accuse someone of",
+    "meaning": "To say that someone has done something wrong or illegal.",
+    "example": "The police accused him of stealing the money."
+  },
+  {
+    "id": "fixed-prep-0003",
+    "word": "Accustomed",
+    "preposition": "to",
+    "expression": "Accustomed to",
+    "meaning": "Familiar with something because of regular experience.",
+    "example": "She is accustomed to working late."
+  },
+  {
+    "id": "fixed-prep-0004",
+    "word": "Adapt",
+    "preposition": "to",
+    "expression": "Adapt to",
+    "meaning": "To become adjusted to new conditions.",
+    "example": "It took him some time to adapt to the new environment."
+  },
+  {
+    "id": "fixed-prep-0005",
+    "word": "Addicted",
+    "preposition": "to",
+    "expression": "Addicted to",
+    "meaning": "Unable to stop doing or using something because of dependence on it.",
+    "example": "He is addicted to playing online games."
+  },
+  {
+    "id": "fixed-prep-0006",
+    "word": "Adhere",
+    "preposition": "to",
+    "expression": "Adhere to",
+    "meaning": "To follow or obey a rule, agreement, or principle.",
+    "example": "All employees must adhere to the safety rules."
+  },
+  {
+    "id": "fixed-prep-0007",
+    "word": "Afraid",
+    "preposition": "of",
+    "expression": "Afraid of",
+    "meaning": "Feeling fear or anxiety about someone or something.",
+    "example": "The child is afraid of the dark."
+  },
+  {
+    "id": "fixed-prep-0008",
+    "word": "Agree",
+    "preposition": "with",
+    "expression": "Agree with someone",
+    "meaning": "To have the same opinion as someone.",
+    "example": "I completely agree with you."
+  },
+  {
+    "id": "fixed-prep-0009",
+    "word": "Agree",
+    "preposition": "to",
+    "expression": "Agree to something",
+    "meaning": "To accept a proposal, plan, or request.",
+    "example": "She agreed to the proposal."
+  },
+  {
+    "id": "fixed-prep-0010",
+    "word": "Aim",
+    "preposition": "at",
+    "expression": "Aim at",
+    "meaning": "To direct an effort or action toward a particular goal.",
+    "example": "The scheme aims at reducing unemployment."
+  },
+  {
+    "id": "fixed-prep-0011",
+    "word": "Angry",
+    "preposition": "with",
+    "expression": "Angry with someone",
+    "meaning": "Feeling annoyed or upset with a person.",
+    "example": "She was angry with her brother."
+  },
+  {
+    "id": "fixed-prep-0012",
+    "word": "Angry",
+    "preposition": "at",
+    "expression": "Angry at something",
+    "meaning": "Feeling annoyed or upset about something.",
+    "example": "He was angry at the unfair decision."
+  },
+  {
+    "id": "fixed-prep-0013",
+    "word": "Apologize",
+    "preposition": "for",
+    "expression": "Apologize for",
+    "meaning": "To say that you are sorry for something.",
+    "example": "He apologized for his mistake."
+  },
+  {
+    "id": "fixed-prep-0014",
+    "word": "Apply",
+    "preposition": "for",
+    "expression": "Apply for",
+    "meaning": "To formally request something such as a job or position.",
+    "example": "She applied for the post of clerk."
+  },
+  {
+    "id": "fixed-prep-0015",
+    "word": "Apply",
+    "preposition": "to",
+    "expression": "Apply to",
+    "meaning": "To be relevant or applicable to someone or something.",
+    "example": "This rule applies to all candidates."
+  },
+  {
+    "id": "fixed-prep-0016",
+    "word": "Approve",
+    "preposition": "of",
+    "expression": "Approve of",
+    "meaning": "To think that someone or something is good or acceptable.",
+    "example": "My parents do not approve of his behavior."
+  },
+  {
+    "id": "fixed-prep-0017",
+    "word": "Argue",
+    "preposition": "with",
+    "expression": "Argue with",
+    "meaning": "To disagree with someone in an angry or forceful way.",
+    "example": "Do not argue with your teacher."
+  },
+  {
+    "id": "fixed-prep-0018",
+    "word": "Arrive",
+    "preposition": "at",
+    "expression": "Arrive at",
+    "meaning": "To reach a particular place, especially a small or specific one.",
+    "example": "We arrived at the station on time."
+  },
+  {
+    "id": "fixed-prep-0019",
+    "word": "Arrive",
+    "preposition": "in",
+    "expression": "Arrive in",
+    "meaning": "To reach a city, country, or other large area.",
+    "example": "They arrived in Delhi yesterday."
+  },
+  {
+    "id": "fixed-prep-0020",
+    "word": "Ashamed",
+    "preposition": "of",
+    "expression": "Ashamed of",
+    "meaning": "Feeling embarrassed or guilty because of something.",
+    "example": "He was ashamed of his behavior."
+  },
+  {
+    "id": "fixed-prep-0021",
+    "word": "Assure",
+    "preposition": "of",
+    "expression": "Assure someone of",
+    "meaning": "To tell someone confidently that something is true or will happen.",
+    "example": "She assured me of her support."
+  },
+  {
+    "id": "fixed-prep-0022",
+    "word": "Aware",
+    "preposition": "of",
+    "expression": "Aware of",
+    "meaning": "Knowing or realizing something.",
+    "example": "Are you aware of the consequences?"
+  },
+  {
+    "id": "fixed-prep-0023",
+    "word": "Believe",
+    "preposition": "in",
+    "expression": "Believe in",
+    "meaning": "To have faith in or consider something to be true or worthwhile.",
+    "example": "I believe in hard work."
+  },
+  {
+    "id": "fixed-prep-0024",
+    "word": "Belong",
+    "preposition": "to",
+    "expression": "Belong to",
+    "meaning": "To be owned by or associated with someone or something.",
+    "example": "This book belongs to me."
+  },
+  {
+    "id": "fixed-prep-0025",
+    "word": "Benefit",
+    "preposition": "from",
+    "expression": "Benefit from",
+    "meaning": "To receive an advantage or improvement from something.",
+    "example": "Students benefit from regular revision."
+  },
+  {
+    "id": "fixed-prep-0026",
+    "word": "Beware",
+    "preposition": "of",
+    "expression": "Beware of",
+    "meaning": "To be cautious about someone or something dangerous.",
+    "example": "Beware of stray dogs."
+  },
+  {
+    "id": "fixed-prep-0027",
+    "word": "Blame",
+    "preposition": "for",
+    "expression": "Blame someone for",
+    "meaning": "To hold someone responsible for something bad.",
+    "example": "They blamed him for the delay."
+  },
+  {
+    "id": "fixed-prep-0028",
+    "word": "Capable",
+    "preposition": "of",
+    "expression": "Capable of",
+    "meaning": "Having the ability or capacity to do something.",
+    "example": "She is capable of solving the problem."
+  },
+  {
+    "id": "fixed-prep-0029",
+    "word": "Care",
+    "preposition": "about",
+    "expression": "Care about",
+    "meaning": "To consider something important or feel concern about it.",
+    "example": "She cares about her students."
+  },
+  {
+    "id": "fixed-prep-0030",
+    "word": "Care",
+    "preposition": "for",
+    "expression": "Care for",
+    "meaning": "To look after someone or something.",
+    "example": "She cares for her elderly mother."
+  },
+  {
+    "id": "fixed-prep-0031",
+    "word": "Certain",
+    "preposition": "of",
+    "expression": "Certain of",
+    "meaning": "Confident that something is true or will happen.",
+    "example": "I am certain of his success."
+  },
+  {
+    "id": "fixed-prep-0032",
+    "word": "Charge",
+    "preposition": "with",
+    "expression": "Charge someone with",
+    "meaning": "To officially accuse someone of a crime.",
+    "example": "The police charged him with theft."
+  },
+  {
+    "id": "fixed-prep-0033",
+    "word": "Cling",
+    "preposition": "to",
+    "expression": "Cling to",
+    "meaning": "To hold tightly to someone or something.",
+    "example": "The child clung to his mother."
+  },
+  {
+    "id": "fixed-prep-0034",
+    "word": "Close",
+    "preposition": "to",
+    "expression": "Close to",
+    "meaning": "Near to someone or something.",
+    "example": "Our school is close to the railway station."
+  },
+  {
+    "id": "fixed-prep-0035",
+    "word": "Compare",
+    "preposition": "with",
+    "expression": "Compare with",
+    "meaning": "To examine two things in order to see their similarities and differences.",
+    "example": "Compare this result with the previous one."
+  },
+  {
+    "id": "fixed-prep-0036",
+    "word": "Compare",
+    "preposition": "to",
+    "expression": "Compare to",
+    "meaning": "To describe the similarity between two things or people.",
+    "example": "The poet compared the moon to a silver ball."
+  },
+  {
+    "id": "fixed-prep-0037",
+    "word": "Complain",
+    "preposition": "about",
+    "expression": "Complain about",
+    "meaning": "To express dissatisfaction about something.",
+    "example": "The customers complained about the poor service."
+  },
+  {
+    "id": "fixed-prep-0038",
+    "word": "Comply",
+    "preposition": "with",
+    "expression": "Comply with",
+    "meaning": "To obey a rule, request, or order.",
+    "example": "You must comply with the instructions."
+  },
+  {
+    "id": "fixed-prep-0039",
+    "word": "Concerned",
+    "preposition": "about",
+    "expression": "Concerned about",
+    "meaning": "Worried about something.",
+    "example": "Parents are concerned about their children's safety."
+  },
+  {
+    "id": "fixed-prep-0040",
+    "word": "Concentrate",
+    "preposition": "on",
+    "expression": "Concentrate on",
+    "meaning": "To give full attention to something.",
+    "example": "You should concentrate on your studies."
+  },
+  {
+    "id": "fixed-prep-0041",
+    "word": "Confident",
+    "preposition": "of",
+    "expression": "Confident of",
+    "meaning": "Certain that something will happen or succeed.",
+    "example": "She is confident of success."
+  },
+  {
+    "id": "fixed-prep-0042",
+    "word": "Conform",
+    "preposition": "to",
+    "expression": "Conform to",
+    "meaning": "To behave according to a rule, standard, or expectation.",
+    "example": "All products must conform to the required standards."
+  },
+  {
+    "id": "fixed-prep-0043",
+    "word": "Congratulate",
+    "preposition": "on",
+    "expression": "Congratulate someone on",
+    "meaning": "To praise someone for an achievement.",
+    "example": "We congratulated her on her success."
+  },
+  {
+    "id": "fixed-prep-0044",
+    "word": "Consist",
+    "preposition": "of",
+    "expression": "Consist of",
+    "meaning": "To be made up of particular parts or things.",
+    "example": "The committee consists of five members."
+  },
+  {
+    "id": "fixed-prep-0045",
+    "word": "Consist",
+    "preposition": "in",
+    "expression": "Consist in",
+    "meaning": "To have something as its essential quality or element.",
+    "example": "Happiness consists in contentment."
+  },
+  {
+    "id": "fixed-prep-0046",
+    "word": "Contribute",
+    "preposition": "to",
+    "expression": "Contribute to",
+    "meaning": "To help cause or produce something.",
+    "example": "Regular exercise contributes to good health."
+  },
+  {
+    "id": "fixed-prep-0047",
+    "word": "Convince",
+    "preposition": "of",
+    "expression": "Convince someone of",
+    "meaning": "To persuade someone that something is true.",
+    "example": "He convinced me of his honesty."
+  },
+  {
+    "id": "fixed-prep-0048",
+    "word": "Cope",
+    "preposition": "with",
+    "expression": "Cope with",
+    "meaning": "To deal successfully with a difficult situation.",
+    "example": "She learned to cope with stress."
+  },
+  {
+    "id": "fixed-prep-0049",
+    "word": "Correspond",
+    "preposition": "with",
+    "expression": "Correspond with",
+    "meaning": "To communicate by exchanging letters or messages.",
+    "example": "He corresponds with his old friend regularly."
+  },
+  {
+    "id": "fixed-prep-0050",
+    "word": "Correspond",
+    "preposition": "to",
+    "expression": "Correspond to",
+    "meaning": "To be similar or equivalent to something.",
+    "example": "The marks correspond to the student's performance."
+  },
+  {
+    "id": "fixed-prep-0051",
+    "word": "Count",
+    "preposition": "on",
+    "expression": "Count on",
+    "meaning": "To depend on or trust someone or something.",
+    "example": "You can count on me for help."
+  },
+  {
+    "id": "fixed-prep-0052",
+    "word": "Cure",
+    "preposition": "of",
+    "expression": "Cure someone of",
+    "meaning": "To make someone free from a disease or bad habit.",
+    "example": "The treatment cured him of the infection."
+  },
+  {
+    "id": "fixed-prep-0053",
+    "word": "Deal",
+    "preposition": "with",
+    "expression": "Deal with",
+    "meaning": "To handle, manage, or discuss something.",
+    "example": "The manager will deal with the complaint."
+  },
+  {
+    "id": "fixed-prep-0054",
+    "word": "Decide",
+    "preposition": "on",
+    "expression": "Decide on",
+    "meaning": "To choose something after considering alternatives.",
+    "example": "We finally decided on a new plan."
+  },
+  {
+    "id": "fixed-prep-0055",
+    "word": "Delight",
+    "preposition": "in",
+    "expression": "Delight in",
+    "meaning": "To take great pleasure in something.",
+    "example": "The child delights in telling stories."
+  },
+  {
+    "id": "fixed-prep-0056",
+    "word": "Depend",
+    "preposition": "on",
+    "expression": "Depend on",
+    "meaning": "To rely on someone or something.",
+    "example": "Success depends on hard work."
+  },
+  {
+    "id": "fixed-prep-0057",
+    "word": "Deprive",
+    "preposition": "of",
+    "expression": "Deprive someone of",
+    "meaning": "To prevent someone from having something necessary or desired.",
+    "example": "The illness deprived him of his strength."
+  },
+  {
+    "id": "fixed-prep-0058",
+    "word": "Derive",
+    "preposition": "from",
+    "expression": "Derive from",
+    "meaning": "To come or obtain something from a source.",
+    "example": "The word is derived from Latin."
+  },
+  {
+    "id": "fixed-prep-0059",
+    "word": "Desirous",
+    "preposition": "of",
+    "expression": "Desirous of",
+    "meaning": "Wanting something strongly.",
+    "example": "He is desirous of success."
+  },
+  {
+    "id": "fixed-prep-0060",
+    "word": "Devote",
+    "preposition": "to",
+    "expression": "Devote oneself to",
+    "meaning": "To give one's time, effort, or attention to something.",
+    "example": "She devoted herself to helping the poor."
+  },
+  {
+    "id": "fixed-prep-0061",
+    "word": "Die",
+    "preposition": "of",
+    "expression": "Die of",
+    "meaning": "To die because of a disease, illness, or internal cause.",
+    "example": "Many people die of heart disease."
+  },
+  {
+    "id": "fixed-prep-0062",
+    "word": "Die",
+    "preposition": "from",
+    "expression": "Die from",
+    "meaning": "To die as a result of an external cause or injury.",
+    "example": "He died from injuries sustained in the accident."
+  },
+  {
+    "id": "fixed-prep-0063",
+    "word": "Differ",
+    "preposition": "from",
+    "expression": "Differ from",
+    "meaning": "To be unlike or different from someone or something.",
+    "example": "My opinion differs from yours."
+  },
+  {
+    "id": "fixed-prep-0064",
+    "word": "Different",
+    "preposition": "from",
+    "expression": "Different from",
+    "meaning": "Not the same as someone or something else.",
+    "example": "This method is different from the old one."
+  },
+  {
+    "id": "fixed-prep-0065",
+    "word": "Disagree",
+    "preposition": "with",
+    "expression": "Disagree with",
+    "meaning": "To have a different opinion from someone.",
+    "example": "I disagree with your conclusion."
+  },
+  {
+    "id": "fixed-prep-0066",
+    "word": "Displeased",
+    "preposition": "with",
+    "expression": "Displeased with",
+    "meaning": "Annoyed or dissatisfied with someone or something.",
+    "example": "The teacher was displeased with his conduct."
+  },
+  {
+    "id": "fixed-prep-0067",
+    "word": "Dispose",
+    "preposition": "of",
+    "expression": "Dispose of",
+    "meaning": "To get rid of something.",
+    "example": "Dispose of the waste properly."
+  },
+  {
+    "id": "fixed-prep-0068",
+    "word": "Distinguish",
+    "preposition": "between",
+    "expression": "Distinguish between",
+    "meaning": "To recognize or show the difference between two things.",
+    "example": "It is difficult to distinguish between the twins."
+  },
+  {
+    "id": "fixed-prep-0069",
+    "word": "Distinguish",
+    "preposition": "from",
+    "expression": "Distinguish one thing from another",
+    "meaning": "To recognize the difference between things.",
+    "example": "Can you distinguish right from wrong?"
+  },
+  {
+    "id": "fixed-prep-0070",
+    "word": "Doubtful",
+    "preposition": "of",
+    "expression": "Doubtful of",
+    "meaning": "Not convinced that something is true or likely.",
+    "example": "I am doubtful of his ability to succeed."
+  },
+  {
+    "id": "fixed-prep-0071",
+    "word": "Eligible",
+    "preposition": "for",
+    "expression": "Eligible for",
+    "meaning": "Having the necessary qualifications for something.",
+    "example": "She is eligible for the scholarship."
+  },
+  {
+    "id": "fixed-prep-0072",
+    "word": "Envious",
+    "preposition": "of",
+    "expression": "Envious of",
+    "meaning": "Wanting something that another person has.",
+    "example": "He is envious of his colleague's success."
+  },
+  {
+    "id": "fixed-prep-0073",
+    "word": "Essential",
+    "preposition": "to",
+    "expression": "Essential to",
+    "meaning": "Absolutely necessary for something.",
+    "example": "Water is essential to life."
+  },
+  {
+    "id": "fixed-prep-0074",
+    "word": "Expert",
+    "preposition": "at",
+    "expression": "Expert at",
+    "meaning": "Very skilled at doing something.",
+    "example": "She is expert at solving difficult puzzles."
+  },
+  {
+    "id": "fixed-prep-0075",
+    "word": "Faithful",
+    "preposition": "to",
+    "expression": "Faithful to",
+    "meaning": "Loyal or true to someone or something.",
+    "example": "He remained faithful to his principles."
+  },
+  {
+    "id": "fixed-prep-0076",
+    "word": "Familiar",
+    "preposition": "with",
+    "expression": "Familiar with",
+    "meaning": "Knowing something well because of experience or study.",
+    "example": "Are you familiar with this topic?"
+  },
+  {
+    "id": "fixed-prep-0077",
+    "word": "Famous",
+    "preposition": "for",
+    "expression": "Famous for",
+    "meaning": "Widely known because of a particular quality or achievement.",
+    "example": "The city is famous for its historical monuments."
+  },
+  {
+    "id": "fixed-prep-0078",
+    "word": "Fond",
+    "preposition": "of",
+    "expression": "Fond of",
+    "meaning": "Having a strong liking for someone or something.",
+    "example": "She is fond of classical music."
+  },
+  {
+    "id": "fixed-prep-0079",
+    "word": "Free",
+    "preposition": "from",
+    "expression": "Free from",
+    "meaning": "Not affected or troubled by something.",
+    "example": "The village is free from pollution."
+  },
+  {
+    "id": "fixed-prep-0080",
+    "word": "Full",
+    "preposition": "of",
+    "expression": "Full of",
+    "meaning": "Containing a lot of something.",
+    "example": "The garden is full of flowers."
+  },
+  {
+    "id": "fixed-prep-0081",
+    "word": "Good",
+    "preposition": "at",
+    "expression": "Good at",
+    "meaning": "Skilled or proficient in something.",
+    "example": "He is good at mathematics."
+  },
+  {
+    "id": "fixed-prep-0082",
+    "word": "Good",
+    "preposition": "for",
+    "expression": "Good for",
+    "meaning": "Beneficial or useful to someone or something.",
+    "example": "Regular exercise is good for health."
+  },
+  {
+    "id": "fixed-prep-0083",
+    "word": "Grateful",
+    "preposition": "to",
+    "expression": "Grateful to someone",
+    "meaning": "Thankful to someone.",
+    "example": "I am grateful to you for your help."
+  },
+  {
+    "id": "fixed-prep-0084",
+    "word": "Grateful",
+    "preposition": "for",
+    "expression": "Grateful for something",
+    "meaning": "Thankful for something received or experienced.",
+    "example": "She is grateful for the opportunity."
+  },
+  {
+    "id": "fixed-prep-0085",
+    "word": "Guilty",
+    "preposition": "of",
+    "expression": "Guilty of",
+    "meaning": "Responsible for or having committed an offence.",
+    "example": "He was found guilty of fraud."
+  },
+  {
+    "id": "fixed-prep-0086",
+    "word": "Harmful",
+    "preposition": "to",
+    "expression": "Harmful to",
+    "meaning": "Causing damage or injury to someone or something.",
+    "example": "Smoking is harmful to health."
+  },
+  {
+    "id": "fixed-prep-0087",
+    "word": "Hopeful",
+    "preposition": "of",
+    "expression": "Hopeful of",
+    "meaning": "Feeling confident that something desired will happen.",
+    "example": "She is hopeful of success."
+  },
+  {
+    "id": "fixed-prep-0088",
+    "word": "Ignorant",
+    "preposition": "of",
+    "expression": "Ignorant of",
+    "meaning": "Lacking knowledge or awareness of something.",
+    "example": "He was ignorant of the rules."
+  },
+  {
+    "id": "fixed-prep-0089",
+    "word": "Immune",
+    "preposition": "to",
+    "expression": "Immune to",
+    "meaning": "Not affected by something.",
+    "example": "Some people are immune to the disease."
+  },
+  {
+    "id": "fixed-prep-0090",
+    "word": "Impatient",
+    "preposition": "with",
+    "expression": "Impatient with",
+    "meaning": "Annoyed because something is taking too long.",
+    "example": "The teacher was impatient with the slow learner."
+  },
+  {
+    "id": "fixed-prep-0091",
+    "word": "Impressed",
+    "preposition": "by",
+    "expression": "Impressed by",
+    "meaning": "Admiring or pleased by something.",
+    "example": "We were impressed by her performance."
+  },
+  {
+    "id": "fixed-prep-0092",
+    "word": "Incapable",
+    "preposition": "of",
+    "expression": "Incapable of",
+    "meaning": "Unable to do something.",
+    "example": "He is incapable of telling a lie."
+  },
+  {
+    "id": "fixed-prep-0093",
+    "word": "Independent",
+    "preposition": "of",
+    "expression": "Independent of",
+    "meaning": "Not controlled or influenced by something else.",
+    "example": "The organization is independent of the government."
+  },
+  {
+    "id": "fixed-prep-0094",
+    "word": "Indifferent",
+    "preposition": "to",
+    "expression": "Indifferent to",
+    "meaning": "Not interested in or concerned about something.",
+    "example": "He is indifferent to criticism."
+  },
+  {
+    "id": "fixed-prep-0095",
+    "word": "Inferior",
+    "preposition": "to",
+    "expression": "Inferior to",
+    "meaning": "Lower in quality, rank, or importance than something else.",
+    "example": "This product is inferior to the previous model."
+  },
+  {
+    "id": "fixed-prep-0096",
+    "word": "Innocent",
+    "preposition": "of",
+    "expression": "Innocent of",
+    "meaning": "Not guilty of a crime or wrongdoing.",
+    "example": "He was innocent of the charges."
+  },
+  {
+    "id": "fixed-prep-0097",
+    "word": "Insist",
+    "preposition": "on",
+    "expression": "Insist on",
+    "meaning": "To demand something firmly.",
+    "example": "She insisted on paying the bill."
+  },
+  {
+    "id": "fixed-prep-0098",
+    "word": "Interested",
+    "preposition": "in",
+    "expression": "Interested in",
+    "meaning": "Wanting to know about or take part in something.",
+    "example": "He is interested in history."
+  },
+  {
+    "id": "fixed-prep-0099",
+    "word": "Jealous",
+    "preposition": "of",
+    "expression": "Jealous of",
+    "meaning": "Feeling unhappy because someone has something you want.",
+    "example": "She is jealous of her sister's success."
+  },
+  {
+    "id": "fixed-prep-0100",
+    "word": "Known",
+    "preposition": "for",
+    "expression": "Known for",
+    "meaning": "Recognized because of a particular quality or achievement.",
+    "example": "The town is known for its beautiful temples."
+  },
+  {
+    "id": "fixed-prep-0101",
+    "word": "Laugh",
+    "preposition": "at",
+    "expression": "Laugh at",
+    "meaning": "To make fun of or ridicule someone or something.",
+    "example": "Do not laugh at the poor man."
+  },
+  {
+    "id": "fixed-prep-0102",
+    "word": "Listen",
+    "preposition": "to",
+    "expression": "Listen to",
+    "meaning": "To pay attention to a sound or someone speaking.",
+    "example": "Please listen to your teacher."
+  },
+  {
+    "id": "fixed-prep-0103",
+    "word": "Live",
+    "preposition": "on",
+    "expression": "Live on",
+    "meaning": "To survive by using a particular source of food or income.",
+    "example": "Many people live on a small income."
+  },
+  {
+    "id": "fixed-prep-0104",
+    "word": "Long",
+    "preposition": "for",
+    "expression": "Long for",
+    "meaning": "To have a strong desire for something.",
+    "example": "She longs for a peaceful life."
+  },
+  {
+    "id": "fixed-prep-0105",
+    "word": "Look",
+    "preposition": "after",
+    "expression": "Look after",
+    "meaning": "To take care of someone or something.",
+    "example": "She looks after her younger brother."
+  },
+  {
+    "id": "fixed-prep-0106",
+    "word": "Look",
+    "preposition": "at",
+    "expression": "Look at",
+    "meaning": "To direct your eyes toward someone or something.",
+    "example": "Look at the notice carefully."
+  },
+  {
+    "id": "fixed-prep-0107",
+    "word": "Look",
+    "preposition": "for",
+    "expression": "Look for",
+    "meaning": "To try to find someone or something.",
+    "example": "I am looking for my keys."
+  },
+  {
+    "id": "fixed-prep-0108",
+    "word": "Look",
+    "preposition": "into",
+    "expression": "Look into",
+    "meaning": "To investigate something.",
+    "example": "The committee will look into the matter."
+  },
+  {
+    "id": "fixed-prep-0109",
+    "word": "Look",
+    "preposition": "after",
+    "expression": "Look after",
+    "meaning": "To take care of someone or something.",
+    "example": "Who will look after the children?"
+  },
+  {
+    "id": "fixed-prep-0110",
+    "word": "Married",
+    "preposition": "to",
+    "expression": "Married to",
+    "meaning": "Having a husband or wife.",
+    "example": "She is married to a doctor."
+  },
+  {
+    "id": "fixed-prep-0111",
+    "word": "Necessary",
+    "preposition": "for",
+    "expression": "Necessary for",
+    "meaning": "Needed for a particular purpose.",
+    "example": "Exercise is necessary for good health."
+  },
+  {
+    "id": "fixed-prep-0112",
+    "word": "Obedient",
+    "preposition": "to",
+    "expression": "Obedient to",
+    "meaning": "Willing to obey rules or people in authority.",
+    "example": "The child is obedient to his parents."
+  },
+  {
+    "id": "fixed-prep-0113",
+    "word": "Obliged",
+    "preposition": "to",
+    "expression": "Obliged to",
+    "meaning": "Required or forced to do something.",
+    "example": "We are obliged to follow the law."
+  },
+  {
+    "id": "fixed-prep-0114",
+    "word": "Oblivious",
+    "preposition": "of",
+    "expression": "Oblivious of",
+    "meaning": "Not aware of something.",
+    "example": "He was oblivious of the danger."
+  },
+  {
+    "id": "fixed-prep-0115",
+    "word": "Opposed",
+    "preposition": "to",
+    "expression": "Opposed to",
+    "meaning": "Against something or someone.",
+    "example": "They are opposed to the new policy."
+  },
+  {
+    "id": "fixed-prep-0116",
+    "word": "Part",
+    "preposition": "with",
+    "expression": "Part with",
+    "meaning": "To give up or let go of something.",
+    "example": "He refused to part with his old books."
+  },
+  {
+    "id": "fixed-prep-0117",
+    "word": "Participate",
+    "preposition": "in",
+    "expression": "Participate in",
+    "meaning": "To take part in an activity.",
+    "example": "All students participated in the competition."
+  },
+  {
+    "id": "fixed-prep-0118",
+    "word": "Patient",
+    "preposition": "with",
+    "expression": "Patient with",
+    "meaning": "Able to remain calm while waiting or dealing with difficulty.",
+    "example": "Be patient with the children."
+  },
+  {
+    "id": "fixed-prep-0119",
+    "word": "Popular",
+    "preposition": "with",
+    "expression": "Popular with",
+    "meaning": "Liked or admired by a particular group.",
+    "example": "The teacher is popular with students."
+  },
+  {
+    "id": "fixed-prep-0120",
+    "word": "Prefer",
+    "preposition": "to",
+    "expression": "Prefer X to Y",
+    "meaning": "To like one thing more than another.",
+    "example": "I prefer tea to coffee."
+  },
+  {
+    "id": "fixed-prep-0121",
+    "word": "Prevent",
+    "preposition": "from",
+    "expression": "Prevent someone from",
+    "meaning": "To stop someone from doing something.",
+    "example": "The rain prevented us from playing."
+  },
+  {
+    "id": "fixed-prep-0122",
+    "word": "Proud",
+    "preposition": "of",
+    "expression": "Proud of",
+    "meaning": "Feeling pleased about an achievement or quality.",
+    "example": "Her parents are proud of her."
+  },
+  {
+    "id": "fixed-prep-0123",
+    "word": "Qualified",
+    "preposition": "for",
+    "expression": "Qualified for",
+    "meaning": "Having the necessary skills or qualifications for something.",
+    "example": "He is qualified for the position."
+  },
+  {
+    "id": "fixed-prep-0124",
+    "word": "Quick",
+    "preposition": "at",
+    "expression": "Quick at",
+    "meaning": "Able to do or understand something rapidly.",
+    "example": "She is quick at learning new concepts."
+  },
+  {
+    "id": "fixed-prep-0125",
+    "word": "Ready",
+    "preposition": "for",
+    "expression": "Ready for",
+    "meaning": "Prepared for something.",
+    "example": "Are you ready for the examination?"
+  },
+  {
+    "id": "fixed-prep-0126",
+    "word": "Recover",
+    "preposition": "from",
+    "expression": "Recover from",
+    "meaning": "To return to a normal state after illness or difficulty.",
+    "example": "He recovered from the illness quickly."
+  },
+  {
+    "id": "fixed-prep-0127",
+    "word": "Refrain",
+    "preposition": "from",
+    "expression": "Refrain from",
+    "meaning": "To deliberately avoid doing something.",
+    "example": "Please refrain from making noise."
+  },
+  {
+    "id": "fixed-prep-0128",
+    "word": "Related",
+    "preposition": "to",
+    "expression": "Related to",
+    "meaning": "Connected with something.",
+    "example": "This chapter is related to the previous one."
+  },
+  {
+    "id": "fixed-prep-0129",
+    "word": "Relevant",
+    "preposition": "to",
+    "expression": "Relevant to",
+    "meaning": "Closely connected with or appropriate to something.",
+    "example": "The information is relevant to the case."
+  },
+  {
+    "id": "fixed-prep-0130",
+    "word": "Rely",
+    "preposition": "on",
+    "expression": "Rely on",
+    "meaning": "To depend on someone or something.",
+    "example": "You can rely on him for support."
+  },
+  {
+    "id": "fixed-prep-0131",
+    "word": "Remind",
+    "preposition": "of",
+    "expression": "Remind someone of",
+    "meaning": "To make someone remember a person or thing.",
+    "example": "This song reminds me of my childhood."
+  },
+  {
+    "id": "fixed-prep-0132",
+    "word": "Responsible",
+    "preposition": "for",
+    "expression": "Responsible for",
+    "meaning": "Having a duty to deal with something or being the cause of something.",
+    "example": "She is responsible for the project."
+  },
+  {
+    "id": "fixed-prep-0133",
+    "word": "Rich",
+    "preposition": "in",
+    "expression": "Rich in",
+    "meaning": "Containing a large amount of something valuable.",
+    "example": "Milk is rich in calcium."
+  },
+  {
+    "id": "fixed-prep-0134",
+    "word": "Rid",
+    "preposition": "of",
+    "expression": "Rid someone of",
+    "meaning": "To make someone or something free from an unwanted thing.",
+    "example": "The treatment rid him of the infection."
+  },
+  {
+    "id": "fixed-prep-0135",
+    "word": "Satisfied",
+    "preposition": "with",
+    "expression": "Satisfied with",
+    "meaning": "Pleased because something is good enough.",
+    "example": "I am satisfied with the result."
+  },
+  {
+    "id": "fixed-prep-0136",
+    "word": "Senior",
+    "preposition": "to",
+    "expression": "Senior to",
+    "meaning": "Higher in rank or position than someone else.",
+    "example": "He is senior to me in the organization."
+  },
+  {
+    "id": "fixed-prep-0137",
+    "word": "Similar",
+    "preposition": "to",
+    "expression": "Similar to",
+    "meaning": "Almost the same as someone or something else.",
+    "example": "Your answer is similar to mine."
+  },
+  {
+    "id": "fixed-prep-0138",
+    "word": "Sorry",
+    "preposition": "for",
+    "expression": "Sorry for",
+    "meaning": "Feeling regret about something done or experienced.",
+    "example": "I am sorry for my mistake."
+  },
+  {
+    "id": "fixed-prep-0139",
+    "word": "Sorry",
+    "preposition": "about",
+    "expression": "Sorry about",
+    "meaning": "Regretful about a situation or event.",
+    "example": "I am sorry about the delay."
+  },
+  {
+    "id": "fixed-prep-0140",
+    "word": "Suitable",
+    "preposition": "for",
+    "expression": "Suitable for",
+    "meaning": "Appropriate or right for a particular purpose.",
+    "example": "This book is suitable for beginners."
+  },
+  {
+    "id": "fixed-prep-0141",
+    "word": "Superior",
+    "preposition": "to",
+    "expression": "Superior to",
+    "meaning": "Higher in quality, rank, or importance than something else.",
+    "example": "This method is superior to the old one."
+  },
+  {
+    "id": "fixed-prep-0142",
+    "word": "Sure",
+    "preposition": "of",
+    "expression": "Sure of",
+    "meaning": "Certain or confident about something.",
+    "example": "I am sure of his honesty."
+  },
+  {
+    "id": "fixed-prep-0143",
+    "word": "Suspicious",
+    "preposition": "of",
+    "expression": "Suspicious of",
+    "meaning": "Having the feeling that someone or something is wrong or dishonest.",
+    "example": "The police were suspicious of the man."
+  },
+  {
+    "id": "fixed-prep-0144",
+    "word": "Thankful",
+    "preposition": "for",
+    "expression": "Thankful for",
+    "meaning": "Feeling pleased and grateful about something.",
+    "example": "We are thankful for your support."
+  },
+  {
+    "id": "fixed-prep-0145",
+    "word": "Tired",
+    "preposition": "of",
+    "expression": "Tired of",
+    "meaning": "Bored or annoyed because something has continued too long.",
+    "example": "I am tired of waiting."
+  },
+  {
+    "id": "fixed-prep-0146",
+    "word": "True",
+    "preposition": "to",
+    "expression": "True to",
+    "meaning": "Faithful to a person, principle, or standard.",
+    "example": "He remained true to his promise."
+  },
+  {
+    "id": "fixed-prep-0147",
+    "word": "Useful",
+    "preposition": "for",
+    "expression": "Useful for",
+    "meaning": "Helpful for a particular purpose.",
+    "example": "This book is useful for revision."
+  },
+  {
+    "id": "fixed-prep-0148",
+    "word": "Wait",
+    "preposition": "for",
+    "expression": "Wait for",
+    "meaning": "To stay until someone or something arrives or happens.",
+    "example": "Please wait for me."
+  },
+  {
+    "id": "fixed-prep-0149",
+    "word": "Warn",
+    "preposition": "against",
+    "expression": "Warn against",
+    "meaning": "To advise someone not to do something.",
+    "example": "The doctor warned him against smoking."
+  },
+  {
+    "id": "fixed-prep-0150",
+    "word": "Warn",
+    "preposition": "of",
+    "expression": "Warn someone of",
+    "meaning": "To tell someone about a possible danger or problem.",
+    "example": "They warned us of the danger."
+  },
+  {
+    "id": "fixed-prep-0151",
+    "word": "Worried",
+    "preposition": "about",
+    "expression": "Worried about",
+    "meaning": "Anxious or concerned about something.",
+    "example": "She is worried about the examination."
+  },
+  {
+    "id": "fixed-prep-0152",
+    "word": "Worth",
+    "preposition": "of",
+    "expression": "Worth",
+    "meaning": "Having a particular value or deserving a particular action or consideration.",
+    "example": "This book is worth reading."
+  },
+  {
+    "id": "fixed-prep-0153",
+    "word": "Zealous",
+    "preposition": "for",
+    "expression": "Zealous for",
+    "meaning": "Very enthusiastic and eager to support something.",
+    "example": "He is zealous for social reform."
+  },
+  {
+    "id": "fixed-prep-0154",
+    "word": "Accountable",
+    "preposition": "to",
+    "expression": "Accountable to",
+    "meaning": "Required to explain or justify actions to someone.",
+    "example": "The manager is accountable to the board."
+  },
+  {
+    "id": "fixed-prep-0155",
+    "word": "Accustomed",
+    "preposition": "to",
+    "expression": "Be accustomed to",
+    "meaning": "To be familiar with something through regular experience.",
+    "example": "He is accustomed to waking up early."
+  },
+  {
+    "id": "fixed-prep-0156",
+    "word": "Beneficial",
+    "preposition": "to",
+    "expression": "Beneficial to",
+    "meaning": "Producing a helpful or advantageous result.",
+    "example": "Fresh air is beneficial to health."
+  },
+  {
+    "id": "fixed-prep-0157",
+    "word": "Blind",
+    "preposition": "to",
+    "expression": "Blind to",
+    "meaning": "Unable or unwilling to recognize something.",
+    "example": "He is blind to his own faults."
+  },
+  {
+    "id": "fixed-prep-0158",
+    "word": "Busy",
+    "preposition": "with",
+    "expression": "Busy with",
+    "meaning": "Occupied with something.",
+    "example": "She is busy with her work."
+  },
+  {
+    "id": "fixed-prep-0159",
+    "word": "Compatible",
+    "preposition": "with",
+    "expression": "Compatible with",
+    "meaning": "Able to exist or work well together.",
+    "example": "This software is compatible with the device."
+  },
+  {
+    "id": "fixed-prep-0160",
+    "word": "Competent",
+    "preposition": "in",
+    "expression": "Competent in",
+    "meaning": "Having sufficient ability or skill in a particular area.",
+    "example": "She is competent in handling difficult cases."
+  },
+  {
+    "id": "fixed-prep-0161",
+    "word": "Confident",
+    "preposition": "about",
+    "expression": "Confident about",
+    "meaning": "Certain that something will be successful or satisfactory.",
+    "example": "He is confident about his chances."
+  },
+  {
+    "id": "fixed-prep-0162",
+    "word": "Contrary",
+    "preposition": "to",
+    "expression": "Contrary to",
+    "meaning": "Opposite to or conflicting with something.",
+    "example": "Contrary to expectations, he won the race."
+  },
+  {
+    "id": "fixed-prep-0163",
+    "word": "Dependent",
+    "preposition": "on",
+    "expression": "Dependent on",
+    "meaning": "Needing someone or something for support.",
+    "example": "The project is dependent on funding."
+  },
+  {
+    "id": "fixed-prep-0164",
+    "word": "Devoid",
+    "preposition": "of",
+    "expression": "Devoid of",
+    "meaning": "Completely lacking something.",
+    "example": "His speech was devoid of emotion."
+  },
+  {
+    "id": "fixed-prep-0165",
+    "word": "Eligible",
+    "preposition": "for",
+    "expression": "Eligible for",
+    "meaning": "Meeting the conditions required for something.",
+    "example": "He is eligible for the post."
+  },
+  {
+    "id": "fixed-prep-0166",
+    "word": "Familiar",
+    "preposition": "to",
+    "expression": "Familiar to",
+    "meaning": "Known or recognized by someone.",
+    "example": "Her face is familiar to me."
+  },
+  {
+    "id": "fixed-prep-0167",
+    "word": "Hostile",
+    "preposition": "to",
+    "expression": "Hostile to",
+    "meaning": "Unfriendly or opposed to someone or something.",
+    "example": "The group was hostile to the proposal."
+  },
+  {
+    "id": "fixed-prep-0168",
+    "word": "Indebted",
+    "preposition": "to",
+    "expression": "Indebted to",
+    "meaning": "Owing gratitude or money to someone.",
+    "example": "I am deeply indebted to my teacher."
+  },
+  {
+    "id": "fixed-prep-0169",
+    "word": "Loyal",
+    "preposition": "to",
+    "expression": "Loyal to",
+    "meaning": "Showing firm and constant support or allegiance.",
+    "example": "He is loyal to his employer."
+  },
+  {
+    "id": "fixed-prep-0170",
+    "word": "Mindful",
+    "preposition": "of",
+    "expression": "Mindful of",
+    "meaning": "Conscious or aware of something.",
+    "example": "Be mindful of your responsibilities."
+  },
+  {
+    "id": "fixed-prep-0171",
+    "word": "Necessary",
+    "preposition": "to",
+    "expression": "Necessary to",
+    "meaning": "Needed in order to achieve a particular result.",
+    "example": "Hard work is necessary to succeed."
+  },
+  {
+    "id": "fixed-prep-0172",
+    "word": "Open",
+    "preposition": "to",
+    "expression": "Open to",
+    "meaning": "Willing to consider or accept something.",
+    "example": "She is open to new ideas."
+  },
+  {
+    "id": "fixed-prep-0173",
+    "word": "Partial",
+    "preposition": "to",
+    "expression": "Partial to",
+    "meaning": "Having a particular liking for something.",
+    "example": "He is partial to spicy food."
+  },
+  {
+    "id": "fixed-prep-0174",
+    "word": "Polite",
+    "preposition": "to",
+    "expression": "Polite to",
+    "meaning": "Having good manners toward someone.",
+    "example": "Be polite to your elders."
+  },
+  {
+    "id": "fixed-prep-0175",
+    "word": "Related",
+    "preposition": "with",
+    "expression": "Related with",
+    "meaning": "Connected or associated with something.",
+    "example": "The issue is closely related with public safety."
+  },
+  {
+    "id": "fixed-prep-0176",
+    "word": "Sensitive",
+    "preposition": "to",
+    "expression": "Sensitive to",
+    "meaning": "Easily affected by or responsive to something.",
+    "example": "Some people are sensitive to dust."
+  },
+  {
+    "id": "fixed-prep-0177",
+    "word": "Short",
+    "preposition": "of",
+    "expression": "Short of",
+    "meaning": "Having less than the required amount of something.",
+    "example": "We are short of time."
+  },
+  {
+    "id": "fixed-prep-0178",
+    "word": "Subject",
+    "preposition": "to",
+    "expression": "Subject to",
+    "meaning": "Likely to experience or be affected by something.",
+    "example": "The plan is subject to approval."
+  },
+  {
+    "id": "fixed-prep-0179",
+    "word": "Thankful",
+    "preposition": "to",
+    "expression": "Thankful to someone",
+    "meaning": "Feeling gratitude toward someone.",
+    "example": "I am thankful to my parents."
+  },
+  {
+    "id": "fixed-prep-0180",
+    "word": "Threatened",
+    "preposition": "with",
+    "expression": "Threatened with",
+    "meaning": "Warned that something harmful may happen.",
+    "example": "He was threatened with dismissal."
+  },
+  {
+    "id": "fixed-prep-0181",
+    "word": "Victim",
+    "preposition": "of",
+    "expression": "Victim of",
+    "meaning": "A person who suffers from a harmful act or event.",
+    "example": "He became a victim of fraud."
+  }
+]

@@ -35,4 +35,5 @@ export enum PracticeMode {
   Idioms = 'Idioms',
   PhrasalVerbs = 'Phrasal Verbs',
   Meanings = 'Meanings',
+  FixedPrepositions = 'Fixed Prepositions',
 }

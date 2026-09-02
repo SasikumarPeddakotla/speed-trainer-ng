@@ -162,6 +162,12 @@ export class QuestionService {
           this.vocabularyEngine.generateMeaningQuestion(),
         );
         break;
+
+      case PracticeMode.FixedPrepositions:
+        this._currentQuestion.set(
+          this.vocabularyEngine.generateFixedPrepositionQuestion(),
+        );
+        break;
     }
   }
 

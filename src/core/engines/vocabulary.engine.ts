@@ -14,6 +14,7 @@ import { DataService } from '../services/data.service';
 import { BookmarkService } from '../services/bookmark.service';
 import { PhrasalVerb } from '../models/phrasal-verb.model';
 import { Meaning } from '../models/meaning.model';
+import { FixedPreposition } from '../models/fixed-preposition.model';
 
 @Injectable({
   providedIn: 'root',
@@ -27,6 +28,7 @@ export class VocabularyEngine {
   private idioms: Idiom[] = [];
   private phrasalVerbs: PhrasalVerb[] = [];
   private meanings: Meaning[] = [];
+  private fixedPrepositions: FixedPreposition[] = [];
 
   constructor(
     private stateService: StateService,
@@ -505,6 +507,88 @@ export class VocabularyEngine {
     return this.meanings.shift()!;
   }
 
+  generateFixedPrepositionQuestion(): Question<FixedPreposition> {
+    return this.createFixedPrepositionQuestion(this.nextFixedPreposition());
+  }
+
+  createFixedPrepositionQuestion(
+    fixedPreposition: FixedPreposition,
+  ): Question<FixedPreposition> {
+    return {
+      id: fixedPreposition.id,
+      question: this.replacePrepositionWithBlank(
+        fixedPreposition.expression,
+        fixedPreposition.preposition,
+      ),
+
+      answer: fixedPreposition.preposition,
+
+      options: this.randomService.buildOptions(
+        fixedPreposition,
+        this.dataService.getFixedPrepositions(),
+        (s) => [s.preposition],
+        (s) => s.word,
+        fixedPreposition.preposition,
+      ),
+
+      data: fixedPreposition,
+
+      inputType: InputType.TextAndMultipleChoice,
+
+      displayType: 'text',
+
+      explanation: this.formatFixedPrepositionExplanation(fixedPreposition),
+    };
+  }
+
+  private formatFixedPrepositionExplanation(
+    fixedPreposition: FixedPreposition,
+  ): string {
+    const formattedExample = this.formatterService.formatExample(
+      fixedPreposition.expression,
+      fixedPreposition.example,
+    );
+
+    return `
+    <strong>${fixedPreposition.expression}</strong><br>
+    ${fixedPreposition.meaning}<br><br>
+
+    <strong>Ex:- </strong>
+    ${formattedExample}
+  `;
+  }
+
+  private nextFixedPreposition(): FixedPreposition {
+    const referenceView = this.stateService.navigation().referenceView;
+
+    switch (referenceView) {
+      case 'all':
+        return this.nextNormalFixedPreposition();
+      case 'bookmark':
+        return this.nextBookmarkFixedPreposition();
+    }
+  }
+
+  private nextNormalFixedPreposition(): FixedPreposition {
+    if (this.fixedPrepositions.length === 0) {
+      this.fixedPrepositions = this.randomService.shuffle([
+        ...this.getFixedPrepositions(),
+      ]);
+    }
+
+    return this.fixedPrepositions.shift()!;
+  }
+
+  private nextBookmarkFixedPreposition(): FixedPreposition {
+    if (this.fixedPrepositions.length === 0) {
+      const bookmarkQuestions =
+        this.bookmarkService.getBookmarkedQuestions<FixedPreposition>();
+      this.fixedPrepositions = this.randomService.shuffle(bookmarkQuestions);
+    }
+
+    return this.fixedPrepositions.shift()!;
+  }
+
   private getWordLimit(): number {
     return Number(this.stateService.practice().wordsLimit);
   }
@@ -533,27 +617,14 @@ export class VocabularyEngine {
     return this.dataService.getMeanings().slice(0, this.getWordLimit());
   }
 
+  private getFixedPrepositions(): FixedPreposition[] {
+    return this.dataService
+      .getFixedPrepositions()
+      .slice(0, this.getWordLimit());
+  }
+
   getVocabularyCount(): number {
     return this.dataService.getCurrentReferenceData().length;
-    // switch (this.stateService.navigation().selectedExercise?.mode) {
-    //   case PracticeMode.Synonyms:
-    //     return this.dataService.getSynonyms().length;
-
-    //   case PracticeMode.Antonyms:
-    //     return this.dataService.getAntonyms().length;
-
-    //   case PracticeMode.OneWord:
-    //     return this.dataService.getOneWords().length;
-
-    //   case PracticeMode.Idioms:
-    //     return this.dataService.getIdioms().length;
-
-    //   case PracticeMode.PhrasalVerbs:
-    //     return this.dataService.getPhrasalVerbs().length;
-
-    //   default:
-    //     return 0;
-    // }
   }
 
   private getRandomWordPair(word: string, relatedWords: string[]) {
@@ -567,11 +638,26 @@ export class VocabularyEngine {
     };
   }
 
+  private replacePrepositionWithBlank(
+    expression: string,
+    preposition: string,
+  ): string {
+    const escapedPreposition = preposition.replace(
+      /[.*+?^${}()|[\]\\]/g,
+      '\\$&',
+    );
+    const regex = new RegExp(`\\b${escapedPreposition}\\b`, 'i');
+
+    return expression.replace(regex, '_____');
+  }
+
   reset() {
     this.synonyms = [];
     this.antonyms = [];
     this.oneWords = [];
     this.idioms = [];
     this.phrasalVerbs = [];
+    this.meanings = [];
+    this.fixedPrepositions = [];
   }
 }
