@@ -39,17 +39,37 @@ export class RandomService {
     correctOption: string,
     optionCount: number = 4,
   ): string[] {
+    const correctIdentity = identitySelector(correctItem);
+
     const wrongItems = allItems.filter(
-      (item) => identitySelector(item) !== identitySelector(correctItem),
+      (item) =>
+        identitySelector(item) !== correctIdentity &&
+        !optionsSelector(item).includes(correctOption),
     );
 
-    const options = this.shuffle(wrongItems)
-      .slice(0, optionCount - 1)
-      .map((item) => {
-        const values = optionsSelector(item);
+    const options: string[] = [];
 
-        return values[Math.floor(Math.random() * values.length)];
-      });
+    for (const item of this.shuffle(wrongItems)) {
+      const values = optionsSelector(item);
+
+      // Remove values already selected
+      const availableValues = values.filter(
+        (value) => !options.includes(value),
+      );
+
+      if (availableValues.length === 0) {
+        continue;
+      }
+
+      const randomValue =
+        availableValues[Math.floor(Math.random() * availableValues.length)];
+
+      options.push(randomValue);
+
+      if (options.length === optionCount - 1) {
+        break;
+      }
+    }
 
     options.push(correctOption);
 
