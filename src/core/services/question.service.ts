@@ -156,6 +156,12 @@ export class QuestionService {
           this.vocabularyEngine.generatePhrasalVerbQuestion(),
         );
         break;
+
+      case PracticeMode.Meanings:
+        this._currentQuestion.set(
+          this.vocabularyEngine.generateMeaningQuestion(),
+        );
+        break;
     }
   }
 

@@ -13,6 +13,7 @@ import { ExampleFormatterService } from '../../utils/example-formatter.service';
 import { DataService } from '../services/data.service';
 import { BookmarkService } from '../services/bookmark.service';
 import { PhrasalVerb } from '../models/phrasal-verb.model';
+import { Meaning } from '../models/meaning.model';
 
 @Injectable({
   providedIn: 'root',
@@ -25,6 +26,7 @@ export class VocabularyEngine {
   private oneWords: OneWord[] = [];
   private idioms: Idiom[] = [];
   private phrasalVerbs: PhrasalVerb[] = [];
+  private meanings: Meaning[] = [];
 
   constructor(
     private stateService: StateService,
@@ -360,23 +362,18 @@ export class VocabularyEngine {
   }
 
   createPhrasalVerbQuestion(phrasalVerb: PhrasalVerb): Question<PhrasalVerb> {
-    const randomIndex = this.randomService.random(
-      0,
-      phrasalVerb.meaning.length - 1,
-    );
-
     return {
       id: phrasalVerb.id,
       question: phrasalVerb.phrase,
 
-      answer: phrasalVerb.meaning[randomIndex],
+      answer: phrasalVerb.meaning,
 
       options: this.randomService.buildOptions(
         phrasalVerb,
         this.dataService.getPhrasalVerbs(),
-        (s) => [...s.meaning],
+        (s) => [s.meaning],
         (s) => s.phrase,
-        phrasalVerb.meaning[randomIndex],
+        phrasalVerb.meaning,
       ),
 
       data: phrasalVerb,
@@ -435,6 +432,79 @@ export class VocabularyEngine {
     return this.phrasalVerbs.shift()!;
   }
 
+  generateMeaningQuestion(): Question<Meaning> {
+    return this.createMeaningQuestion(this.nextMeaning());
+  }
+
+  createMeaningQuestion(meaning: Meaning): Question<Meaning> {
+    return {
+      id: meaning.id,
+      question: meaning.word,
+
+      answer: meaning.meaning,
+
+      options: this.randomService.buildOptions(
+        meaning,
+        this.dataService.getMeanings(),
+        (s) => [s.meaning],
+        (s) => s.word,
+        meaning.meaning,
+      ),
+
+      data: meaning,
+
+      inputType: InputType.TextAndMultipleChoice,
+
+      displayType: 'text',
+
+      explanation: this.formatMeaningExplanation(meaning),
+    };
+  }
+
+  private formatMeaningExplanation(meaning: Meaning): string {
+    const formattedExample = this.formatterService.formatExample(
+      meaning.word,
+      meaning.example,
+    );
+
+    return `
+    <strong>${meaning.word}</strong><br>
+    ${meaning.meaning}<br><br>
+
+    <strong>Ex:- </strong>
+    ${formattedExample}
+  `;
+  }
+
+  private nextMeaning(): Meaning {
+    const referenceView = this.stateService.navigation().referenceView;
+
+    switch (referenceView) {
+      case 'all':
+        return this.nextNormalMeaning();
+      case 'bookmark':
+        return this.nextBookmarkMeaning();
+    }
+  }
+
+  private nextNormalMeaning(): Meaning {
+    if (this.meanings.length === 0) {
+      this.meanings = this.randomService.shuffle([...this.getMeanings()]);
+    }
+
+    return this.meanings.shift()!;
+  }
+
+  private nextBookmarkMeaning(): Meaning {
+    if (this.meanings.length === 0) {
+      const bookmarkQuestions =
+        this.bookmarkService.getBookmarkedQuestions<Meaning>();
+      this.meanings = this.randomService.shuffle(bookmarkQuestions);
+    }
+
+    return this.meanings.shift()!;
+  }
+
   private getWordLimit(): number {
     return Number(this.stateService.practice().wordsLimit);
   }
@@ -459,46 +529,31 @@ export class VocabularyEngine {
     return this.dataService.getPhrasalVerbs().slice(0, this.getWordLimit());
   }
 
-  getSynonymsReference(): Synonym[] {
-    return this.dataService.getSynonyms();
-  }
-
-  getAntonymsReference(): Antonym[] {
-    return this.dataService.getAntonyms();
-  }
-
-  getOneWordsReference(): OneWord[] {
-    return this.dataService.getOneWords();
-  }
-
-  getIdiomsReference(): Idiom[] {
-    return this.dataService.getIdioms();
-  }
-
-  getPhrasalVerbsReference(): PhrasalVerb[] {
-    return this.dataService.getPhrasalVerbs();
+  private getMeanings(): Meaning[] {
+    return this.dataService.getMeanings().slice(0, this.getWordLimit());
   }
 
   getVocabularyCount(): number {
-    switch (this.stateService.navigation().selectedExercise?.mode) {
-      case PracticeMode.Synonyms:
-        return this.dataService.getSynonyms().length;
+    return this.dataService.getCurrentReferenceData().length;
+    // switch (this.stateService.navigation().selectedExercise?.mode) {
+    //   case PracticeMode.Synonyms:
+    //     return this.dataService.getSynonyms().length;
 
-      case PracticeMode.Antonyms:
-        return this.dataService.getAntonyms().length;
+    //   case PracticeMode.Antonyms:
+    //     return this.dataService.getAntonyms().length;
 
-      case PracticeMode.OneWord:
-        return this.dataService.getOneWords().length;
+    //   case PracticeMode.OneWord:
+    //     return this.dataService.getOneWords().length;
 
-      case PracticeMode.Idioms:
-        return this.dataService.getIdioms().length;
+    //   case PracticeMode.Idioms:
+    //     return this.dataService.getIdioms().length;
 
-      case PracticeMode.PhrasalVerbs:
-        return this.dataService.getPhrasalVerbs().length;
+    //   case PracticeMode.PhrasalVerbs:
+    //     return this.dataService.getPhrasalVerbs().length;
 
-      default:
-        return 0;
-    }
+    //   default:
+    //     return 0;
+    // }
   }
 
   private getRandomWordPair(word: string, relatedWords: string[]) {
@@ -517,5 +572,6 @@ export class VocabularyEngine {
     this.antonyms = [];
     this.oneWords = [];
     this.idioms = [];
+    this.phrasalVerbs = [];
   }
 }

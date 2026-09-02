@@ -452,4 +452,25 @@ export const exercises: Exercise[] = [
 
     settings: [SettingType.SessionType, SettingType.WordsLimit],
   },
+  {
+    title: 'Meanings',
+    route: 'meanings',
+    mode: PracticeMode.Meanings,
+    topic: 'vocabulary',
+    implemented: true,
+
+    referenceColumns: [
+      { header: 'Word', key: 'word' },
+      { header: 'Meaning', key: 'meaning' },
+    ],
+
+    referenceExpandable: true,
+
+    referenceExpandedColumns: [
+      { header: 'Part of Speech', key: 'partsOfSpeech' },
+      { header: 'Example', key: 'example' },
+    ],
+
+    settings: [SettingType.SessionType, SettingType.WordsLimit],
+  },
 ];

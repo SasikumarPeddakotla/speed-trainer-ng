@@ -19,6 +19,7 @@ import { Synonym } from '../models/synonym.model';
 import { TableQuestion } from '../models/table-question.model';
 
 import { ReferenceData } from '../models/reference-data.model';
+import { Meaning } from '../models/meaning.model';
 
 @Injectable({
   providedIn: 'root',
@@ -41,6 +42,7 @@ export class DataService {
   private readonly oneWords = signal<OneWord[]>([]);
   private readonly idioms = signal<Idiom[]>([]);
   private readonly phrasalVerbs = signal<PhrasalVerb[]>([]);
+  private readonly meanings = signal<Meaning[]>([]);
 
   /**
    * Reference data for the currently selected exercise.
@@ -151,6 +153,11 @@ export class DataService {
       case PracticeMode.PhrasalVerbs:
         await this.loadPhrasalVerbs();
         this.currentReferenceData.set(this.phrasalVerbs());
+        break;
+
+      case PracticeMode.Meanings:
+        await this.loadMeanings();
+        this.currentReferenceData.set(this.meanings());
         break;
 
       // ========================================
@@ -381,6 +388,20 @@ export class DataService {
 
   getPhrasalVerbs(): PhrasalVerb[] {
     return this.phrasalVerbs();
+  }
+
+  async loadMeanings(): Promise<void> {
+    if (this.meanings.length > 0) {
+      return;
+    }
+
+    this.meanings.set(
+      await firstValueFrom(this.http.get<Meaning[]>('data/meanings.json')),
+    );
+  }
+
+  getMeanings(): Meaning[] {
+    return this.meanings();
   }
 
   // ========================================

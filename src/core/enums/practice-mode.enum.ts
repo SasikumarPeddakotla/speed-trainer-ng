@@ -34,4 +34,5 @@ export enum PracticeMode {
   OneWord = 'One Word Substitutions',
   Idioms = 'Idioms',
   PhrasalVerbs = 'Phrasal Verbs',
+  Meanings = 'Meanings',
 }
